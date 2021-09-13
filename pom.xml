@@ -14,6 +14,7 @@
         <module>jb4dc-gateway-builder-web-package</module>
         <module>jb4dc-gateway-builder-client-web-package</module>
         <module>jb4dc-gateway-qc-web-package</module>
+        <module>jb4dc-gateway-builder-wps-plugin</module>
     </modules>
     <properties>
         <maven.build.timestamp.format>yyyyMMdd-HHmmss</maven.build.timestamp.format>

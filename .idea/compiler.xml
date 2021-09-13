@@ -10,6 +10,7 @@
         <module name="jb4dc-gateway-qc-web-package" />
         <module name="jb4dc-gateway-builder-client-web-package" />
         <module name="jb4dc-gateway-builder-web-package" />
+        <module name="jb4dc-gateway-builder-wps-plugin" />
         <module name="jb4dc-gateway-sso-web-package" />
       </profile>
     </annotationProcessing>
@@ -21,6 +22,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="jb4dc-gateway-builder-client-web-package" options="-parameters" />
       <module name="jb4dc-gateway-builder-web-package" options="-parameters" />
+      <module name="jb4dc-gateway-builder-wps-plugin" options="-parameters" />
       <module name="jb4dc-gateway-qc-web-package" options="-parameters" />
       <module name="jb4dc-gateway-root" options="" />
       <module name="jb4dc-gateway-sso-web-package" options="-parameters" />
