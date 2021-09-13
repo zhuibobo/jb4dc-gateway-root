@@ -1,0 +1,23 @@
+##############################
+## Folders                  ##
+##############################
+target
+out
+log
+Dev-Log
+Prod-Log
+t3plibs
+node_modules
+GenerateCodeFiles/
+!GenerateCodeFiles/GenerateCodeFiles.txt
+
+##############################
+## Files                    ##
+##############################
+DB.properties
+db.properties
+db.yml
+~$列表数据逻辑.mmap.~$lock
+*.~vsdx
+# Project exclude paths
+/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/WorkFlow/Modeler/

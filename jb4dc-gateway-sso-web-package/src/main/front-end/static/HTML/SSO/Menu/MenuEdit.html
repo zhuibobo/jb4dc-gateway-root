@@ -1,0 +1,326 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: zhuangrb
+  Date: 2018/8/26
+  To change this template use File | Settings | File Templates.
+-->
+<!DOCTYPE html>
+<html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="Fragment/GeneralLib::GeneralLib"></th:block>
+    <th:block th:replace="Fragment/GeneralLib::ThemesLib"></th:block>
+    <th:block th:replace="Fragment/GeneralLib::LineAwesomeLib"></th:block>
+</head>
+<body>
+<div id="appForm" class="general-edit-page-wrap" v-cloak>
+    <i-form ref="formEntity" :model="formEntity" :rules="ruleValidate" :label-width="100">
+        <form-item label="菜单名称：" prop="menuName">
+            <row>
+                <i-col span="10">
+                    <form-item>
+                        <i-input v-model="formEntity.menuName"></i-input>
+                    </form-item>
+                </i-col>
+                <i-col span="4" style="text-align: center">菜单显示：</i-col>
+                <i-col span="10">
+                    <form-item>
+                        <i-input v-model="formEntity.menuText"></i-input>
+                    </form-item>
+                </i-col>
+            </row>
+        </form-item>
+        <form-item label="菜单值：" prop="menuValue" class="margin-bottom-12-imp">
+            <i-input v-model="formEntity.menuValue"></i-input>
+        </form-item>
+        <form-item label="菜单类型：" class="margin-bottom-12-imp">
+            <radio-group v-model="formEntity.menuType" @on-change="changeMenuType">
+                <radio label="空">空</radio>
+                <radio label="超链接">超链接</radio>
+                <radio label="Web模块列表">Web模块列表</radio>
+                <radio label="Web模块窗体">Web模块窗体</radio>
+                <radio label="流程分组" disabled>流程分组</radio>
+                <radio label="流程实例" disabled>流程实例</radio>
+                <radio label="统计列表" disabled>统计列表</radio>
+                <radio label="工作桌面" disabled>工作桌面</radio>
+            </radio-group>
+        </form-item>
+        <form-item label="链接地址：" prop="menuRightUrl" class="margin-bottom-12-imp">
+            <i-input v-model="formEntity.menuRightUrl"></i-input>
+        </form-item>
+        <form-item label="链接参数：" prop="menuRightUrlPara" class="margin-bottom-12-imp">
+            <row>
+                <i-col span="22">
+                    <i-input v-model="formEntity.menuRightUrlPara" type="textarea" :autosize="{minRows: 4,maxRows: 4}" placeholder='可点击参数说明进行查看'></i-input>
+                </i-col>
+                <i-col span="2" style="text-align: center">
+                    <i-button type="success" @click="showUrlParaDescWarp">?</i-button>
+                </i-col>
+            </row>
+        </form-item>
+        <form-item label="左链接地址：" prop="menuLeftUrl" class="margin-bottom-12-imp">
+            <row>
+                <i-col span="10">
+                    <form-item>
+                        <i-input v-model="formEntity.menuLeftUrl"></i-input>
+                    </form-item>
+                </i-col>
+                <i-col span="4" style="text-align: center">左链接参数：</i-col>
+                <i-col span="10">
+                    <form-item>
+                        <i-input v-model="formEntity.menuLeftUrlPara"></i-input>
+                    </form-item>
+                </i-col>
+            </row>
+        </form-item>
+        <form-item label="关联对象ID：" prop="menuOuterId" class="margin-bottom-12-imp">
+            <row>
+                <i-col span="10">
+                    <form-item>
+                        <i-input v-model="formEntity.menuOuterId" search enter-button="设置" placeholder="设置关联对象" @on-search="beginSelectOuterObject" />
+                    </form-item>
+                </i-col>
+                <i-col span="4" style="text-align: center">状态：</i-col>
+                <i-col span="10">
+                    <form-item>
+                        <radio-group v-model="formEntity.menuStatus">
+                            <radio label="启用">启用</radio>
+                            <radio label="禁用">禁用</radio>
+                        </radio-group>
+                    </form-item>
+                </i-col>
+            </row>
+        </form-item>
+        <form-item label="关联对象说明：" prop="menuOuterName" class="margin-bottom-12-imp">
+            <i-input v-model="formEntity.menuOuterName"></i-input>
+        </form-item>
+        <form-item label="图标：" prop="menuOuterName" class="margin-bottom-12-imp">
+            <row>
+                <i-col span="2">
+                    <i :class="formEntity.menuClassName" style="width: 32px;height: 32px;font-size: 32px;"></i>
+                </i-col>
+                <i-col span="4" style="text-align: center">
+                    <i-button type="success" @click="showSelectImageClassDialog">选择</i-button>
+                </i-col>
+                <i-col span="18">
+                </i-col>
+            </row>
+        </form-item>
+        <form-item label="备注：" class="margin-bottom-12-imp">
+            <i-input v-model="formEntity.menuDescription" type="textarea" :autosize="{minRows: 9,maxRows: 9}"></i-input>
+        </form-item>
+    </i-form>
+    <div class="button-outer-wrap">
+        <div class="button-inner-wrap">
+            <button-group>
+                <i-button type="primary" v-if="status!='view'" @click="handleSubmit('formEntity')" icon="md-checkmark">
+                    保存
+                </i-button>
+                <i-button v-if="status!='view'" @click="handleClose()" icon="md-close">取消</i-button>
+            </button-group>
+        </div>
+    </div>
+    <select-module-object-dialog ref="selectModuleObjectDialog"
+                                 @on-selected-completed="bindModuleObjectTo"></select-module-object-dialog>
+</div>
+<div id="urlParaDescWarp" style="display: none">
+    <ul>
+        <li>url参数本质上是字符串,没有特殊的要求,可以为任意的字符串,可以根据开发的具体作用而定,以下的说明为特定功能下的扩展。</li>
+        <li>
+            Web模块列表
+            <ul>
+                <li>Url参数将逐级传递，也就会先传入列表，再传入表单。</li>
+                <li>可以通过参数，控制列表的查询条件，从而实现同一个列表设计，显示不同的数据。例如:<br />
+                    <span style="font-size: 11px;color: #873600">[{"ActionType":"BindToField","FieldName":"ISS_PROJECT_ID","Value":"11-22-33"},{"ActionType":"BindToField","FieldName":"ISS_LEVEL","Value":"严重"}]</span>
+                </li>
+                <li>可以通过参数，重新设置使用的数据集合,重设的数据集必须兼容原始的数据集。例如:<br />
+                    <span style="font-size: 11px;color: #873600">[{"ActionType":"ChangeMainDataSet","DataSetId":"xxx-xxx","DataSetPath":"xx分组--xx分组-xx数据集"}]</span>
+                </li>
+                <li>可以通过参数，隐藏掉新增，编辑，删除功能，形成只读列表。例如:<br />
+                    <span style="font-size: 11px;color: #873600">[{"ActionType":"ViewOnly"}]</span>
+                </li>
+                <li>以上形式，可以复用。例如1:<br />
+                    <span style="font-size: 11px;color: #873600">[{"ActionType":"ViewOnly"},{"ActionType":"BindToField","FieldName":"ISS_LEVEL","Value":"严重"}]</span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<style>
+    #urlParaDescWarp ul{
+        margin-left: 20px;
+        font-size: 14px;
+    }
+    #urlParaDescWarp ul li{
+        font-size: 14px;
+        line-height: 28px;
+    }
+</style>
+<script>
+    var appForm = new Vue({
+        el: "#appForm",
+        mounted: function () {
+            this.bindFormData();
+            //this.showUrlParaDescWarp();
+        },
+        data: {
+            acInterface: {
+                getDataUrl: "/Rest/SSO/Mu/Menu/GetDetailData",
+                saveDataUrl: "/Rest/SSO/Mu/Menu/SaveEdit",
+                SelectModuleObjectView:"/HTML/SSO/Menu/SelectModuleObject.html"
+            },
+            recordId: BaseUtility.GetUrlParaValue("recordId"),
+            formEntity: {
+                menuId: "",
+                menuName: "",//菜单名称
+                menuSystemId: BaseUtility.GetUrlParaValue("menuSystemId"),//所属系统ID
+                menuText: "",//菜单文本:用于UI显示
+                menuValue: "",//菜单值
+                menuType: "空",//菜单类型:超链接菜单,Web模块列表,Web模块窗体
+                menuOuterId: "",//外部关联ID
+                menuOuterName: "",//外部关联对象名称
+                menuCreatorId: "",//创建者ID
+                menuOrganId: "",//创建组织ID
+                menuOrganName: "",//创造组织名称
+                menuIsExpand: "",//是否展开
+                menuIsSystem: "否",//是否系统所有
+                menuLeftUrl: "",//左侧链接地址
+                menuLeftUrlPara: "",//左侧链接参数
+                menuRightUrl: "",//链接地址
+                menuRightUrlPara: "",//链接参数
+                menuOrderNum: "",//排序号
+                menuParentId: BaseUtility.GetUrlParaValue("menuParentId"),//父节点ID
+                menuParentIdList: "",//父节点ID列表
+                menuTarget: "",//点击打开对象
+                menuCreateTime: DateUtility.GetCurrentData(),//创建时间
+                menuUpdater: "",//更新人
+                menuUpdateTime: DateUtility.GetCurrentData(),//更新时间
+                menuUseOrganName: "",//使用组织名称
+                menuUseOrganId: "",//使用组织ID
+                menuUseOrganTypeName: "",//使用组织类型名称
+                menuUseOrganTypeId: "",//使用组织类型ID
+                menuClassName: "",//样式类名
+                menuClassNameHover: "",//Hover时的样式类名
+                menuClassNameSelected: "",//样式选中的样式类名
+                menuChildCount: "",//子节点数量
+                menuDescription: "",//备注
+                menuStatus: "启用",//状态:启用,禁用
+                menuJsExpression: "",//扩展的JS表达式
+                menuOuterObject:""
+            },
+            ruleValidate: {
+                menuName: [
+                    {required: true, message: '【菜单名称】不能空！', trigger: 'blur'}
+                ],
+                menuText: [
+                    {required: true, message: '【菜单文本】不能空！', trigger: 'blur'}
+                ]
+            },
+            status: BaseUtility.GetUrlParaValue("op")
+        },
+        methods: {
+            bindFormData: function () {
+                //获取数据并赋值
+                DetailPageUtility.BindFormData(this.acInterface.getDataUrl, this.formEntity, this.recordId, this.status,function (data) {
+                    console.log(data);
+                });
+            },
+            handleSubmit: function (name) {
+                var _self = this;
+                this.$refs[name].validate(function (valid) {
+                    if (valid) {
+                        var sendData = JSON.stringify(_self.formEntity);
+                        AjaxUtility.PostRequestBody(_self.acInterface.saveDataUrl, sendData, function (result) {
+                            DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
+                                //debugger;
+                                if (appForm.status=="add") {
+                                    window.OpenerWindowObj.appList.newTreeTableNode(_self.formEntity.menuId
+                                        , _self.formEntity.menuName, _self.formEntity.menuText, _self.formEntity.menuValue
+                                        , _self.formEntity.menuRightUrl, _self.formEntity.menuDescription, _self.formEntity.menuParentId);
+                                }
+                                else if(appForm.status=="update"){
+                                    window.OpenerWindowObj.appList.updateTreeTableNode(_self.formEntity.menuId
+                                        , _self.formEntity.menuName, _self.formEntity.menuText, _self.formEntity.menuValue
+                                        , _self.formEntity.menuRightUrl, _self.formEntity.menuDescription, _self.formEntity.menuParentId);
+                                }
+                                DialogUtility.Frame_CloseDialog(window);
+                            });
+                        }, _self);
+                    } else {
+                        this.$Message.error('Fail!');
+                    }
+                })
+            },
+            handleClose: function () {
+                DialogUtility.Frame_CloseDialog(window);
+            },
+            beginSelectOuterObject:function(){
+                var menuType=this.formEntity.menuType;
+                var url=this.acInterface.SelectModuleObjectView;
+                if(menuType=="空"||menuType=="超链接"){
+                    DialogUtility.AlertText(this.formEntity.menuType+"类型的菜单不需要进行设置!");
+                    return;
+                }
+                else{
+                    /*url = BaseUtility.BuildView(this.acInterface.SelectModuleObjectView, {
+                        "selectObjectType": decodeURIComponent(menuType)
+                    });*/
+                    this.$refs.selectModuleObjectDialog.beginSelect(this.formEntity.menuType);
+                }
+            },
+            changeMenuType:function () {
+                if(this.formEntity.menuType=="空"){
+                    this.formEntity.menuRightUrl="";
+                    this.formEntity.menuOuterId="";
+                    this.formEntity.menuOuterName="";
+                    this.formEntity.menuOuterObject="";
+                }
+                else if(this.formEntity.menuType=="超链接"){
+                    this.formEntity.menuRightUrl="";
+                    this.formEntity.menuOuterId="";
+                    this.formEntity.menuOuterName="";
+                    this.formEntity.menuOuterObject="";
+                }
+                else if(this.formEntity.menuType=="Web模块列表"){
+                    this.formEntity.menuRightUrl="/${SystemContextPath}/JB4DCBuilderClient/HTML/Builder/Runtime/WebListRuntime.html";
+                }
+                else if(this.formEntity.menuType=="Web模块窗体"){
+                    this.formEntity.menuRightUrl="/${SystemContextPath}/JB4DCBuilderClient/HTML/Builder/Runtime/WebFormIndependenceRuntime.html";
+                }
+                else if(this.formEntity.menuType=="流程分组"){
+
+                }
+                else if(this.formEntity.menuType=="工作桌面"){
+
+                }
+                console.log(this.formEntity.menuType);
+            },
+            bindModuleObjectTo:function (selectedModuleObject,id,Name,objJson) {
+                console.log(selectedModuleObject);
+                this.formEntity.menuOuterId=id;
+                this.formEntity.menuOuterName=Name;
+                this.formEntity.menuOuterObject=objJson;
+            },
+            showUrlParaDescWarp:function () {
+                DialogUtility.DialogElem("urlParaDescWarp", {
+                    modal: true,
+                    width: 900,
+                    height: 560,
+                    title: "Url参数说明"
+                });
+            },
+            showSelectImageClassDialog:function (){
+                DialogUtility.ShowSelectImageClassDialog({},"appForm.selectImageClassEnd","appList.selectImageClassEnd");
+            },
+            selectImageClassEnd:function (className){
+                //debugger;
+                if(className){
+                    this.formEntity.menuClassName=className;
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

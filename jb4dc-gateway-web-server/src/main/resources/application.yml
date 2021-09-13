@@ -1,0 +1,72 @@
+jb4dc:
+  system-caption: JBuild4DC
+  system-title: JBuild4DC
+  warning-operation-code: jb4d82
+  is-debug: true
+  host:
+    operation-system: Window
+  file:
+    root-path: production-files
+  sso:
+    server:
+      name: JB4DC-SSO-WEB-SERVER
+      address: https://127.0.0.1:19103
+      context-path: /SSOSystem
+      view:
+        login: /Controller/LoginSSOView
+        logout: https://127.0.0.1:19103/SSOSystem/Controller/LogoutSSOView
+      excluded:
+
+server:
+  port: 28080
+  ssl:
+    enabled: true
+    key-store-type: jks
+    key-store-password: jb4d82
+    key-alias: jb4dchttps
+    key-store: D:/JavaProject/jb4dc/https/jbu4dchttps.jks
+
+spring:
+  application:
+    name: JB4DC-GATEWAY-WEB-SERVER
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+    gateway:
+      discovery:
+        locator:
+          enabled: true #自动发现注册中心的服务,/服务名大写/xxx/
+      routes:
+        - id: JB4DC-SSO-WEB-SERVER
+          uri: lb://JB4DC-SSO-WEB-SERVER
+          predicates:
+            - Path=/SSOSystem/Rest/**
+          filters:
+            - StripPrefix=0
+        - id: JB4DC-BUILDER-WEB-SERVER
+          uri: lb://JB4DC-BUILDER-WEB-SERVER
+          predicates:
+            - Path=/JB4DCBuilder/Rest/**
+          filters:
+            - StripPrefix=0
+        - id: JB4DC-QC-SYSTEM-WEB-SERVER
+          uri: lb://JB4DC-QC-SYSTEM-WEB-SERVER
+          predicates:
+            - Path=/QCSystem/Rest/**
+          filters:
+            - StripPrefix=0
+        - id: springBoot253RestClient
+          uri: https://www.baidu.com/
+          predicates:
+            - Path=/el1/**
+          filters:
+            - StripPrefix=1
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password:

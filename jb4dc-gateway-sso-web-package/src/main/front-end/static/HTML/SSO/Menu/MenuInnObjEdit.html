@@ -1,0 +1,141 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: zhuangrb
+  Date: 2018/8/26
+  To change this template use File | Settings | File Templates.
+-->
+<!DOCTYPE html>
+<html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="Fragment/GeneralLib::GeneralLib"></th:block>
+    <th:block th:replace="Fragment/GeneralLib::ThemesLib"></th:block>
+    <th:block th:replace="Fragment/GeneralLib::LineAwesomeLib"></th:block>
+</head>
+<body>
+<div id="appForm" class="general-edit-page-wrap" v-cloak>
+    <i-form ref="formEntity" :model="formEntity" :rules="ruleValidate" :label-width="100">
+        <form-item label="标记名称：" prop="mioName">
+            <row>
+                <i-col span="10">
+                    <form-item>
+                        <i-input v-model="formEntity.mioName"></i-input>
+                    </form-item>
+                </i-col>
+                <i-col span="4" style="text-align: center">标记值：</i-col>
+                <i-col span="10">
+                    <form-item prop="mioValue">
+                        <i-input v-model="formEntity.mioValue"></i-input>
+                    </form-item>
+                </i-col>
+            </row>
+        </form-item>
+        <form-item label="绑定动作：" class="margin-bottom-12-imp">
+            <i-input v-model="formEntity.mioAction"></i-input>
+        </form-item>
+        <form-item label="标记分类：" class="margin-bottom-12-imp">
+            <radio-group v-model="formEntity.mioCategory">
+                <radio label="权限标记">权限标记</radio>
+                <radio label="一般标记">一般标记</radio>
+            </radio-group>
+        </form-item>
+        <form-item label="标记类型：" class="margin-bottom-12-imp">
+            <radio-group v-model="formEntity.mioAuthType">
+                <radio label="绑定显示">绑定显示</radio>
+                <radio label="绑定动作">绑定动作</radio>
+            </radio-group>
+        </form-item>
+        <form-item label="备注：" class="margin-bottom-12-imp">
+            <i-input v-model="formEntity.mioDescription" type="textarea" :autosize="{minRows: 14,maxRows:14}"></i-input>
+        </form-item>
+    </i-form>
+    <div class="button-outer-wrap">
+        <div class="button-inner-wrap">
+            <button-group>
+                <i-button type="primary" v-if="status!='view'" @click="handleSubmit('formEntity')" icon="md-checkmark">
+                    保存
+                </i-button>
+                <i-button v-if="status!='view'" @click="handleClose()" icon="md-close">取消</i-button>
+            </button-group>
+        </div>
+    </div>
+</div>
+
+<style>
+
+</style>
+<script>
+    var appForm = new Vue({
+        el: "#appForm",
+        mounted: function () {
+            this.bindFormData();
+            //this.showUrlParaDescWarp();
+        },
+        data: {
+            acInterface: {
+                getDataUrl: "/Rest/SSO/Mu/MenuInnObj/GetDetailData",
+                saveDataUrl: "/Rest/SSO/Mu/MenuInnObj/SaveEdit"
+            },
+            recordId: BaseUtility.GetUrlParaValue("recordId"),
+            formEntity: {
+                mioId:"",
+                mioMenuId:BaseUtility.GetUrlParaValue("menuId"),//所属菜单ID
+                mioAuthType:"绑定显示",//扩展权限标记类型:绑定显示,绑定动作
+                mioCategory:"权限标记",//扩展标记分类:权限标记,一般标记
+                mioName:"",//扩展标记名称
+                mioValue:"",//扩展标记值
+                mioAction:"",//绑定动作
+                mioOrderNum:"",//排序号
+                mioParentId:BaseUtility.GetUrlParaValue("menuInnerObjParentId"),//父节点ID
+                mioParentIdList:"",//父节点ID列表
+                mioCreateTime:DateUtility.GetCurrentData(),//创建时间
+                mioDescription:""//备注
+            },
+            ruleValidate: {
+                mioName: [
+                    {required: true, message: '【标记名称】不能空！', trigger: 'blur'}
+                ],
+                mioValue: [
+                    {required: true, message: '【标记值】不能空！', trigger: 'blur'}
+                ]
+            }
+        },
+        methods: {
+            bindFormData: function () {
+                //获取数据并赋值
+                DetailPageUtility.BindFormData(this.acInterface.getDataUrl, this.formEntity, this.recordId, this.status,function (data) {
+                    console.log(data);
+                });
+            },
+            handleSubmit: function (name) {
+                var _self = this;
+                this.$refs[name].validate(function (valid) {
+                    if (valid) {
+                        var sendData = JSON.stringify(_self.formEntity);
+                        AjaxUtility.PostRequestBody(_self.acInterface.saveDataUrl, sendData, function (result) {
+                            DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
+                                if(result.success) {
+                                    if (appForm.status == "add") {
+                                        window.OpenerWindowObj.appList.newTreeNode(_self.formEntity);
+                                    }
+                                    else if (appForm.status == "update") {
+                                        window.OpenerWindowObj.appList.updateNode(_self.formEntity);
+                                    }
+                                }
+                                DialogUtility.Frame_CloseDialog(window);
+                            });
+                        }, _self);
+                    } else {
+                        this.$Message.error('Fail!');
+                    }
+                })
+            },
+            handleClose: function () {
+                DialogUtility.Frame_CloseDialog(window);
+            }
+        }
+    });
+</script>
+</body>
+</html>
