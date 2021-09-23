@@ -62,3 +62,87 @@
   cursor: pointer;
   display: inline-block;
 }
+
+.document-outer-wrap{
+  .document-buttons-outer{
+    height: 40px;
+
+
+    .document-buttons-inner{
+
+      .upload-process{
+        float: right;
+        width: 80px;
+        //background-color: #0B61A4;
+      }
+
+      .file-upload {
+        float: right;
+        position: relative;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 6px;
+        background-color: #79d479;
+        color: #fff;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+      .file-upload input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+      }
+
+      .selected-file-message{
+        float: right;
+        padding: 6px;
+      }
+
+      .upload-process{
+        float: right;
+        padding: 6px;
+      }
+
+      .upload-and-convert-button{
+        float: right;
+        display: inline-block;
+        margin-top: 0px;
+        margin-right: 8px;
+        font-weight: 400;
+        text-align: center;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid @g-peter-river-color-v05;
+        white-space: nowrap;
+        line-height: 1.5;
+        user-select: none;
+        padding: 5px 15px 6px;
+        font-size: 12px;
+        background-color: @g-peter-river-color-v04;
+        border-radius: 4px;
+      }
+
+      .upload-and-convert-button:hover{
+        background-color: @g-peter-river-color-v05;
+        border: 1px solid @g-peter-river-color-v08;
+      }
+    }
+  }
+
+  .document-content{
+    position: absolute;
+    top: 100px;
+    bottom: 0px;
+    left: 10px;
+    right: 10px;
+  }
+}

@@ -185,7 +185,9 @@ class PODefinition{
             actionAutoSend:"false",
             actionSendMessageId:"",
             actionSendSignalId:"",
-            actionCallComplete:"true"
+            actionCallComplete:"true",
+            actionDisable:"enable",
+            actionRemark:" "
         }
     }
     static GetJB4DCAuthorityPO(){

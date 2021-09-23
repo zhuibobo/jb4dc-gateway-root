@@ -156,7 +156,7 @@ let replaceBlock = {
         //判断路径后进行引入js的路径
         let levelPath = calculateFilePath(file);
 
-        replaceArray.push(refJs(levelPath + "HTML/WorkFlow/Modeler/ModelerView.js"));
+        replaceArray.push(refJs(levelPath + "JB4DCBuilder/HTML/WorkFlow/Modeler/ModelerView.js"));
 
         return replaceArray.join("\n\t");
     },

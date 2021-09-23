@@ -157,8 +157,21 @@
                                         </radio-group>
                                     </td>
                                     <td>
+                                        Disable：
                                     </td>
                                     <td>
+                                        <radio-group type="button" style="margin: auto" v-model="actionInnerDetailInfo.actionDisable">
+                                            <radio label="enable">可用</radio>
+                                            <radio label="disable">不可用</radio>
+                                        </radio-group>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        备注：
+                                    </td>
+                                    <td colspan="3">
+                                        <input type="text" v-model="actionInnerDetailInfo.actionRemark" />
                                     </td>
                                 </tr>
                             </tbody>

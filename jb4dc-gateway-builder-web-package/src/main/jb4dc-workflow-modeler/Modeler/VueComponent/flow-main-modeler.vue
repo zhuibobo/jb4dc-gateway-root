@@ -211,6 +211,15 @@
                 let warringMessages=[];
                 let userTaskArray=BpmnJsUtility.GetUserTaskElement(modeler);
                 console.log(userTaskArray);
+                let userTaskStartNode=ArrayUtility.WhereSingle(userTaskArray,(us)=>{
+                   return us.id=="UserTask_Start_Node";
+                });
+                if(!userTaskStartNode){
+                    warringMessages.push({
+                        type:"warring",
+                        message:"<span style='color: #C0392B'>当前流程实例不存在【起始用户节点】[UserTask_Start_Node],请检查模型是否正确!</span>"
+                    })
+                }
                 for (let i = 0; i < userTaskArray.length; i++) {
                     let singleUserTask=userTaskArray[i];
                     let userTaskElementEndOutgoingArray=BpmnJsUtility.TryGetUserTaskElementNotConditionOutgoing(singleUserTask);
@@ -269,7 +278,8 @@
                     if (this.saveValidate(submitFlowIntegratedPO)) {
 
                         let flowBpmnJsIntegratedObj = FlowBpmnJsIntegrated.GetInstance();
-                        let warringMessages = this.validateWarringMessage(submitFlowIntegratedPO, flowBpmnJsIntegratedObj.GetModeler())
+                        let warringMessages = this.validateWarringMessage(submitFlowIntegratedPO, flowBpmnJsIntegratedObj.GetModeler());
+                        //return;
                         if (warringMessages.length > 0) {
                             DialogUtility.ConfirmConfig(window, this.buildWarringMessage(warringMessages), {
                                 height: "auto",

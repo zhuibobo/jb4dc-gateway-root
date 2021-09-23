@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title221</title>
+    <th:block th:replace="Fragment/GeneralLib::ThemesLib"></th:block>
+    <th:block th:replace="Fragment/GeneralLib::LineAwesomeLib"></th:block>
+    <style>
+        .a{
+            height: calc(100% - 50px);
+        }
+    </style>
+</head>
+<body>
+<div id="flowInstanceViewContainer" class="general-edit-page-wrap" v-cloak>
+    <div id="htmlDesignRuntimeWrap" style="overflow: auto;position: absolute;top:0px;bottom: 41px;left: 0px;right: 0px;"></div>
+    <div class="html-design-operation-button-outer-wrap">
+        <div class="html-design-button-inner-wrap">
+            <div class="html-design-buttons-group" id="flowWorkActionButtonWrapOuter">
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:replace="Fragment/GeneralLib::WorkFlowRuntimeLib"></th:block>
+<script>
+    var flowRuntimePageObject;
+    var flowInstanceViewVueContainer = new Vue({
+        el:"#flowInstanceViewContainer",
+        data: {
+            acInterface:{
+                getRuntimeModelWithStart:"/Rest/Workflow/RunTime/Client/InstanceRuntime/GetRuntimeModelWithMyEndProcess",
+            },
+            viewPara:{
+                extaskId:BaseUtility.GetUrlParaValue("extaskId")
+            }
+        },
+        mounted:function () {
+            DialogUtility.AlertLoading(window, DialogUtility.DialogLoadingId, {}, "");
+
+            AjaxUtility.Get(this.acInterface.getRuntimeModelWithStart, {extaskId: this.viewPara.extaskId}, function (result) {
+                console.log(result);
+                console.log(result.data.jb4dcActions);
+                console.log(JsonUtility.JsonToString(result));
+                BaseUtility.SetSystemFavicon();
+                flowRuntimePageObject = FlowRuntimePageObject.pageReadyForProcessStatus(false, result.data,result.cacheKey,this);
+            }, this);
+        },
+        methods: {
+
+        }
+    });
+</script>
+</body>
+</html>

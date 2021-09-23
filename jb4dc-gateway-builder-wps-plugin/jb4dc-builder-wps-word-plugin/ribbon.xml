@@ -1,0 +1,15 @@
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" onLoad="onWPSWorkTabLoad">
+    <ribbon startFromScratch="false">
+        <tabs>
+            <tab id="wpsAddinTab" label="JBuildWordPlugin" visible="true">
+				<group id="btnGroupV1" label="系统集成">
+                    <button id="btnDialogOpenClientFile" label="打开本地文档" getVisible="onGetVisible" onAction="onAction" enabled="true" getImage="getImage" size="large"/>
+                    <button id="btnDialogInsertFile" label="插入本地文档" getVisible="onGetVisible" onAction="onAction" enabled="true" getImage="getImage" size="large"/>
+                    <button id="btnSaveToServer" label="保存到系统" getVisible="onGetVisible" onAction="onAction" enabled="true" getImage="getImage" size="large"/>
+                    <button id="btnShowDevPanel" label="开发面板" getVisible="onGetVisible" onAction="onAction" enabled="true" getImage="getImage" size="large"/>
+                    <button id="btnShowDialog" label="开发对话框" getVisible="onGetVisible" onAction="onAction" enabled="true" getImage="getImage" size="large"/>
+				</group>
+            </tab>
+        </tabs>
+    </ribbon>
+</customUI>

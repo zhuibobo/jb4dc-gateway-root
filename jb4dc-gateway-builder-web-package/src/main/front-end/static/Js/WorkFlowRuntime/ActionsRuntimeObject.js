@@ -6,8 +6,12 @@ var ActionsRuntimeObject={
                 let actionObj = pageReadyInnerParas.jb4dcActions.jb4dcActionList[i];
                 if (actionObj.juelRunResultPO.booleanResult) {
                     if (actionObj.actionType == "send") {
-                        var sendActionObject = Object.create(SendAction);
+                        let sendActionObject = Object.create(SendAction);
                         buttonElem = sendActionObject.Instance(isStartInstanceStatus,formRuntimeInst,pageHostInstance,pageReadyInnerParas,actionObj);
+                    }
+                    else if (actionObj.actionType == "recall") {
+                        let callbackActionObject = Object.create(RecallAction);
+                        buttonElem = callbackActionObject.Instance(isStartInstanceStatus,formRuntimeInst,pageHostInstance,pageReadyInnerParas,actionObj);
                     }
                     $("#flowWorkActionButtonWrapOuter").append(buttonElem.elem);
                 }
@@ -44,7 +48,9 @@ var ActionsRuntimeObject={
                 message: "",
                 stringResult: "",
                 success: true
-            }
+            },
+            actionDisable:"enable",
+            actionRemark:""
         };
     }
 }
