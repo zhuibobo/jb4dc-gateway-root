@@ -175,8 +175,8 @@ let FormRuntime={
 
             if(BaseUtility.IsUpdateOperation(this.GetOperationType())||BaseUtility.IsViewOperation(this.GetOperationType())){
                 var formRecordComplexPO=result.data.formRecordComplexPO;
-                console.log(result.data);
-                console.log(formRecordComplexPO);
+                //console.log(result.data);
+                //console.log(formRecordComplexPO);
                 this.DeSerializationFormData(formRecordComplexPO);
             }
             if(BaseUtility.IsViewOperation(this.GetOperationType())&&this._Prop_Config.FormRuntimeCategory==FormRuntimeSinglePageObject.FORM_RUNTIME_CATEGORY_INDEPENDENCE){
@@ -199,7 +199,7 @@ let FormRuntime={
         }
         HTMLPageObjectInstanceProxy.Init(this._Prop_Config,this._FormPO);
         window.setTimeout(function () {
-            console.log("延迟调用");
+            //console.log("延迟调用");
             HTMLPageObjectInstanceProxy.CallPageReady();
             DialogUtility.CloseDialog(DialogUtility.DialogLoadingId);
             //_this._Prop_Config.pageHostInstance.pageToLoadingStatus(false);
@@ -239,7 +239,7 @@ let FormRuntime={
         };
 
         var originalFormDataRelation = this.GetOriginalFormDataRelation();
-        console.log(originalFormDataRelation);
+        //console.log(originalFormDataRelation);
 
         for (var i = 0; i < originalFormDataRelation.length; i++) {
             var singleRelation = originalFormDataRelation[i];

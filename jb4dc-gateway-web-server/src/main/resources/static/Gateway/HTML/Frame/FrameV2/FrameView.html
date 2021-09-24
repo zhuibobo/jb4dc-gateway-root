@@ -145,7 +145,7 @@
     var IsTopFramePage = true;
     var currentSystemPO=null;
     var myMenusJson =/*[[${myMenusJson}]]*/ 'Sebastian';
-    console.log(myMenusJson);
+    //console.log(myMenusJson);
 
     function logout() {
         window.location.href="/SSOSystem/HTML/LoginSSO.html";
@@ -184,7 +184,7 @@
 
             AjaxUtility.Get("/Rest/Frame/MyFrame/GetMyAuthorityApp", {}, function (result) {
                 //myMenusJson = result.data;11111
-                console.log(result);
+                //console.log(result);
                 if(result.success){
                     for(var i=0;i<result.data.length;i++){
                         var appPo=result.data[i];

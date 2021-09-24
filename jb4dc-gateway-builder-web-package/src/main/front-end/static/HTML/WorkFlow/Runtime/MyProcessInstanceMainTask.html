@@ -2,7 +2,7 @@
 <html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title221</title>
+    <title>2</title>
     <th:block th:replace="Fragment/GeneralLib::ThemesLib"></th:block>
     <th:block th:replace="Fragment/GeneralLib::LineAwesomeLib"></th:block>
     <style>
@@ -38,6 +38,7 @@
         data: {
             acInterface:{
                 getRuntimeModelWithStart:"/Rest/Workflow/RunTime/Client/InstanceRuntime/GetRuntimeModelWithProcess",
+                changeTaskToView:"/Rest/Workflow/RunTime/Client/InstanceRuntime/ChangeTaskToView",
             },
             viewPara:{
                 extaskId:BaseUtility.GetUrlParaValue("extaskId")
@@ -47,11 +48,11 @@
             DialogUtility.AlertLoading(window, DialogUtility.DialogLoadingId, {}, "");
 
             AjaxUtility.Get(this.acInterface.getRuntimeModelWithStart, {extaskId: this.viewPara.extaskId}, function (result) {
-                console.log(result);
-                console.log(JsonUtility.JsonToString(result));
+                //console.log(result);
+                //console.log(JsonUtility.JsonToString(result));
                 BaseUtility.SetSystemFavicon();
-                flowRuntimePageObject = FlowRuntimePageObject.pageReadyForProcessStatus(false, result.data,result.cacheKey,this);
-
+                FlowRuntimePageObject.pageReadyForProcessStatus(false, result.data,result.cacheKey,this);
+                FlowRuntimePageObject.changeTaskToView(result.data.executionTaskEntity);
                 //var windowHeight=formRuntimeInst.GetWebFormRTParas().WindowHeight;
                 //if(windowHeight) {
                 //console.log(PageStyleUtility.GetPageHeight());

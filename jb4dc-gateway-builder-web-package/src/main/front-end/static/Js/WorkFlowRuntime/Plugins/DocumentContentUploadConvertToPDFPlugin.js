@@ -43,7 +43,7 @@ let DocumentContentUploadConvertToPDFPlugin={
         AjaxUtility.Get("/Rest/Workflow/RunTime/Client/DocumentFileRuntime/TryGetLastOnlineDocument",{
             instanceId:propConfig.InstanceId
         },function (result){
-            console.log(result);
+            //console.log(result);
             if(result.success&&result.data) {
                 this.loadPDFFileToViewer(result.data.fileId);
             }
@@ -57,8 +57,8 @@ let DocumentContentUploadConvertToPDFPlugin={
         $("#pdfViewer").attr("src", "/Js/External/PDFJS-2.9.359-dist/web/viewer.html?file=" + encodeURIComponent(fileUrl));
         //let fileUrl=pageUrl.substring(0,pageUrl.lastIndexOf("/"));
     },
-    getHtmlElem:function (propConfig){
-        console.log(propConfig);
+    GetHtmlElem:function (propConfig){
+        //console.log(propConfig);
         let instanceId=propConfig.InstanceId;
         let businessKey=propConfig.RecordId;
         this.tryLoadHistoryDocument(propConfig);

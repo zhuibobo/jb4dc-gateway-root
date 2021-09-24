@@ -7,7 +7,7 @@ let RecallAction={
 
     },
     Instance:function (isStartInstanceStatus,formRuntimeInst,pageHostInstance,pageReadyInnerParas,actionObj) {
-        console.log(actionObj);
+        //console.log(actionObj);
         var htmlId = actionObj.actionHTMLId ? actionObj.actionHTMLId : actionObj.actionCode;
         var elem = $('<button type="button" class="operation-button operation-button-primary" id="' + htmlId + '"><span>' + actionObj.actionCaption + '</span></button>');
         if(actionObj.actionDisable=="disable"){

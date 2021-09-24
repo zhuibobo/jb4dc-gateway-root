@@ -38,11 +38,11 @@
             DialogUtility.AlertLoading(window, DialogUtility.DialogLoadingId, {}, "");
 
             AjaxUtility.Get(this.acInterface.getRuntimeModelWithStart, {extaskId: this.viewPara.extaskId}, function (result) {
-                console.log(result);
-                console.log(result.data.jb4dcActions);
-                console.log(JsonUtility.JsonToString(result));
+                //console.log(result);
+                //console.log(result.data.jb4dcActions);
+                //console.log(JsonUtility.JsonToString(result));
                 BaseUtility.SetSystemFavicon();
-                flowRuntimePageObject = FlowRuntimePageObject.pageReadyForProcessStatus(false, result.data,result.cacheKey,this);
+                FlowRuntimePageObject.pageReadyForProcessStatus(false, result.data,result.cacheKey,this);
             }, this);
         },
         methods: {

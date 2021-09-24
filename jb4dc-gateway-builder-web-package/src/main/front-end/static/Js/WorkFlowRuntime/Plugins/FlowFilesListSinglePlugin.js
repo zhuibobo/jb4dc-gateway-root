@@ -4,7 +4,7 @@ var FlowFilesListSinglePlugin={
     _currentNode:null,
     _authoritiesFileAuthority:null,
     _authoritiesOnlySendBackCanEdit:"false",
-    getHtmlElem:function (propConfig) {
+    GetHtmlElem:function (propConfig) {
         FlowFilesListSinglePlugin._prop = propConfig;
         FlowFilesListSinglePlugin._flowInstanceRuntimePO = propConfig.FlowInstanceRuntimePO;
         FlowFilesListSinglePlugin._currentNode = ArrayUtility.Where(FlowFilesListSinglePlugin._flowInstanceRuntimePO.bpmnDefinitions.bpmnProcess.userTaskList, function (item) {
@@ -35,7 +35,7 @@ var FlowFilesListSinglePlugin={
         deleteFile:"/Rest/Builder/RunTime/FileRuntime/DeleteFileByFileId"
     },
     Renderer:function () {
-        console.log(this._prop);
+        //console.log(this._prop);
         //console.log(this._currentNode);
         //console.log(this._authoritiesFileAuthority);
         this.BuildUploadContainer();
@@ -210,7 +210,7 @@ var FlowFilesListSinglePlugin={
         AjaxUtility.Post(this.acInterface.getFileListData,{
             instanceId:instanceId
         },function (result) {
-            console.log(result);
+            //console.log(result);
             if(result.success){
                 for(var i=0;i<result.data.length;i++){
                     var fileInfo=result.data[i];

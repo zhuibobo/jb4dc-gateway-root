@@ -7,7 +7,7 @@ let SendAction={
 
     },
     Instance:function (isStartInstanceStatus,formRuntimeInst,pageHostInstance,pageReadyInnerParas,actionObj) {
-        console.log(actionObj);
+        //console.log(actionObj);
         var htmlId = actionObj.actionHTMLId ? actionObj.actionHTMLId : actionObj.actionCode;
         var elem = $('<button type="button" class="operation-button operation-button-primary" id="' + htmlId + '"><span>' + actionObj.actionCaption + '</span></button>');
         this._Prop = {
@@ -81,15 +81,15 @@ let SendAction={
         }
     },
     SelectReceiverCompleted:function (nextTaskEntityList,selectedReceiverData){
-        console.log(selectedReceiverData);
-        console.log(this._Prop.actionObj.actionCaption);
+        //console.log(selectedReceiverData);
+        //console.log(this._Prop.actionObj.actionCaption);
 
         DialogUtility.Confirm(window,"确认执行发送?",function (){
             var selectedReceiverVars=FlowRuntimeVarBuilder.BuilderSelectedReceiverToInstanceVar(nextTaskEntityList,selectedReceiverData);
             var sendData=this.BuildSendToServerData(this._Prop, {
                 selectedReceiverVars:encodeURIComponent(JsonUtility.JsonToString(selectedReceiverVars))
             });
-            console.log(sendData);
+            //console.log(sendData);
             //return;
             //console.log(sendData);
             if(sendData.success) {

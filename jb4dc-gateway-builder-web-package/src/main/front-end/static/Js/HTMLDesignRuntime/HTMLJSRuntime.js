@@ -23,7 +23,7 @@ let HTMLJSRuntime={
         this._LoadJSToEl()
     },
     _LoadJSToEl:function () {
-        console.log("引入脚本:")
+        //console.log("引入脚本:")
         //console.log(this._FormPO.formJsContent);
         this._$RendererToElem.append(this.ReplaceJSParas(this._JsContent));
         /*if(!FormPageObjectInstance){
