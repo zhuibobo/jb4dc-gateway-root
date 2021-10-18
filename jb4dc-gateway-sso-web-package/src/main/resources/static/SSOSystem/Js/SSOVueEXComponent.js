@@ -642,7 +642,7 @@ Vue.component("sso-app-detail-from-comp", {
         appCategory: "web",
         appDesc: "",
         appStatus: "启用",
-        appCreateTime: DateUtility.GetCurrentData()
+        appCreateTime: DateUtility.GetCurrentDate()
       },
       ruleValidate: {
         appCode: [{
@@ -691,7 +691,7 @@ Vue.component("sso-app-detail-from-comp", {
       this.appEntity.appCategory = "web";
       this.appEntity.appDesc = "";
       this.appEntity.appStatus = "启用";
-      this.appEntity.appCreateTime = DateUtility.GetCurrentData();
+      this.appEntity.appCreateTime = DateUtility.GetCurrentDate();
     },
     uploadSystemLogoImageSuccess: function uploadSystemLogoImageSuccess(response, file, fileList) {
       if (response.success) {
@@ -751,7 +751,7 @@ Vue.component("sso-app-interface-list-comp", {
         interfaceFormat: "",
         interfaceDesc: "",
         interfaceOrderNum: "",
-        interfaceCreateTime: DateUtility.GetCurrentData(),
+        interfaceCreateTime: DateUtility.GetCurrentDate(),
         interfaceStatus: "启用",
         interfaceCreaterId: "",
         interfaceOrganId: ""
@@ -808,7 +808,7 @@ Vue.component("sso-app-interface-list-comp", {
       this.interfaceEntity.interfaceFormat = "";
       this.interfaceEntity.interfaceDesc = "";
       this.interfaceEntity.interfaceOrderNum = "";
-      this.interfaceEntity.interfaceCreateTime = DateUtility.GetCurrentData();
+      this.interfaceEntity.interfaceCreateTime = DateUtility.GetCurrentDate();
       this.interfaceEntity.interfaceStatus = "启用";
       this.interfaceEntity.interfaceCreaterId = "";
       this.interfaceEntity.interfaceOrganId = "";

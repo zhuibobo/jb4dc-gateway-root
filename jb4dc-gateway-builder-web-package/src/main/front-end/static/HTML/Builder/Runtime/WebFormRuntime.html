@@ -54,6 +54,11 @@
             },
             mounted:function () {
                 BaseUtility.SetSystemFavicon();
+
+                /*var test="${contextPath}/ssssss/${contextPath}/aaaaa";
+                var x=test.replace(/\$\{contextPath\}/g, "122223");
+                console.log(x);*/
+
                 DialogUtility.AlertLoading(window,DialogUtility.DialogLoadingId,{},"");
                 formRuntimeInst=FormRuntimeSinglePageObject.pageReady(false,function () {
 

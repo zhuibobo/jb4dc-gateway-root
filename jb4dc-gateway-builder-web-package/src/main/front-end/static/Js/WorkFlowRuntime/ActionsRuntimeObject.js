@@ -13,6 +13,10 @@ var ActionsRuntimeObject={
                         let callbackActionObject = Object.create(RecallAction);
                         buttonElem = callbackActionObject.Instance(isStartInstanceStatus,formRuntimeInst,pageHostInstance,pageReadyInnerParas,actionObj);
                     }
+                    else if (actionObj.actionType == "deleteInstance") {
+                        let deleteInstanceActionObject = Object.create(DeleteInstanceAction);
+                        buttonElem = deleteInstanceActionObject.Instance(isStartInstanceStatus,formRuntimeInst,pageHostInstance,pageReadyInnerParas,actionObj);
+                    }
                     $("#flowWorkActionButtonWrapOuter").append(buttonElem.elem);
                 }
             }
@@ -41,8 +45,8 @@ var ActionsRuntimeObject={
             actionType: "send",
             actionUpdateFields: "[]",
             actionValidate: "无",
-            actionsOpinionBindToElemId: null,
-            actionsOpinionBindToField: null,
+            actionOpinionBindToElemId: null,
+            actionOpinionBindToField: null,
             juelRunResultPO: {
                 booleanResult: true,
                 message: "",

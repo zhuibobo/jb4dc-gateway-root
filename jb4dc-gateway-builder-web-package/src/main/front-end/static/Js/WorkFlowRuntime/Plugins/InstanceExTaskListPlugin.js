@@ -7,8 +7,8 @@ let InstanceExTaskListPlugin={
         this._flowInstanceRuntimePO=propConfig.FlowInstanceRuntimePO;
         this._historyExecutionTaskEntityList=propConfig.FlowInstanceRuntimePO.historyExecutionTaskEntityList;
         this._currentExTask=propConfig.FlowInstanceRuntimePO.executionTaskEntity;
-        console.log(this._historyExecutionTaskEntityList);
-        console.log(this._flowInstanceRuntimePO);
+        //console.log(this._historyExecutionTaskEntityList);
+        //console.log(this._flowInstanceRuntimePO);
         if(this._historyExecutionTaskEntityList) {
             return this.Renderer();
         }

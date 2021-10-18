@@ -296,6 +296,10 @@ class CKEditorPluginUtility {
                 if (props["validateRules"].rules.length > 0) {
                     elem.setAttribute("validaterules", encodeURIComponent(JsonUtility.JsonToString(props["validateRules"])));
                 }
+                else{
+                    console.log("没有验证规则");
+                    elem.removeAttribute("validaterules");
+                }
             }
         }
 

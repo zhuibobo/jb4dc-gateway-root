@@ -26,7 +26,7 @@ let FlowRuntimePageObject={
         var recordId=StringUtility.Guid();
 
         var pageReadyInnerParas=this.buildPageReadyInnerParas(isStartInstanceStatus,recordId,flowInstanceRuntimePO,flowInstanceRuntimePOCacheKey);
-        console.log(pageReadyInnerParas);
+        //console.log(pageReadyInnerParas);
         this._formRuntimeInst.Initialization({
             "InstanceId":flowInstanceRuntimePO.instanceEntity.instId,
             "RendererToId": "htmlDesignRuntimeWrap",
@@ -67,7 +67,7 @@ let FlowRuntimePageObject={
             "FormId": pageReadyInnerParas.formId,
             "RecordId": recordId,
             "ButtonId": "",
-            "OperationType": BaseUtility.GetUpdateOperationName(),
+            "OperationType": BaseUtility.GetUrlOPParaValue(),
             "IsPreview": false,
             "RendererChainCompletedFunc":FlowRuntimePageObject.formRendererChainCompletedFunc,
             "ListFormButtonElemId": "",
@@ -134,8 +134,8 @@ let FlowRuntimePageObject={
         tabContainer.append("<div class=\"wysiwyg-wfdct-tabs-content wfdct-tabs-content-runtime\" id=\"tab_content_flow_files_999\">"+FlowFilesListSinglePlugin.GetHtmlElem(propConfig)+"</div>");
         tabContainer.append("<div class=\"wysiwyg-wfdct-tabs-label wfdct-tabs-label-runtime\" tab_id=\"tab_content_flow_modeler_999\">流程图</div>");
         tabContainer.append("<div class=\"wysiwyg-wfdct-tabs-content wfdct-tabs-content-runtime\" id=\"tab_content_flow_modeler_999\" style='height: calc(100% - 50px);' onActivity=\"FlowRuntimePageObject.rendererFlowModelerForTabOnActivity\"><div id=\"flow-canvas\" style=\"height:100%;\"></div></div>");
-        tabContainer.append("<div class=\"wysiwyg-wfdct-tabs-label wfdct-tabs-label-runtime\" tab_id=\"tab_content_flow_sequence_999\">顺序图</div>");
-        tabContainer.append("<div class=\"wysiwyg-wfdct-tabs-content wfdct-tabs-content-runtime\" id=\"tab_content_flow_sequence_999\"></div>");
+        /*tabContainer.append("<div class=\"wysiwyg-wfdct-tabs-label wfdct-tabs-label-runtime\" tab_id=\"tab_content_flow_sequence_999\">顺序图</div>");
+        tabContainer.append("<div class=\"wysiwyg-wfdct-tabs-content wfdct-tabs-content-runtime\" id=\"tab_content_flow_sequence_999\"></div>");*/
         tabContainer.append("<div class=\"wysiwyg-wfdct-tabs-label wfdct-tabs-label-runtime\" tab_id=\"tab_content_flow_task_999\">流转信息</div>");
         tabContainer.append("<div class=\"wysiwyg-wfdct-tabs-content wfdct-tabs-content-runtime\" id=\"tab_content_flow_task_999\">"+InstanceExTaskListPlugin.GetHtmlElem(propConfig)+"</div>");
         var newRuntimeHtml=flowPageContainer.html();

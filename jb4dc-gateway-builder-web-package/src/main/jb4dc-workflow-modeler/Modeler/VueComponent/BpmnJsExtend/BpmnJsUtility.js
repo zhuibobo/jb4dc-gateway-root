@@ -1291,6 +1291,13 @@ class BpmnJsUtility {
         this.SetAttr(element,"jb4dcContentDocumentRedHeadTemplate",jb4dcContentDocumentRedHeadTemplate,"");
     }
 
+    static JB4DC_Attr_GetJb4dcRecallEnable(element){
+        return this.GetAttr(element,"jb4dcRecallEnable","true");
+    }
+    static JB4DC_Attr_SetJb4dcRecallEnable(element, jb4dcRecallEnable){
+        this.SetAttr(element,"jb4dcRecallEnable",jb4dcRecallEnable,"true");
+    }
+
     static JB4DC_GetActions(element){
         var extensionElements=this.BPMN_GetExtensionElements(element);
         if(extensionElements){

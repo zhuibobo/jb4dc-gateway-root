@@ -13,8 +13,8 @@
                         <tr>
                             <td style="color: red">启动键：</td>
                             <td>
-                                <input type="text" placeholder="ID (Start Key) 必须唯一" v-model="bpmn.id" style="width:230px" />
-                                <Button type="primary" @click="randomId">随机生成</Button>
+                                <input type="text" placeholder="ID (Start Key) 必须唯一" v-model="bpmn.id" style="width:230px" disabled="disabled" />
+                                <Button type="primary" @click="randomId" v-if="newModelReKeyEnable">随机生成</Button>
                             </td>
                             <td>可执行/IsExecutable：</td>
                             <td style="text-align: left">
@@ -244,9 +244,10 @@
         props:["propElemProperties"],
         data:function () {
             return {
-                bpmn:PODefinition.GetDialogPropertiesPO().bpmn,
-                camunda:PODefinition.GetDialogPropertiesPO().camunda,
-                jb4dc:PODefinition.GetDialogPropertiesPO().jb4dc
+                bpmn: PODefinition.GetDialogPropertiesPO().bpmn,
+                camunda: PODefinition.GetDialogPropertiesPO().camunda,
+                jb4dc: PODefinition.GetDialogPropertiesPO().jb4dc,
+                newModelReKeyEnable: false
             }
         },
         created(){
@@ -261,7 +262,9 @@
             }
         },
         mounted(){
-
+            if(BaseUtility.IsAddOperationByUrl()) {
+                this.newModelReKeyEnable = true;
+            }
         },
         methods:{
             randomId(){
@@ -318,7 +321,7 @@
                     window["processPropertiesXXA"].selectImageClassCancelEnd = function (className) {
                     };
                 }
-                DialogUtility.ShowSelectImageClassDialog({},"processPropertiesXXA.selectImageClassEnd","processPropertiesXXA.selectImageClassCancelEnd");
+                DialogUtility.ShowSelectImageClassDialog({},"processPropertiesXXA.selectImageClassEnd","processPropertiesXXA.selectImageClassCancelEnd","../../../../");
             },
             getValue(){
                 var result= {

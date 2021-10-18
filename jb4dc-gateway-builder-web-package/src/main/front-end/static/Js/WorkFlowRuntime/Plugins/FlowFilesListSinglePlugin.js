@@ -201,7 +201,7 @@ var FlowFilesListSinglePlugin={
     /*列表相关设置*/
     BuildFileList:function () {
         var $singleControlElem = $("#FlowFilesListPluginContainer");
-        var upload_file_list_wrap_id="upload_file_list_warp_"+StringUtility.Timestamp();
+        var upload_file_list_wrap_id="flow_file_plugin_upload_file_list_warp";
         $("#"+upload_file_list_wrap_id).remove();
         var $divWarp=$("<div class='upload_file_list_wrap' id='"+upload_file_list_wrap_id+"'><table class='file_list_table'><thead><tr><th>文件名称</th><th style='width: 140px'>上传时间</th><th style='width: 140px'>上传人</th><th style='width: 140px'>文件大小</th><th style='width: 140px'>操作</th></tr></thead><tbody></tbody></table></div>");
         var $tbody=$divWarp.find("tbody");
@@ -227,7 +227,7 @@ var FlowFilesListSinglePlugin={
     BuildFileInfoTableRow:function (responseJSON,fileInfo) {
         //var fileCode=fileInfo.fileCode;
         var fileName=StringUtility.EncodeHtml(fileInfo.fileName);
-        var fileCreateTime=DateUtility.DataFormatByTimeStamp(fileInfo.fileCreateTime,"yyyy-MM-dd");
+        var fileCreateTime=DateUtility.DateFormatByTimeStamp(fileInfo.fileCreateTime,"yyyy-MM-dd");
         var fileSize=HardDiskUtility.ByteConvert(fileInfo.fileSize);
         var fileCreatorName=StringUtility.EncodeHtml(fileInfo.fileCreator);
         var $trObj=$(`<tr><td>${fileName}</td><td style="text-align: center">${fileCreateTime}</td><td style="text-align: center">${fileCreatorName}</td><td style="text-align: center">${fileSize}</td><td style="text-align: center"></td></tr>`);

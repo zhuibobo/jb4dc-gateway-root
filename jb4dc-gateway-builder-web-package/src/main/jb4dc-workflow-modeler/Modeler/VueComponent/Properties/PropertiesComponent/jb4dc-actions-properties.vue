@@ -117,7 +117,7 @@
                                 <tr>
                                     <td>绑定到字段：</td>
                                     <td>
-                                        <i-select v-model="actionInnerDetailInfo.actionsOpinionBindToField">
+                                        <i-select v-model="actionInnerDetailInfo.actionOpinionBindToField">
                                             <Option v-for="item in actionBindToEnableFields" :value="item.fieldName" :key="item.fieldName">【{{ item.fieldCaption }}】{{ item.fieldName }}</Option>
                                         </i-select>
                                     </td>
@@ -125,7 +125,7 @@
                                         绑定到控件：
                                     </td>
                                     <td>
-                                        <input placeholder="输入意见绑定到控件ID" type="text" v-model="actionInnerDetailInfo.actionsOpinionBindToElemId" />
+                                        <input placeholder="输入意见绑定到控件ID" type="text" v-model="actionInnerDetailInfo.actionOpinionBindToElemId" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -163,6 +163,18 @@
                                         <radio-group type="button" style="margin: auto" v-model="actionInnerDetailInfo.actionDisable">
                                             <radio label="enable">可用</radio>
                                             <radio label="disable">不可用</radio>
+                                        </radio-group>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        所在状态：
+                                    </td>
+                                    <td colspan="3">
+                                        <radio-group type="button" style="margin: auto" v-model="actionInnerDetailInfo.actionAtStatus">
+                                            <radio label="processingStatus">待办状态</radio>
+                                            <radio label="processingEndStatus">已办状态</radio>
+                                            <radio label="completedStatus">办结状态</radio>
                                         </radio-group>
                                     </td>
                                 </tr>

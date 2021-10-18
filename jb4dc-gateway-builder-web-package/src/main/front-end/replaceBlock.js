@@ -45,7 +45,7 @@ let replaceBlock = {
         replaceArray.push('<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />');
         //判断路径后进行引入js的路径
         let levelPath = calculateFilePath(file);
-        replaceArray.push(refJs(levelPath + "Js/External/JQuery-3.4.1/jquery-3.4.1.min.js"));
+        replaceArray.push(refJs(levelPath + "Js/External/JQuery-3.6.0/jquery-3.6.0.min.js"));
         replaceArray.push(refJs(levelPath + "Js/External/VUE-2.6.10/vue.js"));
         replaceArray.push(refJs(levelPath + "Js/External/IView-4.X/dist/iview.min.js"));
         replaceArray.push(refJs(levelPath + "Js/External/JQuery-UI-1.12.1/jquery-ui.js"));
@@ -165,8 +165,9 @@ let replaceBlock = {
         //判断路径后进行引入js的路径
         let levelPath = calculateFilePath(file);
 
-        replaceArray.push(refJs(levelPath + "Js/External/JsonEditor/jsoneditor.min.js"));
-        replaceArray.push(refCss(levelPath + 'Js/External/JsonEditor/jsoneditor.min.css'));
+        replaceArray.push(refJs(levelPath + "Js/External/JsonEditor9.5.6/jsoneditor.min.js"));
+        replaceArray.push(refCss(levelPath + 'Js/External/JsonEditor9.5.6/jsoneditor.min.css'));
+        replaceArray.push(refCss(levelPath + 'Js/External/JsonEditor9.5.6/jsoneditor-cust.css'));
 
         return replaceArray.join("\n\t");
     },
@@ -224,7 +225,7 @@ let replaceBlock = {
         //判断路径后进行引入js的路径
         let levelPath = calculateFilePath(file);
 
-        replaceArray.push(refJs(levelPath + "Js/External/JQuery-3.4.1/jquery-3.4.1.min.js"));
+        replaceArray.push(refJs(levelPath + "Js/External/JQuery-3.6.0/jquery-3.6.0.min.js"));
         replaceArray.push(refJs(levelPath + "Js/External/Ckeditor_4.15.0_Standard/ckeditor.js"));
         replaceArray.push(refJs(levelPath + "Js/External/VUE-2.6.10/vue.js"));
         replaceArray.push(refJs(levelPath + "Js/External/IView-4.X/dist/iview.min.js"));
@@ -251,7 +252,7 @@ let replaceBlock = {
         //判断路径后进行引入js的路径
         let levelPath = calculateFilePath(file);
 
-        replaceArray.push(refJs(levelPath + "Js/External/JQuery-3.4.1/jquery-3.4.1.min.js"));
+        replaceArray.push(refJs(levelPath + "Js/External/JQuery-3.6.0/jquery-3.6.0.min.js"));
         replaceArray.push(refJs(levelPath + "Js/External/Ckeditor_4.15.0_Standard/ckeditor.js"));
         replaceArray.push(refJs(levelPath + "Js/External/VUE-2.6.10/vue.js"));
         replaceArray.push(refJs(levelPath + "Js/External/IView-4.X/dist/iview.min.js"));
@@ -266,7 +267,7 @@ let replaceBlock = {
         replaceArray.push(refJs(levelPath + "Js/UIEXComponent.js?refVersion=" + refVersion));
         replaceArray.push(refJs(levelPath + "Js/VueEXComponent.js?refVersion=" + refVersion));
         replaceArray.push(refJs(levelPath + "JB4DCBuilderClient/Js/HTMLDesignRuntimeFull.js?refVersion=" + refVersion));
-        replaceArray.push(refCss(levelPath + 'JB4DCBuilder/Themes/Default/Css/HTMLDesignRuntimeMain.css?refVersion=' + refVersion));
+        replaceArray.push(refCss(levelPath + 'JB4DCBuilderClient/Themes/Default/Css/HTMLDesignRuntimeMain.css?refVersion=' + refVersion));
         replaceArray.push(refCss(levelPath + 'Js/External/Fine-Uploader-5.16.2/fine-uploader-gallery.min.css'));
 
         return replaceArray.join("\n\t");

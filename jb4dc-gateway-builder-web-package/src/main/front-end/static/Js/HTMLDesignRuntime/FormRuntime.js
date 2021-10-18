@@ -102,6 +102,7 @@ let FormRuntime={
         this._Prop_Config= $.extend(true,{},this._Prop_Config,_config);
         this._$RendererToElem=$("#"+this._Prop_Config.RendererToId);
         this._LoadHTMLToEl();
+        this._LoadToPDFStyle();
     },
     //用于控制BuilderListPageRuntimeInstance.RendererChainComplete的调用时间
     _RendererChainIsCompleted:true,
@@ -112,85 +113,101 @@ let FormRuntime={
             //alert( "Load was performed." );
             console.log("加载预览窗体成功!!");
         });*/
-        var url = BaseUtility.BuildAction("/Rest/Builder/RunTime/FormRuntime/LoadHTML",{});
+        var url = BaseUtility.BuildAction("/Rest/Builder/RunTime/FormRuntime/LoadHTML", {});
         if (this._Prop_Config.IsPreview) {
-            url = BaseUtility.BuildAction("/Rest/Builder/RunTime/FormRuntime/LoadHTMLForPreView",{});
+            url = BaseUtility.BuildAction("/Rest/Builder/RunTime/FormRuntime/LoadHTMLForPreView", {});
         }
 
         RuntimeGeneralInstance.LoadHtmlDesignContent(url, this._Prop_Config.RendererTo, {
             formId: this._Prop_Config.FormId,
             recordId: this._Prop_Config.RecordId,
             buttonId: this._Prop_Config.ButtonId,
-            operationType:this.GetOperationType(),
-            formRuntimeCategory:this._Prop_Config.FormRuntimeCategory
+            operationType: this.GetOperationType(),
+            formRuntimeCategory: this._Prop_Config.FormRuntimeCategory
         }, function (result) {
-            //alert( "Load was performed.");
-            //console.log("加载预览窗体成功!!");
-            //debugger;
-            //console.log(result);
-            //console.log(result.data.formHtmlRuntime);
-            this._FormPO=result.data;
+            try {
 
-            //if
-            //this._FormDataRelationList=JsonUtility.StringToJson(this._FormPO.formDataRelation);
-            this._FormPO.formDataRelation="";//清空字符串类型的关联.功能调整
-            this._FormDataRelationList=this._FormPO.formRecordDataRelationPOList;
-            this._OriginalFormDataRelationList=JsonUtility.CloneStringify(this._FormDataRelationList);
+                this._FormPO = result.data;
+                this._FormPO.formDataRelation = "";//清空字符串类型的关联.功能调整
+                this._FormDataRelationList = this._FormPO.formRecordDataRelationPOList;
+                this._OriginalFormDataRelationList = JsonUtility.CloneStringify(this._FormDataRelationList);
 
-            var formHtmlRuntime=result.data.formHtmlRuntime;
-            if(typeof(this._Prop_Config.PreHandleFormHtmlRuntimeFunc)=="function") {
-                formHtmlRuntime = this._Prop_Config.PreHandleFormHtmlRuntimeFunc(formHtmlRuntime, this, this._Prop_Config);
-            }
+                var formHtmlRuntime = result.data.formHtmlRuntime;
+                if (typeof (this._Prop_Config.PreHandleFormHtmlRuntimeFunc) == "function") {
+                    formHtmlRuntime = this._Prop_Config.PreHandleFormHtmlRuntimeFunc(formHtmlRuntime, this, this._Prop_Config);
+                }
 
-            this._$RendererToElem.append(formHtmlRuntime);
-            this._FormJSRuntimeInst = Object.create(HTMLJSRuntime);
-            this._FormJSRuntimeInst.Initialization({},this._$RendererToElem,this._FormPO.formJsContent);
+                this._$RendererToElem.append(formHtmlRuntime);
 
-            var _rendererChainParas={
-                po:result.data,
-                    sourceHTML:formHtmlRuntime,
+                try {
+                    this._FormJSRuntimeInst = Object.create(HTMLJSRuntime);
+                    this._FormJSRuntimeInst.Initialization({}, this._$RendererToElem, this._FormPO.formJsContent);
+                } catch (e) {
+                    throw "加载动态脚本错误! FormRuntime._LoadHTMLToEl-->this._FormJSRuntimeInst.Initialization:" + e;
+                }
+
+                var _rendererChainParas = {
+                    po: result.data,
+                    sourceHTML: formHtmlRuntime,
                     $rootElem: this._$RendererToElem,
                     $parentControlElem: this._$RendererToElem,
                     $singleControlElem: this._$RendererToElem,
                     formRuntimeInstance: this
-            };
-            VirtualBodyControl.RendererChain(_rendererChainParas);
-            VirtualBodyControl.InitStyle(_rendererChainParas);
+                };
 
-            //debugger;
-            if(this.IsPreview()){
-                this.CallRendererChainCompletedFunc();
-            }
-            else{
-                /*RuntimeGeneralInstance.LoadInnerFormButton(this._Prop_Config.ButtonId,{},function (result) {
-                    if(result.data) {
-                        this.CreateALLInnerFormButton(result.data);
-                    }
-                    this.CallRendererChainCompletedFunc();
-                },this);*/
-                if(this._FormPO.listButtonEntity){
-                    this.CreateALLInnerFormButton(this._FormPO.listButtonEntity);
+                /*console.log("------------------------");
+                console.log(VirtualBodyControl.RendererChain);
+                console.log("------------------------");*/
+                VirtualBodyControl.RendererChain(_rendererChainParas);
+
+                try {
+                    VirtualBodyControl.InitStyle(_rendererChainParas);
+                } catch (e) {
+                    throw "初始化样式错误! FormRuntime._LoadHTMLToEl-->VirtualBodyControl.InitStyle:" + e;
                 }
-            }
 
-            if(BaseUtility.IsUpdateOperation(this.GetOperationType())||BaseUtility.IsViewOperation(this.GetOperationType())){
-                var formRecordComplexPO=result.data.formRecordComplexPO;
-                //console.log(result.data);
-                //console.log(formRecordComplexPO);
-                this.DeSerializationFormData(formRecordComplexPO);
-            }
-            if(BaseUtility.IsViewOperation(this.GetOperationType())&&this._Prop_Config.FormRuntimeCategory==FormRuntimeSinglePageObject.FORM_RUNTIME_CATEGORY_INDEPENDENCE){
-                $("#innerButtonWrapOuter").hide();
-            }
-            else if(this.IsPrint()){
-                $("#innerButtonWrapOuter").hide();
-                $(".html-design-operation-button-outer-wrap").hide();
-            }
+                //debugger;
+                if (this.IsPreview()) {
+                    this.CallRendererChainCompletedFunc();
+                } else {
+                    /*RuntimeGeneralInstance.LoadInnerFormButton(this._Prop_Config.ButtonId,{},function (result) {
+                        if(result.data) {
+                            this.CreateALLInnerFormButton(result.data);
+                        }
+                        this.CallRendererChainCompletedFunc();
+                    },this);*/
+                    if (this._FormPO.listButtonEntity) {
+                        this.CreateALLInnerFormButton(this._FormPO.listButtonEntity);
+                    }
+                }
 
-            this.CallRendererChainCompletedFunc();
+                if (BaseUtility.IsUpdateOperation(this.GetOperationType()) || BaseUtility.IsViewOperation(this.GetOperationType())) {
+                    var formRecordComplexPO = result.data.formRecordComplexPO;
+                    //console.log(result.data);
+                    //console.log(formRecordComplexPO);
+                    this.DeSerializationFormData(formRecordComplexPO);
+                }
+                if (BaseUtility.IsViewOperation(this.GetOperationType()) && this._Prop_Config.FormRuntimeCategory == FormRuntimeSinglePageObject.FORM_RUNTIME_CATEGORY_INDEPENDENCE) {
+                    $("#innerButtonWrapOuter").hide();
+                } else if (this.IsPrint()) {
+                    $("#innerButtonWrapOuter").hide();
+                    $(".html-design-operation-button-outer-wrap").hide();
+                }
+
+                this.CallRendererChainCompletedFunc();
+                console.log("222222222222222222222222");
+            } catch (e) {
+                throw "渲染Html控件错误! FormRuntime._LoadHTMLToEl:" + e;
+            }
             //var relationFormRecordComplexPo=FormRuntimeMock.GetMockData();
             //this.DeSerializationFormData(relationFormRecordComplexPo);
         }, this);
+    },
+    _LoadToPDFStyle:function (){
+        if(BaseUtility.GetUrlParaValue("ToPDF")=="ToPDF") {
+            LoadJsCssUtility("/JB4DCBuilderClient/Themes/Default/Css/HTMLDesignRuntimeToPDF.css");
+            console.log("加载转PDF样式!");
+        }
     },
     CallRendererChainCompletedFunc:function() {
         var _this=this;

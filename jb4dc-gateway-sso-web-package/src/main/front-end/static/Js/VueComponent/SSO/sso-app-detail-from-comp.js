@@ -29,7 +29,7 @@ Vue.component("sso-app-detail-from-comp", {
                 appCategory:"web",
                 appDesc:"",
                 appStatus:"启用",
-                appCreateTime:DateUtility.GetCurrentData()
+                appCreateTime:DateUtility.GetCurrentDate()
             },
             ruleValidate:{
                 appCode: [
@@ -72,7 +72,7 @@ Vue.component("sso-app-detail-from-comp", {
             this.appEntity.appCategory="web";
             this.appEntity.appDesc="";
             this.appEntity.appStatus="启用";
-            this.appEntity.appCreateTime=DateUtility.GetCurrentData();
+            this.appEntity.appCreateTime=DateUtility.GetCurrentDate();
         },
         uploadSystemLogoImageSuccess:function (response, file, fileList) {
             if(response.success) {

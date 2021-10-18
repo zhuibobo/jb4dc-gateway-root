@@ -104,7 +104,8 @@ class PODefinition{
                 jb4dcFormParas:"",
                 jb4dcAppFormParas:"",
                 jb4dcFormEx1Plugin:"webFormPlugin",
-                jb4dcFormEx1Paras:""
+                jb4dcFormEx1Paras:"",
+                jb4dcRecallEnable:"true"
             }
         }
     }
@@ -178,8 +179,8 @@ class PODefinition{
             actionExecuteVariables:[],
             actionConfirm:"false",
             actionValidate:"无",
-            actionsOpinionBindToField:"",
-            actionsOpinionBindToElemId:"",
+            actionOpinionBindToField:"",
+            actionOpinionBindToElemId:"",
             actionMainReceiveObjects:[],
             actionCCReceiveObjects:[],
             actionAutoSend:"false",
@@ -187,7 +188,8 @@ class PODefinition{
             actionSendSignalId:"",
             actionCallComplete:"true",
             actionDisable:"enable",
-            actionRemark:" "
+            actionRemark:" ",
+            actionAtStatus:"processingStatus"
         }
     }
     static GetJB4DCAuthorityPO(){

@@ -1,6 +1,5 @@
 let RecallAction={
     acInterface:{
-        resolveNextPossibleFlowNode:"/Rest/Workflow/RunTime/Client/InstanceRuntime/ResolveNextPossibleFlowNode",
         recallMySendTask:"/Rest/Workflow/RunTime/Client/InstanceRuntime/RecallMySendTask"
     },
     _Prop:{
@@ -14,27 +13,29 @@ let RecallAction={
             elem.attr("disable","disable");
             elem.addClass("operation-button-primary-disabled");
         }
+        else{
+            this._Prop = {
+                "sender": this,
+                "flowInstanceRuntimePO": pageReadyInnerParas.flowInstanceRuntimePO,
+                "flowInstanceRuntimePOCacheKey": pageReadyInnerParas.flowInstanceRuntimePOCacheKey,
+                "jb4dcActions": pageReadyInnerParas.jb4dcActions,
+                "formRuntimeInst": formRuntimeInst,
+                "actionObj": actionObj,
+                "isStartInstanceStatus": isStartInstanceStatus,
+                "pageHostInstance": pageHostInstance,
+                "currentNodeKey": pageReadyInnerParas.currentNodeKey,
+                "currentNodeName": pageReadyInnerParas.currentNodeName,
+                "recordId":pageReadyInnerParas.recordId,
+                "modelId":pageReadyInnerParas.modelId,
+                "modelReKey":pageReadyInnerParas.modelReKey,
+                "currentTaskId":pageReadyInnerParas.currentTaskId,
+                "instanceId":pageReadyInnerParas.flowInstanceRuntimePO.instanceEntity.instId
+            }
+            elem.bind("click", this._Prop, this.ButtonClickEvent);
+        }
         if(actionObj.actionRemark){
             elem.attr("title",actionObj.actionRemark);
         }
-        this._Prop = {
-            "sender": this,
-            "flowInstanceRuntimePO": pageReadyInnerParas.flowInstanceRuntimePO,
-            "flowInstanceRuntimePOCacheKey": pageReadyInnerParas.flowInstanceRuntimePOCacheKey,
-            "jb4dcActions": pageReadyInnerParas.jb4dcActions,
-            "formRuntimeInst": formRuntimeInst,
-            "actionObj": actionObj,
-            "isStartInstanceStatus": isStartInstanceStatus,
-            "pageHostInstance": pageHostInstance,
-            "currentNodeKey": pageReadyInnerParas.currentNodeKey,
-            "currentNodeName": pageReadyInnerParas.currentNodeName,
-            "recordId":pageReadyInnerParas.recordId,
-            "modelId":pageReadyInnerParas.modelId,
-            "modelReKey":pageReadyInnerParas.modelReKey,
-            "currentTaskId":pageReadyInnerParas.currentTaskId,
-            "instanceId":pageReadyInnerParas.flowInstanceRuntimePO.instanceEntity.instId
-        }
-        elem.bind("click", this._Prop, this.ButtonClickEvent);
         return {
             elem: elem
         }

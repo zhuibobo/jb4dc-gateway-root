@@ -30,6 +30,7 @@
                         <td rowspan="2">
                             <Button type="primary" @click="beginEditContextJuelForSequenceFlowCondition">编辑</Button>
                             <Button type="success" @click="clearEditContextJuelForSequenceFlowCondition" style="margin-top: 8px">清空</Button>
+                            <Button type="success" @click="showJuelExample" style="margin-top: 4px" size="small">示例</Button>
                         </td>
                     </tr>
                     <tr>
@@ -52,7 +53,11 @@
                                             <Button type="success" @click="insertCodeAtCursor(mayBeFromTask,action)"><Icon type="ios-git-pull-request" />追加</Button>
                                             <Button type="success" @click="clearAndInsertCodeAtCursor(mayBeFromTask,action)"><Icon type="ios-git-compare" />覆盖</Button>
                                         </ButtonGroup>-->
-                                        <div class="sfp-tag-task-action" v-for="action in mayBeFromTask.actionArray" @click="clearAndInsertCodeAtCursor(mayBeFromTask,action)">{{action.actionCaption}}</div>
+                                        <div class="sfp-tag-task-action" v-for="action in mayBeFromTask.actionArray">
+                                            <div>{{action.actionCaption}}</div>
+                                            <div class="sfp-tag-task-action-cover" @click="clearAndInsertCodeAtCursor(mayBeFromTask,action)">覆盖</div>
+                                            <div class="sfp-tag-task-action-append" @click="appendCodeAtCursor(mayBeFromTask,action)">追加</div>
+                                        </div>
                                     </div>
                                 </div>
                                 <!--<div class="sfp-task-action-group">
@@ -196,9 +201,13 @@
             //console.log();
         },
         methods:{
-            insertCodeAtCursor(mayBeFromTask,action) {
+            showJuelExample:function (){
+                let juelExample="${var1=\"xx\" or/and var2=\"yy\" }";
+                DialogUtility.AlertText(juelExample,this);
+            },
+            insertCodeAtCursor(editValue,action) {
                 //var editValue = "${LastActionId==\"@[FlowAction." + mayBeFromTask.taskId + "." + action.actionCode + ']\"}';
-                var editValue = "${LastActionKey==\"__$FlowAction$$" + mayBeFromTask.taskId + "$$" + action.actionCode + '$\"}';
+                //var editValue = "${LastActionKey==\"__$FlowAction$$" + mayBeFromTask.taskId + "$$" + action.actionCode + '$\"}';
                 var doc = this.selectedCodeMirror.getDoc();
                 var cursor = doc.getCursor();
                 doc.replaceRange(editValue, cursor);
@@ -272,7 +281,12 @@
             },
             clearAndInsertCodeAtCursor(mayBeFromTask,action){
                 this.selectedCodeMirror.setValue("");
-                this.insertCodeAtCursor(mayBeFromTask,action);
+                var editValue = "${LastActionKey==\"__$FlowAction$$" + mayBeFromTask.taskId + "$$" + action.actionCode + '$\"}';
+                this.insertCodeAtCursor(editValue,action);
+            },
+            appendCodeAtCursor(mayBeFromTask,action){
+                var editValue = "LastActionKey==\"__$FlowAction$$" + mayBeFromTask.taskId + "$$" + action.actionCode + '$\"';
+                this.insertCodeAtCursor(editValue,action);
             },
             tryResolveConditionTextToValue(conditionText){
 
@@ -341,14 +355,39 @@
         float: left;
         border-radius: 4px;
         border: #a3b0c9 solid 1px;
-        padding: 4px;
+        padding: 2px;
         margin-left: 6px;
         margin-bottom: 4px;
         min-width: 134px;
         text-align: center;
     }
 
-    .sfp-task-action-group .sfp-tag-task-action:hover{
+    /*.sfp-task-action-group .sfp-tag-task-action:hover{
+        background-color: #2d8cf0;
+        color: #fff;
+        cursor: pointer;
+    }*/
+
+    .sfp-tag-task-action div{
+        display: inline-block;
+        padding: 2px 4px 2px 4px;
+    }
+
+    .sfp-tag-task-action .sfp-tag-task-action-cover{
+        border-left: #BFC9CA 1px dotted;
+    }
+
+    .sfp-tag-task-action .sfp-tag-task-action-cover:hover{
+        background-color: #2d8cf0;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .sfp-tag-task-action .sfp-tag-task-action-append{
+        border-left: #BFC9CA 1px dotted;
+    }
+
+    .sfp-tag-task-action .sfp-tag-task-action-append:hover{
         background-color: #2d8cf0;
         color: #fff;
         cursor: pointer;

@@ -79,63 +79,67 @@ let HTMLControl={
         var $singleControlElem=_rendererChainParas.$singleControlElem;
         //debugger;
         for (var i = 0; i < $singleControlElem.children().length; i++) {
-            var $childSingleElem = $($singleControlElem.children()[i]);
+            try {
+                var $childSingleElem = $($singleControlElem.children()[i]);
 
-            var _cloneRendererChainParas = {};
-            JsonUtility.SimpleCloneAttr(_cloneRendererChainParas, _rendererChainParas);
-            _cloneRendererChainParas.$singleControlElem = $childSingleElem;
-            //console.log($childSingleElem.html());
-            if ($childSingleElem.attr(HTMLControlAttrs.JBUILD4DC_CUSTOM)=="true"&&$childSingleElem.attr(HTMLControlAttrs.CLIENT_RESOLVE)) {
-                //debugger;
-                //var clientResolveName=$childSingleElem.attr(HTMLControlAttrs.CLIENT_RESOLVE);
-                var instance=HTMLControl.GetControlInstanceByElem($childSingleElem);
-                if(typeof(instance.Initialize)=="function"){
-                    instance.Initialize();
-                }
-
-                //初始化控件实例属性
-                if(instance._objectType=="Instance"){
-                    if(instance._prop){
-                        var instanceProp = HTMLControl.TryBindElementAttrToInstanceProp($childSingleElem,instance._prop);
-                        instance._prop=instanceProp;
+                var _cloneRendererChainParas = {};
+                JsonUtility.SimpleCloneAttr(_cloneRendererChainParas, _rendererChainParas);
+                _cloneRendererChainParas.$singleControlElem = $childSingleElem;
+                //console.log($childSingleElem.html());
+                if ($childSingleElem.attr(HTMLControlAttrs.JBUILD4DC_CUSTOM) == "true" && $childSingleElem.attr(HTMLControlAttrs.CLIENT_RESOLVE)) {
+                    //debugger;
+                    //var clientResolveName=$childSingleElem.attr(HTMLControlAttrs.CLIENT_RESOLVE);
+                    var instance = HTMLControl.GetControlInstanceByElem($childSingleElem);
+                    if (typeof (instance.Initialize) == "function") {
+                        instance.Initialize();
                     }
-                }
-                else {
-                    var elemId = $childSingleElem.attr("id");
-                    if (elemId && instance._propMap && instance._prop) {
-                        if (!instance._propMap[elemId]) {
+
+                    //初始化控件实例属性
+                    if (instance._objectType == "Instance") {
+                        if (instance._prop) {
                             var instanceProp = HTMLControl.TryBindElementAttrToInstanceProp($childSingleElem, instance._prop);
-                            instance._propMap[elemId]=instanceProp;
+                            instance._prop = instanceProp;
+                        }
+                    } else {
+                        var elemId = $childSingleElem.attr("id");
+                        if (elemId && instance._propMap && instance._prop) {
+                            if (!instance._propMap[elemId]) {
+                                var instanceProp = HTMLControl.TryBindElementAttrToInstanceProp($childSingleElem, instance._prop);
+                                instance._propMap[elemId] = instanceProp;
+                            }
                         }
                     }
-                }
 
-                instance.RendererChain(_cloneRendererChainParas);
-                if(typeof(instance.InitStyle)=="function"){
-                    instance.InitStyle(_cloneRendererChainParas);
+                    instance.RendererChain(_cloneRendererChainParas);
+                    if (typeof (instance.InitStyle) == "function") {
+                        instance.InitStyle(_cloneRendererChainParas);
+                    }
+                    if (typeof (instance.TryBindUrlValue) == "function") {
+                        instance.TryBindUrlValue(_cloneRendererChainParas);
+                    }
+                    /*if(instance._prop){
+                        HTMLControl.TryBindElementAttrToInstanceProp($childSingleElem,instance._prop);
+                    }*/
+                    /*instance.RendererChain({
+                        listEntity:_rendererChainParas.listEntity,
+                        sourceHTML:_rendererChainParas.sourceHTML,
+                        $rootElem:_rendererChainParas.$rootElem,
+                        $parentControlElem:_rendererChainParas.$singleControlElem,
+                        $singleControlElem:$childSingleElem
+                    });*/
+                } else {
+                    HTMLControl.RendererChain(_cloneRendererChainParas);
+                    /*HTMLControl.RendererChain({
+                        listEntity:_rendererChainParas.listEntity,
+                        sourceHTML:_rendererChainParas.sourceHTML,
+                        $rootElem:_rendererChainParas.$rootElem,
+                        $parentControlElem:_rendererChainParas.$singleControlElem,
+                        $singleControlElem:$childSingleElem
+                    });*/
                 }
-                if(typeof(instance.TryBindUrlValue)=="function") {
-                    instance.TryBindUrlValue(_cloneRendererChainParas);
-                }
-                /*if(instance._prop){
-                    HTMLControl.TryBindElementAttrToInstanceProp($childSingleElem,instance._prop);
-                }*/
-                /*instance.RendererChain({
-                    listEntity:_rendererChainParas.listEntity,
-                    sourceHTML:_rendererChainParas.sourceHTML,
-                    $rootElem:_rendererChainParas.$rootElem,
-                    $parentControlElem:_rendererChainParas.$singleControlElem,
-                    $singleControlElem:$childSingleElem
-                });*/
-            } else {
-                HTMLControl.RendererChain(_cloneRendererChainParas);
-                /*HTMLControl.RendererChain({
-                    listEntity:_rendererChainParas.listEntity,
-                    sourceHTML:_rendererChainParas.sourceHTML,
-                    $rootElem:_rendererChainParas.$rootElem,
-                    $parentControlElem:_rendererChainParas.$singleControlElem,
-                    $singleControlElem:$childSingleElem
-                });*/
+            }
+            catch (e){
+                throw "HTMLControl.js.RendererChain:index:"+i+e;
             }
         }
     },
@@ -144,32 +148,37 @@ let HTMLControl={
         var $singleControlElem=_rendererDataChainParas.$singleControlElem;
         //debugger;
         for (var i = 0; i < $singleControlElem.children().length; i++) {
-            var $childSingleElem = $($singleControlElem.children()[i]);
+            try {
+                var $childSingleElem = $($singleControlElem.children()[i]);
 
-            var _cloneRendererDataChainParas = {};
-            JsonUtility.SimpleCloneAttr(_cloneRendererDataChainParas, _rendererDataChainParas);
-            _cloneRendererDataChainParas.$singleControlElem = $childSingleElem;
-            //console.log($childSingleElem.html());
-            if ($childSingleElem.attr(HTMLControlAttrs.JBUILD4DC_CUSTOM) == "true" && $childSingleElem.attr(HTMLControlAttrs.CLIENT_RESOLVE)) {
-                //debugger;
-                //var clientResolveInstanceName = $childSingleElem.attr(HTMLControlAttrs.CLIENT_RESOLVE);
-                var instance=HTMLControl.GetControlInstanceByElem($childSingleElem);
-                instance.RendererDataChain(_cloneRendererDataChainParas);
+                var _cloneRendererDataChainParas = {};
+                JsonUtility.SimpleCloneAttr(_cloneRendererDataChainParas, _rendererDataChainParas);
+                _cloneRendererDataChainParas.$singleControlElem = $childSingleElem;
+                //console.log($childSingleElem.html());
+                if ($childSingleElem.attr(HTMLControlAttrs.JBUILD4DC_CUSTOM) == "true" && $childSingleElem.attr(HTMLControlAttrs.CLIENT_RESOLVE)) {
+                    //debugger;
+                    //var clientResolveInstanceName = $childSingleElem.attr(HTMLControlAttrs.CLIENT_RESOLVE);
+                    var instance=HTMLControl.GetControlInstanceByElem($childSingleElem);
+                    instance.RendererDataChain(_cloneRendererDataChainParas);
 
-                var fieldPO;
-                if(typeof(instance.SetValue)=="function") {
-                    fieldPO = HTMLControl.TryGetFieldPOInRelationFormRecordComplexPo($childSingleElem,_rendererDataChainParas.relationFormRecordComplexPo);
-                    instance.SetValue($childSingleElem,fieldPO,_rendererDataChainParas.relationFormRecordComplexPo,_rendererDataChainParas);
-                }
-
-                //console.log(_rendererDataChainParas.callToViewStatusFunc);
-                if(_rendererDataChainParas.callToViewStatusFunc) {
-                    if(typeof(instance.ToViewStatus)=="function") {
-                        instance.ToViewStatus($childSingleElem,fieldPO,_rendererDataChainParas.relationFormRecordComplexPo,_rendererDataChainParas);
+                    var fieldPO;
+                    if(typeof(instance.SetValue)=="function") {
+                        fieldPO = HTMLControl.TryGetFieldPOInRelationFormRecordComplexPo($childSingleElem,_rendererDataChainParas.relationFormRecordComplexPo);
+                        instance.SetValue($childSingleElem,fieldPO,_rendererDataChainParas.relationFormRecordComplexPo,_rendererDataChainParas);
                     }
+
+                    //console.log(_rendererDataChainParas.callToViewStatusFunc);
+                    if(_rendererDataChainParas.callToViewStatusFunc) {
+                        if(typeof(instance.ToViewStatus)=="function") {
+                            instance.ToViewStatus($childSingleElem,fieldPO,_rendererDataChainParas.relationFormRecordComplexPo,_rendererDataChainParas);
+                        }
+                    }
+                } else {
+                    HTMLControl.RendererDataChain(_cloneRendererDataChainParas);
                 }
-            } else {
-                HTMLControl.RendererDataChain(_cloneRendererDataChainParas);
+            }
+            catch (e){
+                throw "HTMLControl.js.RendererDataChain:index:"+i+e;
             }
         }
     },

@@ -27,8 +27,13 @@
                             <radio label="multiInstanceIsSequential">多人串行</radio>
                         </radio-group>
                     </td>
-                    <td></td>
+                    <td>允许撤回</td>
                     <td>
+                        <radio-group type="button" style="margin: auto" v-model="jb4dc.jb4dcRecallEnable">
+                            <radio label="true">是</radio>
+                            <radio label="false">否</radio>
+                        </radio-group>
+                        并行网关中的环节无法执行撤回
                     </td>
                 </tr>
                 <tr>

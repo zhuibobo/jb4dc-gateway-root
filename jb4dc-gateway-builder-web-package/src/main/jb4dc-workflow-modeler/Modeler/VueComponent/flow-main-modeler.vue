@@ -3,8 +3,8 @@
         <spin size="large" fix v-if="isLoading"></spin>
         <div style="position: absolute;right: 10px;top: 6px;z-index: 100">
             <button-group size="small">
-                <i-button icon="md-cloud-done" type="primary" @click="save()">保存</i-button>
-                <i-button icon="md-cloud-done" type="primary" @click="saveAndDeployment()">保存并部署</i-button>
+                <i-button icon="md-cloud-done" type="primary" @click="save()" v-if="selectedTabName=='Bpmn'">保存</i-button>
+                <i-button icon="md-cloud-done" type="primary" @click="saveAndDeployment()" v-if="selectedTabName=='Bpmn'">保存并部署</i-button>
                 <i-button icon="md-search" @click="close()" type="primary">关闭</i-button>
             </button-group>
         </div>
@@ -84,11 +84,11 @@
                     //模型名称
                     modelName: "",
                     //创建时间
-                    modelCreateTime: DateUtility.GetCurrentData(),
+                    modelCreateTime: DateUtility.GetCurrentDate(),
                     //创建者
                     modelCreator: "",
                     //更新时间
-                    modelUpdateTime: DateUtility.GetCurrentData(),
+                    modelUpdateTime: DateUtility.GetCurrentDate(),
                     //更新人
                     modelUpdater: "",
                     //备注
@@ -109,7 +109,7 @@
                     modelLastVersion: "",
                     //模型定义XML内容
                     modelContent: "",
-                    //流程模型来自上传或者页面设计
+                    //流程模型来自上传或者页面设计1
                     //integratedFromType:"",
                     //bpmnXMLModeler:"",
                     tryDeployment: false
@@ -193,14 +193,23 @@
                 }
                 this.oldSelectedTabName=name;
             },
-            saveValidate:function(submitFlowIntegratedPO){
-                var flowBpmnJsIntegratedObj=FlowBpmnJsIntegrated.GetInstance();
+            saveValidate:function(submitFlowIntegratedPO,func){
+                /*let flowBpmnJsIntegratedObj=FlowBpmnJsIntegrated.GetInstance();
                 console.log(flowBpmnJsIntegratedObj.GetModeler());
                 if(!flowBpmnJsIntegratedObj.GetProcessName()) {
                     DialogUtility.ToastErrorMessage(this,"流程名称不能为空!");
                     return false;
-                }
-                return true;
+                }*/
+                /*if(this.selectedTabName!="Bpmn"){
+                    DialogUtility.ToastErrorMessage(this,"请切换到流程设计也没");
+                    return false;
+                }*/
+                var sendData = JSON.stringify(submitFlowIntegratedPO);
+                AjaxUtility.PostRequestBody("/Rest/Workflow/FlowModelIntegrated/SaveValidate",sendData,function (result) {
+                    if(result.success){
+                        func.call(this,result);
+                    }
+                },this);
             },
             validateWarringMessage(submitFlowIntegratedPO,modeler){
                 //debugger;
@@ -252,34 +261,35 @@
             buildSubmitFlowIntegratedPO(tryDeployment,func){
                 var flowModelIntegratedPO=JsonUtility.CloneStringify(this.flowModelIntegratedPO);
                 flowModelIntegratedPO.tryDeployment = tryDeployment;
+                flowModelIntegratedPO.operationName=BaseUtility.GetUrlOPParaValue();
                 //flowModelIntegratedPO.integratedStartKey = this.$refs["flowBpmnjsContainer"].getStartKey();
                 //flowModelIntegratedPO.modelName=
                 this.$refs["flowBpmnjsContainer"].getXML((xml) => {
                     flowModelIntegratedPO.modelContent = xml;
                     func(flowModelIntegratedPO);
                 });
-                //return flowModelIntegratedPO;1
+                //return flowModelIntegratedPO;
             },
             showSaveResultDialog:function(result){
 
             },
             save:function () {
                 this.buildSubmitFlowIntegratedPO(false, (submitFlowIntegratedPO) => {
-                    if (this.saveValidate(submitFlowIntegratedPO)) {
+                    this.saveValidate(submitFlowIntegratedPO,(saveValidateResult)=>{
                         console.log(submitFlowIntegratedPO);
-                        RemoteUtility.Save(submitFlowIntegratedPO, (result) => {
+                        RemoteUtility.Save(submitFlowIntegratedPO, (saveResult) => {
                             window.opener._modulelistworkflowlistcomp.reloadData();
                         });
-                    }
+                    });
                 });
             },
             saveAndDeployment:function () {
                 this.buildSubmitFlowIntegratedPO(true, (submitFlowIntegratedPO) => {
-                    if (this.saveValidate(submitFlowIntegratedPO)) {
-
+                    /*if (this.saveValidate(submitFlowIntegratedPO)) {
+                    }*/
+                    this.saveValidate(submitFlowIntegratedPO,(saveValidateResult)=>{
                         let flowBpmnJsIntegratedObj = FlowBpmnJsIntegrated.GetInstance();
                         let warringMessages = this.validateWarringMessage(submitFlowIntegratedPO, flowBpmnJsIntegratedObj.GetModeler());
-                        //return;
                         if (warringMessages.length > 0) {
                             DialogUtility.ConfirmConfig(window, this.buildWarringMessage(warringMessages), {
                                 height: "auto",
@@ -305,7 +315,7 @@
                                 window.opener._modulelistworkflowlistcomp.reloadData();
                             });
                         }
-                    }
+                    });
                 });
             },
             saveAndClose:function () {

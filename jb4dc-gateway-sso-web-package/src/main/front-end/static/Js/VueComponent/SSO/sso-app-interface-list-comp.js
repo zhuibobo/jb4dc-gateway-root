@@ -22,7 +22,7 @@ Vue.component("sso-app-interface-list-comp", {
                 interfaceFormat:"",
                 interfaceDesc:"",
                 interfaceOrderNum:"",
-                interfaceCreateTime:DateUtility.GetCurrentData(),
+                interfaceCreateTime:DateUtility.GetCurrentDate(),
                 interfaceStatus:"启用",
                 interfaceCreaterId:"",
                 interfaceOrganId:""
@@ -90,7 +90,7 @@ Vue.component("sso-app-interface-list-comp", {
             this.interfaceEntity.interfaceFormat="";
             this.interfaceEntity.interfaceDesc="";
             this.interfaceEntity.interfaceOrderNum="";
-            this.interfaceEntity.interfaceCreateTime=DateUtility.GetCurrentData();
+            this.interfaceEntity.interfaceCreateTime=DateUtility.GetCurrentDate();
             this.interfaceEntity.interfaceStatus="启用";
             this.interfaceEntity.interfaceCreaterId="";
             this.interfaceEntity.interfaceOrganId="";

@@ -266,10 +266,12 @@ gulp.task('html-template-web-builder-package',()=>{
     })).pipe(gulp.dest(jarToResourcePath+"/HTML"));*/
 });
 
-gulp.task('html-template-web-system-setting-package',()=>{
+gulp.task('html-template-web-system-setting-html-package',()=>{
     return copyAndResolveHtml(sourcePath + "/HTML/SystemSetting/!(Runtime)/**/*.html",sourcePath + "/HTML",distPath + "/HTML");
 });
-
+gulp.task('html-template-web-portlet-html-package',()=>{
+    return copyAndResolveHtml(sourcePath + "/HTML/Portlet/!(Runtime)/**/*.html",sourcePath + "/HTML",distPath + "/HTML");
+});
 gulp.task('html-template-web-workflow-html-package',()=>{
     return copyAndResolveHtml(sourcePath + "/HTML/WorkFlow/!(Runtime)/**/*.html",sourcePath + "/HTML",distPath + "/HTML");
 });
@@ -283,7 +285,8 @@ gulp.task('site-template-design-all', gulp.series('site-template-design-utility'
 gulp.task('all', gulp.series(
     'html-design-all',
     'html-template-web-builder-package',
-    'html-template-web-system-setting-package',
+    'html-template-web-system-setting-html-package',
+    'html-template-web-portlet-html-package',
     'html-template-web-workflow-html-package',
     'html-template-web-workflow-modeler-resource-package',
     'js-vue-ex-component',

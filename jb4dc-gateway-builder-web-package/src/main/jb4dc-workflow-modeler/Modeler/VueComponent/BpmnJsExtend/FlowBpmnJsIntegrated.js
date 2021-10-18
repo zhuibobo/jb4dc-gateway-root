@@ -394,6 +394,8 @@ class FlowBpmnJsIntegrated {
         result.jb4dc.jb4dcProcessAnyJumpEnable = BpmnJsUtility.JB4DC_Attr_GetJb4dcProcessAnyJumpEnable(elem);
         result.jb4dc.jb4dcAuthorities = BpmnJsUtility.JB4DC_GetAuthorities(elem);
 
+        result.jb4dc.jb4dcRecallEnable = BpmnJsUtility.JB4DC_Attr_GetJb4dcRecallEnable(elem);
+
         if (!result.jb4dc.jb4dcActions) {
             result.jb4dc.jb4dcActions = [];
         }
@@ -411,6 +413,7 @@ class FlowBpmnJsIntegrated {
 
     DeSerializationDialogPropsToElem(props, elem) {
         console.log(props);
+        BpmnJsUtility.BPMN_Attr_SetId(elem,props.bpmn.id);
         BpmnJsUtility.BPMN_Attr_SetName(elem, props.bpmn.name);
         BpmnJsUtility.BPMN_SetElementDocumentationText(elem, props.bpmn.documentation);
 
@@ -499,6 +502,8 @@ class FlowBpmnJsIntegrated {
             BpmnJsUtility.BPMN_SetMultiInstanceLoopCharacteristics(elem, props.bpmn.multiInstanceLoopCharacteristics);
 
             BpmnJsUtility.JB4DC_SetAuthorities(elem, props.jb4dc.jb4dcAuthorities, true);
+
+            BpmnJsUtility.JB4DC_Attr_SetJb4dcRecallEnable(elem, props.jb4dc.jb4dcRecallEnable);
 
             if (props.camunda.taskListener && props.camunda.taskListener.length > 0) {
                 BpmnJsUtility.CAMUNDA_SetTaskListenerArray(elem, props.camunda.taskListener, true);

@@ -42,7 +42,7 @@ let replaceBlock = {
         //判断路径后进行引入js的路径
         //公用库
         let levelPath = calculateFilePath(file);
-        replaceArray.push(refJs(levelPath + "Js/External/JQuery-3.4.1/jquery-3.4.1.min.js"));
+        replaceArray.push(refJs(levelPath + "Js/External/JQuery-3.6.0/jquery-3.6.0.min.js"));
         replaceArray.push(refJs(levelPath + "Js/External/VUE-2.6.10/vue.js"));
         replaceArray.push(refJs(levelPath + "Js/External/IView-4.X/dist/iview.min.js"));
         replaceArray.push(refJs(levelPath + "Js/External/JQuery-UI-1.12.1/jquery-ui.js"));

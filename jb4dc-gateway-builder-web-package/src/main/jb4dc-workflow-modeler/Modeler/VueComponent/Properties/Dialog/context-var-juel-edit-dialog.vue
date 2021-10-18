@@ -23,7 +23,7 @@
                         </i-table>
                     </div>
                 </tab-pane>
-                <tab-pane tab="flow-process-title-config-tabs" label="环境变量" name="EnvVar">
+                <tab-pane tab="flow-process-title-config-tabs" label="环境变量[暂不支持]" name="EnvVar">
                     <div>
                         <div style="width: 25%;float: left;height: 300px;overflow: auto">
                             <div class="inner-wrap">

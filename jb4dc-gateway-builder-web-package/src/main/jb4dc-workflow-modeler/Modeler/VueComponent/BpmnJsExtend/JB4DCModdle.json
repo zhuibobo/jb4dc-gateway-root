@@ -406,6 +406,11 @@
           "name": "jb4dcContentDocumentRedHeadTemplate",
           "isAttr": true,
           "type": "String"
+        },
+        {
+          "name": "jb4dcRecallEnable",
+          "isAttr": true,
+          "type": "String"
         }
       ]
     },
@@ -594,12 +599,12 @@
           "type": "String"
         },
         {
-          "name": "actionsOpinionBindToField",
+          "name": "actionOpinionBindToField",
           "isAttr": true,
           "type": "String"
         },
         {
-          "name": "actionsOpinionBindToElemId",
+          "name": "actionOpinionBindToElemId",
           "isAttr": true,
           "type": "String"
         },
@@ -630,6 +635,21 @@
         },
         {
           "name": "actionCallComplete",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "actionDisable",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "actionRemark",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "actionAtStatus",
           "isAttr": true,
           "type": "String"
         }

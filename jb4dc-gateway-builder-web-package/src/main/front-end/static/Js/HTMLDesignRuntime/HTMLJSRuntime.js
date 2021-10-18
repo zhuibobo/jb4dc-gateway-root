@@ -4,17 +4,34 @@ let HTMLJSRuntime={
     _$RendererToElem:null,
     _JsContent:null,
     _ReplaceContextPath:function(source){
-        var contextPath=BaseUtility.GetRootPath();
-        return source.replaceAll("${contextPath}",contextPath);
+        try {
+            var contextPath = BaseUtility.GetRootPath();
+            //return source.replaceAll("${contextPath}", contextPath);
+            return source.replace(/\$\{contextPath\}/g, contextPath);
+        }
+        catch (e){
+            throw "_ReplaceContextPath:"+e;
+        }
     },
     _ReplaceTimeStamp:function(source){
-        var timestamp=new Date().getTime();
-        return source.replaceAll("${timeStamp}",timestamp);
+        try {
+            var timestamp=new Date().getTime();
+            //return source.replaceAll("${timeStamp}",timestamp);
+            return source.replace(/\$\{timeStamp\}/g, timestamp);
+        }
+        catch (e){
+            throw "_ReplaceTimeStamp:"+e;
+        }
     },
     ReplaceJSParas:function(source){
-        var resultJs=this._ReplaceContextPath(source);
-        resultJs=this._ReplaceTimeStamp(resultJs);
-        return resultJs;
+        try {
+            var resultJs = this._ReplaceContextPath(source);
+            resultJs = this._ReplaceTimeStamp(resultJs);
+            return resultJs;
+        }
+        catch (e){
+            throw "ReplaceJSParas:"+e;
+        }
     },
     Initialization:function (_config,$rendererToElem,jsContent) {
         this._Prop_Config= $.extend(true,{},this._Prop_Config,_config);

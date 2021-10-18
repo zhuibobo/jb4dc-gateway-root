@@ -252,7 +252,7 @@ var WFDCT_FileUploadContainer={
     BuildFileInfoTableRow:function (responseJSON,fileInfo) {
         var fileCode=fileInfo.fileCode;
         var fileName=StringUtility.EncodeHtml(fileInfo.fileName);
-        var fileCreateTime=DateUtility.DataFormatByTimeStamp(fileInfo.fileCreateTime,"yyyy-MM-dd");
+        var fileCreateTime=DateUtility.DateFormatByTimeStamp(fileInfo.fileCreateTime,"yyyy-MM-dd");
         var fileSize=HardDiskUtility.ByteConvert(fileInfo.fileSize);
         var fileCreatorName=StringUtility.EncodeHtml(fileInfo.fileCreatorName);
         var $trObj=$(`<tr><td style="text-align: center">${fileCode}</td><td>${fileName}</td><td style="text-align: center">${fileCreateTime}</td><td style="text-align: center">${fileCreatorName}</td><td style="text-align: center">${fileSize}</td><td style="text-align: center"></td></tr>`);
