@@ -329,15 +329,15 @@ function copyAndResolveHtml(sourcePath,base,toPath) {
         .pipe(replacecust(replaceBlockObj.replaceBlock('BootStrap4Lib'), replaceBlockObj.replaceBootStrap4Lib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('FrameV1Lib'), replaceBlockObj.replaceFrameV1Lib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('GoJsLib'), replaceBlockObj.replaceGoJsLib))
-        .pipe(replacecust(replaceBlockObj.replaceBlock('Webix'), replaceBlockObj.replaceWebixLib))
+        .pipe(replacecust(replaceBlockObj.replaceBlock('WebixLib'), replaceBlockObj.replaceWebixLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('HTMLDesignRuntimeLib'), replaceBlockObj.replaceHTMLDesignRuntimeLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('WorkFlowRuntimeLib'), replaceBlockObj.replaceWorkFlowRuntimeLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('HTMLDesignWysiwygLib'), replaceBlockObj.replaceHTMLDesignWysiwygLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('HTMLDesignPluginLib'), replaceBlockObj.replaceHTMLDesignPluginLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('SiteTemplateDesignLib'), replaceBlockObj.replaceSiteTemplateDesignLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('LineAwesomeLib'), replaceBlockObj.replaceLineAwesomeLib))
+        .pipe(replacecust(replaceBlockObj.replaceBlock('JsonEditorLib'), replaceBlockObj.replaceJsonEditorLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('ModelerView'), replaceBlockObj.replaceModelerViewLib))
-        .pipe(replacecust(replaceBlockObj.replaceBlock('JsonEditor'), replaceBlockObj.replaceJsonEditorLib))
 
     //console.log(toPath);
     if(isdebug){

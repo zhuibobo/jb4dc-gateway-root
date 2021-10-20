@@ -8,10 +8,10 @@
 <html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Title1</title>
     <th:block th:replace="Fragment/GeneralLib::GeneralLib"></th:block>
     <th:block th:replace="Fragment/GeneralLib::ThemesLib"></th:block>
-    <th:block th:replace="Fragment/GeneralLib::JsonEditor"></th:block>
+    <th:block th:replace="Fragment/GeneralLib::JsonEditorLib"></th:block>
 </head>
 <body>
 <div id="appForm" class="general-edit-page-wrap" v-cloak style="margin-top: 0px">
@@ -69,7 +69,7 @@
                 </div>
             </tab-pane>
             <tab-pane label="属性设置" name="WidgetProperties">
-                <div id="flow-modeler-json-editor" style="margin: 0px 10px"></div>
+                <div id="widget-properties-json-editor" style="margin: 0px 10px"></div>
             </tab-pane>
         </tabs>
     </div>
@@ -95,10 +95,8 @@
             }
 
             $("#flow-modeler-json-editor").height(PageStyleUtility.GetPageHeight()-100);
-            var container = document.getElementById('flow-modeler-json-editor');
-            var options = {};
-            var editor = new JSONEditor(container, options);
-            editor.set({"Desc":"Widget相关属性"});
+            //let container = document.getElementById('flow-modeler-json-editor');
+
         },
         data: {
             isSubmitting: false,
@@ -118,7 +116,7 @@
                 widgetBefRender: "",
                 widgetAftRender: "",
                 widgetUpdater: "",
-                widgetProperties: "",
+                widgetProperties: {"Desc":"Widget相关属性"},
                 widgetGroupId: BaseUtility.GetUrlParaValue("groupId")
             },
             ruleValidate: {
@@ -132,18 +130,26 @@
                     {required: true, message: '【JS渲染对象】不能空！', trigger: 'blur'}
                 ]
             },
-            status: BaseUtility.GetUrlParaValue("op")
+            status: BaseUtility.GetUrlParaValue("op"),
+            jsonEditor:null
         },
         methods: {
             bindFormData: function () {
                 //获取数据并赋值
-                DetailPageUtility.BindFormData(this.acInterface.getDataUrl, this.formEntity, this.recordId, this.status, null, null);
+                DetailPageUtility.BindFormData(this.acInterface.getDataUrl, this.formEntity, this.recordId, this.status, null,function (){
+                    this.jsonEditor = new JSONEditor(document.getElementById('widget-properties-json-editor'), {});
+                    if(!BaseUtility.IsAddOperation(this.status)){
+                        this.formEntity.widgetProperties=JsonUtility.StringToJson(this.formEntity.widgetProperties);
+                    }
+                    this.jsonEditor.set(this.formEntity.widgetProperties);
+                },this);
             },
             handleSubmit: function (name) {
                 var _self = this;
                 this.$refs[name].validate(function (valid) {
                     if (valid) {
                         _self.isSubmitting = true;
+                        _self.formEntity.widgetProperties=_self.jsonEditor.getText();
                         var sendData = JSON.stringify(_self.formEntity);
                         AjaxUtility.PostRequestBody(_self.acInterface.saveDataUrl, sendData, function (result) {
                             DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {

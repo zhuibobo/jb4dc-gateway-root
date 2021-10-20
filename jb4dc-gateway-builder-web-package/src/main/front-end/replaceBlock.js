@@ -215,8 +215,8 @@ let replaceBlock = {
         //判断路径后进行引入js的路径
         let levelPath = calculateFilePath(file);
 
-        replaceArray.push(refJs(levelPath + "Js/External/Webix-UI-V.6.2.5/codebase/webix.js"));
-        replaceArray.push(refCss(levelPath + 'Js/External/Webix-UI-V.6.2.5/codebase/webix.css'));
+        replaceArray.push(refJs(levelPath + "Js/External/Webix.9.0.0/webix/codebase/webix.js"));
+        replaceArray.push(refCss(levelPath + 'Js/External/Webix.9.0.0/webix/codebase/webix.css'));
 
         return replaceArray.join("\n\t");
     },

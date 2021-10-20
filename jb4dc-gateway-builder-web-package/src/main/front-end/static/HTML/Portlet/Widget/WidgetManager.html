@@ -108,9 +108,9 @@
                 }
             },
             <!--List-->
-            idFieldName:"apiItemId",
+            idFieldName:"widgetId",
             searchCondition:{
-                apiItemGroupId:{
+                widgetGroupId:{
                     value:"",
                     type:SearchUtility.SearchFieldType.StringType
                 }
@@ -122,32 +122,33 @@
                     align: 'center'
                 },
                 {
-                    title: '变量名称',
-                    key: 'apiItemText',
+                    title: '标题',
+                    key: 'widgetTitle',
                     align: "center"
                 }, {
-                    title: '变量值',
-                    key: 'apiItemValue',
+                    title: '客户端对象名称',
+                    key: 'widgetClientRender',
                     align: "center"
                 }, {
-                    title: '类名',
-                    key: 'apiItemClassName'
+                    title: '备注',
+                    key: 'widgetDesc',
+                    align: "center"
                 }, {
                     title: '状态',
                     width: 100,
                     align: "center",
-                    key: 'apiItemStatus'
+                    key: 'widgetStatus'
                 }, {
-                    title: '创建时间',
-                    key: 'apiItemCreateTime',
+                    title: '更新时间',
+                    key: 'widgetUpdateTime',
                     width: 100,
                     align: "center",
                     render: function (h, params) {
-                        return ListPageUtility.IViewTableRenderer.ToDateYYYY_MM_DD(h, params.row.apiItemCreateTime);
+                        return ListPageUtility.IViewTableRenderer.ToDateYYYY_MM_DD(h, params.row.widgetUpdateTime);
                     }
                 }, {
                     title: '操作',
-                    key: 'apiItemId',
+                    key: 'widgetId',
                     width: 120,
                     align: "center",
                     render: function (h, params) {
@@ -196,7 +197,7 @@
                 this.selectionRows=null;
                 this.pageNum=1;
                 this.clearSearchCondition();
-                this.searchCondition.apiItemGroupId.value=this.treeSelectedNode[this.treeIdFieldName];
+                this.searchCondition.widgetGroupId.value=this.treeSelectedNode[this.treeIdFieldName];
                 this.reloadData();
                 //appList.reloadTreeTableData();
                 //}
