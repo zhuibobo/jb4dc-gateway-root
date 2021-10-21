@@ -1,0 +1,216 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: zhuangrb
+  Date: 2021/10/19
+  To change this template use File | Settings | File Templates.
+--><!DOCTYPE html><html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>Title1</title><title>JBuild4D</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="../../../../Js/External/JQuery-3.6.0/jquery-3.6.0.min.js"></script><script type="text/javascript" src="../../../../Js/External/VUE-2.6.10/vue.js"></script><script type="text/javascript" src="../../../../Js/External/IView-4.X/dist/iview.min.js"></script><script type="text/javascript" src="../../../../Js/External/JQuery-UI-1.12.1/jquery-ui.js"></script><script type="text/javascript" src="../../../../Js/External/ZTree-3.5.40/js/jquery.ztree.all.js"></script><script type="text/javascript" src="../../../../Js/External/Perfect-Scrollbar-V1.4.0/perfect-scrollbar.js"></script><script type="text/javascript" src="../../../../Js/JBuild4DCLib.js?refVersion=1634690820566"></script><script type="text/javascript" src="../../../../Js/UIEXComponent.js?refVersion=1634690820566"></script><script type="text/javascript" src="../../../../Js/VueEXComponent.js?refVersion=1634690820566"></script><script type="text/javascript" src="../../../../JB4DCBuilder/Js/UIEXComponentForBuilder.js?refVersion=1634690820566"></script><script type="text/javascript" src="../../../../JB4DCBuilder/Js/BuilderVueEXComponent.js?refVersion=1634690820566"></script><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/IView-4.X/iview.css"><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/JQueryUI/jquery-ui.css"><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/JQueryUI/jquery-ui-important.css"><link rel="stylesheet" type="text/css" href="../../../../Js/External/Perfect-Scrollbar-V1.4.0/perfect-scrollbar.css"><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/ZTree/zTreeStyle/zTreeStyle.css"><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/Css/JBuild4DC.css?refVersion=1634690820566"><link rel="stylesheet" type="text/css" href="../../../../JB4DCBuilder/Themes/Default/Css/JBuild4DCBuilder.css?refVersion=1634690820566"><script type="text/javascript" src="../../../../Js/External/Webix.9.0.0/webix/codebase/webix.js"></script><link rel="stylesheet" type="text/css" href="../../../../Js/External/Webix.9.0.0/webix/codebase/webix.css"><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/Line-Awesome-1.3.0/css/line-awesome.css"><script type="text/javascript" charset="utf-8">$(function (){
+            pageObj.getPagePOAndWidgetPOListThenRender();
+        });
+        let pageObj= {
+            pagePO:null,
+            groupWidgetTreeData:null,
+
+            widgetTreeView:null,
+            dashboardView:null,
+            panelMenu:null,
+
+            getPagePOAndWidgetPOListThenRender: function () {
+                AjaxUtility.Post("/Rest/Portlet/TemplatePage/GetDetailData", {
+                    recordId: BaseUtility.GetUrlParaValue("recordId")
+                }, function (result) {
+                    if (result.success) {
+                        //console.log(result);
+                        this.pagePO = result.data;
+                        this.pagePO.pageConfig = JsonUtility.StringToJson(this.pagePO.pageConfig);
+                        this.pagePO.pageProperties = JsonUtility.StringToJson(this.pagePO.pageProperties);
+                        if (this.pagePO.pageWidgetConfig) {
+                            this.pagePO.pageWidgetConfig = JsonUtility.StringToJson(this.pagePO.pageWidgetConfig);
+                        } else {
+                            this.pagePO.pageWidgetConfig = [];
+                        }
+
+                        AjaxUtility.Post("/Rest/Portlet/Widget/GetTreeData", {}, function (result) {
+                            let groupWidgetTreeData=result.data;
+                            console.log(result.data);
+                            for (let i = 0; i < groupWidgetTreeData.length; i++) {
+                                groupWidgetTreeData[i].dx=2;
+                                groupWidgetTreeData[i].dy=4;
+                            }
+                            this.groupWidgetTreeData = JsonUtility.ParseArrayJsonToTreeJson({
+                                KeyField: "id",
+                                RelationField: "parentId",
+                                ChildFieldName: "data"
+                            }, groupWidgetTreeData, "WidgetGroup0");
+                            this.renderPage();
+                        }, this);
+                    }
+                }, this);
+            },
+            renderPage:function (){
+                console.log(this.pagePO);
+                console.log(this.groupWidgetTreeData);
+
+                let widgetTreeView=this.buildWidgetTreeView();
+                let dashboardView=this.buildDashboardView();
+                this.panelMenu=this.buildWidgetMenu();
+
+                webix.ui({
+                    type: "space", cols: [
+                        {view: "scrollview", body: dashboardView},
+                        widgetTreeView
+                    ]
+                });
+
+                webix.event(document.body, "click", function (ev) {
+                    var css = ev.target.className;
+                    if (css && css.toString().indexOf("panel_icon") != -1) {
+                        pageObj.panelMenu.setContext(webix.$$(ev.target));
+                        pageObj.panelMenu.show(ev.target);
+                    }
+                });
+
+                if(this.pagePO.pageWidgetConfig) {
+                    $$("dashboardViewLayout").restore(this.pagePO.pageWidgetConfig);
+                }
+            },
+            buildDashboardView:function () {
+                let pagePO = this.pagePO;
+                let dashboard = {
+                    view: "dashboard", id: "dashboardViewLayout",
+                    gridColumns: pagePO.pageConfig.gridColumns, gridRows: pagePO.pageConfig.gridRows,
+                    cellHeight: pagePO.pageConfig.cellHeight,
+                    factory: function (obj) {
+                        console.log(obj);
+                        obj.view = "panel";
+                        obj.resize = true;
+                        obj.icon = "las la-align-justify";
+                        obj.body = {
+                            view: "template",
+                            template: function (data) {
+                                let widgetPO = $$("widgetTree").getItem(data.obj.name);
+                                console.log(widgetPO);
+                                return "<div>"+widgetPO.text+"</div>";
+                            },
+                            data: {
+                                pagePO: pagePO,
+                                obj:obj
+                            },
+                            on: {
+                                onViewShow: function () {
+                                    /*console.log("------------onViewShow-------------");
+                                    console.log(this);
+                                    console.log("------------onViewShow-------------");*/
+                                },
+                                onAfterLoad: function () {
+                                    /*console.log("------------onAfterLoad-------------");
+                                    console.log(this);
+                                    console.log("------------onAfterLoad-------------");*/
+                                },
+                                onBlur: function (prev_view) {
+                                    /*console.log("------------onBlur-------------");
+                                    console.log(this);
+                                    console.log("------------onBlur-------------");*/
+                                },
+                                onBeforeRender: function (data) {
+                                    /*console.log("------------onBeforeRender-------------");
+                                    console.log(this);
+                                    console.log(data);
+                                    console.log("------------onBeforeRender-------------");*/
+                                },
+                                onAfterRender: function () {
+                                    /*console.log("------------onAfterRender-------------");
+                                    console.log(this);
+                                    let _this = this;
+                                    let ele = $("<div>xxx</div>");
+                                    ele.click(function () {
+                                        alert(_this.data.d1);
+                                    });
+                                    $(this.$view).find("[name='template1x']").append(ele);
+                                    console.log("------------onAfterRender-------------");*/
+                                }
+                            }
+                        };
+                        /*if (obj.name == "b") {
+                            obj.body.content = "myDiv";
+                        }*/
+                        return obj;
+                    },
+                    on: {
+                        onChange: function () {
+                            //var state = this.serialize();
+                            //webix.storage.local.put("grid-dashboard-state", state);
+                        }
+                    }
+                };
+                return dashboard;
+            },
+            buildWidgetTreeView:function (){
+                let widgets = {
+                    rows: [{
+                        type: "header",
+                        template: "将Widget拖放到页面中",
+                    }, {
+                        view: "tree", id: "widgetTree",
+                        width: 200,
+                        drag: "source",
+                        activeTitle:true,
+                        template:"<img src='/Themes/Png16X16/#icon#' style='float:left; margin:3px 4px 0px 1px;'> #text#",
+                        data: this.groupWidgetTreeData,
+                        on:{
+                            onBeforeDrag:function (context, native_event){
+                                //console.log(context);
+                                //console.log(native_event);
+                                //console.log("onBeforeDrag Error");
+                                let obj = $$("widgetTree").getItem(context.start);
+                                console.log(obj);
+                                if(obj.nodeTypeName=="Group"){
+                                    return false;
+                                }
+                                return true;
+                            }
+                        }
+                    }, {
+                        view: "button", value: "重置", click: function () {
+                            $$("dashboardViewLayout").clearAll();
+                        }
+                    }, {
+                        view: "button", value: "保存", click: function () {
+                            //$$("grid").clearAll();
+                            pageObj.saveLayout();
+                        }
+                    }]
+                };
+                return widgets;
+            },
+            buildWidgetMenu:function (){
+                let menu = webix.ui({
+                    view: "contextmenu",
+                    click: function (id) {
+                        if (id === "deleteWidget") {
+                            let view = this.getContext();
+                            view.getParentView().removeView(view);
+                        }
+                    },
+                    data: [
+                        {id: "deleteWidget", value: "移除"},
+                        {id: "detailWidget", value: "详情"},
+                        {id: "editWidget", value: "编辑"}
+                    ]
+                });
+                return menu;
+            },
+            saveLayout:function () {
+                let pageWidgetConfig = $$("dashboardViewLayout").serialize();
+                AjaxUtility.Post("/Rest/Portlet/TemplatePage/SavePageWidgetConfig", {
+                    recordId: BaseUtility.GetUrlParaValue("recordId"),
+                    pageWidgetConfig: JsonUtility.JsonToString(pageWidgetConfig)
+                }, function (result) {
+                    if(result.success){
+                        DialogUtility.Alert(window,DialogUtility.DialogId,{},result.message,function (){
+
+                        },this);
+                    }
+                }, this);
+                //console.log(pageWidgetConfig);
+            }
+        }</script></head><body></body></html>

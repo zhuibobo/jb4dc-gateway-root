@@ -215,12 +215,11 @@ Vue.component("select-module-object-dialog", {
     template: `<div ref="selectModuleObjectDialogWrap" class="c1-select-model-wrap general-edit-page-wrap" style="display: none">
                     <div class="list-2column">
                         <div class="left-outer-wrap" style="width: 220px;top: 10px;left: 10px;bottom: 55px">
-                            <i-select @on-change="changeDBLink" v-model="selectedDBLinkId">
+                            <i-select @on-change="changeDBLink" v-model="selectedDBLinkId" style="margin: 6px;width: 207px">
                                 <i-option v-for="item in dbLinkArray" :value="item.dbId" :key="item.dbId">{{ item.dbLinkName }}</i-option>
                             </i-select>
-                            <div class="inner-wrap" style="position:absolute;top: 34px;bottom: 10px;height: auto;overflow: auto">
+                            <div class="inner-wrap" style="position:absolute;top: 40px;bottom: 10px;height: auto;overflow: auto">
                                 <div>
-                                    
                                     <ul ref="zTreeUL" class="ztree"></ul>
                                 </div>
                             </div>

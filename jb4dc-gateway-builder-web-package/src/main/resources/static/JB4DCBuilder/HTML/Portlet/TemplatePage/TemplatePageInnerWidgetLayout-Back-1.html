@@ -1,0 +1,167 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: zhuangrb
+  Date: 2021/10/14
+  To change this template use File | Settings | File Templates.
+--><!DOCTYPE html><html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>Title1</title><title>JBuild4D</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="../../../../Js/External/JQuery-3.6.0/jquery-3.6.0.min.js"></script><script type="text/javascript" src="../../../../Js/External/VUE-2.6.10/vue.js"></script><script type="text/javascript" src="../../../../Js/External/IView-4.X/dist/iview.min.js"></script><script type="text/javascript" src="../../../../Js/External/JQuery-UI-1.12.1/jquery-ui.js"></script><script type="text/javascript" src="../../../../Js/External/ZTree-3.5.40/js/jquery.ztree.all.js"></script><script type="text/javascript" src="../../../../Js/External/Perfect-Scrollbar-V1.4.0/perfect-scrollbar.js"></script><script type="text/javascript" src="../../../../Js/JBuild4DCLib.js?refVersion=1634690820566"></script><script type="text/javascript" src="../../../../Js/UIEXComponent.js?refVersion=1634690820566"></script><script type="text/javascript" src="../../../../Js/VueEXComponent.js?refVersion=1634690820566"></script><script type="text/javascript" src="../../../../JB4DCBuilder/Js/UIEXComponentForBuilder.js?refVersion=1634690820566"></script><script type="text/javascript" src="../../../../JB4DCBuilder/Js/BuilderVueEXComponent.js?refVersion=1634690820566"></script><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/IView-4.X/iview.css"><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/JQueryUI/jquery-ui.css"><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/JQueryUI/jquery-ui-important.css"><link rel="stylesheet" type="text/css" href="../../../../Js/External/Perfect-Scrollbar-V1.4.0/perfect-scrollbar.css"><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/ZTree/zTreeStyle/zTreeStyle.css"><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/Css/JBuild4DC.css?refVersion=1634690820566"><link rel="stylesheet" type="text/css" href="../../../../JB4DCBuilder/Themes/Default/Css/JBuild4DCBuilder.css?refVersion=1634690820566"><script type="text/javascript" src="../../../../Js/External/Webix.9.0.0/webix/codebase/webix.js"></script><link rel="stylesheet" type="text/css" href="../../../../Js/External/Webix.9.0.0/webix/codebase/webix.css"></head><body><div id="myDiv">myDivmyDivmyDivmyDiv</div><script type="text/javascript" charset="utf-8">var grid = {
+        view: "dashboard", id: "grid",
+        gridColumns: 12, gridRows: 12,
+        cellHeight: 200,
+        factory: function (obj) {
+            console.log(obj);
+            obj.view = "panel";
+            obj.resize = true;
+            obj.icon = "mdi mdi-menu";
+            //obj.body = { template: $$("list").getItem(obj.name).value };
+            obj.body = {
+                view: "template",
+                template: function (obj) {
+                    console.log(obj);
+                    let widgetRenderer = $$("list").getItem(obj.obj.name).widgetRenderer;
+                    console.log(widgetRenderer);
+                    return "<div name='template1x' style='height: 100%;background: #0f5768;color: red;overflow: auto'><div style='height: 600px;background: #0f5768;color: red;overflow: auto'></div>Default template with some text inside</div>"
+                },
+                data: {
+                    d1: 123,
+                    obj: obj
+                },
+                on: {
+                    onViewShow: function () {
+                        /*console.log("------------onViewShow-------------");
+                    console.log(this);
+                    console.log("------------onViewShow-------------");*/
+                    },
+                    onAfterLoad: function () {
+                        /*console.log("------------onAfterLoad-------------");
+                    console.log(this);
+                    console.log("------------onAfterLoad-------------");*/
+                    },
+                    onBlur: function (prev_view) {
+                        /*console.log("------------onBlur-------------");
+                    console.log(this);
+                    console.log("------------onBlur-------------");*/
+                    },
+                    onBeforeRender: function (data) {
+                        /*console.log("------------onBeforeRender-------------");
+                    console.log(this);
+                    console.log(data);
+                    console.log("------------onBeforeRender-------------");*/
+                    },
+                    onAfterRender: function () {
+                        console.log("------------onAfterRender-------------");
+                        console.log(this);
+                        //this.$view.innerHTML=this.data.d1;
+                        let _this = this;
+                        let ele = $("<div>xxx</div>");
+                        ele.click(function () {
+                            alert(_this.data.d1);
+                        });
+                        $(this.$view).find("[name='template1x']").append(ele);
+                        console.log("------------onAfterRender-------------");
+                    }
+                }
+            };
+            if (obj.name == "b") {
+                obj.body.content = "myDiv";
+            }
+            //debugger;
+            /*obj.attachEvent("onViewShow", function(){
+                // your handler here
+                console.log("-------------------------");
+                console.log(this);
+                console.log("-------------------------");
+            });*/
+            return obj;
+        },
+        on: {
+            onChange: function () {
+                var state = this.serialize();
+                webix.storage.local.put("grid-dashboard-state", state);
+            }
+        }
+    };
+
+    var menu = webix.ui({
+        view: "contextmenu",
+        click: function (id) {
+            if (id === "delete") {
+                var view = this.getContext();
+                view.getParentView().removeView(view);
+            }
+        },
+        data: [
+            {id: "n1", value: "Nothing"},
+            {id: "n2", value: "Nothing"},
+            {id: "delete", value: "Delete"}
+        ]
+    });
+
+    var widgets = {
+        rows: [{
+            type: "header",
+            template: "Widgets, drag from here",
+        }, {
+            view: "tree", id: "list",
+            width: 200,
+            drag: "source",
+            /*template: "#value# - (#dx#x#dy#)",*/
+            activeTitle:true,
+            data: [
+                {
+                    id: "a", open: true, value: "Widget A", widgetRenderer: "widgetRenderer-a", dx: 1, dy: 1,
+                    data: [
+                        {
+                            id: "1.1", open: true, value: "Part 1", dx: 1, dy: 1,
+                            data:[
+                                {id: "1.1.1", value: "Part 11", dx: 1, dy: 1},
+                                {id: "1.1.2", value: "Part 12", dx: 1, dy: 1},
+                                {id: "1.1.3", value: "Part 13", dx: 1, dy: 1}
+                            ]
+                        },
+                        {id: "1.2", value: "Part 2", dx: 1, dy: 1},
+                        {id: "1.3", value: "Part 3", dx: 1, dy: 1}
+                    ]
+                },
+                {id: "b", value: "Widget B", widgetRenderer: "widgetRenderer-b", dx: 1, dy: 2},
+                {id: "c", value: "Widget C", widgetRenderer: "widgetRenderer-c", dx: 2, dy: 1},
+                {id: "d", value: "Widget D", widgetRenderer: "widgetRenderer-d", dx: 2, dy: 2},
+                {id: "e", value: "Widget E", widgetRenderer: "widgetRenderer-e", dx: 1, dy: 1},
+                {id: "f", value: "Widget F", widgetRenderer: "widgetRenderer-f", dx: 1, dy: 1},
+                {id: "g", value: "Widget G", widgetRenderer: "widgetRenderer-g", dx: 3, dy: 1}
+            ],
+            on:{
+                onBeforeDrag:function (context, native_event){
+                    console.log(context);
+                    console.log(native_event);
+                    console.log("onBeforeDrag Error");
+                    let obj = $$("list").getItem(context.start);
+                    console.log(obj);
+                    //return false;
+                }
+            }
+        }, {
+            view: "button", value: "Reset", click: function () {
+                $$("grid").clearAll();
+            }
+        }]
+    };
+
+    webix.ui({
+        type: "space", cols: [
+            {view: "scrollview", body: grid},
+            widgets
+        ]
+    });
+
+    var state = webix.storage.local.get("grid-dashboard-state");
+    //console.log(state);
+    if (state)
+        $$("grid").restore(state);
+
+    webix.event(document.body, "click", function (ev) {
+        var css = ev.target.className;
+        if (css && css.toString().indexOf("panel_icon") != -1) {
+            menu.setContext(webix.$$(ev.target));
+            menu.show(ev.target);
+        }
+    });</script></body></html>

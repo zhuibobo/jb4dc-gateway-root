@@ -43,7 +43,7 @@
                 <radio label="流程分组" disabled>流程分组</radio>
                 <radio label="流程实例" disabled>流程实例</radio>
                 <radio label="统计列表" disabled>统计列表</radio>
-                <radio label="工作桌面" disabled>工作桌面</radio>
+                <radio label="工作桌面">工作桌面</radio>
             </radio-group>
         </form-item>
         <form-item label="链接地址：" prop="menuRightUrl" class="margin-bottom-12-imp">
@@ -123,6 +123,8 @@
     </div>
     <select-module-object-dialog ref="selectModuleObjectDialog"
                                  @on-selected-completed="bindModuleObjectTo"></select-module-object-dialog>
+    <select-portlet-template-page-dialog ref="selectPortletTemplatePageDialog"
+                                 @on-selected-completed="bindModuleObjectTo"></select-portlet-template-page-dialog>
 </div>
 <div id="urlParaDescWarp" style="display: none">
     <ul>
@@ -262,6 +264,12 @@
                     DialogUtility.AlertText(this.formEntity.menuType+"类型的菜单不需要进行设置!");
                     return;
                 }
+                else if(menuType=="工作桌面"){
+                    //DialogUtility.AlertText(this.formEntity.menuType+"类型的菜单不需要进行设置!");
+                    //return;
+                    //alert(1);
+                    this.$refs.selectPortletTemplatePageDialog.beginSelect(this.formEntity.menuType);
+                }
                 else{
                     /*url = BaseUtility.BuildView(this.acInterface.SelectModuleObjectView, {
                         "selectObjectType": decodeURIComponent(menuType)
@@ -297,6 +305,12 @@
                 console.log(this.formEntity.menuType);
             },
             bindModuleObjectTo:function (selectedModuleObject,id,Name,objJson) {
+                console.log(selectedModuleObject);
+                this.formEntity.menuOuterId=id;
+                this.formEntity.menuOuterName=Name;
+                this.formEntity.menuOuterObject=objJson;
+            },
+            bindPortletTemplatePageTo:function (selectedModuleObject,id,Name,objJson) {
                 console.log(selectedModuleObject);
                 this.formEntity.menuOuterId=id;
                 this.formEntity.menuOuterName=Name;
