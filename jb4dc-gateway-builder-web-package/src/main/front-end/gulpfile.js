@@ -206,6 +206,30 @@ gulp.task('workflow-runtime-template',()=>{
     return copyAndResolveHtml(sourcePath + "/HTML/WorkFlow/Runtime/**.html",sourcePath + "/HTML",html_design_runtime_distPath + "/HTML");
 });
 
+gulp.task('portlet-runtime-full-js',()=>{
+    var obj= gulp.src([sourcePath + '/Js/PortletRuntime/**/*.js'])
+        .pipe(babel({
+            presets: ['@babel/env'],
+        }))
+        .pipe(sourcemaps.init())
+        .pipe(concat('PortletRuntimeFull.js'));
+
+    if(!isdebug){
+        obj=obj.pipe(uglify());
+    }
+    /*.pipe(uglify(
+        {
+            compress: {drop_debugger: false}
+        }
+    ))*/
+    return  obj.pipe(sourcemaps.write())
+        .pipe(gulp.dest(html_design_runtime_distPath + "/Js"));
+});
+
+gulp.task('portlet-runtime-template',()=>{
+    return copyAndResolveHtml(sourcePath + "/HTML/Portlet/Runtime/**.html",sourcePath + "/HTML",html_design_runtime_distPath + "/HTML");
+});
+
 /*SiteTemplate设计的基础工具类*/
 gulp.task('site-template-design-utility',()=> {
     var obj= gulp.src([
@@ -252,7 +276,9 @@ gulp.task('html-design-all', gulp.series(
     'html-design-runtime-wfdct-ckeditor4-config-js',
     'html-design-runtime-images-builder-runtime',
     'workflow-runtime-template',
-    'workflow-runtime-full-js'
+    'workflow-runtime-full-js',
+    'portlet-runtime-template',
+    'portlet-runtime-full-js'
     ));
 
 gulp.task('html-template-web-builder-package',()=>{
@@ -338,6 +364,7 @@ function copyAndResolveHtml(sourcePath,base,toPath) {
         .pipe(replacecust(replaceBlockObj.replaceBlock('LineAwesomeLib'), replaceBlockObj.replaceLineAwesomeLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('JsonEditorLib'), replaceBlockObj.replaceJsonEditorLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('ModelerView'), replaceBlockObj.replaceModelerViewLib))
+        .pipe(replacecust(replaceBlockObj.replaceBlock('PortletRuntimeLib'), replaceBlockObj.replacePortletRuntimeLib))
 
     //console.log(toPath);
     if(isdebug){

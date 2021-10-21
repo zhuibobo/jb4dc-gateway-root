@@ -220,6 +220,16 @@ let replaceBlock = {
 
         return replaceArray.join("\n\t");
     },
+    replacePortletRuntimeLib:function (search, file){
+        let replaceArray = new Array();
+        //判断路径后进行引入js的路径
+        let levelPath = calculateFilePath(file);
+
+        replaceArray.push(refJs(levelPath + "JB4DCBuilderClient/Js/PortletRuntimeFull.js"));
+        replaceArray.push(refCss(levelPath + 'JB4DCBuilderClient/Js/PortletRuntimeMain.css'));
+
+        return replaceArray.join("\n\t");
+    },
     replaceWorkFlowRuntimeLib:function (search, file){
         let replaceArray = new Array();
         //判断路径后进行引入js的路径
