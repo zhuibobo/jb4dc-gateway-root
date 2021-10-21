@@ -11,9 +11,11 @@ const path = require('path');
 const sourcemaps = require('gulp-sourcemaps');
 const htmlmin = require('gulp-htmlmin');
 
-const replacecust = require("./gulp-plugin/gulp-replace-cust/index.js");
+//const replacecust = require("./gulp-plugin/gulp-replace-cust/index.js");
+//const replaceBlockObj=require("./replaceBlock.js");
+const replacecust = require("../../../../gulp-cust/gulp-plugin/gulp-replace-cust/index.js");
+const replaceBlockObj=require("../../../../gulp-cust/replaceBlock.js");
 
-const replaceBlockObj=require("./replaceBlock.js");
 
 const sourcePath = "static";
 const distPath = "../resources/static/JB4DCBuilder/";
