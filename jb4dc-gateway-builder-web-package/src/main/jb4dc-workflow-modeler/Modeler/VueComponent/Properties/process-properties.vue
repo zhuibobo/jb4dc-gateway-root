@@ -39,6 +39,7 @@
                             <td>
                                 <Select v-model="jb4dc.jb4dcFlowCategory">
                                     <Option value="GeneralProcess">通用流程</Option>
+                                    <Option value="DailyAffairsProcess">日常事务流程</Option>
                                     <Option value="ReceiveDocumentProcess">公文收文流程</Option>
                                     <Option value="SendDocumentProcess">公文发文流程</Option>
                                     <Option value="AdministrativeApprovalProcess">行政审批流程</Option>
@@ -54,7 +55,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>分组设置：</td>
+                            <td style="color: red">分组设置：</td>
                             <td>
                                 <div style="float: left;width: 82%">
                                     <tag type="border" color="success" v-for="(item,index) in jb4dc.jb4dcProcessModelGroups" :key="index">{{item.groupName}}</tag>

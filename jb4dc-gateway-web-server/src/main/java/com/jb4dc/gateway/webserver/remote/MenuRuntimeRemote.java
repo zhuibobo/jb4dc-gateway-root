@@ -27,15 +27,20 @@ public class MenuRuntimeRemote {
         MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
         map.add("userId", userId);
         map.add("systemId", systemId);
-        Mono<JBuild4DCResponseVo> mono = webClient
-                .post() // GET 请求
+        /*Mono<JBuild4DCResponseVo> mono = webClient
+                .get() // GET 请求
                 .uri("http://JB4DC-SSO-WEB-SERVER/SSOSystem/Rest/SSO/Mu/Menu/GetMyAuthMenusBySystemIdRT")  // 请求路径
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .body(BodyInserters.fromFormData(map))
                 .cookie(JB4DCSessionCenter.WebClientCookieSessionKeyName,cookieSessionId)
                 .retrieve()
+                .bodyToMono(JBuild4DCResponseVo.class);*/
+        Mono<JBuild4DCResponseVo> mono = webClient
+                .get() // GET 请求
+                .uri("http://JB4DC-SSO-WEB-SERVER/SSOSystem/Rest/SSO/Mu/Menu/GetMyAuthMenusBySystemIdRT?userId="+userId+"&systemId="+systemId)  // 请求路径
+                .cookie(JB4DCSessionCenter.WebClientCookieSessionKeyName,cookieSessionId)
+                .retrieve()
                 .bodyToMono(JBuild4DCResponseVo.class);
-
         return mono;
     }
 }

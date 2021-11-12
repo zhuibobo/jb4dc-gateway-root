@@ -2,7 +2,7 @@
 <html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>模型分组管理</title>
+    <title>模型分组管理1</title>
     <th:block th:replace="Fragment/GeneralLib::GeneralLib"></th:block>
     <th:block th:replace="Fragment/GeneralLib::ThemesLib"></th:block>
     <th:block th:replace="Fragment/GeneralLib::GoJsLib"></th:block>
@@ -56,7 +56,7 @@
             data: {
                 acInterface: {
                     editView: "/HTML/WorkFlow/ModelGroup/ModelGroupEdit.html",
-                    reloadData: '/Rest/WorkFlow/Model/ModelGroup/GetListData',
+                    reloadData: '/Rest/WorkFlow/Model/ModelGroup/GetTreeData',
                     delete: '/HTML/WorkFlow/ModelGroup/Delete',
                     statusChange: '/HTML/WorkFlow/ModelGroup/StatusChange',
                     move: '/HTML/WorkFlow/ModelGroup/Move'
@@ -116,7 +116,7 @@
                 reloadTreeTableData: function () {
                     //var _self = this;
                     var sendData = {pageSize: 2000, pageNum: 1};
-                    AjaxUtility.Post(this.acInterface.reloadData, sendData, function (result) {
+                    AjaxUtility.Post(this.acInterface.reloadData, {}, function (result) {
                         if (result.success) {
                             //debugger;
                             if (result.data == null) {
@@ -126,7 +126,7 @@
                                 KeyField: "modelGroupId",
                                 RelationField: "modelGroupParentId",
                                 ChildFieldName: "Nodes"
-                            }, result.data.list, "0");
+                            }, result.data, "0");
                             $("#divTreeTable").html("");
                             this.treeTableObject = Object.create(TreeTable);
                             this.treeTableObject.Initialization(this.treeTableConfig);

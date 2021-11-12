@@ -14,7 +14,7 @@
     <th:block th:replace="Fragment/GeneralLib::JsonEditorLib"></th:block>
 </head>
 <body>
-<div id="appForm" class="general-edit-page-wrap" v-cloak style="margin-top: 0px">
+<div id="appVue" class="general-edit-page-wrap" v-cloak style="margin-top: 0px">
     <spin size="large" fix v-if="isSubmitting"></spin>
     <div>
         <tabs>
@@ -85,10 +85,126 @@
                 <div id="page-properties-json-editor" style="margin: 0px 10px"></div>
             </tab-pane>
             <tab-pane label="引入脚本" name="PageRefJs">
+                <div class="iv-list-page-wrap">
+                    <div style="height: 32px">
+                        <div style="float: right">
+                            <button-group>
+                                <i-button  type="success" @click="addRefJS()" icon="md-add"></i-button>
+                            </button-group>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <i-table :height="380" stripe border :columns="listRefJS.columnsConfig" :data="listRefJS.tableData"
+                             class="iv-list-table">
+                        <template slot-scope="{ row, index }" slot="action">
+                            <div class="list-font-icon-button-class" @click="delRefJs(index,row)">
+                                <Icon type="md-close-circle" />
+                            </div>
+                        </template>
+                    </i-table>
+                </div>
             </tab-pane>
             <tab-pane label="引入样式" name="PageRefCss">
+                <div class="iv-list-page-wrap">
+                    <div style="height: 32px">
+                        <div style="float: right">
+                            <button-group>
+                                <i-button  type="success" @click="addRefCSS()" icon="md-add"></i-button>
+                            </button-group>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <i-table :height="380" stripe border :columns="listRefCSS.columnsConfig" :data="listRefCSS.tableData"
+                             class="iv-list-table">
+                        <template slot-scope="{ row, index }" slot="action">
+                            <div class="list-font-icon-button-class" @click="delRefCSS(index,row)">
+                                <Icon type="md-close-circle" />
+                            </div>
+                        </template>
+                    </i-table>
+                </div>
             </tab-pane>
         </tabs>
+        <modal v-model="showAddJsModal" width="560">
+            <p slot="header" style="text-align:center">
+                <Icon type="ios-information-circle"></Icon>
+                <span>请输入需要引用的JS脚本路径</span>
+            </p>
+            <div style="text-align:center">
+                <table class="light-gray-table">
+                    <colgroup>
+                        <col style="width: 20%">
+                        <col style="width: 30%">
+                        <col style="width: 20%">
+                        <col style="width: 30%">
+                    </colgroup>
+                    <tr>
+                        <td>变量：</td>
+                        <td colspan="3">
+                            上下文路径:${contextPath}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>说明：</td>
+                        <td colspan="3">
+                            <i-input v-model="listRefJS.modal.refJsDesc" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>引入脚本：</td>
+                        <td colspan="3">
+                            <i-input v-model="listRefJS.modal.refJsPath" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div slot="footer">
+                <button-group>
+                    <i-button @click="closeAddRefJS">关闭</i-button>
+                    <i-button type="primary" @click="addRefJSToList">确认</i-button>
+                </button-group>
+            </div>
+        </modal>
+        <modal v-model="showAddCSSModal" width="560">
+            <p slot="header" style="text-align:center">
+                <Icon type="ios-information-circle"></Icon>
+                <span>请输入需要引用的CSS路径</span>
+            </p>
+            <div style="text-align:center">
+                <table class="light-gray-table">
+                    <colgroup>
+                        <col style="width: 20%">
+                        <col style="width: 30%">
+                        <col style="width: 20%">
+                        <col style="width: 30%">
+                    </colgroup>
+                    <tr>
+                        <td>变量：</td>
+                        <td colspan="3">
+                            上下文路径:${contextPath}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>说明：</td>
+                        <td colspan="3">
+                            <i-input v-model="listRefCSS.modal.refCSSDesc" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>引入脚本：</td>
+                        <td colspan="3">
+                            <i-input v-model="listRefCSS.modal.refCSSPath" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div slot="footer">
+                <button-group>
+                    <i-button @click="closeAddRefCSS">关闭</i-button>
+                    <i-button type="primary" @click="addRefCSSToList">确认</i-button>
+                </button-group>
+            </div>
+        </modal>
     </div>
     <div class="button-outer-wrap">
         <div class="button-inner-wrap">
@@ -102,8 +218,8 @@
     </div>
 </div>
 <script>
-    var appForm = new Vue({
-        el: "#appForm",
+    let appVue = new Vue({
+        el: "#appVue",
         mounted: function () {
             if (this.formEntity.widgetGroupId == "" && this.status == "add") {
                 DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, "分组ID不能为空!", null);
@@ -118,6 +234,8 @@
         },
         data: {
             isSubmitting: false,
+            showAddJsModal:false,
+            showAddCSSModal:false,
             acInterface: {
                 getDataUrl: "/Rest/Portlet/TemplatePage/GetDetailData",
                 saveDataUrl: "/Rest/Portlet/TemplatePage/SaveEdit"
@@ -160,7 +278,57 @@
             },
             status: BaseUtility.GetUrlParaValue("op"),
             pageConfigJsonEditor:null,
-            pagePropertiesJsonEditor:null
+            pagePropertiesJsonEditor:null,
+            listRefJS:{
+                modal:{
+                    refJsId:"",
+                    refJsPath:"",
+                    refJsDesc:""
+                },
+                columnsConfig:[
+                    {
+                        title: '说明',
+                        key: 'refJsDesc',
+                        align: "left"
+                    },{
+                        title: '路径',
+                        key: 'refJsPath',
+                        align: "left"
+                    },{
+                        title: 'OP',
+                        key: 'refJsId',
+                        width: 60,
+                        align: "center",
+                        slot: 'action'
+                    }
+                ],
+                tableData:[]
+            },
+            listRefCSS:{
+                modal:{
+                    refCSSId:"",
+                    refCSSPath:"",
+                    refCSSDesc:""
+                },
+                columnsConfig:[
+                    {
+                        title: '说明',
+                        key: 'refCSSDesc',
+                        align: "left"
+                    },{
+                        title: '路径',
+                        key: 'refCSSPath',
+                        align: "left"
+                    },{
+                        title: 'OP',
+                        key: 'refCSSId',
+                        width: 60,
+                        align: "center",
+                        slot: 'action'
+                    }
+                ],
+                tableData:[]
+            }
         },
         methods: {
             bindFormData: function () {
@@ -172,8 +340,12 @@
                     if(!BaseUtility.IsAddOperation(this.status)){
                         this.formEntity.pageConfig=JsonUtility.StringToJson(this.formEntity.pageConfig);
                         this.formEntity.pageProperties=JsonUtility.StringToJson(this.formEntity.pageProperties);
+
                         this.formEntity.pageRefJsConfig=JsonUtility.StringToJson(this.formEntity.pageRefJsConfig);
+                        this.listRefJS.tableData=this.formEntity.pageRefJsConfig;
+
                         this.formEntity.pageRefCssConfig=JsonUtility.StringToJson(this.formEntity.pageRefCssConfig);
+                        this.listRefCSS.tableData=this.formEntity.pageRefCssConfig;
                     }
                     this.pageConfigJsonEditor.set(this.formEntity.pageConfig);
                     this.pagePropertiesJsonEditor.set(this.formEntity.pageProperties);
@@ -184,11 +356,16 @@
                 this.$refs[name].validate(function (valid) {
                     if (valid) {
                         _self.isSubmitting = true;
-                        _self.formEntity.pageConfig=_self.pageConfigJsonEditor.getText();
-                        _self.formEntity.pageProperties=_self.pagePropertiesJsonEditor.getText();
-                        _self.formEntity.pageRefJsConfig=JsonUtility.JsonToString(_self.formEntity.pageRefJsConfig);
-                        _self.formEntity.pageRefCssConfig=JsonUtility.JsonToString(_self.formEntity.pageRefCssConfig);
-                        _self.formEntity.pageWidgetConfig=JsonUtility.JsonToString(_self.formEntity.pageWidgetConfig);
+                        _self.formEntity.pageConfig = _self.pageConfigJsonEditor.getText();
+                        _self.formEntity.pageProperties = _self.pagePropertiesJsonEditor.getText();
+
+                        _self.formEntity.pageRefJsConfig = _self.listRefJS.tableData;
+                        _self.formEntity.pageRefJsConfig = JsonUtility.JsonToString(_self.formEntity.pageRefJsConfig);
+
+                        _self.formEntity.pageRefCssConfig = _self.listRefCSS.tableData;
+                        _self.formEntity.pageRefCssConfig = JsonUtility.JsonToString(_self.formEntity.pageRefCssConfig);
+
+                        _self.formEntity.pageWidgetConfig = JsonUtility.JsonToString(_self.formEntity.pageWidgetConfig);
                         var sendData = JSON.stringify(_self.formEntity);
                         AjaxUtility.PostRequestBody(_self.acInterface.saveDataUrl, sendData, function (result) {
                             DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
@@ -204,6 +381,48 @@
             },
             handleClose: function (name) {
                 DialogUtility.Frame_CloseDialog(window);
+            },
+            //RefJS
+            addRefJS:function (){
+                this.listRefJS.modal.refJsId=StringUtility.Timestamp();
+                this.listRefJS.modal.refJsPath="${contextPath}/";
+                this.listRefJS.modal.refJsDesc="";
+                this.showAddJsModal=true;
+            },
+            addRefJSToList:function (){
+                this.listRefJS.tableData.push({
+                    refJsId:this.listRefJS.modal.refJsId,
+                    refJsPath:this.listRefJS.modal.refJsPath,
+                    refJsDesc:this.listRefJS.modal.refJsDesc
+                })
+                this.closeAddRefJS();
+            },
+            closeAddRefJS:function (){
+                this.showAddJsModal=false;
+            },
+            delRefJs:function (index,row){
+                ArrayUtility.Delete(this.listRefJS.tableData,index);
+            },
+            //RefCss
+            addRefCSS:function (){
+                this.listRefCSS.modal.refCSSId=StringUtility.Timestamp();
+                this.listRefCSS.modal.refCSSPath="${contextPath}/";
+                this.listRefCSS.modal.refCSSDesc="";
+                this.showAddCSSModal=true;
+            },
+            addRefCSSToList:function (){
+                this.listRefCSS.tableData.push({
+                    refCSSId:this.listRefCSS.modal.refCSSId,
+                    refCSSPath:this.listRefCSS.modal.refCSSPath,
+                    refCSSDesc:this.listRefCSS.modal.refCSSDesc
+                })
+                this.closeAddRefCSS();
+            },
+            closeAddRefCSS:function (){
+                this.showAddCSSModal=false;
+            },
+            delRefCSS:function (index,row){
+                ArrayUtility.Delete(this.listRefCSS.tableData,index);
             }
         }
     });

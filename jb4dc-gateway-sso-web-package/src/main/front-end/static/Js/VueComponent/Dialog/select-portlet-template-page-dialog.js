@@ -1,9 +1,9 @@
 /*
 **Created by IntelliJ IDEA.
 **User: zhuangrb
-**Date: 2018/8/26
+**Date: 2021/10/22
 **To change this template use File | Settings | File Templates.
-**选择部门人员组件
+**选择工作桌面模板页面
 */
 Vue.component("select-portlet-template-page-dialog", {
     data: function () {
@@ -106,7 +106,18 @@ Vue.component("select-portlet-template-page-dialog", {
         },
         completed:function () {
             if(this.treeSelectedNode&&this.treeSelectedNode.nodeTypeName != "Group") {
-                this.$emit('on-selected-completed', this.treeSelectedNode,this.treeSelectedNode.id,this.buildDisplayName(this.treeSelectedNode),JsonUtility.JsonToString(this.treeSelectedNode));
+                this.$emit('on-selected-completed',
+                    this.treeSelectedNode,
+                    this.treeSelectedNode.id,
+                    this.buildDisplayName(this.treeSelectedNode),
+                    JsonUtility.JsonToStringRemoveProps(this.treeSelectedNode,[
+                        "attr1","attr2","attr3","attr4",
+                        "icon","nocheck","isParent","open",
+                        "level","tId","parentTId","zAsync",
+                        "isFirstNode","isLastNode","isAjaxing","checked",
+                        "checkedOld","chkDisabled","halfCheck","check_Child_State",
+                        "check_Focus","isHover","editNameFlag"
+                    ]));
                 this.handleClose();
             }
             else{

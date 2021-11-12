@@ -31,9 +31,6 @@
                 </i-col>
             </row>
         </form-item>
-        <form-item label="绑定动作：" class="margin-bottom-12-imp">
-            <i-input v-model="formEntity.mioAction"></i-input>
-        </form-item>
         <form-item label="标记分类：" class="margin-bottom-12-imp">
             <radio-group v-model="formEntity.mioCategory">
                 <radio label="权限标记">权限标记</radio>
@@ -45,6 +42,9 @@
                 <radio label="绑定显示">绑定显示</radio>
                 <radio label="绑定动作">绑定动作</radio>
             </radio-group>
+        </form-item>
+        <form-item label="绑定动作：" class="margin-bottom-12-imp">
+            <i-input v-model="formEntity.mioAction"></i-input>
         </form-item>
         <form-item label="备注：" class="margin-bottom-12-imp">
             <i-input v-model="formEntity.mioDescription" type="textarea" :autosize="{minRows: 14,maxRows:14}"></i-input>

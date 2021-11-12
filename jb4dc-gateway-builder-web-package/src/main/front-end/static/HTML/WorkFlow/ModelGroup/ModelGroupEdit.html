@@ -98,7 +98,7 @@
             bindFormData:function(){
                 //获取数据并赋值
                 DetailPageUtility.BindFormData(this.acInterface.getDataUrl, this.formEntity, this.recordId, this.status,null,function (result) {
-                    appForm.exObjectsJson.OrganType=result.exKVData.exObjectsJson.OrganType;
+                    //appForm.exObjectsJson.OrganType=result.exKVData.exObjectsJson.OrganType;
                     if(appForm.status=="add") {
                         //appForm.formEntity.organTypeValue = appForm.exObjectsJson.OrganType[0].organTypeValue;
                         //appForm.logoImageSrc = BaseUtility.BuildAction(appForm.acInterface.organLogoUrl, {fileId: "defaultLogoImage"});
@@ -135,7 +135,7 @@
                 DialogUtility.Frame_CloseDialog(window);
             },
             showSelectImageClassDialog:function (){
-                DialogUtility.ShowSelectImageClassDialog({},"appForm.selectImageClassEnd","appList.selectImageClassEnd");
+                DialogUtility.ShowSelectImageClassDialog({},"appForm.selectImageClassEnd","appForm.selectImageClassEnd","../../../../");
             },
             selectImageClassEnd:function (className){
                 //debugger;

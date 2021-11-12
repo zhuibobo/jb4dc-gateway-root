@@ -48,7 +48,8 @@ let replaceBlock = {
         replaceArray.push(refJs(levelPath + "Js/External/JQuery-3.6.0/jquery-3.6.0.min.js"));
         replaceArray.push(refJs(levelPath + "Js/External/VUE-2.6.10/vue.js"));
         replaceArray.push(refJs(levelPath + "Js/External/IView-4.X/dist/iview.min.js"));
-        replaceArray.push(refJs(levelPath + "Js/External/JQuery-UI-1.12.1/jquery-ui.js"));
+        //replaceArray.push(refJs(levelPath + "Js/External/JQuery-UI-1.12.1/jquery-ui.js"));
+        replaceArray.push(refJs(levelPath + "Js/External/JQuery-UI-1.13.0/jquery-ui.js"));
         replaceArray.push(refJs(levelPath + "Js/External/ZTree-3.5.40/js/jquery.ztree.all.js"));
         //replaceArray.push(refJs(levelPath + "Js/External/PrintJS-1.5/print.min.js"));
         //replaceArray.push(refJs(levelPath + "Js/External/perfect-scrollbar-14/perfect-scrollbar.js"));
@@ -229,8 +230,17 @@ let replaceBlock = {
         //判断路径后进行引入js的路径
         let levelPath = calculateFilePath(file);
 
-        replaceArray.push(refJs(levelPath + "JB4DCBuilderClient/Js/PortletRuntimeFull.js"));
-        replaceArray.push(refCss(levelPath + 'JB4DCBuilderClient/Js/PortletRuntimeMain.css'));
+        replaceArray.push(refJs(  "../../../../JB4DCBuilderClient/Js/PortletRuntimeFull.js"));
+        replaceArray.push(refCss(  "../../../Themes/Default/Css/PortletRuntimeMain.css?refVersion=" + refVersion));
+
+        return replaceArray.join("\n\t");
+    },
+    replaceLabJSLib:function (search, file){
+        let replaceArray = new Array();
+        //判断路径后进行引入js的路径
+        let levelPath = calculateFilePath(file);
+
+        replaceArray.push(refJs(levelPath + "Js/External/LABjs-3.0/LAB.js"));
 
         return replaceArray.join("\n\t");
     },
@@ -243,7 +253,8 @@ let replaceBlock = {
         replaceArray.push(refJs(levelPath + "Js/External/Ckeditor_4.15.0_Standard/ckeditor.js"));
         replaceArray.push(refJs(levelPath + "Js/External/VUE-2.6.10/vue.js"));
         replaceArray.push(refJs(levelPath + "Js/External/IView-4.X/dist/iview.min.js"));
-        replaceArray.push(refJs(levelPath + "Js/External/JQuery-UI-1.12.1/jquery-ui.js"));
+        //replaceArray.push(refJs(levelPath + "Js/External/JQuery-UI-1.12.1/jquery-ui.js"));
+        replaceArray.push(refJs(levelPath + "Js/External/JQuery-UI-1.13.0/jquery-ui.js"));
         replaceArray.push(refJs(levelPath + "Js/External/ZTree-3.5.40/js/jquery.ztree.all.js"));
         replaceArray.push(refJs(levelPath + "Js/External/My97DatePicker/WdatePicker.js"));
         replaceArray.push(refJs(levelPath + "Js/External/Fine-Uploader-5.16.2/fine-uploader.core.min.js"));
@@ -270,7 +281,8 @@ let replaceBlock = {
         replaceArray.push(refJs(levelPath + "Js/External/Ckeditor_4.15.0_Standard/ckeditor.js"));
         replaceArray.push(refJs(levelPath + "Js/External/VUE-2.6.10/vue.js"));
         replaceArray.push(refJs(levelPath + "Js/External/IView-4.X/dist/iview.min.js"));
-        replaceArray.push(refJs(levelPath + "Js/External/JQuery-UI-1.12.1/jquery-ui.js"));
+        //replaceArray.push(refJs(levelPath + "Js/External/JQuery-UI-1.12.1/jquery-ui.js"));
+        replaceArray.push(refJs(levelPath + "Js/External/JQuery-UI-1.13.0/jquery-ui.js"));
         replaceArray.push(refJs(levelPath + "Js/External/ZTree-3.5.40/js/jquery.ztree.all.js"));
         replaceArray.push(refJs(levelPath + "Js/External/My97DatePicker/WdatePicker.js"));
         replaceArray.push(refJs(levelPath + "Js/External/Fine-Uploader-5.16.2/fine-uploader.core.min.js"));

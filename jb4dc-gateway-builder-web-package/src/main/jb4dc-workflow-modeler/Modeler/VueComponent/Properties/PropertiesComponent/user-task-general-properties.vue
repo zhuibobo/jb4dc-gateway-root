@@ -33,7 +33,7 @@
                             <radio label="true">是</radio>
                             <radio label="false">否</radio>
                         </radio-group>
-                        并行网关中的环节无法执行撤回
+                        <span style="color: red">并行网关中的环节无法执行撤回</span>
                     </td>
                 </tr>
                 <tr>

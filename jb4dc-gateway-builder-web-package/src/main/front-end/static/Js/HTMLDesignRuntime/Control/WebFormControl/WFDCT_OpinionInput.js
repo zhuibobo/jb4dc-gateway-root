@@ -69,8 +69,10 @@ var WFDCT_OpinionInput= {
 
         if(ArrayUtility.NotExist(this._prop.oldOpinionsData.opinions,item=>item.id==newOpinionId)) {
             let newInputOpinion = this._prop.$newOpinionInputElem.val();
-            let newOpinionObj = this.BuildNewOpinion(this._prop.mySession, newOpinionId, newInputOpinion, this._prop.oldOpinionsData.opinions.length + 1);
-            this._prop.oldOpinionsData.opinions.push(newOpinionObj);
+            if(!StringUtility.IsNullOrEmpty(newInputOpinion)) {
+                let newOpinionObj = this.BuildNewOpinion(this._prop.mySession, newOpinionId, newInputOpinion, this._prop.oldOpinionsData.opinions.length + 1);
+                this._prop.oldOpinionsData.opinions.push(newOpinionObj);
+            }
         }
 
         //console.log(this._prop.oldOpinionsData);

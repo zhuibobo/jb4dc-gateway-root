@@ -367,6 +367,7 @@ function copyAndResolveHtml(sourcePath,base,toPath) {
         .pipe(replacecust(replaceBlockObj.replaceBlock('JsonEditorLib'), replaceBlockObj.replaceJsonEditorLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('ModelerView'), replaceBlockObj.replaceModelerViewLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('PortletRuntimeLib'), replaceBlockObj.replacePortletRuntimeLib))
+        .pipe(replacecust(replaceBlockObj.replaceBlock('LabJSLib'), replaceBlockObj.replaceLabJSLib))
 
     //console.log(toPath);
     if(isdebug){
@@ -386,37 +387,4 @@ function copyAndResolveHtml(sourcePath,base,toPath) {
         }));
     }
     return obj.pipe(gulp.dest(toPath));
-}
-
-function copyAndResolveHtml1(sourcePath,base,toPath) {
-    /*拷贝HTML文件*/
-    return gulp.src(sourcePath, {base: base})
-        .pipe(replacecust(replaceBlockObj.replaceBlock('GeneralLib'), replaceBlockObj.replaceGeneralLib))
-        .pipe(replacecust(replaceBlockObj.replaceBlock('CodeMirrorLib'), replaceBlockObj.replaceCodeMirrorLib))
-        .pipe(replacecust(replaceBlockObj.replaceBlock('FormDesignLib'), replaceBlockObj.replaceFormDesignLib))
-        .pipe(replacecust(replaceBlockObj.replaceBlock('JBuild4DFormDesignLib'), replaceBlockObj.replaceJBuild4DFormDesignLib))
-        .pipe(replacecust(replaceBlockObj.replaceBlock('ZTreeExtendLib'), replaceBlockObj.replaceZTreeExtendLib))
-        .pipe(replacecust(replaceBlockObj.replaceBlock('ThemesLib'), replaceBlockObj.replaceThemesLib))
-        .pipe(replacecust(replaceBlockObj.replaceBlock('BootStrap4Lib'), replaceBlockObj.replaceBootStrap4Lib))
-        .pipe(replacecust(replaceBlockObj.replaceBlock('FrameV1Lib'), replaceBlockObj.replaceFrameV1Lib))
-        .pipe(replacecust(replaceBlockObj.replaceBlock('GoJsLib'), replaceBlockObj.replaceGoJsLib))
-        .pipe(replacecust(replaceBlockObj.replaceBlock('Webix'), replaceBlockObj.replaceWebixLib))
-        .pipe(replacecust(replaceBlockObj.replaceBlock('HTMLDesignRuntimeLib'), replaceBlockObj.replaceHTMLDesignRuntimeLib))
-        .pipe(replacecust(replaceBlockObj.replaceBlock('HTMLDesignWysiwygLib'), replaceBlockObj.replaceHTMLDesignWysiwygLib))
-        .pipe(htmlmin({
-            collapseWhitespace: true,
-            minifyCSS:true,
-            minifyJS:false,
-            removeComments:true
-        }))
-        /*.pipe(htmlmin({
-            collapseWhitespace: true,
-            minifyCSS:true,
-            minifyJS:false
-        }))*/
-        //.pipe(htmlclean({
-        //    protect: /<\!--%fooTemplate\b.*?%-->/g,
-        //    edit: function(html) { return html.replace(/\begg(s?)\b/ig, 'omelet$1'); }
-        //}))
-        .pipe(gulp.dest(toPath));
 }

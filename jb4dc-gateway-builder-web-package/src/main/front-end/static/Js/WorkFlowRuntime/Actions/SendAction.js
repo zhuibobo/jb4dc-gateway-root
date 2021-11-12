@@ -95,12 +95,12 @@ let SendAction={
                             _this.inputOpinionText=inputText;
                             _this.BeginSelectReceiver(_this, _prop);
                         } else {
-                            DialogUtility.AlertText("意见关联对象为实现SetNewValue方法!");
+                            DialogUtility.AlertText("意见关联对象为实现SetNewValue方法!!");
                         }
                     }
                 });
             } else {
-                this.BeginSelectReceiver(_this, _prop);
+                _this.BeginSelectReceiver(_this, _prop);
             }
         }
     },

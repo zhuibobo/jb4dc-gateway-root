@@ -12,105 +12,128 @@
     <th:block th:replace="Fragment/GeneralLib::GeneralLib"></th:block>
     <th:block th:replace="Fragment/GeneralLib::ThemesLib"></th:block>
     <th:block th:replace="Fragment/GeneralLib::LineAwesomeLib"></th:block>
+    <style>
+        .cust-ivu-radio-wrapper .ivu-radio-wrapper{
+            margin: 4px;
+        }
+        .general-edit-page-wrap {
+            margin-top: 0px;
+        }
+    </style>
 </head>
 <body>
 <div id="appForm" class="general-edit-page-wrap" v-cloak>
-    <i-form ref="formEntity" :model="formEntity" :rules="ruleValidate" :label-width="100">
-        <form-item label="菜单名称：" prop="menuName">
-            <row>
-                <i-col span="10">
-                    <form-item>
-                        <i-input v-model="formEntity.menuName"></i-input>
-                    </form-item>
-                </i-col>
-                <i-col span="4" style="text-align: center">菜单显示：</i-col>
-                <i-col span="10">
-                    <form-item>
-                        <i-input v-model="formEntity.menuText"></i-input>
-                    </form-item>
-                </i-col>
-            </row>
-        </form-item>
-        <form-item label="菜单值：" prop="menuValue" class="margin-bottom-12-imp">
-            <i-input v-model="formEntity.menuValue"></i-input>
-        </form-item>
-        <form-item label="菜单类型：" class="margin-bottom-12-imp">
-            <radio-group v-model="formEntity.menuType" @on-change="changeMenuType">
-                <radio label="空">空</radio>
-                <radio label="超链接">超链接</radio>
-                <radio label="Web模块列表">Web模块列表</radio>
-                <radio label="Web模块窗体">Web模块窗体</radio>
-                <radio label="流程分组" disabled>流程分组</radio>
-                <radio label="流程实例" disabled>流程实例</radio>
-                <radio label="统计列表" disabled>统计列表</radio>
-                <radio label="工作桌面">工作桌面</radio>
-            </radio-group>
-        </form-item>
-        <form-item label="链接地址：" prop="menuRightUrl" class="margin-bottom-12-imp">
-            <i-input v-model="formEntity.menuRightUrl"></i-input>
-        </form-item>
-        <form-item label="链接参数：" prop="menuRightUrlPara" class="margin-bottom-12-imp">
-            <row>
-                <i-col span="22">
-                    <i-input v-model="formEntity.menuRightUrlPara" type="textarea" :autosize="{minRows: 4,maxRows: 4}" placeholder='可点击参数说明进行查看'></i-input>
-                </i-col>
-                <i-col span="2" style="text-align: center">
-                    <i-button type="success" @click="showUrlParaDescWarp">?</i-button>
-                </i-col>
-            </row>
-        </form-item>
-        <form-item label="左链接地址：" prop="menuLeftUrl" class="margin-bottom-12-imp">
-            <row>
-                <i-col span="10">
-                    <form-item>
-                        <i-input v-model="formEntity.menuLeftUrl"></i-input>
-                    </form-item>
-                </i-col>
-                <i-col span="4" style="text-align: center">左链接参数：</i-col>
-                <i-col span="10">
-                    <form-item>
-                        <i-input v-model="formEntity.menuLeftUrlPara"></i-input>
-                    </form-item>
-                </i-col>
-            </row>
-        </form-item>
-        <form-item label="关联对象ID：" prop="menuOuterId" class="margin-bottom-12-imp">
-            <row>
-                <i-col span="10">
-                    <form-item>
-                        <i-input v-model="formEntity.menuOuterId" search enter-button="设置" placeholder="设置关联对象" @on-search="beginSelectOuterObject" />
-                    </form-item>
-                </i-col>
-                <i-col span="4" style="text-align: center">状态：</i-col>
-                <i-col span="10">
-                    <form-item>
-                        <radio-group v-model="formEntity.menuStatus">
-                            <radio label="启用">启用</radio>
-                            <radio label="禁用">禁用</radio>
-                        </radio-group>
-                    </form-item>
-                </i-col>
-            </row>
-        </form-item>
-        <form-item label="关联对象说明：" prop="menuOuterName" class="margin-bottom-12-imp">
-            <i-input v-model="formEntity.menuOuterName"></i-input>
-        </form-item>
-        <form-item label="图标：" prop="menuOuterName" class="margin-bottom-12-imp">
-            <row>
-                <i-col span="2">
-                    <i :class="formEntity.menuClassName" style="width: 32px;height: 32px;font-size: 32px;"></i>
-                </i-col>
-                <i-col span="4" style="text-align: center">
-                    <i-button type="success" @click="showSelectImageClassDialog">选择</i-button>
-                </i-col>
-                <i-col span="18">
-                </i-col>
-            </row>
-        </form-item>
-        <form-item label="备注：" class="margin-bottom-12-imp">
-            <i-input v-model="formEntity.menuDescription" type="textarea" :autosize="{minRows: 9,maxRows: 9}"></i-input>
-        </form-item>
-    </i-form>
+    <tabs>
+        <tab-pane label="基本信息" >
+            <i-form ref="formEntity" :model="formEntity" :rules="ruleValidate" :label-width="100">
+                <form-item label="菜单名称：" prop="menuName">
+                    <row>
+                        <i-col span="10">
+                            <form-item>
+                                <i-input v-model="formEntity.menuName"></i-input>
+                            </form-item>
+                        </i-col>
+                        <i-col span="4" style="text-align: center">菜单显示：</i-col>
+                        <i-col span="10">
+                            <form-item>
+                                <i-input v-model="formEntity.menuText"></i-input>
+                            </form-item>
+                        </i-col>
+                    </row>
+                </form-item>
+                <form-item label="菜单值：" prop="menuValue" class="margin-bottom-12-imp">
+                    <i-input v-model="formEntity.menuValue"></i-input>
+                </form-item>
+                <form-item label="菜单类型：" class="margin-bottom-12-imp">
+                    <radio-group v-model="formEntity.menuType" @on-change="changeMenuType">
+                        <radio label="空">空</radio>
+                        <radio label="超链接">超链接</radio>
+                        <radio label="Web模块列表">Web模块列表</radio>
+                        <radio label="Web模块窗体">Web模块窗体</radio>
+                        <radio label="流程分组">流程分组</radio>
+                        <radio label="工作桌面">工作桌面</radio>
+                        <radio label="流程实例" disabled>流程实例</radio>
+                        <radio label="统计列表" disabled>统计列表</radio>
+                    </radio-group>
+                </form-item>
+                <form-item label="链接地址：" prop="menuRightUrl" class="margin-bottom-12-imp">
+                    <i-input v-model="formEntity.menuRightUrl"></i-input>
+                </form-item>
+                <form-item label="链接参数：" prop="menuRightUrlPara" class="margin-bottom-12-imp">
+                    <row>
+                        <i-col span="22">
+                            <i-input v-model="formEntity.menuRightUrlPara" type="textarea" :autosize="{minRows: 4,maxRows: 4}" placeholder='可点击参数说明进行查看'></i-input>
+                        </i-col>
+                        <i-col span="2" style="text-align: center">
+                            <i-button type="success" @click="showUrlParaDescWarp">?</i-button>
+                        </i-col>
+                    </row>
+                </form-item>
+                <form-item label="左链接地址：" prop="menuLeftUrl" class="margin-bottom-12-imp">
+                    <row>
+                        <i-col span="10">
+                            <form-item>
+                                <i-input v-model="formEntity.menuLeftUrl"></i-input>
+                            </form-item>
+                        </i-col>
+                        <i-col span="4" style="text-align: center">左链接参数：</i-col>
+                        <i-col span="10">
+                            <form-item>
+                                <i-input v-model="formEntity.menuLeftUrlPara"></i-input>
+                            </form-item>
+                        </i-col>
+                    </row>
+                </form-item>
+                <form-item label="关联对象ID：" prop="menuOuterId" class="margin-bottom-12-imp">
+                    <row>
+                        <i-col span="10">
+                            <form-item>
+                                <i-input v-model="formEntity.menuOuterId" search enter-button="设置" placeholder="设置关联对象" @on-search="beginSelectOuterObject" />
+                            </form-item>
+                        </i-col>
+                        <i-col span="4" style="text-align: center">状态：</i-col>
+                        <i-col span="10">
+                            <form-item>
+                                <radio-group v-model="formEntity.menuStatus">
+                                    <radio label="启用">启用</radio>
+                                    <radio label="禁用">禁用</radio>
+                                </radio-group>
+                            </form-item>
+                        </i-col>
+                    </row>
+                </form-item>
+                <form-item label="关联对象说明：" prop="menuOuterName" class="margin-bottom-12-imp">
+                    <i-input v-model="formEntity.menuOuterName"></i-input>
+                </form-item>
+                <form-item label="图标：" prop="menuOuterName" class="margin-bottom-12-imp">
+                    <row>
+                        <i-col span="2">
+                            <i :class="formEntity.menuClassName" style="width: 32px;height: 32px;font-size: 32px;"></i>
+                        </i-col>
+                        <i-col span="4" style="text-align: center">
+                            <i-button type="success" @click="showSelectImageClassDialog">选择</i-button>
+                        </i-col>
+                        <i-col span="18">
+                        </i-col>
+                    </row>
+                </form-item>
+                <form-item label="备注：" class="margin-bottom-12-imp">
+                    <i-input v-model="formEntity.menuDescription" type="textarea" :autosize="{minRows: 6,maxRows: 6}"></i-input>
+                </form-item>
+            </i-form>
+        </tab-pane>
+        <tab-pane label="扩展信息">
+            <i-form :model="formEntity" :label-width="100">
+                <form-item label="JS表达式：" class="margin-bottom-12-imp">
+                    <i-input v-model="formEntity.menuJsExpression" type="textarea" :autosize="{minRows: 6,maxRows: 6}"></i-input>
+                </form-item>
+                <form-item label="外部关联对象：" class="margin-bottom-12-imp">
+                    <i-input v-model="formEntity.menuOuterObject" type="textarea" :autosize="{minRows: 12,maxRows: 12}"></i-input>
+                </form-item>
+            </i-form>
+        </tab-pane>
+    </tabs>
+
     <div class="button-outer-wrap">
         <div class="button-inner-wrap">
             <button-group>
@@ -125,6 +148,8 @@
                                  @on-selected-completed="bindModuleObjectTo"></select-module-object-dialog>
     <select-portlet-template-page-dialog ref="selectPortletTemplatePageDialog"
                                  @on-selected-completed="bindModuleObjectTo"></select-portlet-template-page-dialog>
+    <select-flow-group-dialog ref="selectFlowGroupDialog"
+                                         @on-selected-completed="bindModuleObjectTo"></select-flow-group-dialog>
 </div>
 <div id="urlParaDescWarp" style="display: none">
     <ul>
@@ -202,7 +227,7 @@
                 menuUseOrganId: "",//使用组织ID
                 menuUseOrganTypeName: "",//使用组织类型名称
                 menuUseOrganTypeId: "",//使用组织类型ID
-                menuClassName: "",//样式类名
+                menuClassName: "las la-stream",//样式类名
                 menuClassNameHover: "",//Hover时的样式类名
                 menuClassNameSelected: "",//样式选中的样式类名
                 menuChildCount: "",//子节点数量
@@ -265,10 +290,10 @@
                     return;
                 }
                 else if(menuType=="工作桌面"){
-                    //DialogUtility.AlertText(this.formEntity.menuType+"类型的菜单不需要进行设置!");
-                    //return;
-                    //alert(1);
                     this.$refs.selectPortletTemplatePageDialog.beginSelect(this.formEntity.menuType);
+                }
+                else if(menuType=="流程分组"){
+                    this.$refs.selectFlowGroupDialog.beginSelect(this.formEntity.menuType);
                 }
                 else{
                     /*url = BaseUtility.BuildView(this.acInterface.SelectModuleObjectView, {
@@ -297,7 +322,7 @@
                     this.formEntity.menuRightUrl="/${SystemContextPath}/JB4DCBuilderClient/HTML/Builder/Runtime/WebFormIndependenceRuntime.html";
                 }
                 else if(this.formEntity.menuType=="流程分组"){
-
+                    this.formEntity.menuRightUrl="/${SystemContextPath}/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyBootableMyModels.html";
                 }
                 else if(this.formEntity.menuType=="工作桌面"){
                     this.formEntity.menuRightUrl="/${SystemContextPath}/JB4DCBuilderClient/HTML/Portlet/Runtime/PortletPageV1.html";
@@ -325,7 +350,7 @@
                 });
             },
             showSelectImageClassDialog:function (){
-                DialogUtility.ShowSelectImageClassDialog({},"appForm.selectImageClassEnd","appList.selectImageClassEnd");
+                DialogUtility.ShowSelectImageClassDialog({},"appForm.selectImageClassEnd","appList.selectImageClassEnd","../../../../");
             },
             selectImageClassEnd:function (className){
                 //debugger;
