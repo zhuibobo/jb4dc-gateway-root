@@ -1,9 +1,10 @@
 let PortletPageRuntime={
     pagePO:null,
     widgetList:null,
-    widgetInstanceCache:{},
+    widgetInstanceCacheArray:[],
     dashboardView:null,
     panelMenu:null,
+    counter:1,
     acInterface:{
         getTemplatePageWithSSOMenu:"/Rest/Portlet/RunTime/Client/TemplatePageRuntime/GetTemplatePageWithSSOMenu"
     },
@@ -28,12 +29,12 @@ let PortletPageRuntime={
         }, this);
     },
     renderPage:function (){
-        console.log(this.pagePO);
-        console.log(this.widgetList);
+        //console.log(this.pagePO);
+        //console.log(this.widgetList);
         let _self=this;
 
         let dashboardView=this.buildDashboardView();
-        this.panelMenu=this.buildWidgetMenu();
+        //this.panelMenu=this.buildWidgetMenu();
 
         webix.ui({
             type: "space", cols: [
@@ -41,43 +42,76 @@ let PortletPageRuntime={
             ]
         });
         webix.event(document.body, "click", function (ev) {
-            var css = ev.target.className;
+            let css = ev.target.className;
+            //console.log(css);
             if (css && css.toString().indexOf("panel_icon") != -1) {
-                _self.panelMenu.setContext(webix.$$(ev.target));
-                _self.panelMenu.show(ev.target);
+                let classNameArray=css.split(" ");
+                for (let i = 0; i < classNameArray.length; i++) {
+                    if(classNameArray[i].indexOf("widgetInstanceId_")==0){
+                        let widgetInstanceId=classNameArray[i].replace("widgetInstanceId_","");
+                        //console.log(widgetInstanceId);
+                        let widgetContextMenu=PortletPageRuntime.getWidgetInstanceCache(widgetInstanceId).widgetContextMenu;
+                        if(widgetContextMenu) {
+                            widgetContextMenu.setContext(webix.$$(ev.target));
+                            widgetContextMenu.show(ev.target);
+                        }
+                    }
+                }
+                //_self.panelMenu.setContext(webix.$$(ev.target));
+                //_self.panelMenu.show(ev.target);
             }
         });
 
         if(this.pagePO.pageWidgetConfig) {
             $$("dashboardViewLayout").restore(this.pagePO.pageWidgetConfig);
         }
+
+        portletUtility.initRefreshStatus();
+        portletUtility.startAutoRefreshControl(this.refreshALLWidget,this);
+    },
+    refreshALLWidget:function (innerVersion){
+        console.log(innerVersion);
+        try {
+            let allWidgetInstanceArray = this.widgetInstanceCacheArray;
+            for (let i = 0; i < allWidgetInstanceArray.length; i++) {
+                let widgetInstance = allWidgetInstanceArray[i].instance;
+                widgetInstance.refresh(innerVersion);
+            }
+        }
+        catch (e){
+            throw e;
+        }
     },
     buildDashboardView:function () {
         let pagePO = this.pagePO;
         let dashboard = {
-            view: "dashboard", id: "dashboardViewLayout",
+            view: "gridlayout", id: "dashboardViewLayout",
             gridColumns: pagePO.pageConfig.gridColumns,
             gridRows: pagePO.pageConfig.gridRows,
             cellHeight: pagePO.pageConfig.cellHeight,
             factory: function (obj) {
+                //console.log(7777777);
                 //console.log(obj);
-                let widgetId=obj.name;
-                let widgetInstanceId=obj.id;
+                let widgetId = obj.name;
+                let widgetInstanceId = obj.id;
                 obj.view = "panel";
                 obj.resize = false;
-                obj.icon = "las la-align-justify";
+                obj.icon = "las la-bars widgetInstanceId_" + widgetInstanceId;
                 obj.body = {
                     view: "template",
+                    css: "webix_template_for_widget",
                     template: function (data) {
                         //let widgetPO = $$("widgetTree").getItem(data.obj.name);
-                        return "<div name='widgetContainer'></div>";
+                        //console.log(data);
+                        return "<div name='widgetContainer' class='widget-container-outer-wrap'></div>";
                     },
                     data: {
                         pagePO: pagePO,
-                        widgetId:widgetId,
-                        widgetInstanceId:widgetInstanceId
+                        widgetId: widgetId,
+                        widgetInstanceId: widgetInstanceId
                     },
                     on: {
+                        //region
                         onViewShow: function () {
                             /*console.log("------------onViewShow-------------");
                             console.log(this);
@@ -99,68 +133,106 @@ let PortletPageRuntime={
                             console.log(data);
                             console.log("------------onBeforeRender-------------");*/
                         },
+                        //endregion
                         onAfterRender: function (data) {
                             //console.log(data);
-                            //console.log(this);
-                            let pagePO=this.data.pagePO;
-                            let widgetId=this.data.widgetId;
-                            let widgetInstanceId=this.data.widgetInstanceId;
-                            let widgetPO=ArrayUtility.WhereSingle(PortletPageRuntime.widgetList,item=>item.widgetId==widgetId);
-                            console.log(widgetPO);
+                            //console.log(555555);
+                            //return;
+                            //debugger;
+                            let pagePO = this.data.pagePO;
+                            let widgetId = this.data.widgetId;
+                            let widgetInstanceId = this.data.widgetInstanceId;
+                            let widgetPO = ArrayUtility.WhereSingle(PortletPageRuntime.widgetList, item => item.widgetId == widgetId);
+                            let $widgetContainer=$(this.$view).find("[name='widgetContainer']");
+                            let widgetContainerWidth=$widgetContainer.width();
+                            let widgetContainerHeight=$widgetContainer.height();
+                            //console.log($widgetContainer);
+                            //console.log(widgetPO);
                             //console.log("------------onAfterRender-------------");
-                            let _this = this;
-                            /*let ele = $("<div>"+widgetPo.widgetName+"</div>");
-                            ele.click(function () {
-                                alert(widgetInstanceId);
-                            });*/
-                            let widgetInstance=PortletPageRuntime.newWidgetInstance(widgetInstanceId,widgetPO,pagePO);
-                            $(this.$view).find("[name='widgetContainer']").append(widgetInstance.renderElem());
+                            try {
+                                let widgetInstance = PortletPageRuntime.newWidgetInstance(widgetInstanceId, widgetPO, pagePO,$widgetContainer,widgetContainerWidth,widgetContainerHeight);
+                                if(widgetInstance) {
+                                    PortletPageRuntime.counter++;
+                                    $widgetContainer.append(widgetInstance.createWidgetElem());
+                                    //console.log(PortletPageRuntime.counter)
+                                    //$widgetContainer.append(PortletPageRuntime.counter);
+                                }
+                                else{
+                                    $widgetContainer.append("实例化Widget失败,请检查代码1!");
+                                }
+                            }
+                            catch (e){
+                                $widgetContainer.append("实例化Widget失败,请检查代码!"+e.toString());
+                                //throw e;
+                            }
                             //console.log("------------onAfterRender-------------");
                         }
                     }
                 };
-                /*if (obj.name == "b") {
-                    obj.body.content = "myDiv";
-                }*/
+
                 return obj;
             },
             on: {
-                onChange: function () {
+                /*onChange: function () {
                     //var state = this.serialize();
                     //webix.storage.local.put("grid-dashboard-state", state);
-                },
+                }
                 onBeforeDrag:function (context, native_event){
                     return false;
-                }
+                }*/
             }
         };
         return dashboard;
     },
-    buildWidgetMenu:function () {
+    buildWidgetContextMenu:function (widgetInstanceId,menuConfig) {
+        if(menuConfig.length==0){
+            return null;
+        }
         let menu = webix.ui({
             view: "contextmenu",
             click: function (id) {
-                if (id === "deleteWidget") {
-                    let view = this.getContext();
-                    view.getParentView().removeView(view);
+                //console.log(widgetInstanceId);
+                for (let i = 0; i < menuConfig.length; i++) {
+                    if (menuConfig[i].id==id) {
+                        let widgetInstance=PortletPageRuntime.getWidgetInstanceCache(widgetInstanceId).instance;
+                        menuConfig[i].click.call(widgetInstance);
+                    }
                 }
             },
-            data: [
-                {id: "widgetInstructions", value: "详情"},
-                {id: "widgetMore", value: "更多"}
-            ]
+            data: menuConfig
         });
         return menu;
     },
-    newWidgetInstance:function (widgetInstanceId,widgetPO,pagePO) {
-        let widgetInstance = Object.create(eval(widgetPO.widgetClientRender));
-        widgetInstance.widgetInstanceId = widgetInstanceId;
-        widgetInstance.widgetPO = widgetPO;
-        widgetInstance.pagePO = pagePO;
-        this.widgetInstanceCache[widgetInstanceId] = widgetInstance;
-        return widgetInstance;
-    },
-    getWidgetInstance:function (widgetInstanceId){
+    newWidgetInstance:function (widgetInstanceId,widgetPO,pagePO,$widgetContainer,widgetContainerWidth,widgetContainerHeight) {
+        try {
+            let widgetInstance = Object.create(eval(widgetPO.widgetClientRender));
+            widgetInstance.widgetInstanceId = widgetInstanceId;
+            widgetInstance.widgetPO = widgetPO;
+            widgetInstance.pagePO = pagePO;
+            widgetInstance.$widgetContainer=$widgetContainer;
+            widgetInstance.widgetContainerWidth=widgetContainerWidth;
+            widgetInstance.widgetContainerHeight=widgetContainerHeight;
 
+            let widgetContextMenu = PortletPageRuntime.buildWidgetContextMenu(widgetInstanceId, widgetInstance.getContextMenuConfig());
+
+            this.widgetInstanceCacheArray.push({
+                "widgetInstanceId": widgetInstanceId,
+                "instance": widgetInstance,
+                "widgetContextMenu": widgetContextMenu
+            })
+
+            return widgetInstance;
+        }
+        catch (e){
+            throw e;
+        }
+    },
+    getWidgetInstanceCache:function (widgetInstanceId){
+        for (let i = 0; i < this.widgetInstanceCacheArray.length; i++) {
+            if(this.widgetInstanceCacheArray[i].widgetInstanceId==widgetInstanceId){
+                return this.widgetInstanceCacheArray[i];
+            }
+        }
+        return null;
     }
 }

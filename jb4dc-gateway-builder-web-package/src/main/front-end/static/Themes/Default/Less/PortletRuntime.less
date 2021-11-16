@@ -1,3 +1,70 @@
-.a{
-  color: red;
+@import "Variable.less";
+
+.webix_template_for_widget {
+  border-radius: 5px;
+  .webix_template{
+    padding: 0px;
+  }
+}
+
+.widget-container-outer-wrap{
+  height: 100%;
+
+  .widget-container-inner-wrap{
+    height: 100%;
+
+    .widget-title{
+      font-size: 13px;
+      padding: 6px;
+      background-color: @g-concrete-color-v02;
+    }
+    .widget-body{
+      height: calc(100% - 30px);;
+      overflow: auto;
+    }
+  }
+}
+
+.widget-quick-entry-outer-wrap{
+  margin: 8px;
+  .widget-quick-entry-inner-wrap{
+    .widget-quick-elem-wrap{
+      float: left;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .widget-quick-elem-wrap:hover{
+      color: red;
+    }
+  }
+}
+
+.widget-list-outer-wrap{
+  margin: 8px;
+  .widget-list-inner-wrap{
+
+    .widget-list-row-wrap{
+      margin: 2px;
+      cursor: pointer;
+
+      .widget-list-title{
+        display: inline-block;
+        font-size: 13px;
+        overflow:hidden; //超出的文本隐藏
+        text-overflow:ellipsis; //溢出用省略号显示
+        white-space:nowrap; //溢出不换行
+      }
+      .widget-list-date{
+        display: inline-block;
+        font-size: 13px;
+        overflow:hidden; //超出的文本隐藏
+        text-overflow:ellipsis; //溢出用省略号显示
+        white-space:nowrap; //溢出不换行
+      }
+    }
+
+    .widget-list-row-wrap:hover {
+      color: red;
+    }
+  }
 }
