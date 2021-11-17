@@ -12,11 +12,18 @@ let PortletPageRuntime={
         AjaxUtility.Get(this.acInterface.getTemplatePageWithSSOMenu, {
             menuId:BaseUtility.GetUrlParaValue("menuId"),
         }, function (result) {
-            console.log(result);
+
             if (result.success) {
                 //console.log(result);
                 this.pagePO = result.data;
                 this.widgetList=result.exKVData.Widgets;
+
+                for (let i = 0; i < this.widgetList.length; i++) {
+                    if(this.widgetList[i].widgetProperties){
+                        this.widgetList[i].widgetProperties=JsonUtility.StringToJson(this.widgetList[i].widgetProperties);
+                    }
+                }
+
                 this.pagePO.pageConfig = JsonUtility.StringToJson(this.pagePO.pageConfig);
                 this.pagePO.pageProperties = JsonUtility.StringToJson(this.pagePO.pageProperties);
                 if (this.pagePO.pageWidgetConfig) {
@@ -24,6 +31,9 @@ let PortletPageRuntime={
                 } else {
                     this.pagePO.pageWidgetConfig = [];
                 }
+
+                console.log(this);
+
                 this.renderPage();
             }
         }, this);
@@ -68,6 +78,16 @@ let PortletPageRuntime={
 
         portletUtility.initRefreshStatus();
         portletUtility.startAutoRefreshControl(this.refreshALLWidget,this);
+
+        /*var user = {
+            u1: {
+                name: "zzz"
+            },
+            u2: {
+                name: "aaaa"
+            }
+        }
+        console.log(sprintf('a.do?a=%(u1.name)s&b=%(u2.name)s', user));*/
     },
     refreshALLWidget:function (innerVersion){
         console.log(innerVersion);

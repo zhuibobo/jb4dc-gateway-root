@@ -19,7 +19,7 @@ let PortletDefaultQuickEntryWidgetControl= {
     _buildTitleElem: WidgetControl._buildTitleElem,
     _buildBodyElem: function () {
         //debugger;
-        let widgetProps = WidgetDemoData.getQuickEntryDemoProps();
+        let widgetProps = this.widgetPO.widgetProperties;
         let $widgetBody = $("<div class='widget-body'><div class='widget-quick-entry-outer-wrap'><div class='widget-quick-entry-inner-wrap'></div></div></div>");
         let $quickEntryInnerWrap = $widgetBody.find(".widget-quick-entry-inner-wrap");
         for (let i = 0; i < widgetProps.QuickEntries.length; i++) {
@@ -32,14 +32,14 @@ let PortletDefaultQuickEntryWidgetControl= {
     },
     _buildSingleQuickEntry: function (quickEntry) {
         let $quickElemWrap = $("<div class='widget-quick-elem-wrap'><div style='margin: auto;text-align: center'><img src='/Themes/Png32X32/" + quickEntry.image + "' /></div><div>" + quickEntry.caption + "</div></div>");
-        $quickElemWrap.bind("click", {quickEntry: quickEntry, "host": this}, function (sender) {
-            sender.data.host._bindSingleQuickEntryClickEvent.call(sender.data.host, sender.data.quickEntry);
+        $quickElemWrap.bind("click", {quickEntry: quickEntry, "widgetInstance": this}, function (sender) {
+            sender.data.widgetInstance._bindSingleQuickEntryClickEvent.call(sender.data.widgetInstance, sender.data.quickEntry);
         });
         return $quickElemWrap;
     },
     _bindSingleQuickEntryClickEvent: function (quickEntry) {
         console.log(quickEntry);
-        if (quickEntry.type == "innerIframe") {
+        if (quickEntry.openType == "innerIframe") {
             DialogUtility.OpenIframeWindow(window, DialogUtility.DialogId, quickEntry.url, {}, 1);
         }
     }

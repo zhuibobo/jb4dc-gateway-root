@@ -8,7 +8,7 @@
 <html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Title1</title>
     <th:block th:replace="Fragment/GeneralLib::GeneralLib"></th:block>
     <th:block th:replace="Fragment/GeneralLib::ThemesLib"></th:block>
     <th:block th:replace="Fragment/GeneralLib::LineAwesomeLib"></th:block>
@@ -316,16 +316,16 @@
                     this.formEntity.menuOuterObject="";
                 }
                 else if(this.formEntity.menuType=="Web模块列表"){
-                    this.formEntity.menuRightUrl="/${SystemContextPath}/JB4DCBuilderClient/HTML/Builder/Runtime/WebListRuntime.html";
+                    this.formEntity.menuRightUrl="/%(appContextPath)s/JB4DCBuilderClient/HTML/Builder/Runtime/WebListRuntime.html";
                 }
                 else if(this.formEntity.menuType=="Web模块窗体"){
-                    this.formEntity.menuRightUrl="/${SystemContextPath}/JB4DCBuilderClient/HTML/Builder/Runtime/WebFormIndependenceRuntime.html";
+                    this.formEntity.menuRightUrl="/%(appContextPath)s/JB4DCBuilderClient/HTML/Builder/Runtime/WebFormIndependenceRuntime.html";
                 }
                 else if(this.formEntity.menuType=="流程分组"){
-                    this.formEntity.menuRightUrl="/${SystemContextPath}/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyBootableMyModels.html";
+                    this.formEntity.menuRightUrl="/%(appContextPath)s/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyBootableMyModels.html";
                 }
                 else if(this.formEntity.menuType=="工作桌面"){
-                    this.formEntity.menuRightUrl="/${SystemContextPath}/JB4DCBuilderClient/HTML/Portlet/Runtime/PortletPageV1.html";
+                    this.formEntity.menuRightUrl="/%(appContextPath)s/JB4DCBuilderClient/HTML/Portlet/Runtime/PortletPageV1.html";
                 }
                 console.log(this.formEntity.menuType);
             },
