@@ -29,10 +29,38 @@ let WidgetDemoData={
         }
     },
     getToDoListWidgetProps: function () {
+        //DialogUtility.Confirm()
         return {
-            getListDateRest:"",
-            openType:"",
-            openUrl:"a.do?a=%(u1.name)s&b=%(u2.name)s"
+            list:{
+                getListDateRest:"/%(appContextPath)s/Rest/Extension/Portlet/WorkflowTransform/GetMyProcessTaskList",
+                getListDateRestParas:{
+                    modelCategory:"GeneralProcess",
+                    pageSize:12
+                },
+                openType:"frameIframe",
+                dialogConfig:{
+                    height: 0,
+                    width: 0,
+                    title: "JB4DC",
+                    modal: true
+                },
+                fieldParsing:{
+                    timeFormat:"%(instanceEntity.instCreateTime)s",
+                    titleFormat:"[标题]%(instanceEntity.instTitle)s-%(extaskCurNodeName)s"
+                },
+                openUrl:"/%(appContextPath)s/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyEndProcessInstanceMainTask.html?op=edit&extaskId=%(extaskId)s",
+                printRowData:false
+            },
+            more:{
+                openType:"frameIframe",
+                dialogConfig:{
+                    height: 0,
+                    width: 0,
+                    title: "JB4DC",
+                    modal: true
+                },
+                openUrl:"/%(appContextPath)s/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyProcessInstanceMainTaskList.html"
+            }
         }
     },
     getDemoToDoListData:function (){

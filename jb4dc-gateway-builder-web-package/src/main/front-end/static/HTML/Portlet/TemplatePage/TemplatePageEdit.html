@@ -141,7 +141,7 @@
                     <tr>
                         <td>变量：</td>
                         <td colspan="3">
-                            上下文路径:${contextPath}
+                            上下文路径:%(appContextPath)s
                         </td>
                     </tr>
                     <tr>
@@ -181,7 +181,7 @@
                     <tr>
                         <td>变量：</td>
                         <td colspan="3">
-                            上下文路径:${contextPath}
+                            上下文路径:%(appContextPath)s
                         </td>
                     </tr>
                     <tr>
@@ -383,11 +383,11 @@
                 DialogUtility.Frame_CloseDialog(window);
             },
             //RefJS
-            addRefJS:function (){
-                this.listRefJS.modal.refJsId=StringUtility.Timestamp();
-                this.listRefJS.modal.refJsPath="${contextPath}/";
-                this.listRefJS.modal.refJsDesc="";
-                this.showAddJsModal=true;
+            addRefJS:function () {
+                this.listRefJS.modal.refJsId = StringUtility.Timestamp();
+                this.listRefJS.modal.refJsPath = "/" + StringUtility.FormatWithNames.AppContextPath + "/";
+                this.listRefJS.modal.refJsDesc = "";
+                this.showAddJsModal = true;
             },
             addRefJSToList:function (){
                 this.listRefJS.tableData.push({
@@ -406,7 +406,7 @@
             //RefCss
             addRefCSS:function (){
                 this.listRefCSS.modal.refCSSId=StringUtility.Timestamp();
-                this.listRefCSS.modal.refCSSPath="${contextPath}/";
+                this.listRefCSS.modal.refCSSPath="/" + StringUtility.FormatWithNames.AppContextPath + "/";
                 this.listRefCSS.modal.refCSSDesc="";
                 this.showAddCSSModal=true;
             },

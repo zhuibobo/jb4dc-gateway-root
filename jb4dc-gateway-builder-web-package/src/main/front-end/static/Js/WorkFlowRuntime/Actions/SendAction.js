@@ -74,10 +74,10 @@ let SendAction={
                 UserTaskReceiverDialogUtility.ShowDialog(_this, result.data, _this.SelectReceiverCompleted);
             }, _this);
         }*/
-        console.log(window);
-        console.log(window.OpenerWindowObj);
-        portletUtility.updateRefreshVersion();
-        return;
+        //console.log(window);
+        //console.log(window.OpenerWindowObj);
+        //portletUtility.updateRefreshVersion();
+        //return;
         let validateResult = ValidateRulesRuntime.ValidateSubmitEnable();
 
         if (ValidateRulesRuntime.AlertValidateErrors(validateResult)) {

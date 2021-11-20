@@ -316,16 +316,16 @@
                     this.formEntity.menuOuterObject="";
                 }
                 else if(this.formEntity.menuType=="Web模块列表"){
-                    this.formEntity.menuRightUrl="/%(appContextPath)s/JB4DCBuilderClient/HTML/Builder/Runtime/WebListRuntime.html";
+                    this.formEntity.menuRightUrl="/"+StringUtility.FormatWithNames.AppContextPath+"/JB4DCBuilderClient/HTML/Builder/Runtime/WebListRuntime.html";
                 }
                 else if(this.formEntity.menuType=="Web模块窗体"){
-                    this.formEntity.menuRightUrl="/%(appContextPath)s/JB4DCBuilderClient/HTML/Builder/Runtime/WebFormIndependenceRuntime.html";
+                    this.formEntity.menuRightUrl="/"+StringUtility.FormatWithNames.AppContextPath+"/JB4DCBuilderClient/HTML/Builder/Runtime/WebFormIndependenceRuntime.html";
                 }
                 else if(this.formEntity.menuType=="流程分组"){
-                    this.formEntity.menuRightUrl="/%(appContextPath)s/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyBootableMyModels.html";
+                    this.formEntity.menuRightUrl="/"+StringUtility.FormatWithNames.AppContextPath+"/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyBootableMyModels.html";
                 }
                 else if(this.formEntity.menuType=="工作桌面"){
-                    this.formEntity.menuRightUrl="/%(appContextPath)s/JB4DCBuilderClient/HTML/Portlet/Runtime/PortletPageV1.html";
+                    this.formEntity.menuRightUrl="/"+StringUtility.FormatWithNames.AppContextPath+"/JB4DCBuilderClient/HTML/Portlet/Runtime/PortletPageV1.html";
                 }
                 console.log(this.formEntity.menuType);
             },

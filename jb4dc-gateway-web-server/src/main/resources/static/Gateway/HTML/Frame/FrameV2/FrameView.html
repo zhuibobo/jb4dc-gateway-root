@@ -177,6 +177,7 @@
         }, this);
 
         SessionUtility.GetSessionUser(function (sessionUser) {
+            console.log(sessionUser);
             $("#spanUserName").text(sessionUser.userName);
             $("#spanUserName").attr("title",sessionUser.userName);
             $("#spanOrganName").text(sessionUser.organName);

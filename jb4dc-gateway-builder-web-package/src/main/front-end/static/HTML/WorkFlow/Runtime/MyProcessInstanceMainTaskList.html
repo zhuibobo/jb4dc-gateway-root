@@ -75,14 +75,21 @@
             pageTotal: 0,
             pageSize: 12,
             pageNum: 1,
-            listHeight: ListPageUtility.DefaultListHeight()
+            listHeight: ListPageUtility.DefaultListHeight(),
+            searchModel:{
+                instanceTitle:"",
+                instanceStartDateBegin:null,
+                instanceStartDateEnd:null,
+                modelCategory:"GeneralProcess",
+                extaskType:"主送任务"
+            }
         },
         methods: {
             selectionChange: function (selection) {
                 this.selectionRows = selection;
             },
             reloadData: function () {
-                ListPageUtility.IViewTableBindDataBySearch({
+                ListPageUtility.IViewTableBindDataBySearchPostRequestBody({
                     url: this.acInterface.reloadData,
                     pageNum: this.pageNum,
                     pageSize: this.pageSize,
@@ -93,11 +100,8 @@
                     autoSelectedOldRows: true,
                     successFunc: null,
                     loadDict: false,
-                    custParas: {
-                        modelCategory:"GeneralProcess",
-                        extaskType:"主送任务"
-                    }
-                });
+                    custParas: {}
+                },this.searchModel);
             },
             changePage: function (pageNum) {
                 this.pageNum = pageNum;

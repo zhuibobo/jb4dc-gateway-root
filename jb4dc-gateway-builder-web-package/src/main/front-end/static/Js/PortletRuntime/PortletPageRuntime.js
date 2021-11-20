@@ -26,6 +26,8 @@ let PortletPageRuntime={
 
                 this.pagePO.pageConfig = JsonUtility.StringToJson(this.pagePO.pageConfig);
                 this.pagePO.pageProperties = JsonUtility.StringToJson(this.pagePO.pageProperties);
+                this.pagePO.pageRefCssConfig = JsonUtility.StringToJson(this.pagePO.pageRefCssConfig);
+                this.pagePO.pageRefJsConfig = JsonUtility.StringToJson(this.pagePO.pageRefJsConfig);
                 if (this.pagePO.pageWidgetConfig) {
                     this.pagePO.pageWidgetConfig = JsonUtility.StringToJson(this.pagePO.pageWidgetConfig);
                 } else {
@@ -34,14 +36,41 @@ let PortletPageRuntime={
 
                 console.log(this);
 
-                this.renderPage();
+                let initFunc;
+                if(this.pagePO.pageRefJsConfig&&this.pagePO.pageRefJsConfig.length>0){
+                    let initFuncStr="let _this=this;$LAB";
+                    for (let i = 0; i < this.pagePO.pageRefJsConfig.length; i++) {
+                        let refJs=this.pagePO.pageRefJsConfig[i].refJsPath;
+                        refJs=StringUtility.FormatWithDefaultValue(refJs,null);
+                        refJs=BaseUtility.AppendTimeStampUrl(refJs);
+                        initFuncStr+=".script('"+refJs+"')"
+                    }
+                    initFuncStr+=".wait(function(){_this.renderPage();});"
+                    //console.log(initFuncStr);
+                    initFunc=Function(initFuncStr);
+                }
+                else{
+                    initFunc=Function("this.renderPage();");
+                }
+
+                initFunc.call(this);
+
+                if(this.pagePO.pageRefCssConfig&&this.pagePO.pageRefCssConfig.length>0){
+                    for (let i = 0; i < this.pagePO.pageRefCssConfig.length; i++) {
+                        let refCss=this.pagePO.pageRefCssConfig[i].refCSSPath;
+                        refCss=StringUtility.FormatWithDefaultValue(refCss,null);
+                        //console.log(refCss);
+                        LoadJsCssUtility(refCss);
+                    }
+                }
             }
         }, this);
     },
     renderPage:function (){
         //console.log(this.pagePO);
         //console.log(this.widgetList);
-        let _self=this;
+
+        //let _self=this;
 
         let dashboardView=this.buildDashboardView();
         //this.panelMenu=this.buildWidgetMenu();
@@ -79,15 +108,15 @@ let PortletPageRuntime={
         portletUtility.initRefreshStatus();
         portletUtility.startAutoRefreshControl(this.refreshALLWidget,this);
 
-        /*var user = {
+        var user = {
             u1: {
                 name: "zzz"
             },
             u2: {
-                name: "aaaa"
+                name: "aa'a\"a"
             }
         }
-        console.log(sprintf('a.do?a=%(u1.name)s&b=%(u2.name)s', user));*/
+        console.log(sprintf('a.do?a=%(u1.name)s&b=%(u2.name)s', user));
     },
     refreshALLWidget:function (innerVersion){
         console.log(innerVersion);
