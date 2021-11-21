@@ -180,7 +180,7 @@
             },
             edit: function (extaskId,params) {
                 var url = BaseUtility.BuildView(this.acInterface.editView, {
-                    "op": "edit",
+                    "op": BaseUtility.GetViewOperationName(),
                     "extaskId": extaskId
                 });
                 DialogUtility.Frame_OpenIframeWindow(window, DialogUtility.DialogWorkFlowFormId, url, {title: "办理[" + params.row.instanceEntity.instTitle + "] ExTaskId:"+extaskId}, 0);

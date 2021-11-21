@@ -1,8 +1,8 @@
 let WidgetDemoData={
-    getDemoBody: function () {
+    GetDemoBody: function () {
         return "winsw的使用比较简单。从github上下载：winsw下载，要下载的文件有两个：1.winsw.exe程序；2.xml配置文件。winsw的使用比较简单。从github上下载：winsw下载，要下载的文件有两个：1.winsw.exe程序；2.xml配置文件。winsw的使用比较简单。从github上下载：winsw下载，要下载的文件有两个：1.winsw.exe程序；2.xml配置文件。winsw的使用比较简单。从github上下载：winsw下载，要下载的文件有两个：1.winsw.exe程序；2.xml配置文件。winsw的使用比较简单。从github上下载：winsw下载，要下载的文件有两个：1.winsw.exe程序；2.xml配置文件。winsw的使用比较简单。从github上下载：winsw下载，要下载的文件有两个：1.winsw.exe程序；2.xml配置文件。winsw的使用比较简单。从github上下载：winsw下载，要下载的文件有两个：1.winsw.exe程序；2.xml配置文件。winsw的使用比较简单。从github上下载：winsw下载，要下载的文件有两个：1.winsw.exe程序；2.xml配置文件。winsw的使用比较简单。从github上下载：winsw下载，要下载的文件有两个：1.winsw.exe程序；2.xml配置文件。winsw的使用比较简单。从github上下载：winsw下载，要下载的文件有两个：1.winsw.exe程序；2.xml配置文件。";
     },
-    getQuickEntryDemoProps: function () {
+    GetQuickEntryDemoProps: function () {
         return {
             QuickEntries: [{
                 name: "事务发起",
@@ -28,7 +28,7 @@ let WidgetDemoData={
             }]
         }
     },
-    getToDoListWidgetProps: function () {
+    GetToDoListWidgetProps: function () {
         //DialogUtility.Confirm()
         return {
             list:{
@@ -48,7 +48,7 @@ let WidgetDemoData={
                     timeFormat:"%(instanceEntity.instCreateTime)s",
                     titleFormat:"[标题]%(instanceEntity.instTitle)s-%(extaskCurNodeName)s"
                 },
-                openUrl:"/%(appContextPath)s/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyEndProcessInstanceMainTask.html?op=edit&extaskId=%(extaskId)s",
+                openUrl:"/%(appContextPath)s/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyProcessInstanceMainTask.html?op=update&extaskId=%(extaskId)s",
                 printRowData:false
             },
             more:{
@@ -59,11 +59,11 @@ let WidgetDemoData={
                     title: "JB4DC",
                     modal: true
                 },
-                openUrl:"/%(appContextPath)s/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyProcessInstanceMainTaskList.html"
+                openUrl:"/%(appContextPath)s/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyProcessInstanceMainTaskList.html?menuId=QCSystem-WorkFlow-Client-MyTask"
             }
         }
     },
-    getDemoToDoListData:function (){
+    GetDemoToDoListData:function (){
         return [{
             prefix:"正常",
             title:"winsw的使用比较简单。",

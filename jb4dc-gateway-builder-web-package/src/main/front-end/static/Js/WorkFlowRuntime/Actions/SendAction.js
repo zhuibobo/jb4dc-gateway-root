@@ -3,16 +3,15 @@ let SendAction={
         resolveNextPossibleFlowNode:"/Rest/Workflow/RunTime/Client/InstanceRuntime/ResolveNextPossibleFlowNode",
         completeTask:"/Rest/Workflow/RunTime/Client/InstanceRuntime/CompleteTask"
     },
-    _Prop:{
-
-    },
+    _Prop:WorkFlowAction.EmptyProp,
     newOpinionList:[],
     inputOpinionText:null,
     Instance:function (isStartInstanceStatus,formRuntimeInst,pageHostInstance,pageReadyInnerParas,actionObj) {
+        return WorkFlowAction.Instance.call(this,isStartInstanceStatus,formRuntimeInst,pageHostInstance,pageReadyInnerParas,actionObj);
         //console.log(actionObj);
-        let htmlId = actionObj.actionHTMLId ? actionObj.actionHTMLId : actionObj.actionCode;
-        let elem = $('<button type="button" class="operation-button operation-button-primary" id="' + htmlId + '"><span>' + actionObj.actionCaption + '</span></button>');
-        this._Prop = {
+        /*let htmlId = actionObj.actionHTMLId ? actionObj.actionHTMLId : actionObj.actionCode;
+        let elem = $('<button type="button" class="operation-button operation-button-primary" id="' + htmlId + '"><span>' + actionObj.actionCaption + '</span></button>');*/
+        /*this._Prop = {
             "sender": this,
             "flowInstanceRuntimePO": pageReadyInnerParas.flowInstanceRuntimePO,
             "flowInstanceRuntimePOCacheKey": pageReadyInnerParas.flowInstanceRuntimePOCacheKey,
@@ -23,38 +22,25 @@ let SendAction={
             "pageHostInstance": pageHostInstance,
             "currentNodeKey": pageReadyInnerParas.currentNodeKey,
             "currentNodeName": pageReadyInnerParas.currentNodeName,
-            "recordId":pageReadyInnerParas.recordId,
-            "modelId":pageReadyInnerParas.modelId,
-            "modelReKey":pageReadyInnerParas.modelReKey,
-            "currentTaskId":pageReadyInnerParas.currentTaskId,
-            "instanceId":pageReadyInnerParas.flowInstanceRuntimePO.instanceEntity.instId,
-            "actionShowOpinionDialog":actionObj.actionShowOpinionDialog,
-            "actionOpinionBindToField":actionObj.actionOpinionBindToField,
-            "actionOpinionBindToElemId":actionObj.actionOpinionBindToElemId
-        }
-        elem.bind("click", this._Prop, this.ButtonClickEvent);
-        return {
-            elem: elem
-        }
-    },
-    TryGetOpinionBindToControlInstance:function (_prop){
-        let actionOpinionBindToElemId=_prop.actionOpinionBindToElemId;
-        let actionOpinionBindToField=_prop.actionOpinionBindToField;
-
-        let controlElem;
-        if(actionOpinionBindToElemId){
-            controlElem=$("#"+actionOpinionBindToElemId);
-        }
-        if(controlElem&&controlElem.length>0){
-            return HTMLControl.GetControlInstanceByElem(controlElem);
-        }
-        else{
-            controlElem=$("[fieldname='"+actionOpinionBindToField+"']");
-        }
-        if(controlElem&&controlElem.length>0){
-            return HTMLControl.GetControlInstanceByElem(controlElem);
-        }
-        return null;
+            "recordId": pageReadyInnerParas.recordId,
+            "modelId": pageReadyInnerParas.modelId,
+            "modelReKey": pageReadyInnerParas.modelReKey,
+            "currentTaskId": pageReadyInnerParas.currentTaskId,
+            "instanceId": pageReadyInnerParas.flowInstanceRuntimePO.instanceEntity.instId,
+            "actionShowOpinionDialog": actionObj.actionShowOpinionDialog,
+            "actionOpinionBindToField": actionObj.actionOpinionBindToField,
+            "actionOpinionBindToElemId": actionObj.actionOpinionBindToElemId,
+            "htmlId": htmlId
+        }*/
+        //this._Prop = WorkFlowAction.BuildProp(this, pageReadyInnerParas, actionObj, isStartInstanceStatus, pageHostInstance, htmlId);
+        //elem.bind("click", this._Prop, this.ButtonClickEvent);
+        //elem.bind("click", this._Prop, function (sender) {
+            //console.log(sender.data);
+        //    sender.data.sender.ButtonClickEvent();
+        //});
+        //return {
+        //    elem: elem
+        //}
     },
     ButtonClickEvent:function (sender) {
         //WorkFlowBaseAction.ResolveNextPossibleFlowNodeDialogAndCallSelectReceiverCompleted(sender.data);
@@ -76,43 +62,61 @@ let SendAction={
         }*/
         //console.log(window);
         //console.log(window.OpenerWindowObj);
-        //portletUtility.updateRefreshVersion();
+        //portletUtility.UpdateRefreshVersion();
         //return;
         let validateResult = ValidateRulesRuntime.ValidateSubmitEnable();
 
         if (ValidateRulesRuntime.AlertValidateErrors(validateResult)) {
-            let _prop = sender.data;
-            let _this = _prop.sender;
-            let actionShowOpinionDialog = _prop.actionShowOpinionDialog;
-
+            //let _prop = this._Prop;
+            //let _this = _prop.sender;
+            let actionShowOpinionDialog = this._Prop.actionShowOpinionDialog;
             if (actionShowOpinionDialog == "true") {
                 DialogUtility.Prompt(window, {
                     title: "系统提示",
                     height: 300,
                     width: 400,
-                }, DialogUtility.DialogPromptId, "请输入处理意见", function (inputText) {
-                    let opinionBindToControlInstance=_this.TryGetOpinionBindToControlInstance(_prop);
+                }, DialogUtility.DialogPromptId, "请输入处理意见1", function (inputText) {
+                    let opinionBindToControlInstance=this.TryGetOpinionBindToControlInstance(this._Prop);
                     if(opinionBindToControlInstance!=null) {
                         if (typeof (opinionBindToControlInstance.SetNewValue) == "function") {
                             opinionBindToControlInstance.SetNewValue(inputText);
-                            _this.inputOpinionText=inputText;
-                            _this.BeginSelectReceiver(_this, _prop);
+                            this.inputOpinionText=inputText;
+                            this.BeginSelectReceiver(this, this._Prop);
                         } else {
                             DialogUtility.AlertText("意见关联对象为实现SetNewValue方法!!");
                         }
                     }
-                });
+                },this);
             } else {
-                _this.BeginSelectReceiver(_this, _prop);
+                this.BeginSelectReceiver(this, this._Prop);
             }
         }
+    },
+    TryGetOpinionBindToControlInstance:function (_prop){
+        let actionOpinionBindToElemId=_prop.actionOpinionBindToElemId;
+        let actionOpinionBindToField=_prop.actionOpinionBindToField;
+
+        let controlElem;
+        if(actionOpinionBindToElemId){
+            controlElem=$("#"+actionOpinionBindToElemId);
+        }
+        if(controlElem&&controlElem.length>0){
+            return HTMLControl.GetControlInstanceByElem(controlElem);
+        }
+        else{
+            controlElem=$("[fieldname='"+actionOpinionBindToField+"']");
+        }
+        if(controlElem&&controlElem.length>0){
+            return HTMLControl.GetControlInstanceByElem(controlElem);
+        }
+        return null;
     },
     BeginSelectReceiver:function (_this,_prop) {
         DialogUtility.AlertLoading(window, DialogUtility.DialogLoadingId, {}, "");
 
-        let sendData = _this.BuildSendToServerData(_prop, null);
+        let sendData = this.BuildSendToServerData(this._Prop, null);
         if (sendData.success) {
-            AjaxUtility.Post(_this.acInterface.resolveNextPossibleFlowNode, sendData.data, function (result) {
+            AjaxUtility.Post(this.acInterface.resolveNextPossibleFlowNode, sendData.data, function (result) {
                 DialogUtility.CloseDialog(DialogUtility.DialogLoadingId);
                 //DialogUtility.CloseDialog(DialogUtility.DialogLoadingId);1
                 console.log(result);
@@ -122,10 +126,10 @@ let SendAction={
                     this.SelectReceiverCompleted(result.data.bpmnTaskList, [])
                 } else {
                     //单实例环节或者多实例环境的最后一人
-                    UserTaskReceiverDialogUtility.ShowDialog(_prop.sender, result.data.bpmnTaskList, _prop.sender.SelectReceiverCompleted);
+                    UserTaskReceiverDialogUtility.ShowDialog(this, result.data.bpmnTaskList, this.SelectReceiverCompleted);
                 }
 
-            }, _prop.sender);
+            }, this);
         }
     },
     SelectReceiverCompleted:function (nextTaskEntityList,selectedReceiverData) {
@@ -151,16 +155,17 @@ let SendAction={
                 AjaxUtility.Post(this.acInterface.completeTask, sendData.data, function (result) {
                     DialogUtility.CloseDialog(DialogUtility.DialogLoadingId);
                     if (result.success) {
-                        if (window.OpenerWindowObj != null && window.OpenerWindowObj.instanceMainTaskProcessList != null) {
+                        /*if (window.OpenerWindowObj != null && window.OpenerWindowObj.instanceMainTaskProcessList != null) {
                             window.OpenerWindowObj.instanceMainTaskProcessList.reloadData();
                         }
                         DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
                             DialogUtility.Frame_CloseDialog(window);
-                        }, this);
+                        }, this);*/
+                        this.RefreshParentListThenClose(result.message);
                     } else {
                         DialogUtility.AlertError(window, DialogUtility.DialogAlertErrorId, {}, result.data.message);
                     }
-                }, this._Prop.sender);
+                }, this);
             }
         }, this);
     },
@@ -195,5 +200,6 @@ let SendAction={
             opinionText:opinionText,
             opinionClientCode:StringUtility.Timestamp()
         }
-    }
+    },
+    RefreshParentListThenClose:WorkFlowAction.RefreshParentListThenClose
 }

@@ -8,7 +8,7 @@ let PortletPageRuntime={
     acInterface:{
         getTemplatePageWithSSOMenu:"/Rest/Portlet/RunTime/Client/TemplatePageRuntime/GetTemplatePageWithSSOMenu"
     },
-    getPagePOAndWidgetPOListThenRender: function () {
+    GetPagePOAndWidgetPOListThenRender: function () {
         AjaxUtility.Get(this.acInterface.getTemplatePageWithSSOMenu, {
             menuId:BaseUtility.GetUrlParaValue("menuId"),
         }, function (result) {
@@ -45,12 +45,12 @@ let PortletPageRuntime={
                         refJs=BaseUtility.AppendTimeStampUrl(refJs);
                         initFuncStr+=".script('"+refJs+"')"
                     }
-                    initFuncStr+=".wait(function(){_this.renderPage();});"
+                    initFuncStr+=".wait(function(){_this.RenderPage();});"
                     //console.log(initFuncStr);
                     initFunc=Function(initFuncStr);
                 }
                 else{
-                    initFunc=Function("this.renderPage();");
+                    initFunc=Function("this.RenderPage();");
                 }
 
                 initFunc.call(this);
@@ -66,13 +66,13 @@ let PortletPageRuntime={
             }
         }, this);
     },
-    renderPage:function (){
+    RenderPage:function (){
         //console.log(this.pagePO);
         //console.log(this.widgetList);
 
         //let _self=this;
 
-        let dashboardView=this.buildDashboardView();
+        let dashboardView=this.BuildDashboardView();
         //this.panelMenu=this.buildWidgetMenu();
 
         webix.ui({
@@ -89,7 +89,7 @@ let PortletPageRuntime={
                     if(classNameArray[i].indexOf("widgetInstanceId_")==0){
                         let widgetInstanceId=classNameArray[i].replace("widgetInstanceId_","");
                         //console.log(widgetInstanceId);
-                        let widgetContextMenu=PortletPageRuntime.getWidgetInstanceCache(widgetInstanceId).widgetContextMenu;
+                        let widgetContextMenu=PortletPageRuntime.GetWidgetInstanceCache(widgetInstanceId).widgetContextMenu;
                         if(widgetContextMenu) {
                             widgetContextMenu.setContext(webix.$$(ev.target));
                             widgetContextMenu.show(ev.target);
@@ -105,8 +105,8 @@ let PortletPageRuntime={
             $$("dashboardViewLayout").restore(this.pagePO.pageWidgetConfig);
         }
 
-        portletUtility.initRefreshStatus();
-        portletUtility.startAutoRefreshControl(this.refreshALLWidget,this);
+        portletUtility.InitRefreshStatus();
+        portletUtility.StartAutoRefreshControl(this.RefreshALLWidget,this);
 
         var user = {
             u1: {
@@ -118,20 +118,20 @@ let PortletPageRuntime={
         }
         console.log(sprintf('a.do?a=%(u1.name)s&b=%(u2.name)s', user));
     },
-    refreshALLWidget:function (innerVersion){
+    RefreshALLWidget:function (innerVersion){
         console.log(innerVersion);
         try {
             let allWidgetInstanceArray = this.widgetInstanceCacheArray;
             for (let i = 0; i < allWidgetInstanceArray.length; i++) {
                 let widgetInstance = allWidgetInstanceArray[i].instance;
-                widgetInstance.refresh(innerVersion);
+                widgetInstance.Refresh(innerVersion);
             }
         }
         catch (e){
             throw e;
         }
     },
-    buildDashboardView:function () {
+    BuildDashboardView:function () {
         let pagePO = this.pagePO;
         let dashboard = {
             view: "gridlayout", id: "dashboardViewLayout",
@@ -199,10 +199,10 @@ let PortletPageRuntime={
                             //console.log(widgetPO);
                             //console.log("------------onAfterRender-------------");
                             try {
-                                let widgetInstance = PortletPageRuntime.newWidgetInstance(widgetInstanceId, widgetPO, pagePO,$widgetContainer,widgetContainerWidth,widgetContainerHeight);
+                                let widgetInstance = PortletPageRuntime.NewWidgetInstance(widgetInstanceId, widgetPO, pagePO,$widgetContainer,widgetContainerWidth,widgetContainerHeight);
                                 if(widgetInstance) {
                                     PortletPageRuntime.counter++;
-                                    $widgetContainer.append(widgetInstance.createWidgetElem());
+                                    $widgetContainer.append(widgetInstance.CreateWidgetElem());
                                     //console.log(PortletPageRuntime.counter)
                                     //$widgetContainer.append(PortletPageRuntime.counter);
                                 }
@@ -233,7 +233,7 @@ let PortletPageRuntime={
         };
         return dashboard;
     },
-    buildWidgetContextMenu:function (widgetInstanceId,menuConfig) {
+    BuildWidgetContextMenu:function (widgetInstanceId, menuConfig) {
         if(menuConfig.length==0){
             return null;
         }
@@ -243,7 +243,7 @@ let PortletPageRuntime={
                 //console.log(widgetInstanceId);
                 for (let i = 0; i < menuConfig.length; i++) {
                     if (menuConfig[i].id==id) {
-                        let widgetInstance=PortletPageRuntime.getWidgetInstanceCache(widgetInstanceId).instance;
+                        let widgetInstance=PortletPageRuntime.GetWidgetInstanceCache(widgetInstanceId).instance;
                         menuConfig[i].click.call(widgetInstance);
                     }
                 }
@@ -252,7 +252,7 @@ let PortletPageRuntime={
         });
         return menu;
     },
-    newWidgetInstance:function (widgetInstanceId,widgetPO,pagePO,$widgetContainer,widgetContainerWidth,widgetContainerHeight) {
+    NewWidgetInstance:function (widgetInstanceId, widgetPO, pagePO, $widgetContainer, widgetContainerWidth, widgetContainerHeight) {
         try {
             let widgetInstance = Object.create(eval(widgetPO.widgetClientRender));
             widgetInstance.widgetInstanceId = widgetInstanceId;
@@ -262,7 +262,7 @@ let PortletPageRuntime={
             widgetInstance.widgetContainerWidth=widgetContainerWidth;
             widgetInstance.widgetContainerHeight=widgetContainerHeight;
 
-            let widgetContextMenu = PortletPageRuntime.buildWidgetContextMenu(widgetInstanceId, widgetInstance.getContextMenuConfig());
+            let widgetContextMenu = PortletPageRuntime.BuildWidgetContextMenu(widgetInstanceId, widgetInstance.GetContextMenuConfig());
 
             this.widgetInstanceCacheArray.push({
                 "widgetInstanceId": widgetInstanceId,
@@ -276,7 +276,7 @@ let PortletPageRuntime={
             throw e;
         }
     },
-    getWidgetInstanceCache:function (widgetInstanceId){
+    GetWidgetInstanceCache:function (widgetInstanceId){
         for (let i = 0; i < this.widgetInstanceCacheArray.length; i++) {
             if(this.widgetInstanceCacheArray[i].widgetInstanceId==widgetInstanceId){
                 return this.widgetInstanceCacheArray[i];

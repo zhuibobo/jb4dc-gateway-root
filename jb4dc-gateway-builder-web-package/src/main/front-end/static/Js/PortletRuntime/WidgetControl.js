@@ -1,47 +1,47 @@
 let WidgetControl= {
-    createWidgetElem:function (){
+    CreateWidgetElem:function (){
         this.$widgetContainerInnerWrap = $("<div class='widget-container-inner-wrap'></div>");
-        this.$widgetContainerInnerWrap.append(this._buildTitleElem(this.widgetPO));
-        this.$widgetBody = this._buildBodyElem();
+        this.$widgetContainerInnerWrap.append(this._BuildTitleElem(this.widgetPO));
+        this.$widgetBody = this._BuildBodyElem();
         this.$widgetContainerInnerWrap.append(this.$widgetBody);
         return this.$widgetContainerInnerWrap;
     },
-    notRefresh:function (innerVersion){
+    NotRefresh:function (innerVersion){
 
     },
-    _buildTitleElem: function (widgetPO) {
+    _BuildTitleElem: function (widgetPO) {
         return $("<div class='widget-title'><i class=\"las la-angle-right\"></i>" + widgetPO.widgetTitle + "</div>");
     },
-    getInstructionsContextMenuConfig:function () {
+    GetInstructionsContextMenuConfig:function () {
         return [
             {
                 id: "widgetInstructions",
                 value: "详情",
                 click: function () {
-                    this.contextMenuInstructionsEvent();
+                    this.OnContextMenuInstructionsEvent();
                 }
             }
         ]
     },
-    getDefaultContextMenuConfig:function () {
+    GetDefaultContextMenuConfig:function () {
         return [
             {
                 id: "widgetInstructions",
                 value: "详情",
                 click: function () {
-                    this.contextMenuInstructionsEvent();
+                    this.OnContextMenuInstructionsEvent();
                 }
             },
             {
                 id: "widgetMore",
                 value: "更多",
                 click: function () {
-                    this.contextMenuMoreEvent();
+                    this.OnContextMenuMoreEvent();
                 }
             }
         ]
     },
-    getEmptyContextMenuConfig:function () {
+    GetEmptyContextMenuConfig:function () {
         return []
     }
 }

@@ -22,6 +22,7 @@
     </div>
 </div>
 <th:block th:replace="Fragment/GeneralLib::WorkFlowRuntimeLib"></th:block>
+<th:block th:replace="Fragment/GeneralLib::PortletRuntimeLib"></th:block>
 <script>
     var flowRuntimePageObject;
 
@@ -37,7 +38,7 @@
         el:"#flowInstanceViewContainer",
         data: {
             acInterface:{
-                getRuntimeModelWithStart:"/Rest/Workflow/RunTime/Client/InstanceRuntime/GetRuntimeModelWithProcess",
+                getRuntimeModelWithProcess:"/Rest/Workflow/RunTime/Client/InstanceRuntime/GetRuntimeModelWithProcess",
                 changeTaskToView:"/Rest/Workflow/RunTime/Client/InstanceRuntime/ChangeTaskToView",
             },
             viewPara:{
@@ -47,7 +48,7 @@
         mounted:function () {
             DialogUtility.AlertLoading(window, DialogUtility.DialogLoadingId, {}, "");
 
-            AjaxUtility.Get(this.acInterface.getRuntimeModelWithStart, {extaskId: this.viewPara.extaskId}, function (result) {
+            AjaxUtility.Get(this.acInterface.getRuntimeModelWithProcess, {extaskId: this.viewPara.extaskId}, function (result) {
                 //console.log(result);
                 //console.log(JsonUtility.JsonToString(result));
                 BaseUtility.SetSystemFavicon();

@@ -1,4 +1,4 @@
-let PortletDefaultToDoListWidgetControl= {
+let PortletDefaultListWidgetControl= {
     //Props
     widgetInstanceId: "",
     widgetPO: null,
@@ -10,18 +10,33 @@ let PortletDefaultToDoListWidgetControl= {
     widgetContainerWidth:null,
     widgetContainerHeight:null,
     //public
-    createWidgetElem:function () {
-        return WidgetControl.createWidgetElem.call(this);
+    CreateWidgetElem:function () {
+        return WidgetControl.CreateWidgetElem.call(this);
     },
-    refresh: WidgetControl.notRefresh,
-    getContextMenuConfig:WidgetControl.getDefaultContextMenuConfig,
+    Refresh: function (){
+        this.$widgetBody.remove();
+        this.$widgetBody = this._BuildBodyElem();
+        this.$widgetContainerInnerWrap.append(this.$widgetBody);
+        console.log("PortletDefaultListWidgetControl.Refresh");
+    },
+    GetContextMenuConfig:WidgetControl.GetDefaultContextMenuConfig,
+    OnContextMenuInstructionsEvent:function (){
+        console.log("暂无介绍!");
+    },
+    OnContextMenuMoreEvent:function (){
+        let moreProp = this.widgetPO.widgetProperties.more;
+        let dialogConfig = moreProp.dialogConfig;
+        if (moreProp.openType == "frameIframe") {
+            let openUrl=moreProp.openUrl;
+            openUrl = StringUtility.FormatWithDefaultValue(openUrl,true, null,null);
+            DialogUtility.Frame_OpenIframeWindow(window,DialogUtility.DialogId05,openUrl,dialogConfig,1,true);
+        }
+    },
     //private
-    _buildTitleElem: WidgetControl._buildTitleElem,
-    _buildBodyElem: function () {
-        //console.log(this.widgetContainerWidth);
-        //console.log(this.widgetContainerHeight);
-        let widgetProps = WidgetDemoData.getToDoListWidgetProps();
-        this.widgetPO.widgetProperties=widgetProps;
+    _BuildTitleElem: WidgetControl._BuildTitleElem,
+    _BuildBodyElem: function () {
+        //let widgetProps = WidgetDemoData.GetToDoListWidgetProps();
+        //this.widgetPO.widgetProperties=widgetProps;
         let restUrl=this.widgetPO.widgetProperties.list.getListDateRest;
         let restParas=this.widgetPO.widgetProperties.list.getListDateRestParas;
         AjaxUtility.Post(restUrl,restParas,function (result){
@@ -32,19 +47,15 @@ let PortletDefaultToDoListWidgetControl= {
                 let $listInnerWrap = this.$widgetBody.find(".widget-list-inner-wrap");
                 for (let i = 0; i < result.data.length; i++) {
                     let rowData = result.data[i];
-                    let $singleRowElem = this._buildSingleRow(rowData);
+                    let $singleRowElem = this._BuildSingleRow(rowData);
                     $listInnerWrap.append($singleRowElem);
                 }
             }
         },this);
         let $widgetBody = $("<div class='widget-body'><div class='widget-list-outer-wrap'><div class='widget-list-inner-wrap'></div></div></div>");
-        //let widgetProps = this.widgetPO.widgetProperties;
-        //console.log(widgetProps);
-        //let listData = WidgetDemoData.getDemoToDoListData();
-        //console.log(123);
         return $widgetBody;
     },
-    _buildSingleRow:function (rowData) {
+    _BuildSingleRow:function (rowData) {
         if (this.widgetPO.widgetProperties.list.printRowData) {
             console.log(rowData);
         }
@@ -59,11 +70,11 @@ let PortletDefaultToDoListWidgetControl= {
 
         let $rowElem = $("<div class='widget-list-row-wrap'><div class='widget-list-title' style='width: " + titleWidth + "px;margin-right: 4px'><i class=\"las la-chevron-right\"></i>" + titleStr + "</div><div class='widget-list-date' style='width: 40px;'>" + dateShort + "</div></div>");
         $rowElem.bind("click", {rowData: rowData, "widgetInstance": this}, function (sender) {
-            sender.data.widgetInstance._buildSingleRowClickEvent.call(sender.data.widgetInstance, sender.data.rowData);
+            sender.data.widgetInstance._BuildSingleRowClickEvent.call(sender.data.widgetInstance, sender.data.rowData);
         });
         return $rowElem;
     },
-    _buildSingleRowClickEvent:function (rowData) {
+    _BuildSingleRowClickEvent:function (rowData) {
         let listProp = this.widgetPO.widgetProperties.list;
         let dialogConfig = listProp.dialogConfig;
         if (listProp.openType == "frameIframe") {

@@ -28,7 +28,7 @@
         el:"#flowInstanceViewContainer",
         data: {
             acInterface:{
-                getRuntimeModelWithStart:"/Rest/Workflow/RunTime/Client/InstanceRuntime/GetRuntimeModelWithMyEndProcess",
+                getRuntimeModelWithMyEndProcess:"/Rest/Workflow/RunTime/Client/InstanceRuntime/GetRuntimeModelWithMyEndProcess",
             },
             viewPara:{
                 extaskId:BaseUtility.GetUrlParaValue("extaskId")
@@ -37,8 +37,8 @@
         mounted:function () {
             DialogUtility.AlertLoading(window, DialogUtility.DialogLoadingId, {}, "");
 
-            AjaxUtility.Get(this.acInterface.getRuntimeModelWithStart, {extaskId: this.viewPara.extaskId}, function (result) {
-                //console.log(result);
+            AjaxUtility.Get(this.acInterface.getRuntimeModelWithMyEndProcess, {extaskId: this.viewPara.extaskId}, function (result) {
+                console.log(result);
                 //console.log(result.data.jb4dcActions);
                 //console.log(JsonUtility.JsonToString(result));
                 BaseUtility.SetSystemFavicon();

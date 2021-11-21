@@ -10,34 +10,34 @@ let PortletDefaultQuickEntryWidgetControl= {
     widgetContainerWidth:null,
     widgetContainerHeight:null,
     //public
-    createWidgetElem:function () {
-        return WidgetControl.createWidgetElem.call(this);
+    CreateWidgetElem:function () {
+        return WidgetControl.CreateWidgetElem.call(this);
     },
-    refresh: WidgetControl.notRefresh,
-    getContextMenuConfig:WidgetControl.getEmptyContextMenuConfig,
+    Refresh: WidgetControl.NotRefresh,
+    GetContextMenuConfig:WidgetControl.GetEmptyContextMenuConfig,
     //private
-    _buildTitleElem: WidgetControl._buildTitleElem,
-    _buildBodyElem: function () {
+    _BuildTitleElem: WidgetControl._BuildTitleElem,
+    _BuildBodyElem: function () {
         //debugger;
         let widgetProps = this.widgetPO.widgetProperties;
         let $widgetBody = $("<div class='widget-body'><div class='widget-quick-entry-outer-wrap'><div class='widget-quick-entry-inner-wrap'></div></div></div>");
         let $quickEntryInnerWrap = $widgetBody.find(".widget-quick-entry-inner-wrap");
         for (let i = 0; i < widgetProps.QuickEntries.length; i++) {
             let quickEntry = widgetProps.QuickEntries[i];
-            let $quickElem = this._buildSingleQuickEntry(quickEntry);
+            let $quickElem = this._BuildSingleQuickEntry(quickEntry);
             $quickEntryInnerWrap.append($quickElem);
         }
         //console.log(444444);
         return $widgetBody;
     },
-    _buildSingleQuickEntry: function (quickEntry) {
+    _BuildSingleQuickEntry: function (quickEntry) {
         let $quickElemWrap = $("<div class='widget-quick-elem-wrap'><div style='margin: auto;text-align: center'><img src='/Themes/Png32X32/" + quickEntry.image + "' /></div><div>" + quickEntry.caption + "</div></div>");
         $quickElemWrap.bind("click", {quickEntry: quickEntry, "widgetInstance": this}, function (sender) {
-            sender.data.widgetInstance._bindSingleQuickEntryClickEvent.call(sender.data.widgetInstance, sender.data.quickEntry);
+            sender.data.widgetInstance._BindSingleQuickEntryClickEvent.call(sender.data.widgetInstance, sender.data.quickEntry);
         });
         return $quickElemWrap;
     },
-    _bindSingleQuickEntryClickEvent: function (quickEntry) {
+    _BindSingleQuickEntryClickEvent: function (quickEntry) {
         console.log(quickEntry);
         if (quickEntry.openType == "innerIframe") {
             DialogUtility.OpenIframeWindow(window, DialogUtility.DialogId, quickEntry.url, {}, 1);
