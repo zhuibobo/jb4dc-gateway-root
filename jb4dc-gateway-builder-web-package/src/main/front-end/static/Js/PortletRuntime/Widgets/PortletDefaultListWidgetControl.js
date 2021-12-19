@@ -45,8 +45,8 @@ let PortletDefaultListWidgetControl= {
                 let widgetProperties = this.widgetPO.widgetProperties;
 
                 let $listInnerWrap = this.$widgetBody.find(".widget-list-inner-wrap");
-                for (let i = 0; i < result.data.length; i++) {
-                    let rowData = result.data[i];
+                for (let i = 0; i < result.data.list.length; i++) {
+                    let rowData = result.data.list[i];
                     let $singleRowElem = this._BuildSingleRow(rowData);
                     $listInnerWrap.append($singleRowElem);
                 }
@@ -77,10 +77,18 @@ let PortletDefaultListWidgetControl= {
     _BuildSingleRowClickEvent:function (rowData) {
         let listProp = this.widgetPO.widgetProperties.list;
         let dialogConfig = listProp.dialogConfig;
-        if (listProp.openType == "frameIframe") {
-            let openUrl=listProp.openUrl;
-            openUrl = StringUtility.FormatWithDefaultValue(openUrl,true, rowData,null);
+        function openUrlFunc(openUrl,dialogConfig){
             DialogUtility.Frame_OpenIframeWindow(window,DialogUtility.DialogId06,openUrl,dialogConfig,1,true);
+        }
+        if(listProp.openUrlFormatRest){
+
+        }
+        else{
+            if (listProp.openType == "frameIframe") {
+                let openUrl=listProp.openUrl;
+                openUrl = StringUtility.FormatWithDefaultValue(openUrl,true, rowData,null);
+                openUrlFunc(openUrl,dialogConfig);
+            }
         }
         console.log(rowData);
     }

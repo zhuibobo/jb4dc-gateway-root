@@ -358,6 +358,7 @@ function copyAndResolveHtml(sourcePath,base,toPath) {
         .pipe(replacecust(replaceBlockObj.replaceBlock('FrameV1Lib'), replaceBlockObj.replaceFrameV1Lib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('GoJsLib'), replaceBlockObj.replaceGoJsLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('WebixLib'), replaceBlockObj.replaceWebixLib))
+        .pipe(replacecust(replaceBlockObj.replaceBlock('GridStackLib'), replaceBlockObj.replaceGridStackLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('HTMLDesignRuntimeLib'), replaceBlockObj.replaceHTMLDesignRuntimeLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('WorkFlowRuntimeLib'), replaceBlockObj.replaceWorkFlowRuntimeLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('HTMLDesignWysiwygLib'), replaceBlockObj.replaceHTMLDesignWysiwygLib))
@@ -368,6 +369,7 @@ function copyAndResolveHtml(sourcePath,base,toPath) {
         .pipe(replacecust(replaceBlockObj.replaceBlock('ModelerView'), replaceBlockObj.replaceModelerViewLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('PortletRuntimeLib'), replaceBlockObj.replacePortletRuntimeLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('LabJSLib'), replaceBlockObj.replaceLabJSLib))
+        .pipe(replacecust(replaceBlockObj.replaceBlock('JQueryContextMenuLib'), replaceBlockObj.replaceJQueryContextMenuLib))
 
     //console.log(toPath);
     if(isdebug){

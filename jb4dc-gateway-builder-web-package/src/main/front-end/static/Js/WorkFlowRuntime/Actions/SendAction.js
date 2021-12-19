@@ -42,7 +42,7 @@ let SendAction={
         //    elem: elem
         //}
     },
-    ButtonClickEvent:function (sender) {
+    ButtonClickEvent:function () {
         //WorkFlowBaseAction.ResolveNextPossibleFlowNodeDialogAndCallSelectReceiverCompleted(sender.data);
         /*var validateResult = ValidateRulesRuntime.ValidateSubmitEnable();
         var _this = sender.data._this;

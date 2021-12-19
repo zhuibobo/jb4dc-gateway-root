@@ -28,14 +28,14 @@ let RecallAction={
         DialogUtility.Confirm(window, "确认执行撤回操作?", function () {
             DialogUtility.AlertLoading(window, DialogUtility.DialogLoadingId, {}, "系统处理中,请稍候!");
             AjaxUtility.Post(this.acInterface.recallMySendTask, {
-                extaskId: sender.data.currentTaskId
+                extaskId: this._Prop.currentTaskId
             }, function (result) {
                 //debugger;
                 DialogUtility.CloseDialog(DialogUtility.DialogLoadingId);
                 if (result.success) {
                     this.RefreshParentListThenClose(result.message);
                 }
-            },);
+            },this);
         }, this);
     },
     RefreshParentListThenClose:WorkFlowAction.RefreshParentListThenClose

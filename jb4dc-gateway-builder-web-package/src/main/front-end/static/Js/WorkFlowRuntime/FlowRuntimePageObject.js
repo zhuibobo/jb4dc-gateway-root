@@ -138,6 +138,8 @@ let FlowRuntimePageObject={
         tabContainer.append("<div class=\"wysiwyg-wfdct-tabs-content wfdct-tabs-content-runtime\" id=\"tab_content_flow_sequence_999\"></div>");*/
         tabContainer.append("<div class=\"wysiwyg-wfdct-tabs-label wfdct-tabs-label-runtime\" tab_id=\"tab_content_flow_task_999\">流转信息</div>");
         tabContainer.append("<div class=\"wysiwyg-wfdct-tabs-content wfdct-tabs-content-runtime\" id=\"tab_content_flow_task_999\">"+InstanceExTaskListPlugin.GetHtmlElem(propConfig)+"</div>");
+        /*tabContainer.append("<div class=\"wysiwyg-wfdct-tabs-label wfdct-tabs-label-runtime\" tab_id=\"tab_content_flow_metadata_999\">流程数据</div>");
+        tabContainer.append("<div class=\"wysiwyg-wfdct-tabs-content wfdct-tabs-content-runtime\" id=\"tab_content_flow_metadata_999\">"+InstanceExTaskListPlugin.GetHtmlElem(propConfig)+"</div>");*/
         var newRuntimeHtml=flowPageContainer.html();
         //console.log(newRuntimeHtml);
         return newRuntimeHtml;

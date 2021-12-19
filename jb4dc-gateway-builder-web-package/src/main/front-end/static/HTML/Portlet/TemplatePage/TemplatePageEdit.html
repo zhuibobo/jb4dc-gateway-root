@@ -256,7 +256,7 @@
                 pageRefCssConfig: [],
                 pageUpdater: "",
                 pageProperties: {"Desc":"Widget相关属性"},
-                pageConfig:{
+                /*pageConfig:{
                     layout:"dashboard",
                     cellHeight:60,
                     gridRows:18,
@@ -264,6 +264,15 @@
                     margin:8,
                     padding:8,
                     panelCss:""
+                },*/
+                pageConfig:{
+                    minRow: 30, // don't let it collapse when empty
+                    cellHeight: '20px',
+                    margin:4,
+                    acceptWidgets: '.grid-stack-item',
+                    column: 12,
+                    float:true,
+                    itemClass:"widget-panel-outer-wrap"
                 },
                 pageWidgetConfig:[],
                 pageGroupId: BaseUtility.GetUrlParaValue("groupId")

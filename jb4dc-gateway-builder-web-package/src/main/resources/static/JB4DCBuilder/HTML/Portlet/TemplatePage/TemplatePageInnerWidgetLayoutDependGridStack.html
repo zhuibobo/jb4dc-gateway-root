@@ -1,0 +1,231 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: zhuangrb
+  Date: 2021/12/17
+  To change this template use File | Settings | File Templates.
+--><!DOCTYPE html><html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>Title1</title><title>JBuild4D</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="../../../../Js/External/JQuery-3.6.0/jquery-3.6.0.min.js"></script><script type="text/javascript" src="../../../../Js/External/VUE-2.6.10/vue.js"></script><script type="text/javascript" src="../../../../Js/External/IView-4.X/dist/iview.min.js"></script><script type="text/javascript" src="../../../../Js/External/JQuery-UI-1.13.0/jquery-ui.js"></script><script type="text/javascript" src="../../../../Js/External/ZTree-3.5.40/js/jquery.ztree.all.js"></script><script type="text/javascript" src="../../../../Js/External/Perfect-Scrollbar-V1.4.0/perfect-scrollbar.js"></script><script type="text/javascript" src="../../../../Js/JBuild4DCLib.js?refVersion=1639876277968"></script><script type="text/javascript" src="../../../../Js/UIEXComponent.js?refVersion=1639876277968"></script><script type="text/javascript" src="../../../../Js/VueEXComponent.js?refVersion=1639876277968"></script><script type="text/javascript" src="../../../../JB4DCBuilder/Js/UIEXComponentForBuilder.js?refVersion=1639876277968"></script><script type="text/javascript" src="../../../../JB4DCBuilder/Js/BuilderVueEXComponent.js?refVersion=1639876277968"></script><script type="text/javascript" src="../../../../SSOSystem/Js/SSOVueEXComponent.js?refVersion=1639876277968"></script><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/IView-4.X/iview.css"><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/JQueryUI/jquery-ui.css"><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/JQueryUI/jquery-ui-important.css"><link rel="stylesheet" type="text/css" href="../../../../Js/External/Perfect-Scrollbar-V1.4.0/perfect-scrollbar.css"><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/ZTree/zTreeStyle/zTreeStyle.css"><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/Css/JBuild4DC.css?refVersion=1639876277968"><link rel="stylesheet" type="text/css" href="../../../../JB4DCBuilder/Themes/Default/Css/JBuild4DCBuilder.css?refVersion=1639876277968"><script type="text/javascript" src="../../../../Js/External/GridStack-4.3.1/dist/gridstack-h5.js"></script><link rel="stylesheet" type="text/css" href="../../../../Js/External/GridStack-4.3.1/dist/gridstack.css"><link rel="stylesheet" type="text/css" href="../../../../Js/External/GridStack-4.3.1/dist/gridstack-extra.min.css"><link rel="stylesheet" type="text/css" href="../../../../Themes/Default/Line-Awesome-1.3.0/css/line-awesome.css"><script type="text/javascript" src="../../../../Js/External/JQuery-ContextMenu-2.9.2/dist/jquery.contextMenu.js"></script><link rel="stylesheet" type="text/css" href="../../../../Js/External/JQuery-ContextMenu-2.9.2/dist/jquery.contextMenu.css"><style>body,html{height:100%;margin:0}.ztree .widget-panel-outer-wrap,div[name=widgetInfo],grid-stack-item-content{display:inline-block}.flex-2column-outer-wrap{display:flex;height:100%}.flex-2column-outer-wrap>div:first-child{flex-grow:2;overflow:auto}.flex-2column-outer-wrap>div:last-child{flex-basis:200px;background-color:#eaeded}.grid-stack{background-color:#f4f6f6}.grid-stack .widget-panel-outer-wrap{border-radius:6px}.grid-stack .widget-panel-outer-wrap .grid-stack-item-content{border-radius:6px;border:1px solid #bfc9ca;background-color:#fff}.widget-panel-outer-wrap .widget-tool-bar{height:28px;border-bottom:1px dotted #bfc9ca}.widget-panel-outer-wrap .widget-tool-bar .widget-title{margin-left:6px;margin-top:6px;color:#ff7300;float:left;font-size:13px}.widget-panel-outer-wrap .widget-tool-bar .widget-menu{float:right;font-size:20px;margin-right:6px}input[type=button]{padding:4px;border:1px solid #aab7b8;margin:4px;font-size:13px;width:calc(100% - 8px);cursor:pointer;background-color:#839192}</style><script type="text/javascript" charset="utf-8">$(function (){
+            pageObj.getPagePOAndWidgetPOListThenRender();
+        });
+        let pageObj= {
+            pagePO:null,
+            groupWidgetTreeData:null,
+
+            widgetTreeView:null,
+            widgetTreeViewSetting:{
+                async : {
+                    enable : true,
+                    // Ajax 获取数据的 URL 地址
+                    url : ""
+                },
+                view: {
+                    nameIsHTML: true
+                },
+                // 必须使用data
+                data:{
+                    key:{
+                        name:"textHTML"
+                    },
+                    simpleData : {
+                        enable : true,
+                        idKey : "id", // id编号命名
+                        pIdKey : "parentId",  // 父id编号命名
+                        rootId : 0
+                    }
+                },
+                // 回调函数
+                callback : {
+                    onClick : function(event, treeId, treeNode) {
+                        //appList.treeNodeSelected(event,treeId,treeNode);
+                    },
+                    //成功的回调函数
+                    onAsyncSuccess : function(event, treeId, treeNode, msg){
+                        //appList.treeObj.expandAll(true);
+                    }
+                }
+            },
+            dashboardView:null,
+            panelMenu:null,
+
+            getPagePOAndWidgetPOListThenRender: function () {
+                AjaxUtility.Post("/Rest/Portlet/TemplatePage/GetDetailData", {
+                    recordId: BaseUtility.GetUrlParaValue("recordId")
+                }, function (result) {
+                    if (result.success) {
+                        //console.log(result);
+                        this.pagePO = result.data;
+                        this.pagePO.pageConfig = JsonUtility.StringToJson(this.pagePO.pageConfig);
+                        this.pagePO.pageProperties = JsonUtility.StringToJson(this.pagePO.pageProperties);
+                        if (this.pagePO.pageWidgetConfig) {
+                            this.pagePO.pageWidgetConfig = JsonUtility.StringToJson(this.pagePO.pageWidgetConfig);
+                        } else {
+                            this.pagePO.pageWidgetConfig = [];
+                        }
+
+                        AjaxUtility.Post("/Rest/Portlet/Widget/GetTreeData", {}, function (result) {
+                            this.groupWidgetTreeData=result.data;
+                            for (let i = 0; i < this.groupWidgetTreeData.length; i++) {
+                                if(this.groupWidgetTreeData[i].nodeTypeName=="Group"){
+                                    this.groupWidgetTreeData[i].icon = "/Themes/Png16X16/app-view-tile.png";
+                                    this.groupWidgetTreeData[i].textHTML=this.groupWidgetTreeData[i].text;
+                                }
+                                else{
+                                    this.groupWidgetTreeData[i].icon = "/Themes/Png16X16/application_add.png";
+                                    this.groupWidgetTreeData[i].textHTML=`<div class="widget-panel-outer-wrap grid-stack-item" gs-w="2" gs-h="10"><div class="grid-stack-item-content"><div name="widgetInfo" widgetId="`+this.groupWidgetTreeData[i].id+`">`+this.groupWidgetTreeData[i].text+`</div></div></div>`
+                                }
+                            }
+                            //console.log(result.data);
+                            /*for (let i = 0; i < groupWidgetTreeData.length; i++) {
+                                groupWidgetTreeData[i].dx=2;
+                                groupWidgetTreeData[i].dy=4;
+                            }
+                            this.groupWidgetTreeData = JsonUtility.ParseArrayJsonToTreeJson({
+                                KeyField: "id",
+                                RelationField: "parentId",
+                                ChildFieldName: "data"
+                            }, groupWidgetTreeData, "WidgetGroup0");*/
+                            this.renderPage();
+                        }, this);
+                    }
+                }, this);
+            },
+            renderPage:function (){
+                console.log(this.groupWidgetTreeData);
+                console.log(this.pagePO);
+                this.buildWidgetTreeView();
+                this.buildDashboardView();
+            },
+            buildDashboardView:function () {
+                this.pagePO.pageConfig.acceptWidgets = ".widget-panel-outer-wrap";
+                this.dashboardView = GridStack.init(this.pagePO.pageConfig);
+                this.dashboardView.on('added', function (event, items) {
+                    //let x = parseInt(el.getAttribute('gs-x')) || 0;
+                    // or all values...
+                    //console.log(event);
+                    console.log(items);
+                    if(items.length==1) {
+                        let node = items[0];
+                        console.log(node);
+                        pageObj.buildWidget(node,true);
+                    }
+                    else{
+                        //debugger;
+                        for (let i = 0; i < items.length; i++) {
+                            pageObj.buildWidget(items[i],false);
+                        }
+                        pageObj.buildContextMenu(".widget-menu");
+                    }
+                    /*let widgetId = node.id;
+                    node.id = widgetId + "_" + StringUtility.Timestamp();
+                    node.widgetSingleId = node.id;
+                    node.widgetId = widgetId;
+                    node.el.setAttribute("widget-single-id", node.widgetSingleId);
+                    let widgetPO = pageObj.getWidgetPO(node.widgetId);
+                    pageObj.buildWidgetTemplate($(node.el).find(".grid-stack-item-content"), widgetPO, node.widgetSingleId);*/
+                });
+                this.dashboardView.on('dropped', function (event, previousWidget, newWidget) {
+                    //console.log('Removed widget that was dragged out of grid:', previousWidget);
+                    //console.log('Added widget in dropped grid:', newWidget);
+                });
+                this.dashboardView.on('drag', function (event, el) {
+                    //console.log(event);
+                    //console.log(el);
+                });
+                GridStack.setupDragIn('.widget-panel-outer-wrap', {
+                    revert: 'invalid',
+                    scroll: false,
+                    appendTo: 'body',
+                    h: 3,
+                    w: 3,
+                    helper: "clone"
+                });
+
+                if (!BaseUtility.IsAddOperationByUrl()) {
+                    let pageWidgetConfig = this.pagePO.pageWidgetConfig;
+                    this.dashboardView.load(pageWidgetConfig, true); // update things
+                }
+            },
+            buildWidget:function (node,appendToolBarElem){
+                let widgetId = $(node.el).find("[name='widgetInfo']").attr("widgetId");
+                $(node.el).find("[name='widgetInfo']").html("");
+                if(appendToolBarElem){
+                    node.id = widgetId + "_" + StringUtility.Timestamp();
+                }
+                node.widgetSingleId = node.id;
+                node.widgetId = widgetId;
+                node.el.setAttribute("widget-single-id", node.widgetSingleId);
+                let widgetPO = pageObj.getWidgetPO(node.widgetId);
+                if(appendToolBarElem) {
+                    let menuId="widget_menu_"+node.widgetSingleId;
+                    pageObj.buildWidgetTemplate($(node.el).find(".grid-stack-item-content"), widgetPO, node.widgetSingleId,menuId);
+                    this.buildContextMenu('#'+menuId);
+                }
+            },
+            buildContextMenu:function (selector){
+                $.contextMenu({
+                    selector: selector,
+                    trigger: 'left',
+                    callback: function(key, options) {
+                        var m = "clicked: " + key;
+                        //console.log(key);
+                        //console.log(options);
+                        if(key=="delete"){
+                            //console.log($(options.$trigger).attr("widgetSingleId"));
+                            //debugger;
+                            let deleteWidgetSingleId=$(options.$trigger).attr("widget-single-id");
+                            let widgetItems=pageObj.dashboardView.getGridItems();
+                            //console.log(widgetItems);
+                            for (let i = 0; i < widgetItems.length; i++) {
+                                console.log($(widgetItems[i]).attr("widget-single-id"));
+                                if($(widgetItems[i]).attr("widget-single-id")==deleteWidgetSingleId){
+                                    pageObj.dashboardView.removeWidget(widgetItems[i],true,true);
+                                }
+                            }
+                        }
+                    },
+                    items: {
+                        "delete": {name: "Delete", icon: "delete"},
+                        "sep1": "---------",
+                        "quit": {
+                            name: "Quit",
+                            icon: "context-menu-icon context-menu-icon-quit"
+                        }
+                    }
+                });
+            },
+            buildWidgetTemplate:function ($widgetPanelContent,widgetPO,widgetSingleId,menuId){
+                let titleToolBar=$("<div class='widget-tool-bar'><div class='widget-title'>"+widgetPO.text+"</div><div class='widget-menu' id='"+menuId+"' widget-single-id='"+widgetSingleId+"'><i class='las la-align-justify context-menu-one'></i></div></div>")
+                $widgetPanelContent.prepend(titleToolBar);
+            },
+            buildWidgetTreeView:function (){
+                this.widgetTreeView = $.fn.zTree.init($("#zTreeUL"), this.widgetTreeViewSetting, this.groupWidgetTreeData);
+                this.widgetTreeView.expandAll(true);
+            },
+            buildWidgetMenu:function (){
+
+            },
+            getWidgetPO:function (widgetId){
+                for (let i = 0; i < this.groupWidgetTreeData.length; i++) {
+                    if(this.groupWidgetTreeData[i].id==widgetId){
+                        return this.groupWidgetTreeData[i];
+                    }
+                }
+                return null;
+            },
+            saveLayout:function () {
+                let pageWidgetConfig = this.dashboardView.save();
+                console.log(pageWidgetConfig);
+                //return;
+                //document.querySelector('#saved-data').value = JSON.stringify(serializedData, null, '  ');
+
+                AjaxUtility.Post("/Rest/Portlet/TemplatePage/SavePageWidgetConfig", {
+                    recordId: BaseUtility.GetUrlParaValue("recordId"),
+                    pageWidgetConfig: JsonUtility.JsonToString(pageWidgetConfig)
+                }, function (result) {
+                    if(result.success){
+                        DialogUtility.Alert(window,DialogUtility.DialogId,{},result.message,function (){
+
+                        },this);
+                    }
+                }, this);
+            }
+        }</script></head><body><div class="flex-2column-outer-wrap"><div><div class="grid-stack"></div></div><div style="display:flex;flex-flow:column"><div style="flex-grow:2"><ul id="zTreeUL" class="ztree"></ul></div><div style="flex-basis:60px"><input type="button" value="清空"> <input type="button" value="保存" onclick="pageObj.saveLayout()"></div></div></div></body></html>

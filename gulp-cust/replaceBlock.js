@@ -225,6 +225,26 @@ let replaceBlock = {
 
         return replaceArray.join("\n\t");
     },
+    replaceJQueryContextMenuLib:function (search, file){
+        let replaceArray = new Array();
+        //判断路径后进行引入js的路径
+        let levelPath = calculateFilePath(file);
+
+        replaceArray.push(refJs(levelPath + "Js/External/JQuery-ContextMenu-2.9.2/dist/jquery.contextMenu.js"));
+        replaceArray.push(refCss(levelPath + 'Js/External/JQuery-ContextMenu-2.9.2/dist/jquery.contextMenu.css'));
+
+        return replaceArray.join("\n\t");
+    },
+    replaceGridStackLib:function (search, file){
+        let replaceArray = new Array();
+        //判断路径后进行引入js的路径
+        let levelPath = calculateFilePath(file);
+
+        replaceArray.push(refJs(levelPath + "Js/External/GridStack-4.3.1/dist/gridstack-h5.js"));
+        replaceArray.push(refCss(levelPath + 'Js/External/GridStack-4.3.1/dist/gridstack.css'));
+        replaceArray.push(refCss(levelPath + 'Js/External/GridStack-4.3.1/dist/gridstack-extra.min.css'));
+        return replaceArray.join("\n\t");
+    },
     replacePortletRuntimeLib:function (search, file){
         let replaceArray = new Array();
         //判断路径后进行引入js的路径
