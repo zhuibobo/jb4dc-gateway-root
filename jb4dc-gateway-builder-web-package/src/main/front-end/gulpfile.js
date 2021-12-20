@@ -367,7 +367,7 @@ function copyAndResolveHtml(sourcePath,base,toPath) {
         .pipe(replacecust(replaceBlockObj.replaceBlock('LineAwesomeLib'), replaceBlockObj.replaceLineAwesomeLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('JsonEditorLib'), replaceBlockObj.replaceJsonEditorLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('ModelerView'), replaceBlockObj.replaceModelerViewLib))
-        .pipe(replacecust(replaceBlockObj.replaceBlock('PortletRuntimeLib'), replaceBlockObj.replacePortletRuntimeLib))
+        .pipe(replacecust(replaceBlockObj.replaceBlock('PortletRuntimeLib'), replaceBlockObj.PortletRuntimeLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('LabJSLib'), replaceBlockObj.replaceLabJSLib))
         .pipe(replacecust(replaceBlockObj.replaceBlock('JQueryContextMenuLib'), replaceBlockObj.replaceJQueryContextMenuLib))
 

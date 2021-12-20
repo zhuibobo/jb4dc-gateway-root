@@ -2,19 +2,23 @@
 <html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>工作门户6</title>
+    <title>PortletPageDependGridStack3</title>
     <th:block th:replace="Fragment/GeneralLib::GeneralLib"></th:block>
     <th:block th:replace="Fragment/GeneralLib::ThemesLib"></th:block>
-    <th:block th:replace="Fragment/GeneralLib::WebixLib"></th:block>
+    <th:block th:replace="Fragment/GeneralLib::GridStackLib"></th:block>
+    <th:block th:replace="Fragment/GeneralLib::JQueryContextMenuLib"></th:block>
     <th:block th:replace="Fragment/GeneralLib::PortletRuntimeLib"></th:block>
     <th:block th:replace="Fragment/GeneralLib::LineAwesomeLib"></th:block>
     <th:block th:replace="Fragment/GeneralLib::LabJSLib"></th:block>
     <script type="text/javascript" charset="utf-8">
         $(function (){
-            PortletPageRuntime.GetPagePOAndWidgetPOListThenRender();
+            PortletPageRuntimeDependGridStack.GetPagePOAndWidgetPOListThenRender();
         });
     </script>
 </head>
 <body>
+    <div class="grid-stack">
+
+    </div>
 </body>
 </html>

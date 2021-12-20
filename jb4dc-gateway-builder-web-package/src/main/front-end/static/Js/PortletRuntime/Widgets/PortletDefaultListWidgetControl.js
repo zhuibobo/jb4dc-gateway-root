@@ -11,7 +11,7 @@ let PortletDefaultListWidgetControl= {
     widgetContainerHeight:null,
     //public
     CreateWidgetElem:function () {
-        return WidgetControl.CreateWidgetElem.call(this);
+        return WidgetControl.CreateWidgetElem.call(this,this.GetContextMenuConfig());
     },
     Refresh: function (){
         this.$widgetBody.remove();
@@ -19,7 +19,9 @@ let PortletDefaultListWidgetControl= {
         this.$widgetContainerInnerWrap.append(this.$widgetBody);
         console.log("PortletDefaultListWidgetControl.Refresh");
     },
-    GetContextMenuConfig:WidgetControl.GetDefaultContextMenuConfig,
+    GetContextMenuConfig:function () {
+        return WidgetControl.GetDefaultContextMenuConfig.call(this);
+    },
     OnContextMenuInstructionsEvent:function (){
         console.log("暂无介绍!");
     },
@@ -33,7 +35,7 @@ let PortletDefaultListWidgetControl= {
         }
     },
     //private
-    _BuildTitleElem: WidgetControl._BuildTitleElem,
+    _BuildToolBar: WidgetControl._BuildToolBar,
     _BuildBodyElem: function () {
         //let widgetProps = WidgetDemoData.GetToDoListWidgetProps();
         //this.widgetPO.widgetProperties=widgetProps;

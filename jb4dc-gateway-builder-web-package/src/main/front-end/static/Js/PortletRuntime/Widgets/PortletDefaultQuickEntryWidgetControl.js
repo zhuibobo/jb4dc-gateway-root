@@ -11,12 +11,14 @@ let PortletDefaultQuickEntryWidgetControl= {
     widgetContainerHeight:null,
     //public
     CreateWidgetElem:function () {
-        return WidgetControl.CreateWidgetElem.call(this);
+        return WidgetControl.CreateWidgetElem.call(this,this.GetContextMenuConfig());
     },
     Refresh: WidgetControl.NotRefresh,
-    GetContextMenuConfig:WidgetControl.GetEmptyContextMenuConfig,
+    GetContextMenuConfig:function () {
+        return WidgetControl.GetEmptyContextMenuConfig.call(this);
+    },
     //private
-    _BuildTitleElem: WidgetControl._BuildTitleElem,
+    _BuildToolBar: WidgetControl._BuildToolBar,
     _BuildBodyElem: function () {
         //debugger;
         let widgetProps = this.widgetPO.widgetProperties;

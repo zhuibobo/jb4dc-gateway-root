@@ -1,4 +1,4 @@
-let PortletPageRuntime={
+let PortletPageRuntimeDependWebix={
     pagePO:null,
     widgetList:null,
     widgetInstanceCacheArray:[],
@@ -89,7 +89,7 @@ let PortletPageRuntime={
                     if(classNameArray[i].indexOf("widgetInstanceId_")==0){
                         let widgetInstanceId=classNameArray[i].replace("widgetInstanceId_","");
                         //console.log(widgetInstanceId);
-                        let widgetContextMenu=PortletPageRuntime.GetWidgetInstanceCache(widgetInstanceId).widgetContextMenu;
+                        let widgetContextMenu=PortletPageRuntimeDependWebix.GetWidgetInstanceCache(widgetInstanceId).widgetContextMenu;
                         if(widgetContextMenu) {
                             widgetContextMenu.setContext(webix.$$(ev.target));
                             widgetContextMenu.show(ev.target);
@@ -191,7 +191,7 @@ let PortletPageRuntime={
                             let pagePO = this.data.pagePO;
                             let widgetId = this.data.widgetId;
                             let widgetInstanceId = this.data.widgetInstanceId;
-                            let widgetPO = ArrayUtility.WhereSingle(PortletPageRuntime.widgetList, item => item.widgetId == widgetId);
+                            let widgetPO = ArrayUtility.WhereSingle(PortletPageRuntimeDependWebix.widgetList, item => item.widgetId == widgetId);
                             let $widgetContainer=$(this.$view).find("[name='widgetContainer']");
                             let widgetContainerWidth=$widgetContainer.width();
                             let widgetContainerHeight=$widgetContainer.height();
@@ -199,12 +199,12 @@ let PortletPageRuntime={
                             //console.log(widgetPO);
                             //console.log("------------onAfterRender-------------");
                             try {
-                                let widgetInstance = PortletPageRuntime.NewWidgetInstance(widgetInstanceId, widgetPO, pagePO,$widgetContainer,widgetContainerWidth,widgetContainerHeight);
+                                let widgetInstance = PortletPageRuntimeDependWebix.NewWidgetInstance(widgetInstanceId, widgetPO, pagePO,$widgetContainer,widgetContainerWidth,widgetContainerHeight);
                                 if(widgetInstance) {
-                                    PortletPageRuntime.counter++;
+                                    PortletPageRuntimeDependWebix.counter++;
                                     $widgetContainer.append(widgetInstance.CreateWidgetElem());
-                                    //console.log(PortletPageRuntime.counter)
-                                    //$widgetContainer.append(PortletPageRuntime.counter);
+                                    //console.log(PortletPageRuntimeDependWebix.counter)
+                                    //$widgetContainer.append(PortletPageRuntimeDependWebix.counter);
                                 }
                                 else{
                                     $widgetContainer.append("实例化Widget失败,请检查代码1!");
@@ -243,7 +243,7 @@ let PortletPageRuntime={
                 //console.log(widgetInstanceId);
                 for (let i = 0; i < menuConfig.length; i++) {
                     if (menuConfig[i].id==id) {
-                        let widgetInstance=PortletPageRuntime.GetWidgetInstanceCache(widgetInstanceId).instance;
+                        let widgetInstance=PortletPageRuntimeDependWebix.GetWidgetInstanceCache(widgetInstanceId).instance;
                         menuConfig[i].click.call(widgetInstance);
                     }
                 }
@@ -262,7 +262,7 @@ let PortletPageRuntime={
             widgetInstance.widgetContainerWidth=widgetContainerWidth;
             widgetInstance.widgetContainerHeight=widgetContainerHeight;
 
-            let widgetContextMenu = PortletPageRuntime.BuildWidgetContextMenu(widgetInstanceId, widgetInstance.GetContextMenuConfig());
+            let widgetContextMenu = PortletPageRuntimeDependWebix.BuildWidgetContextMenu(widgetInstanceId, widgetInstance.GetContextMenuConfig());
 
             this.widgetInstanceCacheArray.push({
                 "widgetInstanceId": widgetInstanceId,

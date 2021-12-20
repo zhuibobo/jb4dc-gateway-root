@@ -245,7 +245,7 @@ let replaceBlock = {
         replaceArray.push(refCss(levelPath + 'Js/External/GridStack-4.3.1/dist/gridstack-extra.min.css'));
         return replaceArray.join("\n\t");
     },
-    replacePortletRuntimeLib:function (search, file){
+    PortletRuntimeLib:function (search, file){
         let replaceArray = new Array();
         //判断路径后进行引入js的路径
         let levelPath = calculateFilePath(file);
