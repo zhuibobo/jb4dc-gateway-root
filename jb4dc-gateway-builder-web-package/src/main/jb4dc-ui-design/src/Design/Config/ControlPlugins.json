@@ -1,0 +1,74 @@
+{
+  "AppFormDesign": [
+    {
+      "Group": "Layout",
+      "SingleName": "SingleGridStack",
+      "Text": "网格布局",
+      "Class": "",
+      "DragTo": "Root",
+      "ServerResolve": "",
+      "ClientResolve": "",
+      "ClientResolveJs": "",
+      "EnableChildControls": "",
+      "DialogWidth": "600",
+      "DialogHeight":"550",
+      "IsJBuild4DCData":"false",
+      "ControlCategory":"LayoutControl",
+      "ServerDynamicBind":"false",
+      "ShowRemoveButton":"false",
+      "ShowInEditorToolbar":"true"
+    },
+    {
+      "Group": "Layout",
+      "SingleName": "SingleTable",
+      "Text": "表格布局",
+      "Class": "",
+      "DragTo": "Root",
+      "ServerResolve": "",
+      "ClientResolve": "",
+      "ClientResolveJs": "",
+      "EnableChildControls": "",
+      "DialogWidth": "600",
+      "DialogHeight":"550",
+      "IsJBuild4DCData":"false",
+      "ControlCategory":"LayoutControl",
+      "ServerDynamicBind":"false",
+      "ShowRemoveButton":"false",
+      "ShowInEditorToolbar":"true"
+    },
+    {
+      "Group": "Layout",
+      "SingleName": "TabGridStack",
+      "Text": "Tab选项卡",
+      "Class": "",
+      "DragTo": "Root",
+      "ServerResolve": "",
+      "ClientResolve": "",
+      "ClientResolveJs": "",
+      "EnableChildControls": "",
+      "DialogWidth": "600",
+      "DialogHeight":"550",
+      "IsJBuild4DCData":"false",
+      "ControlCategory":"LayoutControl",
+      "ServerDynamicBind":"false",
+      "ShowRemoveButton":"false",
+      "ShowInEditorToolbar":"true",
+      "Children": [{
+        "Group": "Layout",
+        "SingleName": "TabGridStack",
+        "Text": "Tab选项卡",
+        "Class": "",
+        "DragTo": "Root"
+      }]
+    }
+  ],
+  "AppListDesign": [
+
+  ],
+  "WebFormDesign": [
+
+  ],
+  "WebListDesign": [
+
+  ]
+}
