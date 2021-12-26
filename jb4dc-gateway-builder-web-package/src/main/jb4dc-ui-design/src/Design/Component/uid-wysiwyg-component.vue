@@ -1,21 +1,23 @@
 <template>
     <div class="uid-wysiwyg-component-root">
         <div>
-            <div class="wysiwyg-container"></div>
+            <div class="wysiwyg-container" :id="wysiwygDragDropUtility.wysiwygContainerId" @dragover="dragover($event)" @drop="drop($event)">
+
+            </div>
         </div>
         <div>
             <div id="accordion">
                 <h3>布局控件</h3>
-                <div>
-
+                <div class="plugin-list-wrap">
+                    <uid-wysiwyg-plugin-list-component :control-plugins-config="controlPluginsConfig" group-name="Layout"></uid-wysiwyg-plugin-list-component>
                 </div>
                 <h3>输入控件</h3>
-                <div>
-
+                <div class="plugin-list-wrap">
+                    <uid-wysiwyg-plugin-list-component :control-plugins-config="controlPluginsConfig" group-name="Layout1"></uid-wysiwyg-plugin-list-component>
                 </div>
                 <h3>容器控件</h3>
-                <div>
-
+                <div class="plugin-list-wrap">
+                    <uid-wysiwyg-plugin-list-component :control-plugins-config="controlPluginsConfig" group-name="Layout2"></uid-wysiwyg-plugin-list-component>
                 </div>
             </div>
         </div>
@@ -24,15 +26,45 @@
 
 <script>
 
-import controlPluginsConfig from '../Config/ControlPlugins.json';
+import controlPluginsUtility from '../Utility/ControlPluginsUtility';
+import wysiwygDragDropUtility from '../Utility/WysiwygDragDropUtility';
+import allPlugins from '../Plugins/index'
 
 export default {
     name: "uid-wysiwyg-component",
+    props:["uiDesignType"],
+    data(){
+        return {
+            controlPluginsConfig:[],
+            wysiwygDragDropUtility:wysiwygDragDropUtility
+        }
+    },
     mounted() {
-        $("#accordion").accordion({
-            heightStyle: "fill"
-        });
-        console.log(controlPluginsConfig);
+        this.init();
+    },
+    methods:{
+        init (){
+            $("#accordion").accordion({
+                heightStyle: "fill"
+            });
+            this.controlPluginsConfig=controlPluginsUtility.getControlPluginsConfigByDesignType(this.uiDesignType);
+            console.log(controlPluginsUtility.findBySingleName("TabGridStack1-1"));
+            console.log(allPlugins);
+            for (let pluginKey in allPlugins) {
+                let configSingleName=pluginKey.replace("Plugin","");
+                let configSingle = controlPluginsUtility.findBySingleName(configSingleName);
+                allPlugins[pluginKey].config=configSingle;
+            }
+        },
+        dragover(event){
+            event.preventDefault();
+        },
+        drop(event){
+            event.preventDefault();
+            wysiwygDragDropUtility.dropControlToWysiwygContainer(event);
+            //let dragSingleName = wysiwygDragDropUtility.getDropSingleName(event);
+            //console.log(dragSingleName);
+        }
     }
 }
 </script>
@@ -64,5 +96,9 @@ export default {
             margin-right: 2px;
             height:calc(100% - 4px);
         }
+    }
+
+    .plugin-list-wrap{
+        padding: 0px 4px 0 4px;
     }
 </style>

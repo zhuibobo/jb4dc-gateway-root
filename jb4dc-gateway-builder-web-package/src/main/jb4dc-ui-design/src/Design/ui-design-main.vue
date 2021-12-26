@@ -15,7 +15,7 @@
             </div>
             <div id="uid-wysiwyg-component-tab" class="tab-panel">
                 <div>
-                    <uid-wysiwyg-component></uid-wysiwyg-component>
+                    <uid-wysiwyg-component :ui-design-type="uiDesignType"></uid-wysiwyg-component>
                 </div>
             </div>
             <div id="uid-html-editor-component-tab" class="tab-panel">
@@ -40,15 +40,22 @@
 <script>
 import $ from 'jquery';
 
-let uiDesignType="AppFormDesign";
-let uiDesignType="AppFormDesign";
-let uiDesignType="AppFormDesign";
-let uiDesignType="AppFormDesign";
+let uiDesignType="appFormDesign";
+//let uiDesignType="AppListDesign";
+//let uiDesignType="WebFormDesign";
+//let uiDesignType="WebListDesign";
 
 export default {
     name: "ui-design-main",
+    data:function () {
+        return {
+            uiDesignType:uiDesignType
+        }
+    },
     mounted() {
-        $( "#ui-design-main-tabs" ).tabs();
+        $( "#ui-design-main-tabs" ).tabs({
+            active: 1
+        });
     }
 }
 </script>
