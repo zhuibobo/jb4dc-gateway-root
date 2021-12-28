@@ -2,10 +2,10 @@
   "appFormDesign": [
     {
       "group": "Layout",
-      "singleName": "SingleGridStackLayout",
+      "singleName": "AFDCT_SingleGridStackLayout",
       "text": "网格布局",
       "class": "",
-      "dragTo": "Root",
+      "dragTo": "wysiwygContainer",
       "serverResolve": "",
       "clientResolve": "",
       "clientResolveJs": "",
@@ -20,10 +20,10 @@
     },
     {
       "group": "Layout",
-      "singleName": "SingleTableLayout",
+      "singleName": "AFDCT_SingleTableLayout",
       "text": "表格布局",
       "class": "",
-      "dragTo": "Root",
+      "dragTo": "wysiwygContainer",
       "serverResolve": "",
       "clientResolve": "",
       "clientResolveJs": "",
@@ -92,6 +92,24 @@
           "dragTo": "Root"
         }]
       }]
+    },
+    {
+      "group": "InputControl",
+      "singleName": "AFDCT_TextBox",
+      "text": "单行输入框",
+      "class": "",
+      "dragTo": "SingleGridStackLayout,SingleTableLayout",
+      "serverResolve": "",
+      "clientResolve": "",
+      "clientResolveJs": "",
+      "enableChildControls": "",
+      "dialogWidth": "600",
+      "dialogHeight":"550",
+      "isJBuild4DCData":"true",
+      "controlCategory":"InputControl",
+      "serverDynamicBind":"false",
+      "showRemoveButton":"true",
+      "showInEditorToolbar":"true"
     }
   ],
   "appListDesign": [

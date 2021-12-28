@@ -6,18 +6,18 @@
             </div>
         </div>
         <div>
-            <div id="accordion">
+            <div id="uid-wysiwyg-plugin-list-component-wrap">
                 <h3>布局控件</h3>
                 <div class="plugin-list-wrap">
                     <uid-wysiwyg-plugin-list-component :control-plugins-config="controlPluginsConfig" group-name="Layout"></uid-wysiwyg-plugin-list-component>
                 </div>
                 <h3>输入控件</h3>
                 <div class="plugin-list-wrap">
-                    <uid-wysiwyg-plugin-list-component :control-plugins-config="controlPluginsConfig" group-name="Layout1"></uid-wysiwyg-plugin-list-component>
+                    <uid-wysiwyg-plugin-list-component :control-plugins-config="controlPluginsConfig" group-name="InputControl"></uid-wysiwyg-plugin-list-component>
                 </div>
-                <h3>容器控件</h3>
+                <h3>动态控件</h3>
                 <div class="plugin-list-wrap">
-                    <uid-wysiwyg-plugin-list-component :control-plugins-config="controlPluginsConfig" group-name="Layout2"></uid-wysiwyg-plugin-list-component>
+                    <uid-wysiwyg-plugin-list-component :control-plugins-config="controlPluginsConfig" group-name="DynamicContainer"></uid-wysiwyg-plugin-list-component>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@ export default {
     },
     methods:{
         init (){
-            $("#accordion").accordion({
+            $("#uid-wysiwyg-plugin-list-component-wrap").accordion({
                 heightStyle: "fill"
             });
             this.controlPluginsConfig=controlPluginsUtility.getControlPluginsConfigByDesignType(this.uiDesignType);
@@ -58,6 +58,7 @@ export default {
         },
         dragover(event){
             event.preventDefault();
+            //wysiwygDragDropUtility.dragControlToWysiwygContainerOver(event);
         },
         drop(event){
             event.preventDefault();
@@ -85,9 +86,10 @@ export default {
 
             .wysiwyg-container{
                 border-radius: 4px;
-                border: 1px solid @g-concrete-color-v04;
+                border: 1px solid @g-pomegranate-color-v06;
                 height: 100%;
                 box-sizing: border-box;
+                overflow: auto;
             }
         }
         >div:last-child{
@@ -100,5 +102,9 @@ export default {
 
     .plugin-list-wrap{
         padding: 0px 4px 0 4px;
+    }
+
+    #uid-wysiwyg-plugin-list-component-wrap{
+        user-select: none;
     }
 </style>

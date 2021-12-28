@@ -1,21 +1,37 @@
 
 let GeneralPlugin={
-    _pluginObjects:{},
-    dropControlToContainer(pluginInstance,$dropToObject){
+    _controlInstances:{},
+    dropControlToContainer(pluginInstance,$dropToTarget,$dropToLayout){
         //let dropToObjectId=$dropToObject.attr("id");
         //console.log(dragSourceSingleName);
         //console.log($dropToObject);
         //console.log(dropToObjectId);
         //let pluginInstance=this.getPluginInstanceName(dragSourceSingleName);
-        let html=pluginInstance.getTemplate();
-        console.log(html);
-        $dropToObject.append(html);
+        //debugger;
+        let $elem=pluginInstance.getElem();
+        console.log($elem);
+        $dropToTarget.append($elem);
+        if(typeof(pluginInstance.registeredEvent)=="function"){
+            pluginInstance.registeredEvent($elem);
+        }
     },
-    registeredPlugin(instanceName,plugin){
-        this._pluginObjects[instanceName]=plugin;
+    newControlInstance(plugin){
+        let newControlInstance=Object.create(plugin);
+        let newControlInstanceName=plugin.singleName+"_"+StringUtility.Timestamp();
+        GeneralPlugin.registeredControl(newControlInstanceName,newControlInstance);
+        return {
+            name:newControlInstanceName,
+            instance:newControlInstance
+        }
     },
-    getPluginInstanceName(instanceName){
-        return this._pluginObjects[instanceName];
+    registeredPlugin(pluginName,plugin){
+        this._controlInstances[pluginName]=plugin;
+    },
+    registeredControl(controlInstanceName,controlInstance){
+        this._controlInstances[controlInstanceName]=controlInstance;
+    },
+    getControlInstances(instanceName){
+        return this._controlInstances[instanceName];
     },
     configProp:{
         "group": "",
