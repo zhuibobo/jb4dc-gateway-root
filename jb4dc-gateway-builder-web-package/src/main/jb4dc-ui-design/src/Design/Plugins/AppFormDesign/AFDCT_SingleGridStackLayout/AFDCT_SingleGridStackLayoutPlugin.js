@@ -33,14 +33,15 @@ let AFDCT_SingleGridStackLayoutPlugin={
     dropControlToContainerForAddEvent(pluginInstance,$dropToTarget,$dropToLayout,layoutGrid,sourceNode){
         let $elem=pluginInstance.getElem();
         window.setTimeout(function (){
-            layoutGrid.addWidgetForControl({
+            let gridStackItem=layoutGrid.addWidget({
                 x: sourceNode.x,
                 y: sourceNode.y,
                 w: sourceNode.w,
                 h: sourceNode.h,
-                content: $elem[0].outerHTML
+                content: ""
             });
-            console.log(pluginInstance);
+            $(gridStackItem).find(".grid-stack-item-content").append($elem);
+            pluginInstance.registeredEvent($elem);
         },500);
     },
     dropControlToContainer(pluginInstance,$dropToTarget,$dropToLayout){
