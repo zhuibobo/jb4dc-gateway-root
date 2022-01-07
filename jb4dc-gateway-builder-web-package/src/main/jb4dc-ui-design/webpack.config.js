@@ -14,6 +14,7 @@ const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 config = {
     // JavaScript 执行入口文件1
+    devtool: 'source-map',
     entry: {
         /*"editTableSelectDefaultValue": './EditTable/Renderers/EditTable_SelectDefaultValue.js',*/
         "UIDesignMain": './src/Design/UIDesignMain.js'
@@ -100,10 +101,15 @@ config = {
         }),
         new CopyPlugin({
             patterns: [
-                { from: "./src/Externals", to: "Externals" }
+                { from: "./src/Externals", to: "Externals" },
+                { from: "./src/Less/Images", to: "Images" }
             ],
         }),
-        new MonacoWebpackPlugin()
+        new MonacoWebpackPlugin(),
+        new webpack.DefinePlugin({
+            __VUE_OPTIONS_API__: true,
+            __VUE_PROD_DEVTOOLS__: true,
+        })
         //new webpack.HotModuleReplacementPlugin(),
     ],
     externals: {
@@ -119,7 +125,8 @@ config = {
         hot: true,
         port: 8881,
         open: ['/UIDesignMain.html']
-    },optimization: {
+    },
+    optimization: {
         splitChunks: {
             chunks: 'all'
         },

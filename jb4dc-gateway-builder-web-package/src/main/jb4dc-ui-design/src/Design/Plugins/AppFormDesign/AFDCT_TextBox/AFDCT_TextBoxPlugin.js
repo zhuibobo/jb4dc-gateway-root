@@ -3,25 +3,22 @@ import GeneralPlugin from "../../GeneralPlugin";
 let AFDCT_TextBoxPlugin={
     singleName:"AFDCT_TextBox",
     config:GeneralPlugin.configProp,
-    getElem(){
-        let newControl=GeneralPlugin.newControlInstance(AFDCT_TextBoxPlugin);
-        let html=`<div singlename="${this.singleName}" design-control-instance-name="${newControl.name}" class="uid-design-input-control redips-drag" contenteditable="false" id="${newControl.name}">${this.config.text}</div>`;
-        return $(html);
+    _$elem:null,
+    id:null,
+    buildInstanceObj(instanceId){
+        return GeneralPlugin.newControlInstance(this,instanceId);
+    },
+    constructionElem(){
+        return GeneralPlugin.constructionGeneralInputElem(this);
+    },
+    rebuildElem($elem,props){
+        console.log($elem);
+        console.log(props);
+        //var controlDescText=CKEditorPluginUtility.GetControlDescText(pluginSetting,props);
+        //CKEditorPluginUtility.BuildGeneralElemToCKWysiwyg("<div class='wysiwyg-container-text'>"+controlDescText+"</div>", pluginSetting, props, contentWindow);
     },
     registeredEvent($elem) {
-        //console.log($elem)
-        //GeneralPlugin.createControlEditInnerPanel($elem);
-        $elem.on("click", {}, function (event) {
-            GeneralPlugin.createControlEditInnerPanel($(this));
-            event.preventDefault();
-            event.stopPropagation();
-        });
-        $elem.on("dblclick",{},function (event){
-            //alert("1");
-            GeneralPlugin.showPluginPropEditDialog("AFDCT_TextBoxProperty")
-            event.preventDefault();
-            event.stopPropagation();
-        });
+        GeneralPlugin.registeredGeneralEvent(this._$elem,this);
     }
 }
 

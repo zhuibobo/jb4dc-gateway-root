@@ -33,16 +33,10 @@ let WysiwygDragDropUtility={
         }
         return false;
     },
-    /*enableDropToRootContainer:function (pluginInstance,$dropToTarget){
-        if(pluginInstance.config.dragTo.indexOf(this.wysiwygContainerId)>=0){
-            return true;
-        }
-        return false;
-    },*/
     enableDropToValidate:function (dragPluginSingleName,$dropToLayout){
 
-        let pluginInstance=generalPlugin.getControlInstances(dragPluginSingleName);
-        let enableDragToNames=pluginInstance.config.dragTo;
+        let pluginInstanceObj=generalPlugin.getControlInstanceObj(dragPluginSingleName);
+        let enableDragToNames=pluginInstanceObj.instance.config.dragTo;
         let dropToTargetSingleName="";
         if(this.isDropToRootContainer($dropToLayout)){
             dropToTargetSingleName=this.wysiwygContainerId;
@@ -52,8 +46,8 @@ let WysiwygDragDropUtility={
         }
         else{
             let dropToTargetSingleName=$dropToLayout.attr("singleName");
-            let dropToPluginInstance=generalPlugin.getControlInstances(dropToTargetSingleName);
-            if(enableDragToNames.indexOf("Layout")>=0&&dropToPluginInstance.config.group=="Layout") {
+            let pluginInstanceObj=generalPlugin.getControlInstanceObj(dropToTargetSingleName);
+            if(enableDragToNames.indexOf("Layout")>=0&&pluginInstanceObj.instance.config.group=="Layout") {
                 return true;
             }
             else if(enableDragToNames.indexOf(dropToTargetSingleName)>=0){
@@ -66,13 +60,13 @@ let WysiwygDragDropUtility={
         //debugger;
         let dragSourceSingleName = this.getDropSingleName(event);
         let $dropToTarget = $(event.target);
-        let pluginInstance=generalPlugin.getControlInstances(dragSourceSingleName);
-        if(pluginInstance) {
+        let pluginObj=generalPlugin.getControlInstanceObj(dragSourceSingleName);
+        if(pluginObj) {
             //let newControlInstance=Object.create(pluginInstance);
             //eval("let ");
             if (this.isDropToRootContainer($dropToTarget)) {
                 if(this.enableDropToValidate(dragSourceSingleName,$dropToTarget)) {
-                    generalPlugin.dropControlToContainer(pluginInstance, $dropToTarget, $dropToTarget);
+                    generalPlugin.dropControlToContainer(pluginObj.instance, $dropToTarget, $dropToTarget);
                 }
             } else {
                 let $dropToLayout;
@@ -84,14 +78,15 @@ let WysiwygDragDropUtility={
                 $dropToLayout = $($dropToLayout);
                 if(this.enableDropToValidate(dragSourceSingleName,$dropToLayout)) {
                     let dropToLayoutObjectSingleName = $dropToLayout.attr("singlename");
-                    let dropToLayoutInstance = generalPlugin.getControlInstances(dropToLayoutObjectSingleName);
-                    console.log(dropToLayoutInstance);
-                    dropToLayoutInstance.dropControlToContainer(pluginInstance, $dropToTarget, $dropToLayout);
+                    let dropToLayoutInstanceObj = generalPlugin.getControlInstanceObj(dropToLayoutObjectSingleName);
+                    console.log(dropToLayoutInstanceObj);
+                    dropToLayoutInstanceObj.instance.dropControlToContainer(pluginObj.instance, $dropToTarget, $dropToLayout);
                 }
                 else{
                     alert("不允许拖拽到该位置!");
                 }
             }
+            generalPlugin.regTooltipEvent();
         }
     }
 }
