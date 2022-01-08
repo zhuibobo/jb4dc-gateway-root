@@ -5,12 +5,20 @@ let AFDCT_SingleGridStackLayoutPlugin={
     config:GeneralPlugin.configProp,
     _$elem:null,
     id:null,
+    props:JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
     buildInstanceObj(instanceId){
         return GeneralPlugin.newControlInstance(this,instanceId);
     },
     constructionElem(){
-        this._$elem=$(`<div class="grid-stack" style="" group="${this.config.group}" singlename="${this.singleName}" design-control-instance-name="${this.id}" id="${this.id}"></div>`);
+        this._$elem=$(`<div jbuild4dc_custom="true" class="grid-stack" style=""></div>`);
+        GeneralPlugin.serializePropsToElemForNewControl(this._$elem,this.config,{
+            designControlInstanceName:this.id,
+            id:this.id
+        });
         return this._$elem;
+    },
+    setElem($elem){
+        this._$elem=$elem;
     },
     registeredEvent($elem){
         let grid = GridStack.init({

@@ -88,6 +88,9 @@ let WysiwygDragDropUtility={
             }
             generalPlugin.regTooltipEvent();
         }
+        else{
+            DialogUtility.Alert(window,DialogUtility.DialogAlertId,{},"dropControlToWysiwygContainer:未找到相关插件!");
+        }
     }
 }
 

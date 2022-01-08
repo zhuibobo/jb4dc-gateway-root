@@ -29,7 +29,7 @@ export default {
     },
     methods: {
         getControlPluginsByGroup: function (groupName) {
-            let groupPlugin = this.controlPluginsConfig.filter(plugin => plugin.group == groupName);
+            let groupPlugin = this.controlPluginsConfig.filter(plugin => plugin.group == groupName&&plugin.showInEditorToolbar == "true");
             return groupPlugin;
         },
         dragStart:function (plugSingleName,event) {

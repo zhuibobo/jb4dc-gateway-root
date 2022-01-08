@@ -6,12 +6,12 @@
             </div>
         </div>
         <div>
-            <div id="uid-wysiwyg-plugin-list-comp-wrap">
+            <div id="uid-wysiwyg-plugin-list-comp-wrap" style="font-size: 0.8125em">
                 <h3>布局控件</h3>
                 <div class="plugin-list-wrap">
                     <uid-wysiwyg-plugin-list-comp :control-plugins-config="controlPluginsConfig" group-name="Layout"></uid-wysiwyg-plugin-list-comp>
                 </div>
-                <h3>输入控件</h3>
+                <h3>输入&显示控件</h3>
                 <div class="plugin-list-wrap">
                     <uid-wysiwyg-plugin-list-comp :control-plugins-config="controlPluginsConfig" group-name="InputControl"></uid-wysiwyg-plugin-list-comp>
                 </div>
@@ -46,7 +46,7 @@ export default {
             controlPluginsConfig:[],
             wysiwygContainerId:wysiwygDragDropUtility.wysiwygContainerId,
             //pluginPropEditVueName:"uid-empty-comp",
-            pluginPropEditVueName:"AFDCT_TextBoxProperty",
+            pluginPropEditVueName:"WLDCT_LayoutContainerProperty",
             pluginPropEditDialog:null,
         }
     },
@@ -55,7 +55,7 @@ export default {
         this.initPluginPropEditDialog();
         GeneralPlugin.setWysiwygComponent(this);
         //let tempProp={"baseInfo": {"id": "AFDCT_TextBox_347247519", "serialize": "true", "name": "", "className": "", "placeholder": "", "custReadonly": "noreadonly", "custDisabled": "nodisabled", "style": "", "desc": "", "status": "enable", "groupName": ""}, "bindToField": {"relationId": "", "tableId": "", "tableName": "", "tableCaption": "", "fieldName": "", "fieldCaption": "", "fieldDataType": "", "fieldLength": ""}, "defaultValue": {"defaultType": "", "defaultValue": "", "defaultText": ""}, "bindToSearchField": {"columnTitle": "", "columnTableName": "", "columnName": "", "columnCaption": "", "columnDataTypeName": "", "columnOperator": "匹配"}, "normalDataSource": {"defaultIsNull": "true", "sqlDataSource": "", "dictionaryGroupDataSourceId": "", "dictionaryGroupDataSourceText": "", "restDataSource": "", "interfaceDataSource": "", "staticDataSource": "", "defaultSelected": "", "layoutDirection": "vertical", "rowNum": "0", "displayValueInText": "false"}, "multilevelProps": {"level2BindControlId": ""}}
-        //this.showPluginPropEditDialog("AFDCT_TextBoxProperty",null,tempProp);
+        //this.showPluginPropEditDialog("WLDCT_LayoutContainer","WLDCT_LayoutContainerProperty",null,tempProp);
     },
     methods:{
         init (){
@@ -98,7 +98,7 @@ export default {
                         let props = _this.$refs.pluginPropEditComponent.getControlProps();
 
                         if (props.success == false) {
-                            //return false;
+                            return false;
                         }
                         _this._tempCurrentEditControlInstance.rebuildElem(_this._tempCurrentEditControl$elem,props);
                         //okFunc(ckEditor, pluginSetting, props, pluginSetting.IFrameWindow.contentWindow);
@@ -126,6 +126,32 @@ export default {
         },
         setValue(value){
             $("#"+this.wysiwygContainerId).html(value);
+            this.reInstanceWysiwygChain($("#"+this.wysiwygContainerId));
+        },
+        reInstanceWysiwygChain($elem){
+            //let $singleControlElem=$elem;
+            //debugger;
+            for (let i = 0; i < $elem.children().length; i++) {
+                try {
+                    let $childSingleElem = $($elem.children()[i]);
+
+                    //let _cloneRendererChainParas = {};
+                    //JsonUtility.SimpleCloneAttr(_cloneRendererChainParas, _rendererChainParas);
+                    //_cloneRendererChainParas.$singleControlElem = $childSingleElem;
+                    if ($childSingleElem.attr("jbuild4dc_custom") == "true") {
+                        let pluginObj=GeneralPlugin.getControlInstanceObj($childSingleElem.attr("singlename")).instance;
+                        let controlInstance=pluginObj.buildInstanceObj($childSingleElem.attr("designControlInstanceName")).instance;
+                        controlInstance.setElem($childSingleElem);
+                        controlInstance.registeredEvent($childSingleElem);
+                        this.reInstanceWysiwygChain($childSingleElem);
+                    } else {
+                        this.reInstanceWysiwygChain($childSingleElem);
+                    }
+                }
+                catch (e){
+                    throw "reInstanceWysiwygChain error:"+i+e;
+                }
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <div class="html-design-plugin-dialog-wraper" id="dialogApp" v-cloak>
+    <div class="html-design-plugin-dialog-wraper" v-cloak>
         <a-tabs tab-position="top" size="small" type="card">
             <a-tab-pane key="bindInfo" tab="绑定信息">
                 <uid-control-bind-to :bind-to-field-prop="bindToField" :default-value-prop="defaultValue" :validate-rules-prop="validateRules" @on-set-completed="setBindCompleted">

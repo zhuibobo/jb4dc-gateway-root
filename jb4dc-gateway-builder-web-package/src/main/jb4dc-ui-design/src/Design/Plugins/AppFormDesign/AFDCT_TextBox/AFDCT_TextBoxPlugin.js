@@ -5,17 +5,18 @@ let AFDCT_TextBoxPlugin={
     config:GeneralPlugin.configProp,
     _$elem:null,
     id:null,
+    props:JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
     buildInstanceObj(instanceId){
         return GeneralPlugin.newControlInstance(this,instanceId);
     },
     constructionElem(){
         return GeneralPlugin.constructionGeneralInputElem(this);
     },
+    setElem($elem){
+        this._$elem=$elem;
+    },
     rebuildElem($elem,props){
-        console.log($elem);
-        console.log(props);
-        //var controlDescText=CKEditorPluginUtility.GetControlDescText(pluginSetting,props);
-        //CKEditorPluginUtility.BuildGeneralElemToCKWysiwyg("<div class='wysiwyg-container-text'>"+controlDescText+"</div>", pluginSetting, props, contentWindow);
+        GeneralPlugin.serializePropsToElem(this._$elem,props,this.config);
     },
     registeredEvent($elem) {
         GeneralPlugin.registeredGeneralEvent(this._$elem,this);

@@ -5,11 +5,12 @@ let AFDCT_SingleTableLayoutPlugin={
     config:GeneralPlugin.configProp,
     _$elem:null,
     id:null,
+    props:JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
     buildInstanceObj(instanceId){
         return GeneralPlugin.newControlInstance(this,instanceId);
     },
-    constructionElem(){
-        this._$elem=$(`<div class="uid-single-table-layout-runtime" group="${this.config.group}" singlename="${this.singleName}" design-control-instance-name="${this.id}" id="${this.id}">
+    constructionElem() {
+        this._$elem = $(`<div class="uid-single-table-layout-runtime">
                     <table contenteditable="true" class="AFDCT_SingleTableLayoutPlugin">
                         <colgroup><col style="width: 8%" /><col style="width: 15%" /><col style="width: 8%"><col style="width: 15%"><col style="width: 8%"><col style="width: 16%"></colgroup>
                         <tr><td colspan="6"></td></tr>
@@ -24,11 +25,20 @@ let AFDCT_SingleTableLayoutPlugin={
                         <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
                         <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
                     </table></div>`);
+        //let $descriptionElem = GeneralPlugin.getControlDescriptionElem(this.config.text + "[双击编辑该部件]", this._$elem, this.config);
+        GeneralPlugin.serializePropsToElemForNewControl(this._$elem, this.config, {
+            designControlInstanceName: this.id,
+            id: this.id
+        });
         return this._$elem;
+    },
+    setElem($elem){
+        this._$elem=$elem;
     },
     registeredEvent($elem){
         let rd = REDIPS.drag;
         rd.init(this._$elem.attr("id"));
+        GeneralPlugin.registeredGeneralEvent(this._$elem,this);
     },
     dropControlToContainer(plugin,$dropToTarget,$dropToLayout){
         let controlInstance=plugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(plugin.singleName)).instance;

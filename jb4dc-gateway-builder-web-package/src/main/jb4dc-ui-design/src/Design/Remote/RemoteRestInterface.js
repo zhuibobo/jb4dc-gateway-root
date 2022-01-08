@@ -6,7 +6,8 @@ let acInterface= {
     getTableFieldsUrl: "/Rest/Builder/DataStorage/DataBase/Table/GetTableFieldsByTableId",
     getTablesFieldsByTableIdsUrl:"/Rest/Builder/DataStorage/DataBase/Table/GetTablesFieldsByTableIds",
     getEnvVariableGroupTreeDataUrl:"/Rest/Builder/EnvVariableGroup/GetTreeData",
-    getEnvVariableListDataUrl:"/Rest/Builder/EnvVariable/GetListData"
+    getEnvVariableListDataUrl:"/Rest/Builder/EnvVariable/GetListData",
+    getDataSetsForZTreeNodeListUrl:"/Rest/Builder/DataSet/DataSetMain/GetDataSetsForZTreeNodeList"
 }
 
 let RemoteRestInterface = {
@@ -48,6 +49,13 @@ let RemoteRestInterface = {
         }).catch(function (error) {
             console.log(error);
         });
+    },
+    getDataSetsForZTreeNodeList(sendData,successFunc){
+        axios.post(acInterface.getDataSetsForZTreeNodeListUrl, sendData).then(function (response) {
+            successFunc(response.data)
+        }).catch(function (error) {
+            console.log(error);
+        });
     }
 }
 
@@ -61,4 +69,6 @@ let getEnvVariableGroupTreeData={"success": true, "message": "获取数据成功
 mock.onPost(acInterface.getEnvVariableGroupTreeDataUrl).reply(200, getEnvVariableGroupTreeData);
 let getEnvVariableListData={"success": true, "message": "获取成功", "cacheKey": "", "traceMsg": "", "errorCode": null, "data": {"total": 3, "list": [{"envVarId": "ENV_DATETIME_YYYY_SMM_SDD", "envVarValue": "ENV_DATETIME_YYYY_SMM_SDD", "envVarText": "年年年年/月月/日日", "envVarClassName": "com.jb4dc.builder.client.service.envvar.creator.DateTimeVariableCreator", "envVarClassPara": "yyyy/MM/dd", "envVarRest": "", "envVarRestPara": "", "envVarGroupId": "ENV_GROUP_DATETIME", "envVarOrderNum": 10, "envVarCreateTime": "2021-07-15 14:22:39", "envVarIsSystem": "是", "envVarDelEnable": "否", "envVarStatus": "启用", "envVarDesc": "", "envVarExAttr1": "", "envVarExAttr2": "", "envVarExAttr3": "", "envVarExAttr4": "", "envVarUserId": "DDDD-DDDD-DDDD-DDDD", "envVarUserName": "ONE-PIECE", "envVarOrganId": "GoingMerry", "envVarOrganName": "黄金梅丽号"}, {"envVarId": "ENV_DATETIME_YYYY_MM_DD_HH_MM_SS", "envVarValue": "ENV_DATETIME_YYYY_MM_DD_HH_MM_SS", "envVarText": "年年年年-月月-日日 时:分:秒", "envVarClassName": "com.jb4dc.builder.client.service.envvar.creator.DateTimeVariableCreator", "envVarClassPara": "yyyy-MM-dd HH:mm:ss", "envVarRest": "", "envVarRestPara": "", "envVarGroupId": "ENV_GROUP_DATETIME", "envVarOrderNum": 9, "envVarCreateTime": "2021-07-15 14:22:39", "envVarIsSystem": "是", "envVarDelEnable": "否", "envVarStatus": "启用", "envVarDesc": "", "envVarExAttr1": "", "envVarExAttr2": "", "envVarExAttr3": "", "envVarExAttr4": "", "envVarUserId": "DDDD-DDDD-DDDD-DDDD", "envVarUserName": "ONE-PIECE", "envVarOrganId": "GoingMerry", "envVarOrganName": "黄金梅丽号"}, {"envVarId": "ENV_DATETIME_YYYY_MM_DD", "envVarValue": "ENV_DATETIME_YYYY_MM_DD", "envVarText": "年年年年-月月-日日", "envVarClassName": "com.jb4dc.builder.client.service.envvar.creator.DateTimeVariableCreator", "envVarClassPara": "yyyy-MM-dd", "envVarRest": "", "envVarRestPara": "", "envVarGroupId": "ENV_GROUP_DATETIME", "envVarOrderNum": 8, "envVarCreateTime": "2021-07-15 14:22:39", "envVarIsSystem": "是", "envVarDelEnable": "否", "envVarStatus": "启用", "envVarDesc": "", "envVarExAttr1": "", "envVarExAttr2": "", "envVarExAttr3": "", "envVarExAttr4": "", "envVarUserId": "DDDD-DDDD-DDDD-DDDD", "envVarUserName": "ONE-PIECE", "envVarOrganId": "GoingMerry", "envVarOrganName": "黄金梅丽号"}], "pageNum": 1, "pageSize": 100, "size": 3, "startRow": 1, "endRow": 3, "pages": 1, "prePage": 0, "nextPage": 0, "isFirstPage": true, "isLastPage": true, "hasPreviousPage": false, "hasNextPage": false, "navigatePages": 8, "navigatepageNums": [1], "navigateFirstPage": 1, "navigateLastPage": 1, "firstPage": 1, "lastPage": 1}, "exKVData": {}};
 mock.onPost(acInterface.getEnvVariableListDataUrl).reply(200, getEnvVariableListData);
+let getDataSetsForZTreeNodeListData={"success": true, "message": "获取数据成功！", "cacheKey": "", "traceMsg": "", "errorCode": null, "data": [{"value": "JBUILD4DC_BUILDER_DB_LINK_ID", "text": "应用构建库连接", "id": "JBuild4DCBuilderDBLink", "parentId": "-1", "outerId": null, "code": null, "attr1": "应用构建库连接", "attr2": null, "attr3": null, "attr4": null, "nodeTypeName": "DataSetGroup", "icon": null, "nocheck": true, "isParent": "false", "open": false}, {"value": "JBUILD4DC_SSO_DB_LINK_ID", "text": "单点登录库连接", "id": "JBuild4DCSSODBLink", "parentId": "-1", "outerId": null, "code": null, "attr1": "单点登录库连接", "attr2": null, "attr3": null, "attr4": null, "nodeTypeName": "DataSetGroup", "icon": null, "nocheck": true, "isParent": "false", "open": false}, {"value": "JBuild4DCQCDBLink", "text": "运维服务系统库连接", "id": "JBuild4DCQCDBLink", "parentId": "-1", "outerId": null, "code": null, "attr1": "运维服务系统库连接", "attr2": null, "attr3": null, "attr4": null, "nodeTypeName": "DataSetGroup", "icon": null, "nocheck": true, "isParent": "false", "open": false}, {"value": "JBuild4DCGRIDDBLink", "text": "网格化社会管理系统库连接", "id": "JBuild4DCGRIDDBLink", "parentId": "-1", "outerId": null, "code": null, "attr1": "网格化社会管理系统库连接", "attr2": null, "attr3": null, "attr4": null, "nodeTypeName": "DataSetGroup", "icon": null, "nocheck": true, "isParent": "false", "open": false}, {"value": "问题数据集", "text": "问题数据集", "id": "021f3022-2844-4e9e-9d9e-765de77c5ba2", "parentId": "JBuild4DCQCDBLink", "outerId": null, "code": null, "attr1": "问题数据集", "attr2": null, "attr3": null, "attr4": null, "nodeTypeName": "DataSetGroup", "icon": null, "nocheck": true, "isParent": "false", "open": false}, {"value": "全部问题", "text": "全部问题【DS_10001】", "id": "fea455cc-41e0-0975-497d-57d2b7711cc9", "parentId": "021f3022-2844-4e9e-9d9e-765de77c5ba2", "outerId": null, "code": null, "attr1": "全部问题", "attr2": null, "attr3": null, "attr4": null, "nodeTypeName": "DataSet", "icon": null, "nocheck": false, "isParent": "false", "open": false}], "exKVData": {}};
+mock.onPost(acInterface.getDataSetsForZTreeNodeListUrl).reply(200, getDataSetsForZTreeNodeListData);
 export {RemoteRestInterface as default};

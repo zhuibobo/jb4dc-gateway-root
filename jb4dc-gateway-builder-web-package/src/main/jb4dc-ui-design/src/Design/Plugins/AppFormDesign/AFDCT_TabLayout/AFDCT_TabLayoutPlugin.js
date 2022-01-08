@@ -5,11 +5,12 @@ let AFDCT_TabLayoutPlugin={
     config:GeneralPlugin.configProp,
     _$elem:null,
     id:null,
+    props:JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
     buildInstanceObj(instanceId){
         return GeneralPlugin.newControlInstance(this,instanceId);
     },
     constructionElem(){
-        this._$elem=$(`<div class="uid-tab-layout-wrap-runtime" group="${this.config.group}" singlename="${this.singleName}" design-control-instance-name="${this.id}" id="${this.id}">
+        this._$elem=$(`<div jbuild4dc_custom="true" class="uid-tab-layout-wrap-runtime">
                         <ul>
                             <li><a href="#${this.id}-base">基础信息</a></li>
                             <li><a href="#${this.id}-extend">扩展信息</a></li>
@@ -28,7 +29,14 @@ let AFDCT_TabLayoutPlugin={
                             </div>
                         </div>
                     </div>`);
+        GeneralPlugin.serializePropsToElemForNewControl(this._$elem,this.config,{
+            designControlInstanceName:this.id,
+            id:this.id
+        });
         return this._$elem;
+    },
+    setElem($elem){
+        this._$elem=$elem;
     },
     registeredEvent($elem){
         $( "#"+$elem.attr("id") ).tabs();

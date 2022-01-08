@@ -79,7 +79,7 @@ export default {
     name: "ui-design-main",
     data:function () {
         return {
-            uiDesignType:enumValues.uiDesignType.appFormDesign,
+            uiDesignType:enumValues.uiDesignType.webListDesign,
             baseInfoComponent:"uid-empty-comp"
         }
     },
@@ -94,7 +94,7 @@ export default {
                     let htmlCodeValue=_this.getWysiwygEditorValue();
                     _this.setHtmlCodeEditorValue(htmlCodeValue);
                 }
-                else if(oldTabName=="uid-wysiwyg-comp-tab"&&newTabName=="uid-html-code-editor-comp-tab"){
+                else if(oldTabName=="uid-html-code-editor-comp-tab"&&newTabName=="uid-wysiwyg-comp-tab"){
                     let htmlCodeValue=_this.getHtmlCodeEditorValue();
                     _this.setWysiwygEditorValue(htmlCodeValue);
                 }
