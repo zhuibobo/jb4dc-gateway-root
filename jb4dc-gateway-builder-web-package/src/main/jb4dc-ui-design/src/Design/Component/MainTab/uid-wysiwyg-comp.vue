@@ -38,6 +38,8 @@ import wysiwygDragDropUtility from '../../Utility/WysiwygDragDropUtility';
 import GeneralPlugin from "../../Plugins/GeneralPlugin";
 import allPlugins from '../../Plugins/IndexPlugin'
 
+import WLDCT_ListSimpleSearchContainerPlugin from "../../Plugins/WebListDesign/WLDCT_ListSimpleSearchContainer/WLDCT_ListSimpleSearchContainerPlugin";
+
 export default {
     name: "uid-wysiwyg-comp",
     props:["uiDesignType"],
@@ -54,6 +56,7 @@ export default {
         this.init();
         this.initPluginPropEditDialog();
         GeneralPlugin.setWysiwygComponent(this);
+
         //let tempProp={"baseInfo": {"id": "AFDCT_TextBox_347247519", "serialize": "true", "name": "", "className": "", "placeholder": "", "custReadonly": "noreadonly", "custDisabled": "nodisabled", "style": "", "desc": "", "status": "enable", "groupName": ""}, "bindToField": {"relationId": "", "tableId": "", "tableName": "", "tableCaption": "", "fieldName": "", "fieldCaption": "", "fieldDataType": "", "fieldLength": ""}, "defaultValue": {"defaultType": "", "defaultValue": "", "defaultText": ""}, "bindToSearchField": {"columnTitle": "", "columnTableName": "", "columnName": "", "columnCaption": "", "columnDataTypeName": "", "columnOperator": "匹配"}, "normalDataSource": {"defaultIsNull": "true", "sqlDataSource": "", "dictionaryGroupDataSourceId": "", "dictionaryGroupDataSourceText": "", "restDataSource": "", "interfaceDataSource": "", "staticDataSource": "", "defaultSelected": "", "layoutDirection": "vertical", "rowNum": "0", "displayValueInText": "false"}, "multilevelProps": {"level2BindControlId": ""}}
         //this.showPluginPropEditDialog("WLDCT_LayoutContainer","WLDCT_LayoutContainerProperty",null,tempProp);
     },
@@ -81,6 +84,11 @@ export default {
         drop(event){
             event.preventDefault();
             wysiwygDragDropUtility.dropControlToWysiwygContainer(event);
+
+            /*debugger;
+            let listSimpleSearchContainerPlugin=WLDCT_ListSimpleSearchContainerPlugin.buildInstanceObj("i11").instance;
+            listSimpleSearchContainerPlugin.setElem("222");
+            console.log(listSimpleSearchContainerPlugin);*/
             //let dragSingleName = wysiwygDragDropUtility.getDropSingleName(event);
             //console.log(dragSingleName);
         },

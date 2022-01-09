@@ -103,6 +103,9 @@ export default {
         if(this.uiDesignType==enumValues.uiDesignType.appFormDesign){
             this.baseInfoComponent="uid-app-form-base-info-comp";
         }
+        else if(this.uiDesignType==enumValues.uiDesignType.webListDesign){
+            this.baseInfoComponent="uid-app-list-base-info-comp";
+        }
         GeneralPlugin.setUIDesignMain(this);
 
         //this.$refs.fdControlSelectBindToSingleFieldDialog.beginSelect("","");

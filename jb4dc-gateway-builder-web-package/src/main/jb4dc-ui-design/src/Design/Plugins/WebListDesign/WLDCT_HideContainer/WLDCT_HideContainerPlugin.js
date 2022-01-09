@@ -1,7 +1,7 @@
 import GeneralPlugin from "../../GeneralPlugin";
 
-let AFDCT_SingleTableLayoutPlugin={
-    singleName:"AFDCT_SingleTableLayout",
+let WLDCT_HideContainerPlugin={
+    singleName:"WLDCT_HideContainer",
     config:GeneralPlugin.configProp,
     _$elem:null,
     id:null,
@@ -10,16 +10,9 @@ let AFDCT_SingleTableLayoutPlugin={
         return GeneralPlugin.newControlInstance(this,instanceId);
     },
     constructionElem() {
-        this._$elem = $(`<div class="uid-afdct-single-table-layout-wrap">
-                    <table contenteditable="true" class="AFDCT_SingleTableLayoutPlugin">
+        this._$elem = $(`<div class="uid-wldct-container-wrap uid-wldct-hide-container-wrap">
+                    <table contenteditable="true">
                         <colgroup><col style="width: 8%" /><col style="width: 15%" /><col style="width: 8%"><col style="width: 15%"><col style="width: 8%"><col style="width: 16%"></colgroup>
-                        <tr><td colspan="6"></td></tr>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
                         <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
                         <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
                         <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
@@ -54,6 +47,6 @@ let AFDCT_SingleTableLayoutPlugin={
     },
 }
 
-GeneralPlugin.registeredPlugin(AFDCT_SingleTableLayoutPlugin.singleName,AFDCT_SingleTableLayoutPlugin);
+GeneralPlugin.registeredPlugin(WLDCT_HideContainerPlugin.singleName,WLDCT_HideContainerPlugin);
 
-export { AFDCT_SingleTableLayoutPlugin as default};
+export { WLDCT_HideContainerPlugin as default};

@@ -10,7 +10,7 @@ let WLDCT_LayoutContainerPlugin={
         return GeneralPlugin.newControlInstance(this,instanceId);
     },
     constructionElem(){
-        this._$elem=$(`<div class="uid-wldct-layout-container"></div>`);
+        this._$elem=$(`<div class="uid-wldct-layout-container-wrap"></div>`);
         GeneralPlugin.serializePropsToElemForNewControl(this._$elem,this.config,{
             designControlInstanceName:this.id,
             id:this.id

@@ -24,15 +24,15 @@ html,body{
     background: url("data:image/svg+xml,%3Csvg width='400' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='14' fill-opacity='0.5' text-anchor='middle' dominant-baseline='middle' transform='rotate(-45, 100 100)'%3E网格布局%3C/text%3E%3C/svg%3E");
   }
 
-  .uid-tab-layout-wrap-runtime {
+  .uid-afdct-tab-layout-wrap {
 
-    .uid-tab-panel-outer-wrap-runtime {
+    .uid-afdct-tab-panel-outer-wrap {
       min-height: 500px;
       background: url("data:image/svg+xml,%3Csvg width='400' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='14' fill-opacity='0.5' text-anchor='middle' dominant-baseline='middle' transform='rotate(-45, 100 100)'%3ETab布局%3C/text%3E%3C/svg%3E");
     }
   }
 
-  .uid-single-table-layout-runtime {
+  .uid-afdct-single-table-layout-wrap {
     background: url("data:image/svg+xml,%3Csvg width='400' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='70%25' font-size='14' fill-opacity='0.5' text-anchor='middle' dominant-baseline='middle' transform='rotate(-45, 100 100)'%3ETable布局%3C/text%3E%3C/svg%3E");
   }
 
@@ -46,10 +46,86 @@ html,body{
     }
   }
 
-  .uid-wldct-layout-container{
+  .uid-wldct-layout-container-wrap{
     height: 100%;
     background: url("data:image/svg+xml,%3Csvg width='400' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='14' fill-opacity='0.5' text-anchor='middle' dominant-baseline='middle' transform='rotate(-45, 100 100)'%3E数据集容器%3C/text%3E%3C/svg%3E");
     background-color: @g-concrete-color-v01;
+  }
+
+  .uid-wldct-container-wrap{
+    border: 1px dashed LightBlue;
+    box-sizing: border-box;
+    margin: 8px;
+    padding: 8px;
+
+    > table {
+      border-collapse: collapse;
+      width: 100%;
+
+      >thead {
+        > tr {
+          > th {
+            border: 1px solid @g-concrete-color-v04;
+            text-align: center;
+            font-size: 10pt;
+            padding: 2px;
+            height: 30px;
+          }
+        }
+      }
+
+      > tbody {
+        > tr {
+          > td {
+            border: 1px solid @g-concrete-color-v04;
+            text-align: center;
+            font-size: 10pt;
+            padding: 2px;
+            height: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  .uid-wldct-hide-container-wrap{
+    background: url("data:image/svg+xml,%3Csvg width='400' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='30%25' font-size='14' fill-opacity='0.5' text-anchor='middle' dominant-baseline='middle' transform='rotate(-5, 100 100)'%3E隐藏区域%3C/text%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+  }
+  .uid-wldct-list-simple-search-container-wrap{
+    background: url("data:image/svg+xml,%3Csvg width='400' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='30%25' font-size='14' fill-opacity='0.5' text-anchor='middle' dominant-baseline='middle' transform='rotate(-5, 100 100)'%3E简单查询区域%3C/text%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-color: @g-concrete-color-v00;
+  }
+
+  .uid-wldct-list-complex-search-container-wrap{
+    background: url("data:image/svg+xml,%3Csvg width='400' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='30%25' font-size='14' fill-opacity='0.5' text-anchor='middle' dominant-baseline='middle' transform='rotate(-5, 100 100)'%3E弹出查询区域%3C/text%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-color: @g-concrete-color-v00;
+  }
+
+  .uid-wldct-list-button-container-wrap{
+    background: url("data:image/svg+xml,%3Csvg width='400' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='30%25' font-size='14' fill-opacity='0.5' text-anchor='middle' dominant-baseline='middle' transform='rotate(-5, 100 100)'%3E操作按钮区域%3C/text%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-color: @g-concrete-color-v00;
+  }
+
+  .uid-wldct-list-table-container-wrap{
+    background: url("data:image/svg+xml,%3Csvg width='400' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='30%25' font-size='14' fill-opacity='0.5' text-anchor='middle' dominant-baseline='middle' transform='rotate(-5, 100 100)'%3E数据列表区域%3C/text%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-color: @g-concrete-color-v00;
+
+    .op-button-container-outer-td{
+      width: 200px;
+    }
+  }
+
+  .uid-wldct-list-table-inner-button-container-wrap{
+
+    .uid-wldct-list-table-inner-button-inner-wrap{
+      margin: 4px;
+      padding: 4px;
+    }
   }
 }
 

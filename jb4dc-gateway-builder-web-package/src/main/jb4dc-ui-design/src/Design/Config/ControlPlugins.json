@@ -176,7 +176,7 @@
       "singleName": "WLDCT_ListTemplate",
       "text": "列表模版",
       "class": "",
-      "dragTo": "WLDCT_LayoutContainer",
+      "dragTo": "wysiwygContainer,WLDCT_LayoutContainer",
       "serverResolve": "",
       "clientResolve": "",
       "clientResolveJs": "",
@@ -221,7 +221,25 @@
         "controlCategory":"LayoutControl",
         "serverDynamicBind":"false",
         "showRemoveButton":"false",
-        "showInEditorToolbar":"true"
+        "showInEditorToolbar":"true",
+        "children": [{
+          "group": "Layout",
+          "singleName": "WLDCT_Search_TextBox",
+          "text": "查询单行输入框",
+          "class": "",
+          "dragTo": "false",
+          "serverResolve": "",
+          "clientResolve": "",
+          "clientResolveJs": "",
+          "enableChildControls": "",
+          "dialogWidth": "600",
+          "dialogHeight":"550",
+          "isJBuild4DCData":"false",
+          "controlCategory":"LayoutControl",
+          "serverDynamicBind":"false",
+          "showRemoveButton":"false",
+          "showInEditorToolbar":"true"
+        }]
       },{
         "group": "Layout",
         "singleName": "WLDCT_ListComplexSearchContainer",
@@ -324,7 +342,42 @@
         "controlCategory":"LayoutControl",
         "serverDynamicBind":"false",
         "showRemoveButton":"false",
-        "showInEditorToolbar":"true"
+        "showInEditorToolbar":"true",
+        "children": [{
+          "group": "Layout",
+          "singleName": "WLDCT_ListTableLabel",
+          "text": "列表内标签",
+          "class": "",
+          "dragTo": "false",
+          "serverResolve": "",
+          "clientResolve": "",
+          "clientResolveJs": "",
+          "enableChildControls": "",
+          "dialogWidth": "600",
+          "dialogHeight":"550",
+          "isJBuild4DCData":"false",
+          "controlCategory":"LayoutControl",
+          "serverDynamicBind":"false",
+          "showRemoveButton":"false",
+          "showInEditorToolbar":"true"
+        },{
+          "group": "Layout",
+          "singleName": "WLDCT_ListTableInnerButtonSingle",
+          "text": "列表内按钮",
+          "class": "",
+          "dragTo": "false",
+          "serverResolve": "",
+          "clientResolve": "",
+          "clientResolveJs": "",
+          "enableChildControls": "",
+          "dialogWidth": "600",
+          "dialogHeight":"550",
+          "isJBuild4DCData":"false",
+          "controlCategory":"LayoutControl",
+          "serverDynamicBind":"false",
+          "showRemoveButton":"false",
+          "showInEditorToolbar":"true"
+        }]
       }]
     }
   ]
