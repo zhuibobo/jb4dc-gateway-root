@@ -18,7 +18,7 @@
                         <a-radio-button value="Regular">正则表达式</a-radio-button>
                         <a-radio-button value="JsMethod">JS方法</a-radio-button>
                     </a-radio-group>
-                    <a-button type="primary" style="margin-left: 15px;cursor: pointer" @click="addValidateRule" shape="circle"><template #icon><plus-outlined /></template></a-button>
+                    <a-button type="primary" style="margin-left: 15px;cursor: pointer" @click="addValidateRule" shape="circle"></a-button>
                 </div>
                 <div>
                     <a-divider orientation="left" style="font-size: 12px">参数设置</a-divider>

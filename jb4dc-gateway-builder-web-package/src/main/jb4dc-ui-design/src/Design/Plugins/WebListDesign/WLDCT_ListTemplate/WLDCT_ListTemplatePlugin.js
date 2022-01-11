@@ -25,27 +25,40 @@ let WLDCT_ListTemplatePlugin={
         //加入简单查询区域
         let listSimpleSearchContainerInstance=WLDCT_ListSimpleSearchContainerPlugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(WLDCT_ListSimpleSearchContainerPlugin.singleName)).instance;
         let $listSimpleSearchContainerInstanceElem=listSimpleSearchContainerInstance.constructionElem();
+
         this._$elem.append($listSimpleSearchContainerInstanceElem);
 
         //加入弹出查询区域
         let listComplexSearchContainerInstance=WLDCT_ListComplexSearchContainerPlugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(WLDCT_ListComplexSearchContainerPlugin.singleName)).instance;
         let $listComplexSearchContainerInstanceElem=listComplexSearchContainerInstance.constructionElem();
+
         this._$elem.append($listComplexSearchContainerInstanceElem);
 
         //加入弹出查询区域
         let listButtonContainerInstance=WLDCT_ListButtonContainerPlugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(WLDCT_ListButtonContainerPlugin.singleName)).instance;
         let $listButtonContainerInstanceElem=listButtonContainerInstance.constructionElem();
+
         this._$elem.append($listButtonContainerInstanceElem);
 
         //加入弹出查询区域
         let listTableContainerInstance=WLDCT_ListTableContainerPlugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(WLDCT_ListTableContainerPlugin.singleName)).instance;
         let $listTableContainerInstanceElem=listTableContainerInstance.constructionElem();
+
         this._$elem.append($listTableContainerInstanceElem);
 
         //加入隐藏区域
         let hideContainerInstance=WLDCT_HideContainerPlugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(WLDCT_HideContainerPlugin.singleName)).instance;
         let $hideContainerInstanceElem=hideContainerInstance.constructionElem();
+
         this._$elem.append($hideContainerInstanceElem);
+
+        window.setTimeout(function (){
+            listSimpleSearchContainerInstance.registeredEvent($listSimpleSearchContainerInstanceElem);
+            listComplexSearchContainerInstance.registeredEvent($listComplexSearchContainerInstanceElem);
+            listButtonContainerInstance.registeredEvent($listButtonContainerInstanceElem);
+            listTableContainerInstance.registeredEvent($listTableContainerInstanceElem);
+            hideContainerInstance.registeredEvent($hideContainerInstanceElem);
+        },1000);
 
         return this._$elem;
     },

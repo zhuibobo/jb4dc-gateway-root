@@ -7,3 +7,53 @@
 .ant-divider-horizontal.ant-divider-with-text::after{
   transform:translateY(calc(50% + 0.5px)) !important;
 }
+
+.ant-btn-group{
+  display: inline-block;
+
+  .ant-btn{
+    border-radius: 0px;
+    border-right-width: 0px;
+  }
+
+  .ant-btn:last-child{
+    border-right-width: 1px;
+    border-radius: 0px 4px 4px 0px;
+  }
+
+  .ant-btn:first-child{
+    border-radius: 4px 0px 0px 4px;
+  }
+}
+
+.ant-btn-group-vertical{
+  .ant-btn{
+    border-radius: 0px;
+    border-bottom-width: 0px;
+  }
+
+  .ant-btn:last-child{
+    border-bottom-width: 1px;
+    border-radius: 0px 0px 4px 4px;
+  }
+
+  .ant-btn:first-child{
+    border-radius: 4px 4px 0px 0px;
+  }
+}
+
+.ant-radio-button-wrapper{
+  font-size: 12px;
+}
+
+.a-table-action{
+  font-size: 18px;
+
+  i{
+    margin-right: 6px;
+    cursor: pointer;
+  }
+  i:hover{
+    color: red;
+  }
+}

@@ -3,6 +3,7 @@ import uiDesignMain from './ui-design-main.vue'
 import "../Less/UIDesignMain.less";
 import "../Less/UIRuntimeMain.less";
 import "../Less/ANTVueCust.less";
+import "../Less/EditTable.less";
 //import uidWysiwygComponent from './Component/MainTab/uid-wysiwyg-component.vue'
 //import uidHtmlEditorComponent from './Component/MainTab/uid-html-editor-component.vue'
 //import uidJsEditorComponent from './Component/MainTab/uid-js-editor-component.vue'
@@ -17,7 +18,7 @@ import uidEmptyComp from './Component/uid-empty-comp.vue'
 
 import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
-import * as Icons from '@ant-design/icons-vue';
+//import * as Icons from '@ant-design/icons-vue';
 
 import allPluginsPropertyVue  from './Plugins/IndexVue'
 import allComponentVue  from './Component/IndexVue'
@@ -35,10 +36,10 @@ app.component('uid-empty-comp', uidEmptyComp)
 app.use(Antd)
 
 // 全局使用图标
-const icons = Icons;
+/*const icons = Icons;
 for (const i in icons) {
     app.component(i, icons[i]);
-}
+}*/
 
 //app.component('AFDCT_TextBoxProperty', AFDCT_TextBoxProperty)
 //console.log(allPluginsPropertyVue);

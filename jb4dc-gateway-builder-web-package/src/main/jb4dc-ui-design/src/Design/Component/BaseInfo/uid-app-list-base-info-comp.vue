@@ -72,6 +72,8 @@
 </template>
 
 <script>
+
+import GeneralPlugin from "../../Plugins/GeneralPlugin";
 export default {
     name: "uid-app-list-base-info-comp",
     data(){
@@ -147,6 +149,7 @@ export default {
         selectedDataset:function(treeNode){
             this.listResourceEntity.listDatasetName=treeNode.text;
             this.listResourceEntity.listDatasetId=treeNode.id;
+            GeneralPlugin.setBaseInfoBindToDataSetId(this.listResourceEntity.listDatasetId);
         }
     }
 }

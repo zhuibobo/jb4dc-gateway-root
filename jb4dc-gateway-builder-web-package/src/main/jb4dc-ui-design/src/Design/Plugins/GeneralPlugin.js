@@ -3,6 +3,8 @@ let GeneralPlugin= {
     _controlInstances: {},
     _wysiwygComponent: null,
     _uiDesignMain: null,
+    _baseInfoBindToDataSetId:null,
+
     dropControlToContainer(plugin, $dropToTarget, $dropToLayout) {
         //let dropToObjectId=$dropToObject.attr("id");
         //console.log(dragSourceSingleName);
@@ -79,29 +81,21 @@ let GeneralPlugin= {
         if (!text) {
             text = config.text;
         }
-        let $descriptionElemWrap = $(`<div runtime_auto_remove="true" class="wysiwyg-auto-remove-tip">${text}<div class="wysiwyg-control-tip las la-question-circle" tip-with-id="${$elem.attr("id")}"></div></div>`);
+        let $descriptionElemWrap = $(`<div runtime_auto_remove="true" class="wysiwyg-auto-remove-tip">${text}<div class="wysiwyg-control-tip las la-question-circle" tip-with-instance="${$elem.attr("designControlInstanceName")}"></div></div>`);
         return $descriptionElemWrap;
     },
     regTooltipEvent() {
-        $("[tip-with-id]").hover(function () {
-                let id = $(this).attr("tip-with-id");
+        $("[tip-with-instance]").hover(function () {
+                let instanceId = $(this).attr("tip-with-instance");
 
-                let instanceObj = GeneralPlugin.getControlInstance(id);
+                let instanceObj = GeneralPlugin.getControlInstanceObj(instanceId);
+                GeneralPlugin.createControlDescriptionPanel($(this),instanceId);
                 //GeneralPlugin.createControlTooltipPanel(instanceObj.)
-                console.log("1");
+                //console.log("1");
             },
             function () {
-
+                GeneralPlugin.clearControlDescriptionPanel();
             });
-
-        /*.tooltip({
-            content: "111",
-            position: {
-                my: "left top",
-                at: "right+5 top-5",
-                collision: "none"
-            }
-        });*/
     },
     constructionGeneralInputElem(controlInstance) {
         //let newControl=GeneralPlugin.newControlInstance(plugin);
@@ -133,11 +127,27 @@ let GeneralPlugin= {
         });
     },
 
+    clearControlDescriptionPanel(){
+        $(".control-description-tip-inner-panel").remove();
+    },
+    createControlDescriptionPanel($elem,instanceId){
+        this.clearControlDescriptionPanel();
+        let panel = $('<div></div>');
+        panel.addClass("control-description-tip-inner-panel");
+        $(document.body).append(panel);
+        panel.position({
+            my: "left top",
+            at: "left+2 bottom+4",
+            of: $elem
+        });
+        console.log(instanceId);
+    },
     clearControlEditInnerPanel() {
         $(".control-edit-inner-panel").remove();
         //console.log("1");
     },
     createControlEditInnerPanel($elem) {
+        console.log($elem);
         this.clearControlEditInnerPanel();
         //debugger;
         let pluginInnerPanel = $('<div></div>');
@@ -426,7 +436,40 @@ let GeneralPlugin= {
     },
     selectValidateRuleDialogBeginProxy(oldData, caller) {
         this._uiDesignMain.selectValidateRuleDialogBegin(oldData, caller);
+    },
+
+    setBaseInfoBindToDataSetId(dataSetId){
+        this._baseInfoBindToDataSetId=dataSetId;
+    },
+    tryGetDataSetId($elem,parents) {
+        //从html中查找datasetId;
+        if ($elem) {
+            for (var i = parents.length - 1; i--; i >= 0) {
+                if (parents[i].getAttribute("datasetid") != null && parents[i].getAttribute("datasetid") != "") {
+                    //console.log(parents[i].getAttribute("datasetid"));
+                    //this.dataSetId=parents[i].getAttribute("datasetid");
+                    return parents[i].getAttribute("datasetid");
+                }
+            }
+        }
+        //如果查找不到,则使用基础属性中的dataSetId
+        if (!this.dataSetId) {
+            //console.log(window.parent.listDesign.listResourceEntity.listDatasetId);
+            //this.dataSetId=window.parent.listDesign.listResourceEntity.listDatasetId;
+            //return window.parent.listDesign.listResourceEntity.listDatasetId;
+            return this._baseInfoBindToDataSetId;
+        }
+        return null;
+        /*if(!this.dataSetId){
+            DialogUtility.AlertText("请先设定DataSet");
+        }
+        else{
+            this.bindDataSetFieldTree(this.dataSetId);
+        }*/
     }
 }
+
+//提供给EditTable_SelectDefaultValue使用
+window.GeneralPlugin=GeneralPlugin;
 
 export { GeneralPlugin as default};

@@ -48,7 +48,7 @@ export default {
             controlPluginsConfig:[],
             wysiwygContainerId:wysiwygDragDropUtility.wysiwygContainerId,
             //pluginPropEditVueName:"uid-empty-comp",
-            pluginPropEditVueName:"WLDCT_LayoutContainerProperty",
+            pluginPropEditVueName:"WLDCT_FormButtonProperty",
             pluginPropEditDialog:null,
         }
     },
@@ -57,8 +57,8 @@ export default {
         this.initPluginPropEditDialog();
         GeneralPlugin.setWysiwygComponent(this);
 
-        //let tempProp={"baseInfo": {"id": "AFDCT_TextBox_347247519", "serialize": "true", "name": "", "className": "", "placeholder": "", "custReadonly": "noreadonly", "custDisabled": "nodisabled", "style": "", "desc": "", "status": "enable", "groupName": ""}, "bindToField": {"relationId": "", "tableId": "", "tableName": "", "tableCaption": "", "fieldName": "", "fieldCaption": "", "fieldDataType": "", "fieldLength": ""}, "defaultValue": {"defaultType": "", "defaultValue": "", "defaultText": ""}, "bindToSearchField": {"columnTitle": "", "columnTableName": "", "columnName": "", "columnCaption": "", "columnDataTypeName": "", "columnOperator": "匹配"}, "normalDataSource": {"defaultIsNull": "true", "sqlDataSource": "", "dictionaryGroupDataSourceId": "", "dictionaryGroupDataSourceText": "", "restDataSource": "", "interfaceDataSource": "", "staticDataSource": "", "defaultSelected": "", "layoutDirection": "vertical", "rowNum": "0", "displayValueInText": "false"}, "multilevelProps": {"level2BindControlId": ""}}
-        //this.showPluginPropEditDialog("WLDCT_LayoutContainer","WLDCT_LayoutContainerProperty",null,tempProp);
+        let tempProp={"baseInfo": {"id": "AFDCT_TextBox_347247519", "serialize": "true", "name": "", "className": "", "placeholder": "", "custReadonly": "noreadonly", "custDisabled": "nodisabled", "style": "", "desc": "", "status": "enable", "groupName": ""}, "bindToField": {"relationId": "", "tableId": "", "tableName": "", "tableCaption": "", "fieldName": "", "fieldCaption": "", "fieldDataType": "", "fieldLength": ""}, "defaultValue": {"defaultType": "", "defaultValue": "", "defaultText": ""}, "bindToSearchField": {"columnTitle": "", "columnTableName": "", "columnName": "", "columnCaption": "", "columnDataTypeName": "", "columnOperator": "匹配"}, "normalDataSource": {"defaultIsNull": "true", "sqlDataSource": "", "dictionaryGroupDataSourceId": "", "dictionaryGroupDataSourceText": "", "restDataSource": "", "interfaceDataSource": "", "staticDataSource": "", "defaultSelected": "", "layoutDirection": "vertical", "rowNum": "0", "displayValueInText": "false"}, "multilevelProps": {"level2BindControlId": ""}}
+        this.showPluginPropEditDialog("WLDCT_FormButtonProperty","WLDCT_FormButtonProperty",$("<div />"),tempProp);
     },
     methods:{
         init (){
@@ -95,8 +95,8 @@ export default {
         initPluginPropEditDialog(){
             let _this=this;
             let defaultConfig = {
-                height: 650,
-                width: 800,
+                height: 750,
+                width: 900,
                 title: "属性编辑",
                 autoOpen: false,
                 modal: true,

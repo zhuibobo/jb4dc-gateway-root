@@ -29,17 +29,17 @@ export default {
 
     },
     methods: {
-        ready:function(actionName){
+        /*ready:function(actionName){
             this.baseInfo.id="txt_"+StringUtility.Timestamp();
             this.baseInfo.name=this.baseInfo.id;
-        },
+        },*/
         setBindCompleted:function(bindToField,defaultValue,validateRules){
             this.bindToField=bindToField;
             this.defaultValue=defaultValue;
             this.validateRules=validateRules;
         },
         getControlProps:function () {
-            var result = {
+            let result = {
                 success: true,
                 baseInfo: this.baseInfo,
                 bindToField: this.bindToField,
