@@ -1,12 +1,30 @@
 <template>
     <div v-for="plugin in getControlPluginsByGroup(this.groupName)" class="plugin-item" :class="dragEnableWrapClass(plugin)">
-        <div :draggable="dragEnable(plugin)" @dragstart="dragStart(plugin.singleName,$event)" :class="buildPluginItemClass(plugin)" :pluginSingleName="plugin.singleName">{{plugin.text}}</div>
+        <div>
+            <img draggable="false" class="plugin-icon" :src="pluginIcon(plugin)">
+            <div :draggable="dragEnable(plugin)" @dragstart="dragStart(plugin.singleName,$event)" :class="buildPluginItemClass(plugin)" :pluginSingleName="plugin.singleName">
+                {{plugin.text}}
+            </div>
+            <i v-if="dragEnable(plugin)" class="las la-reply"></i>
+        </div>
         <div v-if="plugin.children">
-            <div v-for="plugin in plugin.children" class="plugin-item" :class="dragEnableWrapClass(plugin)">
-                <div :draggable="dragEnable(plugin)" @dragstart="dragStart(plugin.singleName,$event)" :class="buildPluginItemClass(plugin)" :pluginSingleName="plugin.singleName">{{plugin.text}}</div>
+            <div v-for="plugin in pluginsIsShowFilter(plugin.children)" class="plugin-item" :class="dragEnableWrapClass(plugin)">
+                <div>
+                    <img draggable="false" class="plugin-icon" :src="pluginIcon(plugin)">
+                    <div :draggable="dragEnable(plugin)" @dragstart="dragStart(plugin.singleName,$event)" :class="buildPluginItemClass(plugin)" :pluginSingleName="plugin.singleName">
+                        {{plugin.text}}
+                    </div>
+                    <i v-if="dragEnable(plugin)" class="las la-reply"></i>
+                </div>
                 <div v-if="plugin.children">
-                    <div v-for="plugin in plugin.children" class="plugin-item" :class="dragEnableWrapClass(plugin)">
-                        <div :draggable="dragEnable(plugin)" @dragstart="dragStart(plugin.singleName,$event)" :class="buildPluginItemClass(plugin)" :pluginSingleName="plugin.singleName">{{plugin.text}}</div>
+                    <div v-for="plugin in pluginsIsShowFilter(plugin.children)" class="plugin-item" :class="dragEnableWrapClass(plugin)">
+                        <div>
+                            <img class="plugin-icon" :src="pluginIcon(plugin)">
+                            <div :draggable="dragEnable(plugin)" @dragstart="dragStart(plugin.singleName,$event)" :class="buildPluginItemClass(plugin)" :pluginSingleName="plugin.singleName">
+                                {{plugin.text}}
+                            </div>
+                            <i v-if="dragEnable(plugin)" class="las la-reply"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -28,9 +46,15 @@ export default {
         },1000);
     },
     methods: {
+        pluginIcon(plugin){
+            return "Images/Plugin/"+plugin.icon;
+        },
         getControlPluginsByGroup: function (groupName) {
-            let groupPlugin = this.controlPluginsConfig.filter(plugin => plugin.group == groupName&&plugin.showInEditorToolbar == "true");
-            return groupPlugin;
+            let groupPlugin = this.controlPluginsConfig.filter(plugin => plugin.group == groupName);
+            return this.pluginsIsShowFilter(groupPlugin);
+        },
+        pluginsIsShowFilter(plugins){
+            return plugins.filter(plugin => plugin.showInEditorToolbar == "true");
         },
         dragStart:function (plugSingleName,event) {
             //console.log(plugSingleName);
@@ -52,12 +76,14 @@ export default {
             if(dragEnableClass){
                 classAry.push(dragEnableClass);
             }
+
             if(plugin.dragTo.indexOf("Layout")>=0){
                 classAry.push("drag-to-grid");
             }
             else if(plugin.dragTo.indexOf("SingleGridStackLayout")>=0){
                 classAry.push("drag-to-grid");
             }
+            classAry.push("plugin-text");
             return classAry;
         },
         dragEnable:function (plugin){
@@ -80,6 +106,23 @@ export default {
             padding: 6px;
             border-radius: 4px;
 
+            .las{
+                color: red;
+            }
+
+            .plugin-text{
+                display: inline-block;
+                height: 18px;
+                line-height: 18px;
+                width: calc(100% - 18px - 18px);
+            }
+
+            .plugin-icon{
+                width: 16px;
+                height: 16px;
+                margin-right: 4px;
+                vertical-align: top;
+            }
         }
 
         .plugin-item:hover{

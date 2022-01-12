@@ -81,21 +81,25 @@ let GeneralPlugin= {
         if (!text) {
             text = config.text;
         }
-        let $descriptionElemWrap = $(`<div runtime_auto_remove="true" class="wysiwyg-auto-remove-tip">${text}<div class="wysiwyg-control-tip las la-question-circle" tip-with-instance="${$elem.attr("designControlInstanceName")}"></div></div>`);
+        let $descriptionElemWrap = $(`<div runtime_auto_remove="true" class="wysiwyg-auto-remove-tip"><div name="elem-display-name" class="elem-display-name">${text}</div><div class="wysiwyg-control-tip las la-question-circle" tip-with-instance="${$elem.attr("designControlInstanceName")}"></div></div>`);
         return $descriptionElemWrap;
     },
     regTooltipEvent() {
         $("[tip-with-instance]").hover(function () {
-                let instanceId = $(this).attr("tip-with-instance");
+            let instanceId = $(this).attr("tip-with-instance");
 
-                let instanceObj = GeneralPlugin.getControlInstanceObj(instanceId);
-                GeneralPlugin.createControlDescriptionPanel($(this),instanceId);
-                //GeneralPlugin.createControlTooltipPanel(instanceObj.)
-                //console.log("1");
-            },
-            function () {
-                GeneralPlugin.clearControlDescriptionPanel();
-            });
+            let instanceObj = GeneralPlugin.getControlInstanceObj(instanceId);
+            GeneralPlugin.createControlDescriptionPanel($(this),instanceId,instanceObj);
+            //GeneralPlugin.createControlTooltipPanel(instanceObj.)
+            //console.log("1");
+        },
+        function () {
+            GeneralPlugin.clearControlDescriptionPanel();
+        });
+        $("[tip-with-instance]").on("click", {}, function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        });
     },
     constructionGeneralInputElem(controlInstance) {
         //let newControl=GeneralPlugin.newControlInstance(plugin);
@@ -115,22 +119,30 @@ let GeneralPlugin= {
     },
     registeredGeneralEvent($elem, sender) {
         $elem.on("click", {}, function (event) {
-            GeneralPlugin.createControlEditInnerPanel($(this));
             event.preventDefault();
             event.stopPropagation();
+            GeneralPlugin.createControlEditInnerPanel($(this));
         });
         $elem.on("dblclick", {_this: sender}, function (event) {
             //alert("1");
-            GeneralPlugin.showPluginPropEditDialog(event.data._this, event.data._this.singleName + "Property", $(this))
             event.preventDefault();
             event.stopPropagation();
+            GeneralPlugin.clearHelperPanel();
+            GeneralPlugin.showPluginPropEditDialog(event.data._this, event.data._this.singleName + "Property", $(this))
         });
     },
+    buildListSearchControlGeneralText(config,props){
+        return config.text+"["+props.bindToSearchField.columnCaption+"]";
+    },
 
+    clearHelperPanel(){
+      this.clearControlEditInnerPanel();
+      this.clearControlDescriptionPanel();
+    },
     clearControlDescriptionPanel(){
         $(".control-description-tip-inner-panel").remove();
     },
-    createControlDescriptionPanel($elem,instanceId){
+    createControlDescriptionPanel($elem,instanceId,instanceObj){
         this.clearControlDescriptionPanel();
         let panel = $('<div></div>');
         panel.addClass("control-description-tip-inner-panel");
@@ -165,13 +177,13 @@ let GeneralPlugin= {
         //selectAllButton.addClass("select-img");
         selectAllButton.attr('title', '选中');
         pluginInnerPanel.append(selectAllButton);
-        selectAllButton.on('click', function (ev) {
+        selectAllButton.on('click', function (event) {
             alert("暂不支持!");
             //The DOM event object is passed by the 'data' property.
-            let domEvent = ev.data;
+            //let domEvent = ev.data;
             //Prevent the click to chave any effect in the element.
-            domEvent.preventDefault();
-            domEvent.stopPropagation();
+            event.preventDefault();
+            event.stopPropagation();
         });
 
         let delButton = $('<div></div>');
@@ -179,13 +191,14 @@ let GeneralPlugin= {
         delButton.addClass("del-img");
         delButton.attr('title', '删除');
         pluginInnerPanel.append(delButton);
-        delButton.on('click', function (ev) {
-            elem.remove();
+        delButton.on('click', function (event) {
+            $elem.remove();
+            GeneralPlugin.clearHelperPanel();
             //The DOM event object is passed by the 'data' property.
-            let domEvent = ev.data;
+            //let domEvent = ev.data;
             //Prevent the click to chave any effect in the element.
-            domEvent.preventDefault();
-            domEvent.stopPropagation();
+            event.preventDefault();
+            event.stopPropagation();
         });
 
         let copyIdButton = $('<div></div>');
@@ -194,15 +207,15 @@ let GeneralPlugin= {
         copyIdButton.attr('title', '复制ID');
         //copyIdButton.setAttribute( 'data-clipboard-text', "123");
         pluginInnerPanel.append(copyIdButton);
-        copyIdButton.on('click', function (ev) {
-            let id = elem.getAttribute("id");
+        copyIdButton.on('click', function (event) {
+            let id = $elem.attr("id");
             BaseUtility.CopyValueClipboard(id);
             //alert(elem.getAttribute("id"));
             //The DOM event object is passed by the 'data' property.
-            let domEvent = ev.data;
+            //let domEvent = ev.data;
             //Prevent the click to chave any effect in the element.
-            domEvent.preventDefault();
-            domEvent.stopPropagation();
+            event.preventDefault();
+            event.stopPropagation();
         });
     },
     createControlTooltipPanel($elem) {
@@ -335,8 +348,8 @@ let GeneralPlugin= {
         $elem.attr("designControlInstanceName", props.designControlInstanceName);
         $elem.attr("id", props.id);
     },
-    serializePropsToElem($elem, props, config) {
-        debugger;
+    serializePropsToElem($elem, props, config,innerHTMl) {
+        //debugger;
         $elem.attr("jbuild4dc_custom", "true");
         $elem.attr("singlename", config.singleName);
         $elem.attr("is_jbuild4dc_data", config.isJBuild4DCData);
@@ -347,6 +360,9 @@ let GeneralPlugin= {
         //将服务端解析方法,动态绑定属性设置,移到服务端进行解析时处理
         //elem.attr("serverresolve",controlSetting.ServerResolve);
         //elem.attr("server_dynamic_bind",controlSetting.ServerDynamicBind);
+        if(innerHTMl){
+            $elem.find("[name='elem-display-name']").html(innerHTMl);
+        }
 
         if (props["baseInfo"]) {
             for (let key in props["baseInfo"]) {

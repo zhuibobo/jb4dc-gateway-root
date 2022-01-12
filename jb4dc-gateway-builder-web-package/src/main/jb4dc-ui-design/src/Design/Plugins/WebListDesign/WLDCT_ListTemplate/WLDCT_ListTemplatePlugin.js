@@ -68,7 +68,7 @@ let WLDCT_ListTemplatePlugin={
     registeredEvent($elem){
         let rd = REDIPS.drag;
         rd.init(this._$elem.attr("id"));
-        GeneralPlugin.registeredGeneralEvent(this._$elem,this);
+        //GeneralPlugin.registeredGeneralEvent(this._$elem,this);
     },
     dropControlToContainer(plugin,$dropToTarget,$dropToLayout){
         let controlInstance=plugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(plugin.singleName)).instance;

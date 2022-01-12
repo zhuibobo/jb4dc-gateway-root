@@ -47,6 +47,9 @@ let WLDCT_ListSimpleSearchContainerPlugin={
         rd.init(this._$elem.attr("id"));
         GeneralPlugin.registeredGeneralEvent(this._$elem,this);
     },
+    resetWysiwygElemProps($elem,props){
+        GeneralPlugin.serializePropsToElem(this._$elem,props,this.config,"");
+    },
     dropControlToContainer(plugin,$dropToTarget,$dropToLayout){
         let controlInstance=plugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(plugin.singleName)).instance;
         let $elem=controlInstance.constructionElem();

@@ -15,8 +15,8 @@ let WLDCT_FormButtonPlugin={
     setElem($elem){
         this._$elem=$elem;
     },
-    rebuildElem($elem,props){
-        GeneralPlugin.serializePropsToElem(this._$elem,props,this.config);
+    resetWysiwygElemProps($elem,props){
+        GeneralPlugin.serializePropsToElem(this._$elem,props,this.config,props.normalProps.buttonCaption);
     },
     registeredEvent($elem) {
         GeneralPlugin.registeredGeneralEvent(this._$elem,this);

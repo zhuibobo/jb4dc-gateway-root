@@ -301,7 +301,7 @@ export default {
         }
     },
     mounted:function () {
-
+        console.log("WLDCT_FormButtonProperty.vue mounted.......................")
     },
     methods: {
         setWindowWH:function(width,height){
@@ -393,11 +393,16 @@ export default {
             this.normalProps.custProp3 = $elem.attr("custprop3");
             this.normalProps.custProp4 = $elem.attr("custprop4");
 
-            //console.log(this.actionName);
-            if(this.actionName=="Edit") {
+
+            console.log(this.normalProps.innerButtonJsonString);
+            if(!this.normalProps.innerButtonJsonString){
+                this.normalProps.innerButtonJsonString="[]";
+            }
+            this.$refs.innerFormButtonListComp.ready(this.normalProps.innerButtonJsonString);
+            /*if(this.actionName=="Edit") {
                 this.$refs.innerFormButtonListComp.ready(this.normalProps.innerButtonJsonString);
                 console.log(this.normalProps.innerButtonJsonString);
-            }
+            }*/
             //this.bindToSearchField = props.bindToSearchField ? props.bindToSearchField : this.bindToSearchField;
             //this.defaultValue = props.defaultValue ? props.defaultValue : this.defaultValue;
             //this.$refs.listSearchControlBindToComp.setData(this.bindToSearchField,this.defaultValue);

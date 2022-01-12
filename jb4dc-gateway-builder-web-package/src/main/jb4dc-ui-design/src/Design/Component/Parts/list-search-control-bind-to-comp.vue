@@ -15,7 +15,7 @@
             </td>
             <td rowspan="9" valign="top">
                 <a-input search class="input_border_bottom" ref="txt_search_text" placeholder="请输入表名或者标题"></a-input>
-                <ul ref="zTreeUL" class="ztree div-custom-scroll" style="height: 430px;overflow-x:hidden;overflow-y: scroll;width: 382px"></ul>
+                <ul ref="zTreeUL" class="ztree div-custom-scroll" style="height:540px;overflow-x:hidden;overflow-y: scroll;width: 452px"></ul>
             </td>
         </tr>
         <tr>
@@ -82,7 +82,7 @@
                 备注：
             </td>
             <td>
-                <textarea rows="7"></textarea>
+                <textarea rows="13"></textarea>
             </td>
         </tr>
         </tbody>

@@ -47,9 +47,11 @@ export default {
         return {
             controlPluginsConfig:[],
             wysiwygContainerId:wysiwygDragDropUtility.wysiwygContainerId,
-            //pluginPropEditVueName:"uid-empty-comp",
-            pluginPropEditVueName:"WLDCT_FormButtonProperty",
+            pluginPropEditVueEmptyName:"uid-empty-comp",
+            pluginPropEditVueName:"uid-empty-comp",
+            //pluginPropEditVueName:"WLDCT_FormButtonProperty",
             pluginPropEditDialog:null,
+            pluginPropEditComponentRenderer:true
         }
     },
     mounted() {
@@ -57,8 +59,8 @@ export default {
         this.initPluginPropEditDialog();
         GeneralPlugin.setWysiwygComponent(this);
 
-        let tempProp={"baseInfo": {"id": "AFDCT_TextBox_347247519", "serialize": "true", "name": "", "className": "", "placeholder": "", "custReadonly": "noreadonly", "custDisabled": "nodisabled", "style": "", "desc": "", "status": "enable", "groupName": ""}, "bindToField": {"relationId": "", "tableId": "", "tableName": "", "tableCaption": "", "fieldName": "", "fieldCaption": "", "fieldDataType": "", "fieldLength": ""}, "defaultValue": {"defaultType": "", "defaultValue": "", "defaultText": ""}, "bindToSearchField": {"columnTitle": "", "columnTableName": "", "columnName": "", "columnCaption": "", "columnDataTypeName": "", "columnOperator": "匹配"}, "normalDataSource": {"defaultIsNull": "true", "sqlDataSource": "", "dictionaryGroupDataSourceId": "", "dictionaryGroupDataSourceText": "", "restDataSource": "", "interfaceDataSource": "", "staticDataSource": "", "defaultSelected": "", "layoutDirection": "vertical", "rowNum": "0", "displayValueInText": "false"}, "multilevelProps": {"level2BindControlId": ""}}
-        this.showPluginPropEditDialog("WLDCT_FormButtonProperty","WLDCT_FormButtonProperty",$("<div />"),tempProp);
+        //let tempProp={"baseInfo": {"id": "AFDCT_TextBox_347247519", "serialize": "true", "name": "", "className": "", "placeholder": "", "custReadonly": "noreadonly", "custDisabled": "nodisabled", "style": "", "desc": "", "status": "enable", "groupName": ""}, "bindToField": {"relationId": "", "tableId": "", "tableName": "", "tableCaption": "", "fieldName": "", "fieldCaption": "", "fieldDataType": "", "fieldLength": ""}, "defaultValue": {"defaultType": "", "defaultValue": "", "defaultText": ""}, "bindToSearchField": {"columnTitle": "", "columnTableName": "", "columnName": "", "columnCaption": "", "columnDataTypeName": "", "columnOperator": "匹配"}, "normalDataSource": {"defaultIsNull": "true", "sqlDataSource": "", "dictionaryGroupDataSourceId": "", "dictionaryGroupDataSourceText": "", "restDataSource": "", "interfaceDataSource": "", "staticDataSource": "", "defaultSelected": "", "layoutDirection": "vertical", "rowNum": "0", "displayValueInText": "false"}, "multilevelProps": {"level2BindControlId": ""}}
+        //this.showPluginPropEditDialog("WLDCT_Search_TextBoxProperty","WLDCT_Search_TextBoxProperty",$("<div />"),tempProp);
     },
     methods:{
         init (){
@@ -100,6 +102,9 @@ export default {
                 title: "属性编辑",
                 autoOpen: false,
                 modal: true,
+                beforeClose:function (event, ui){
+                    _this.pluginPropEditVueName=_this.pluginPropEditVueEmptyName;
+                },
                 buttons: {
                     "确认": function () {
                         //_this.$refs.pluginPropEditComponent.setControlProps(null,"啥啥啥所");
@@ -108,7 +113,7 @@ export default {
                         if (props.success == false) {
                             return false;
                         }
-                        _this._tempCurrentEditControlInstance.rebuildElem(_this._tempCurrentEditControl$elem,props);
+                        _this._tempCurrentEditControlInstance.resetWysiwygElemProps(_this._tempCurrentEditControl$elem,props);
                         //okFunc(ckEditor, pluginSetting, props, pluginSetting.IFrameWindow.contentWindow);
                         //pluginSetting.IFrameExecuteActionName = CKEditorPluginUtility.DialogExecuteInsertActionName;
 
@@ -116,6 +121,7 @@ export default {
                     },
                     "取消": function () {
                         $("#plugin-prop-edit-dialog").dialog("close");
+
                     }
                 }
             };
@@ -124,10 +130,13 @@ export default {
         showPluginPropEditDialog(controlInstance,pluginPropEditVueName,$elem,props){
             this._tempCurrentEditControlInstance=controlInstance;
             this._tempCurrentEditControl$elem=$elem;
+            console.log("打开属性对话框:"+pluginPropEditVueName);
             this.pluginPropEditVueName=pluginPropEditVueName;
-            console.log(props);
-            this.$refs.pluginPropEditComponent.setControlProps($elem,props);
+            //console.log(props);
             this.pluginPropEditDialog.dialog("open");
+            window.setTimeout(()=>{
+                this.$refs.pluginPropEditComponent.setControlProps($elem,props);
+            },200);
         },
         getValue(){
             return $("#"+this.wysiwygContainerId).html();

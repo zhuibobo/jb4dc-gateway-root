@@ -67,6 +67,7 @@ let RemoteRestInterface = {
         if(storeDataSet[dataSetId]){
             let dataSetResponseData=storeDataSet[dataSetId];
             successFunc(dataSetResponseData);
+            return;
         }
 
         axios.post(acInterface.getDataSetDataUrl, {"op":"view","recordId":dataSetId}).then(function (response) {
