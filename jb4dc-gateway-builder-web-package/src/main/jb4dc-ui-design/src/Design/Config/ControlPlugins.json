@@ -355,7 +355,7 @@
               "text": "列表内标签",
               "class": "",
               "icon": "textcolor.png",
-              "dragTo": "false",
+              "dragTo": "WLDCT_ListTableContainer",
               "serverResolve": "",
               "clientResolve": "",
               "clientResolveJs": "",

@@ -59,8 +59,8 @@ export default {
         this.initPluginPropEditDialog();
         GeneralPlugin.setWysiwygComponent(this);
 
-        //let tempProp={"baseInfo": {"id": "AFDCT_TextBox_347247519", "serialize": "true", "name": "", "className": "", "placeholder": "", "custReadonly": "noreadonly", "custDisabled": "nodisabled", "style": "", "desc": "", "status": "enable", "groupName": ""}, "bindToField": {"relationId": "", "tableId": "", "tableName": "", "tableCaption": "", "fieldName": "", "fieldCaption": "", "fieldDataType": "", "fieldLength": ""}, "defaultValue": {"defaultType": "", "defaultValue": "", "defaultText": ""}, "bindToSearchField": {"columnTitle": "", "columnTableName": "", "columnName": "", "columnCaption": "", "columnDataTypeName": "", "columnOperator": "匹配"}, "normalDataSource": {"defaultIsNull": "true", "sqlDataSource": "", "dictionaryGroupDataSourceId": "", "dictionaryGroupDataSourceText": "", "restDataSource": "", "interfaceDataSource": "", "staticDataSource": "", "defaultSelected": "", "layoutDirection": "vertical", "rowNum": "0", "displayValueInText": "false"}, "multilevelProps": {"level2BindControlId": ""}}
-        //this.showPluginPropEditDialog("WLDCT_Search_TextBoxProperty","WLDCT_Search_TextBoxProperty",$("<div />"),tempProp);
+        let tempProp={"baseInfo": {"id": "AFDCT_TextBox_347247519", "serialize": "true", "name": "", "className": "", "placeholder": "", "custReadonly": "noreadonly", "custDisabled": "nodisabled", "style": "", "desc": "", "status": "enable", "groupName": ""}, "bindToField": {"relationId": "", "tableId": "", "tableName": "", "tableCaption": "", "fieldName": "", "fieldCaption": "", "fieldDataType": "", "fieldLength": ""}, "defaultValue": {"defaultType": "", "defaultValue": "", "defaultText": ""}, "bindToSearchField": {"columnTitle": "", "columnTableName": "", "columnName": "", "columnCaption": "", "columnDataTypeName": "", "columnOperator": "匹配"}, "normalDataSource": {"defaultIsNull": "true", "sqlDataSource": "", "dictionaryGroupDataSourceId": "", "dictionaryGroupDataSourceText": "", "restDataSource": "", "interfaceDataSource": "", "staticDataSource": "", "defaultSelected": "", "layoutDirection": "vertical", "rowNum": "0", "displayValueInText": "false"}, "multilevelProps": {"level2BindControlId": ""}}
+        this.showPluginPropEditDialog("WLDCT_ListTableLabelProperty","WLDCT_ListTableLabelProperty",$("<div />"),tempProp);
     },
     methods:{
         init (){
@@ -127,16 +127,16 @@ export default {
             };
             this.pluginPropEditDialog=$("#plugin-prop-edit-dialog").dialog(defaultConfig);
         },
-        showPluginPropEditDialog(controlInstance,pluginPropEditVueName,$elem,props){
-            this._tempCurrentEditControlInstance=controlInstance;
-            this._tempCurrentEditControl$elem=$elem;
-            console.log("打开属性对话框:"+pluginPropEditVueName);
-            this.pluginPropEditVueName=pluginPropEditVueName;
+        showPluginPropEditDialog(controlInstance,pluginPropEditVueName,$elem,props) {
+            this._tempCurrentEditControlInstance = controlInstance;
+            this._tempCurrentEditControl$elem = $elem;
+            console.log("打开属性对话框:" + pluginPropEditVueName);
+            this.pluginPropEditVueName = pluginPropEditVueName;
             //console.log(props);
             this.pluginPropEditDialog.dialog("open");
-            window.setTimeout(()=>{
-                this.$refs.pluginPropEditComponent.setControlProps($elem,props);
-            },200);
+            window.setTimeout(() => {
+                this.$refs.pluginPropEditComponent.setControlProps($elem, props);
+            }, 200);
         },
         getValue(){
             return $("#"+this.wysiwygContainerId).html();

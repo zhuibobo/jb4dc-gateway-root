@@ -11,7 +11,8 @@ let acInterface= {
     getDataSetDataUrl:"/Rest/Builder/DataSet/DataSetMain/GetDataSetData",
     getWebFormForZTreeNodeListUrl:"/Rest/Builder/Form/GetWebFormForZTreeNodeList",
     getFormMainTableFieldsUrl:"/Rest/Builder/Form/GetFormMainTableFields",
-    getAPISForZTreeNodeListUrl:"/Rest/Builder/ApiItem/GetAPISForZTreeNodeList"
+    getAPISForZTreeNodeListUrl:"/Rest/Builder/ApiItem/GetAPISForZTreeNodeList",
+    getDictionaryEntityGroupTreeData:"/Rest/SystemSetting/Dict/DictionaryGroup/GetTreeData"
 }
 
 let storeDataSet={};

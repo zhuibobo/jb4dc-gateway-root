@@ -19,17 +19,11 @@ let WLDCT_ListTableContainerPlugin={
                                          <th></th>
                                          <th></th>
                                          <th></th>
-                                         <th></th>
-                                         <th></th>
-                                         <th></th>
                                          <th>操作</th>
                                      </tr>
                                  </thead>
                                  <tbody>
                                      <tr>
-                                         <td></td>
-                                         <td></td>
-                                         <td></td>
                                          <td></td>
                                          <td></td>
                                          <td></td>
