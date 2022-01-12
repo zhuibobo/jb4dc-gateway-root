@@ -93,6 +93,8 @@
 </template>
 
 <script>
+import GeneralPlugin from "../../GeneralPlugin";
+import RemoteRestInterface from "../../../Remote/RemoteRestInterface";
 export default {
     name: "WLDCT_ListTableLabelProperty",
     data() {
@@ -253,7 +255,7 @@ export default {
             this.showProp=true;
         },
         initDDGroupTree:function () {
-            AjaxUtility.Post(this.acInterface.getDDGroupTreeData, {}, function (result) {
+            /*AjaxUtility.Post(this.acInterface.getDDGroupTreeData, {}, function (result) {
                 if(result.success){
                     if(result.data!=null&&result.data.length>0){
                         for(var i=0;i<result.data.length;i++) {
@@ -263,7 +265,18 @@ export default {
                     this.ddGroupTreeObj.expandAll(true);
                     this.ddGroupTreeObj._host=this;
                 }
-            }, this);
+            }, this);*/
+            RemoteRestInterface.getDictionaryEntityGroupTreeData({}, (result)=>{
+                if(result.success){
+                    if(result.data!=null&&result.data.length>0){
+                        for(var i=0;i<result.data.length;i++) {
+                        }
+                    }
+                    this.ddGroupTreeObj=$.fn.zTree.init($("#html-design-plugin-dialog-wraper-dd-zTreeUL"), this.ddGroupTreeSetting,result.data);
+                    this.ddGroupTreeObj.expandAll(true);
+                    this.ddGroupTreeObj._host=this;
+                }
+            });
         }
     }
 }
