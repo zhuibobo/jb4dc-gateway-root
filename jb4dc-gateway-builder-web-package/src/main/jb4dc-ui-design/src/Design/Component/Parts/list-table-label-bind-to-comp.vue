@@ -18,7 +18,7 @@
                 </a-select>
             </td>
             <td rowspan="9" valign="top">
-                <ul ref="zTreeUL" id="list-table-label-bind-to-comp-tree" class="ztree" style="height: 470px;overflow-y: auto;overflow-x: hidden;width: 382px"></ul>
+                <ul ref="zTreeUL" id="list-table-label-bind-to-comp-tree" class="ztree" style="height: 560px;overflow-y: auto;overflow-x: hidden;width: 470px"></ul>
             </td>
         </tr>
         <tr>
@@ -180,7 +180,7 @@ export default {
                 singleNode.text = singleNode.columnCaption + "[" + singleNode.columnName + "]";
                 singleNode.nodeType = "DataSetColumn";
                 singleNode.id = singleNode.columnId;
-                singleNode.icon = "/Themes/Png16X16/page.png";
+                singleNode.icon = "Images/Png16X16/page.png";
                 treeNodeArray.push(singleNode);
             }
 
@@ -223,8 +223,9 @@ export default {
         },
         /*绑定默认值*/
         selectDefaultValueView:function () {
-            window._SelectBindObj = this;
-            window.parent.listDesign.selectDefaultValueDialogBegin(window,null);
+            //window._SelectBindObj = this;
+            //window.parent.listDesign.selectDefaultValueDialogBegin(window,null);
+            GeneralPlugin.selectDefaultValueDialogBeginProxy(null,this);
         },
         setSelectEnvVariableResultValue:function(result){
             if(result!=null) {

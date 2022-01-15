@@ -6,7 +6,7 @@ function importAll(r) {
     r.keys().forEach(key => {
         let m = r(key).default
         let n = m.name;
-        console.log(n);
+        //console.log(n);
         __modules[n] = m
     });
     return __modules

@@ -16,7 +16,7 @@ let WLDCT_ListTableLabelPlugin={
         this._$elem=$elem;
     },
     resetWysiwygElemProps($elem,props){
-        GeneralPlugin.serializePropsToElem(this._$elem,props,this.config,GeneralPlugin.buildListSearchControlGeneralText(this.config,props));
+        GeneralPlugin.serializePropsToElem(this._$elem,props,this.config,props.normalProps.columnCaption);
     },
     registeredEvent($elem) {
         GeneralPlugin.registeredGeneralEvent(this._$elem,this);

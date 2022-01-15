@@ -194,8 +194,8 @@ export default {
                 title: "设置验证规则"
             });
 
-            $(window.document).find(".ui-widget-overlay").css("zIndex", 10100);
-            $(window.document).find(".ui-dialog").css("zIndex", 10101);
+            //$(window.document).find(".ui-widget-overlay").css("zIndex", 10100);
+            //$(window.document).find(".ui-dialog").css("zIndex", 10101);
 
             this.ruleParas.msg = "auto";
             this.ruleParas.numLength = 4;

@@ -103,7 +103,11 @@ let GeneralPlugin= {
     },
     constructionGeneralInputElem(controlInstance) {
         //let newControl=GeneralPlugin.newControlInstance(plugin);
-        let html = `<div jbuild4dc_custom="true" singlename="${controlInstance.singleName}" designControlInstanceName="${controlInstance.id}" class="uid-design-input-control redips-drag" contenteditable="false" id="${controlInstance.id}"></div>`;
+        let classNames="uid-design-input-control redips-drag";
+        if(controlInstance.config.class) {
+            classNames += " " + controlInstance.config.class;
+        }
+        let html = `<div jbuild4dc_custom="true" singlename="${controlInstance.singleName}" designControlInstanceName="${controlInstance.id}" class="${classNames}" contenteditable="false" id="${controlInstance.id}"></div>`;
         let $elem = $(html);
         controlInstance._$elem = $elem;
         //this.serializePropsToElem(controlInstance._$elem,controlInstance.props,controlInstance.config)

@@ -219,8 +219,8 @@ export default {
 
             if(relationData==null||relationData==""||relationData.length==0){
                 DialogUtility.AlertText("请先设置表单的数据关联！");
-                $(window.document).find(".ui-widget-overlay").css("zIndex",10100);
-                $(window.document).find(".ui-dialog").css("zIndex",10101);
+                //$(window.document).find(".ui-widget-overlay").css("zIndex",10100);
+                //$(window.document).find(".ui-dialog").css("zIndex",10101);
                 return;
             }
             //alert(PageStyleUtility.GetPageHeight());
@@ -240,8 +240,8 @@ export default {
                 title: "选择绑定字段"
             });
 
-            $(window.document).find(".ui-widget-overlay").css("zIndex",10100);
-            $(window.document).find(".ui-dialog").css("zIndex",10101);
+            //$(window.document).find(".ui-widget-overlay").css("zIndex",10100);
+            //$(window.document).find(".ui-dialog").css("zIndex",10101);
 
             this.oldBindFieldData=oldBindFieldData;
             this.selectedData=JsonUtility.CloneSimple(oldBindFieldData);

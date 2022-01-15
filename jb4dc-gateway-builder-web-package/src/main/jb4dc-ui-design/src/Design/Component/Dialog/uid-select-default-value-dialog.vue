@@ -159,8 +159,8 @@ export default {
                 title: "设置默认值"
             });
 
-            $(window.document).find(".ui-widget-overlay").css("zIndex",10100);
-            $(window.document).find(".ui-dialog").css("zIndex",10101);
+            //$(window.document).find(".ui-widget-overlay").css("zIndex",10100);
+            //$(window.document).find(".ui-dialog").css("zIndex",10101);
 
             if(oldData==null){
                 //this.selectType="Const";

@@ -5,7 +5,7 @@
                 <list-table-label-bind-to-comp ref="listTableLabelBindToComp">
                 </list-table-label-bind-to-comp>
             </a-tab-pane>
-            <a-tab-pane key="labelSetting" tab="标签设置">
+            <a-tab-pane key="labelSetting" tab="标签设置" :forceRender="true">
                 <div v-show="showProp">
                     <table cellpadding="0" cellspacing="0" border="0" class="html-design-plugin-dialog-table-wraper">
                         <colgroup>
@@ -40,7 +40,7 @@
                                 服务端解析类：
                             </td>
                             <td>
-                                <i-input v-model="normalProps.custServerResolveMethod" placeholder="按钮进行服务端解析时,保存模版时候调用,类全称,需要实现接口IListTableLabelCustResolve" />
+                                <a-input v-model:value="normalProps.custServerResolveMethod" placeholder="按钮进行服务端解析时,保存模版时候调用,类全称,需要实现接口IListTableLabelCustResolve" />
                             </td>
                         </tr>
                         <tr>
@@ -48,7 +48,7 @@
                                 参数：
                             </td>
                             <td>
-                                <i-input v-model="normalProps.custServerResolveMethodPara" placeholder="服务端解析类的参数" />
+                                <a-input v-model:value="normalProps.custServerResolveMethodPara" placeholder="服务端解析类的参数" />
                             </td>
                         </tr>
                         <tr>
@@ -56,7 +56,7 @@
                                 客户端渲染方法：
                             </td>
                             <td>
-                                <i-input v-model="normalProps.custClientRendererMethod" placeholder="客户端渲染方法,生成前端页面时调动,最终形成页面元素,需要返回最终元素的HTML对象" />
+                                <a-input v-model:value="normalProps.custClientRendererMethod" placeholder="客户端渲染方法,生成前端页面时调动,最终形成页面元素,需要返回最终元素的HTML对象" />
                             </td>
                         </tr>
                         <tr>
@@ -64,7 +64,7 @@
                                 参数：
                             </td>
                             <td>
-                                <i-input v-model="normalProps.custClientRendererMethodPara" placeholder="客户端渲染方法的参数" />
+                                <a-input v-model:value="normalProps.custClientRendererMethodPara" placeholder="客户端渲染方法的参数" />
                             </td>
                         </tr>
                         <tr>
@@ -72,7 +72,7 @@
                                 省略长度：
                             </td>
                             <td>
-                                <i-input v-model="normalProps.omitLength" placeholder="客户端渲染方法的参数" />
+                                <a-input v-model:value="normalProps.omitLength" placeholder="客户端渲染方法的参数" />
                             </td>
                         </tr>
                         </tbody>
@@ -110,7 +110,7 @@ export default {
                 columnCaption: "",
                 columnDataTypeName: "",
                 targetButtonId: "",
-                columnAlign: "",
+                columnAlign: "居中对齐",
                 //开发扩展
                 defFormat: "notFormat",
                 custServerResolveMethod: "",
@@ -163,21 +163,26 @@ export default {
     },
     mounted:function () {
         this.initDDGroupTree();
+
     },
     methods: {
         ready:function(actionName,sel,parents){
-            this.baseInfo.id="lab_"+StringUtility.Timestamp();
+            /*this.baseInfo.id="lab_"+StringUtility.Timestamp();
             this.baseInfo.name=this.baseInfo.id;
 
             this.dataSetId=CKEditorPluginUtility.TryGetDataSetId(sel,parents);
             this.buttons=CKEditorPluginUtility.TryGetListButtonsInPluginPage();
 
-            this.bindDataSetFieldTree();
+            this.bindDataSetFieldTree();*/
         },
         bindDataSetFieldTree:function(){
-            if(this.dataSetId){
-                let dataSetPO=window.parent.listDesign.getDataSet(this.dataSetId);
-                this.$refs.listTableLabelBindToComp.init(dataSetPO,this.buttons);
+            if(this.dataSetId) {
+                //let dataSetPO=window.parent.listDesign.getDataSet(this.dataSetId);
+                //this.$refs.listTableLabelBindToComp.init(dataSetPO,this.buttons);
+                RemoteRestInterface.getDataSetData(this.dataSetId, (result) => {
+                    let dataSetPO = result.data;
+                    this.$refs.listTableLabelBindToComp.init(dataSetPO, this.buttons);
+                });
             }
             else {
                 DialogUtility.AlertText("请先设定DataSet");
@@ -212,7 +217,10 @@ export default {
         },
         setControlProps:function ($elem,props) {
             //console.log(props);;
-            //debugger;
+            debugger;
+            this.dataSetId=GeneralPlugin.tryGetDataSetId($elem,$elem.parents());
+            this.bindDataSetFieldTree();
+
             this.baseInfo = props.baseInfo ? props.baseInfo : this.baseInfo;
             //this.bindToSearchField = props.bindToSearchField ? props.bindToSearchField : this.bindToSearchField;
             this.defaultValue = props.defaultValue ? props.defaultValue : this.defaultValue;
@@ -222,7 +230,7 @@ export default {
             this.normalProps.columnCaption=$elem.attr("columncaption");
             this.normalProps.columnDataTypeName=$elem.attr("columndatatypename");
             this.normalProps.targetButtonId=$elem.attr("targetbuttonid");
-            this.normalProps.columnAlign=$elem.attr("columnalign");
+            this.normalProps.columnAlign=$elem.attr("columnalign")?$elem.attr("columnalign"):this.normalProps.columnAlign;
             this.normalProps.custServerResolveMethod =$elem.attr("custserverresolvemethod");
             this.normalProps.custServerResolveMethodPara = $elem.attr("custserverresolvemethodpara");
             this.normalProps.custClientRendererMethod =$elem.attr("custclientrenderermethod");
@@ -268,8 +276,8 @@ export default {
             }, this);*/
             RemoteRestInterface.getDictionaryEntityGroupTreeData({}, (result)=>{
                 if(result.success){
-                    if(result.data!=null&&result.data.length>0){
-                        for(var i=0;i<result.data.length;i++) {
+                    if(result.data!=null&&result.data.length>0) {
+                        for (let i = 0; i < result.data.length; i++) {
                         }
                     }
                     this.ddGroupTreeObj=$.fn.zTree.init($("#html-design-plugin-dialog-wraper-dd-zTreeUL"), this.ddGroupTreeSetting,result.data);
