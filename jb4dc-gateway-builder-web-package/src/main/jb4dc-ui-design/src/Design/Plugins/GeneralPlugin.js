@@ -101,7 +101,7 @@ let GeneralPlugin= {
             event.stopPropagation();
         });
     },
-    constructionGeneralInputElem(controlInstance) {
+    constructionGeneralInputElem(controlInstance,exAttrs) {
         //let newControl=GeneralPlugin.newControlInstance(plugin);
         let classNames="uid-design-input-control redips-drag";
         if(controlInstance.config.class) {
@@ -109,6 +109,11 @@ let GeneralPlugin= {
         }
         let html = `<div jbuild4dc_custom="true" singlename="${controlInstance.singleName}" designControlInstanceName="${controlInstance.id}" class="${classNames}" contenteditable="false" id="${controlInstance.id}"></div>`;
         let $elem = $(html);
+        if(exAttrs){
+            for (let attrKey in exAttrs) {
+                $elem.attr(attrKey,exAttrs[attrKey]);
+            }
+        }
         controlInstance._$elem = $elem;
         //this.serializePropsToElem(controlInstance._$elem,controlInstance.props,controlInstance.config)
         //newControl
@@ -463,8 +468,8 @@ let GeneralPlugin= {
     },
     tryGetDataSetId($elem,parents) {
         //从html中查找datasetId;
-        if ($elem) {
-            for (var i = parents.length - 1; i--; i >= 0) {
+        if ($elem&&$elem.length>0) {
+            for (let i = parents.length - 1; i--; i >= 0) {
                 if (parents[i].getAttribute("datasetid") != null && parents[i].getAttribute("datasetid") != "") {
                     //console.log(parents[i].getAttribute("datasetid"));
                     //this.dataSetId=parents[i].getAttribute("datasetid");
@@ -486,6 +491,21 @@ let GeneralPlugin= {
         else{
             this.bindDataSetFieldTree(this.dataSetId);
         }*/
+    },
+    tryGetListButtonsInPluginPage($elem){
+        //debugger;
+        let buttons=[];
+        let listTemplateElem=$elem.parents("[singlename='WLDCT_ListTemplate']");
+        let $buttons=$(listTemplateElem).find("[isopbutton]");
+        $buttons.each(function () {
+            let buttonCaption=$(this).attr("buttoncaption")?$(this).attr("buttoncaption"):"未设置按钮名称";
+            let buttonId=$(this).attr("id");
+            buttons.push({
+                buttonCaption:buttonCaption,
+                buttonId:buttonId
+            })
+        });
+        return buttons;
     }
 }
 

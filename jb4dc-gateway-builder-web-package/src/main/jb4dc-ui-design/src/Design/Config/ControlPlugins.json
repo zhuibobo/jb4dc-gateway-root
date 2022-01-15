@@ -374,7 +374,7 @@
               "text": "列表内按钮",
               "class": "",
               "icon": "imagebutton.png",
-              "dragTo": "false",
+              "dragTo": "WLDCT_ListTableContainer",
               "serverResolve": "",
               "clientResolve": "",
               "clientResolveJs": "",

@@ -1,7 +1,7 @@
 import GeneralPlugin from "../../GeneralPlugin";
 
-let WLDCT_FormButtonPlugin={
-    singleName:"WLDCT_FormButton",
+let WLDCT_ListTableInnerButtonSinglePlugin={
+    singleName:"WLDCT_ListTableInnerButtonSingle",
     config:GeneralPlugin.configProp,
     _$elem:null,
     id:null,
@@ -10,19 +10,19 @@ let WLDCT_FormButtonPlugin={
         return GeneralPlugin.newControlInstance(this,instanceId);
     },
     constructionElem(){
-        return GeneralPlugin.constructionGeneralInputElem(this,{isopbutton:"true"});
+        return GeneralPlugin.constructionGeneralInputElem(this);
     },
     setElem($elem){
         this._$elem=$elem;
     },
     resetWysiwygElemProps($elem,props){
-        GeneralPlugin.serializePropsToElem(this._$elem,props,this.config,props.normalProps.buttonCaption);
+        GeneralPlugin.serializePropsToElem(this._$elem,props,this.config,props.normalProps.caption);
     },
     registeredEvent($elem) {
         GeneralPlugin.registeredGeneralEvent(this._$elem,this);
     }
 }
 
-GeneralPlugin.registeredPlugin(WLDCT_FormButtonPlugin.singleName,WLDCT_FormButtonPlugin);
+GeneralPlugin.registeredPlugin(WLDCT_ListTableInnerButtonSinglePlugin.singleName,WLDCT_ListTableInnerButtonSinglePlugin);
 
-export { WLDCT_FormButtonPlugin as default};
+export { WLDCT_ListTableInnerButtonSinglePlugin as default};
