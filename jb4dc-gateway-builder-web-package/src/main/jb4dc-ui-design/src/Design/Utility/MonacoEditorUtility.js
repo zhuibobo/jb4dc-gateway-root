@@ -16,6 +16,25 @@ let MonacoEditorUtility={
             //把选中的位置放到中间显示
             monacoEditorInstance.revealRangeInCenter(match.range)
         }
+    },
+    getWebAppListJsCodeDefaultContent(){
+        return `var BuilderListPageRuntimeInstance = {
+    data: {
+        listPO: null
+    },
+    pageReady: function () {
+        //页面加载html完成,未进行客户端控件的渲染
+        console.log("页面加载html完成");
+    },
+    rendererChainCompleted: function () {
+        //客户端控件渲染完成.
+        console.log("客户端控件渲染完成");
+    },
+    rendererDataChainCompleted: function () {
+        //客户端控件渲染并绑定完数据.
+        console.log("客户端控件渲染并绑定完数据");
+    }
+}`;
     }
 }
 

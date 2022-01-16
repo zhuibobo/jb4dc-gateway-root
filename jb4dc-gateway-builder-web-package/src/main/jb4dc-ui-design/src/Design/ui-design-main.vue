@@ -23,12 +23,12 @@
             </div>
             <div id="uid-html-code-editor-comp-tab" class="tab-panel">
                 <div>
-                    <uid-html-code-editor-comp ref="uidHtmlCodeEditorComp"></uid-html-code-editor-comp>
+                    <uid-html-code-editor-comp :ui-design-type="uiDesignType" ref="uidHtmlCodeEditorComp"></uid-html-code-editor-comp>
                 </div>
             </div>
             <div id="uid-js-code-editor-comp-tab" class="tab-panel">
                 <div>
-                    <uid-js-code-editor-comp></uid-js-code-editor-comp>
+                    <uid-js-code-editor-comp :ui-design-type="uiDesignType"></uid-js-code-editor-comp>
                 </div>
             </div>
             <div id="uid-css-code-editor-comp-tab" class="tab-panel">

@@ -6,9 +6,11 @@
 import * as monaco from 'monaco-editor';
 import MonacoEditorUtility from "../../Utility/MonacoEditorUtility";
 import GeneralPlugin from "../../Plugins/GeneralPlugin";
+import enumValues from "../../EnumValues.js"
 
 export default {
     name: "uid-html-code-editor-comp",
+    props:["uiDesignType"],
     data(){
         return {
             //monacoEditor:null
@@ -29,12 +31,14 @@ export default {
             return  MonacoEditorUtility.getValue(window.uidHtmlCodeMonacoEditor);
         },
         setValue(value) {
-            //console.log(value);
-            MonacoEditorUtility.setValue(window.uidHtmlCodeMonacoEditor, value);
-            let _wysiwygLastSelectedElem = GeneralPlugin.getWysiwygLastSelectedElem();
-            if(_wysiwygLastSelectedElem) {
-                let findText = "id=\"" + _wysiwygLastSelectedElem.attr("id") + "\"";
-                MonacoEditorUtility.autoSelectionFirstMatchText(window.uidHtmlCodeMonacoEditor, findText);
+            if(value) {
+                //console.log(value);
+                MonacoEditorUtility.setValue(window.uidHtmlCodeMonacoEditor, value);
+                let _wysiwygLastSelectedElem = GeneralPlugin.getWysiwygLastSelectedElem();
+                if (_wysiwygLastSelectedElem) {
+                    let findText = "id=\"" + _wysiwygLastSelectedElem.attr("id") + "\"";
+                    MonacoEditorUtility.autoSelectionFirstMatchText(window.uidHtmlCodeMonacoEditor, findText);
+                }
             }
         }
     }

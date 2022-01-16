@@ -38,7 +38,7 @@ import wysiwygDragDropUtility from '../../Utility/WysiwygDragDropUtility';
 
 export default {
     name: "uid-wysiwyg-plugin-list-comp",
-    props: ["controlPluginsConfig","groupName"],
+    props: ["controlPluginsConfig","groupName","uiDesignType"],
     mounted() {
         //console.log(this.controlPluginsConfig);
         window.setTimeout(function (){
