@@ -4,6 +4,8 @@ let GeneralPlugin= {
     _wysiwygComponent: null,
     _uiDesignMain: null,
     _baseInfoBindToDataSetId:null,
+    _wysiwygLastSelectedElem:null,
+    _prevWysiwygHtml:"",
 
     dropControlToContainer(plugin, $dropToTarget, $dropToLayout) {
         //let dropToObjectId=$dropToObject.attr("id");
@@ -131,6 +133,7 @@ let GeneralPlugin= {
             event.preventDefault();
             event.stopPropagation();
             GeneralPlugin.createControlEditInnerPanel($(this));
+            GeneralPlugin._wysiwygLastSelectedElem=$(this);
         });
         $elem.on("dblclick", {_this: sender}, function (event) {
             //alert("1");
@@ -151,6 +154,15 @@ let GeneralPlugin= {
     clearControlDescriptionPanel(){
         $(".control-description-tip-inner-panel").remove();
     },
+    /*autoClearHelperPanel(currentWysiwygHtml){
+        if(!this._prevWysiwygHtml){
+            this._prevWysiwygHtml=currentWysiwygHtml;
+        }
+        if(this._prevWysiwygHtml!=currentWysiwygHtml){
+            this.clearHelperPanel();
+            this._prevWysiwygHtml=currentWysiwygHtml;
+        }
+    },*/
     createControlDescriptionPanel($elem,instanceId,instanceObj){
         this.clearControlDescriptionPanel();
         let panel = $('<div></div>');
@@ -506,6 +518,10 @@ let GeneralPlugin= {
             })
         });
         return buttons;
+    },
+
+    getWysiwygLastSelectedElem(){
+        return this._wysiwygLastSelectedElem;
     }
 }
 

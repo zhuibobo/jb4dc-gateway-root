@@ -4,6 +4,9 @@
 
 <script>
 import * as monaco from 'monaco-editor';
+import MonacoEditorUtility from "../../Utility/MonacoEditorUtility";
+import GeneralPlugin from "../../Plugins/GeneralPlugin";
+
 export default {
     name: "uid-html-code-editor-comp",
     data(){
@@ -23,11 +26,16 @@ export default {
     },
     methods:{
         getValue(){
-            return window.uidHtmlCodeMonacoEditor.getModel().getValue();
+            return  MonacoEditorUtility.getValue(window.uidHtmlCodeMonacoEditor);
         },
-        setValue(value){
-            console.log(value);
-            window.uidHtmlCodeMonacoEditor.getModel().setValue(value);
+        setValue(value) {
+            //console.log(value);
+            MonacoEditorUtility.setValue(window.uidHtmlCodeMonacoEditor, value);
+            let _wysiwygLastSelectedElem = GeneralPlugin.getWysiwygLastSelectedElem();
+            if(_wysiwygLastSelectedElem) {
+                let findText = "id=\"" + _wysiwygLastSelectedElem.attr("id") + "\"";
+                MonacoEditorUtility.autoSelectionFirstMatchText(window.uidHtmlCodeMonacoEditor, findText);
+            }
         }
     }
 }

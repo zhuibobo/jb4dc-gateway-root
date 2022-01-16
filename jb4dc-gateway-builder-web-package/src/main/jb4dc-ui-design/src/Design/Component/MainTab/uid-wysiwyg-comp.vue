@@ -1,11 +1,11 @@
 <template>
     <div class="uid-wysiwyg-comp-root">
-        <div>
+        <div id="wysiwyg-container-parent">
             <div class="wysiwyg-container uid-theme-wrap-default" :id="wysiwygContainerId" @dragover="dragover($event)" @drop="drop($event)" @click="wysiwygContainerClick">
 
             </div>
         </div>
-        <div>
+        <div @mouseover="mouseoverWysiwygPluginListParent">
             <div id="uid-wysiwyg-plugin-list-comp-wrap" style="font-size: 0.8125em">
                 <h3>布局控件</h3>
                 <div class="plugin-list-wrap">
@@ -68,8 +68,8 @@ export default {
                 heightStyle: "fill"
             });
             this.controlPluginsConfig=controlPluginsUtility.getControlPluginsConfigByDesignType(this.uiDesignType);
-            console.log(controlPluginsUtility.findBySingleName("TabGridStack1-1"));
-            console.log(allPlugins);
+            //console.log(controlPluginsUtility.findBySingleName("TabGridStack1-1"));
+            //console.log(allPlugins);
             for (let pluginKey in allPlugins) {
                 let configSingleName=pluginKey.replace("Plugin","");
                 let configSingle = controlPluginsUtility.findBySingleName(configSingleName);
@@ -93,6 +93,10 @@ export default {
             console.log(listSimpleSearchContainerPlugin);*/
             //let dragSingleName = wysiwygDragDropUtility.getDropSingleName(event);
             //console.log(dragSingleName);
+        },
+        mouseoverWysiwygPluginListParent(event){
+            //console.log(event);
+            GeneralPlugin.clearHelperPanel();
         },
         initPluginPropEditDialog(){
             let _this=this;

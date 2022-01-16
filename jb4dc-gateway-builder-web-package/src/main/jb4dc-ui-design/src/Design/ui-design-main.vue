@@ -98,6 +98,10 @@ export default {
                     let htmlCodeValue=_this.getHtmlCodeEditorValue();
                     _this.setWysiwygEditorValue(htmlCodeValue);
                 }
+
+                if(oldTabName=="uid-wysiwyg-comp-tab"){
+                    GeneralPlugin.clearHelperPanel();
+                }
             }
         });
         if(this.uiDesignType==enumValues.uiDesignType.appFormDesign){
@@ -108,6 +112,9 @@ export default {
         }
         GeneralPlugin.setUIDesignMain(this);
 
+        //window.setInterval(function (){
+        //    GeneralPlugin.autoClearHelperPanel(_this.getWysiwygEditorValue());
+        //},2000);
         //this.$refs.fdControlSelectBindToSingleFieldDialog.beginSelect("","");
         //this.$refs.selectDefaultValueDialog.beginSelect(null);
         //this.$refs.selectValidateRuleDialog.beginSelect({msg:"",rules:[]});
