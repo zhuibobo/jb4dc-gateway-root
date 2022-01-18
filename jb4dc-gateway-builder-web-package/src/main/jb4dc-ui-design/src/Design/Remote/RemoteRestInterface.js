@@ -12,7 +12,9 @@ let acInterface= {
     getWebFormForZTreeNodeListUrl:"/Rest/Builder/Form/GetWebFormForZTreeNodeList",
     getFormMainTableFieldsUrl:"/Rest/Builder/Form/GetFormMainTableFields",
     getAPISForZTreeNodeListUrl:"/Rest/Builder/ApiItem/GetAPISForZTreeNodeList",
-    getDictionaryEntityGroupTreeDataUrl:"/Rest/SystemSetting/Dict/DictionaryGroup/GetTreeData"
+    getDictionaryEntityGroupTreeDataUrl:"/Rest/SystemSetting/Dict/DictionaryGroup/GetTreeData",
+
+    saveWebListDesign:"/Rest/Builder/List/SaveEdit"
 }
 
 let storeDataSet={};
@@ -101,6 +103,13 @@ let RemoteRestInterface = {
     },
     getDictionaryEntityGroupTreeData(sendData,successFunc){
         axios.post(acInterface.getDictionaryEntityGroupTreeDataUrl, sendData).then(function (response) {
+            successFunc(response.data)
+        }).catch(function (error) {
+            console.log(error);
+        });
+    },
+    saveWebListDesign(sendData,successFunc){
+        axios.post(acInterface.saveWebListDesign, sendData).then(function (response) {
             successFunc(response.data)
         }).catch(function (error) {
             console.log(error);

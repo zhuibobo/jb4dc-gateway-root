@@ -13,7 +13,7 @@
             </ul>
             <div id="uid-base-editor-comp-tab" class="tab-panel">
                 <div>
-                    <component v-bind:is="baseInfoComponent" ref="baseInfoComponent"></component>
+                    <component v-bind:is="baseInfoComponentName" ref="uidBaseInfoComponent"></component>
                 </div>
             </div>
             <div id="uid-wysiwyg-comp-tab" class="tab-panel">
@@ -28,35 +28,34 @@
             </div>
             <div id="uid-js-code-editor-comp-tab" class="tab-panel">
                 <div>
-                    <uid-js-code-editor-comp :ui-design-type="uiDesignType"></uid-js-code-editor-comp>
+                    <uid-js-code-editor-comp :ui-design-type="uiDesignType" ref="uidJSCodeEditorComp"></uid-js-code-editor-comp>
                 </div>
             </div>
             <div id="uid-css-code-editor-comp-tab" class="tab-panel">
                 <div>
+                    <uid-css-code-editor-comp :ui-design-type="uiDesignType" ref="uidCssCodeEditorComp"></uid-css-code-editor-comp>
                 </div>
             </div>
             <div id="uid-design-description-comp-tab" class="tab-panel">
                 <div>
-                    设计说明
+                    <uid-design-description-comp :ui-design-type="uiDesignType" ref="uidDesignDescriptionComp"></uid-design-description-comp>
                 </div>
             </div>
             <div id="uid-extend-dataset-comp-tab" class="tab-panel">
                 <div>
-                    扩展数据集
+                    <uid-ex-dataset-comp :ui-design-type="uiDesignType" ref="uidExDatasetComp"></uid-ex-dataset-comp>
                 </div>
             </div>
             <div id="uid-extend-paras-comp-tab" class="tab-panel">
                 <div>
-                    扩展参数
+                    <uid-ex-parameters-comp :ui-design-type="uiDesignType" ref="uidExParametersComp"></uid-ex-parameters-comp>
                 </div>
             </div>
         </div>
-        <div class="button-outer-wrap">
-            <div><i class="las la-save"></i>保存并发布</div>
-            <div><i class="las la-save"></i>发布并关闭</div>
-            <div><i class="las la-save"></i>发布并预览</div>
-            <div><i class="las la-save"></i>校验窗口设置</div>
-            <div><i class="las la-save"></i>历史版本</div>
+        <div class="ant-btn-group button-outer-wrap">
+            <a-button type="primary" class="green-btn" @click="saveNotClose"><i class="las la-save"></i><span>保存</span></a-button>
+            <a-button type="primary" class="green-btn" @click="saveAndClose"><i class="las la-save"></i><span>发布并关闭</span></a-button>
+            <a-button type="primary" class="green-btn" @click="historyVersion"><i class="las la-save"></i><span>历史版本</span></a-button>
         </div>
         <!--各类对话框的引用-->
         <uid-control-select-bind-to-single-field-dialog @on-selected-bind-to-single-field="onSelectedBindToSingleField" ref="fdControlSelectBindToSingleFieldDialog"></uid-control-select-bind-to-single-field-dialog>
@@ -67,8 +66,9 @@
 
 <script>
 import $ from "jquery";
-import enumValues from "./EnumValues.js"
+import EnumValues from "./EnumValues.js"
 import GeneralPlugin from "./Plugins/GeneralPlugin";
+import RemoteRestInterface from "./Remote/RemoteRestInterface";
 
 //let uiDesignType="appFormDesign";
 //let uiDesignType="AppListDesign";
@@ -79,8 +79,9 @@ export default {
     name: "ui-design-main",
     data:function () {
         return {
-            uiDesignType:enumValues.uiDesignType.webListDesign,
-            baseInfoComponent:"uid-empty-comp"
+            uiDesignType:EnumValues.uiDesignType.webListDesign,
+            baseInfoComponentName:"uid-empty-comp",
+            currentMainTabName:"uid-wysiwyg-comp-tab"
         }
     },
     mounted() {
@@ -90,11 +91,12 @@ export default {
             activate: function( event, ui ) {
                 let oldTabName=ui.oldTab.find("a").attr("href").replace("#","");
                 let newTabName=ui.newTab.find("a").attr("href").replace("#","");
+                _this.currentMainTabName=newTabName;
                 if(oldTabName=="uid-wysiwyg-comp-tab"&&newTabName=="uid-html-code-editor-comp-tab"){
                     let htmlCodeValue=_this.getWysiwygEditorValue();
                     _this.setHtmlCodeEditorValue(htmlCodeValue);
                 }
-                else if(oldTabName=="uid-html-code-editor-comp-tab"&&newTabName=="uid-wysiwyg-comp-tab"){
+                else if(oldTabName=="uid-html-code-editor-comp-tab"){
                     let htmlCodeValue=_this.getHtmlCodeEditorValue();
                     _this.setWysiwygEditorValue(htmlCodeValue);
                 }
@@ -104,11 +106,11 @@ export default {
                 }
             }
         });
-        if(this.uiDesignType==enumValues.uiDesignType.appFormDesign){
-            this.baseInfoComponent="uid-app-form-base-info-comp";
+        if(this.uiDesignType==EnumValues.uiDesignType.appFormDesign){
+            this.baseInfoComponentName="uid-app-form-base-info-comp";
         }
-        else if(this.uiDesignType==enumValues.uiDesignType.webListDesign){
-            this.baseInfoComponent="uid-app-list-base-info-comp";
+        else if(this.uiDesignType==EnumValues.uiDesignType.webListDesign){
+            this.baseInfoComponentName="uid-web-list-base-info-comp";
         }
         GeneralPlugin.setUIDesignMain(this);
 
@@ -122,7 +124,7 @@ export default {
     methods:{
         //绑定单个字段
         selectBindToSingleFieldDialogBegin(oldBindFieldData,caller){
-            let relationConfig=this.$refs.baseInfoComponent.getFormRelationConfig();
+            let relationConfig=this.$refs.uidBaseInfoComponent.getFormRelationConfig();
             //将关联表设置提供给选择绑定字段的组件，判定是否需要重新加载控件的字段
             this._selectBindToSingleFieldDialogCaller=caller;
             this.$refs.fdControlSelectBindToSingleFieldDialog.beginSelect(relationConfig.relationData,oldBindFieldData);
@@ -163,6 +165,58 @@ export default {
         },
         getHtmlCodeEditorValue(){
             return this.$refs.uidHtmlCodeEditorComp.getValue();
+        },
+        getEditorValue(){
+            let value={
+                htmlValue:this.$refs.uidWysiwygComp.getValue(),
+                jsValue:this.$refs.uidJSCodeEditorComp.getValue(),
+                cssValue:this.$refs.uidCssCodeEditorComp.getValue(),
+                designDescriptionValue:this.$refs.uidDesignDescriptionComp.getValue(),
+                exDataSetValue:this.$refs.uidExDatasetComp.getValue(),
+                exParametersValue:this.$refs.uidExParametersComp.getValue()
+            }
+            if(this.currentMainTabName=="uid-html-code-editor-comp-tab"){
+                value.htmlValue=this.$refs.uidHtmlCodeEditorComp.getValue();
+            }
+            return value;
+        },
+        setEditorValue(){
+
+        },
+        buildSaveValue(){
+            return this.$refs.uidBaseInfoComponent.buildSaveValue(this.getEditorValue());
+        },
+        save(successFun){
+            let saveValue=this.buildSaveValue();
+            //let save = JSON.stringify(saveValue);
+            if(saveValue.success) {
+                if (this.uiDesignType == EnumValues.uiDesignType.webListDesign) {
+                    RemoteRestInterface.saveWebListDesign(saveValue.value, successFun);
+                } else if (this.uiDesignType == EnumValues.uiDesignType.webFormDesign) {
+
+                } else if (this.uiDesignType == EnumValues.uiDesignType.appListDesign) {
+
+                } else if (this.uiDesignType == EnumValues.uiDesignType.appFormDesign) {
+
+                }
+            }
+            else{
+                DialogUtility.AlertText(saveValue.resultMsg.join("<br />"));
+            }
+        },
+        saveNotClose(){
+            this.save((result)=>{
+                DialogUtility.AlertText(result.message);
+            })
+        },
+        saveAndRelease(){
+
+        },
+        saveAndClose(){
+
+        },
+        historyVersion(){
+
         }
     }
 }
@@ -193,10 +247,23 @@ export default {
             position: absolute;
             height: 30px;
             /*background-color: red;*/
-            right: 16px;
-            top: 8px;
+            right: 10px;
+            top: 10px;
 
-            >div{
+            .las{
+                font-size: 22px;
+            }
+
+            span{
+                line-height: 22px;
+                vertical-align: top;
+            }
+
+            .ant-btn{
+                height: 28px;
+                padding: 2px 15px;
+            }
+            /*>div{
                 display: inline-block;
                 margin: 2px;
                 font-size: 13px;
@@ -206,13 +273,17 @@ export default {
                 cursor: pointer;
                 background-color: @g-peter-river-color-v02;
 
+                >span{
+                    line-height: 22px;
+                    vertical-align: top;
+                }
                 >.las{
-                    font-size: 16px;
+                    font-size: 22px;
                 }
             }
             >div:hover{
                 background-color: @g-peter-river-color-v04;
-            }
+            }*/
         }
     }
 </style>
