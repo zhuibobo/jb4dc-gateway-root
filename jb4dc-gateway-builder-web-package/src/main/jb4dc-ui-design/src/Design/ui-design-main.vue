@@ -68,6 +68,7 @@
 import $ from "jquery";
 import EnumValues from "./EnumValues.js"
 import GeneralPlugin from "./Plugins/GeneralPlugin";
+import UIDesignUtility from "./Utility/UIDesignUtility.js"
 import RemoteRestInterface from "./Remote/RemoteRestInterface";
 
 //let uiDesignType="appFormDesign";
@@ -79,9 +80,12 @@ export default {
     name: "ui-design-main",
     data:function () {
         return {
-            uiDesignType:EnumValues.uiDesignType.webListDesign,
+            //uiDesignType:EnumValues.uiDesignType.webListDesign,
+            uiDesignType:BaseUtility.GetUrlParaValue("uiDesignType"),
             baseInfoComponentName:"uid-empty-comp",
-            currentMainTabName:"uid-wysiwyg-comp-tab"
+            currentMainTabName:"uid-wysiwyg-comp-tab",
+            recordId:BaseUtility.GetUrlParaValue("recordId"),
+            status: BaseUtility.GetUrlParaValue("op")
         }
     },
     mounted() {
@@ -114,6 +118,8 @@ export default {
         }
         GeneralPlugin.setUIDesignMain(this);
 
+        this.init();
+        BaseUtility.SetSystemFavicon();
         //window.setInterval(function (){
         //    GeneralPlugin.autoClearHelperPanel(_this.getWysiwygEditorValue());
         //},2000);
@@ -122,6 +128,16 @@ export default {
         //this.$refs.selectValidateRuleDialog.beginSelect({msg:"",rules:[]});
     },
     methods:{
+        init(){
+            //debugger;
+            window.setTimeout(()=>{
+                this.$refs.uidBaseInfoComponent.init(this.recordId,this.status,function (recordId,editorValues){
+                    if(editorValues){
+
+                    }
+                });
+            },300);
+        },
         //绑定单个字段
         selectBindToSingleFieldDialogBegin(oldBindFieldData,caller){
             let relationConfig=this.$refs.uidBaseInfoComponent.getFormRelationConfig();
@@ -166,42 +182,28 @@ export default {
         getHtmlCodeEditorValue(){
             return this.$refs.uidHtmlCodeEditorComp.getValue();
         },
-        getEditorValue(){
-            let value={
-                htmlValue:this.$refs.uidWysiwygComp.getValue(),
-                jsValue:this.$refs.uidJSCodeEditorComp.getValue(),
-                cssValue:this.$refs.uidCssCodeEditorComp.getValue(),
-                designDescriptionValue:this.$refs.uidDesignDescriptionComp.getValue(),
-                exDataSetValue:this.$refs.uidExDatasetComp.getValue(),
-                exParametersValue:this.$refs.uidExParametersComp.getValue()
-            }
+        getEditorValues(){
+            let htmlValue=this.$refs.uidWysiwygComp.getValue();
             if(this.currentMainTabName=="uid-html-code-editor-comp-tab"){
-                value.htmlValue=this.$refs.uidHtmlCodeEditorComp.getValue();
+                htmlValue=this.$refs.uidHtmlCodeEditorComp.getValue();
             }
-            return value;
-        },
-        setEditorValue(){
-
-        },
-        buildSaveValue(){
-            return this.$refs.uidBaseInfoComponent.buildSaveValue(this.getEditorValue());
+            return UIDesignUtility.buildEditorValues(
+                htmlValue,
+                this.$refs.uidJSCodeEditorComp.getValue(),
+                this.$refs.uidCssCodeEditorComp.getValue(),
+                this.$refs.uidDesignDescriptionComp.getValue(),
+                this.$refs.uidExDatasetComp.getValue(),
+                this.$refs.uidExParametersComp.getValue()
+            );
         },
         save(successFun){
-            let saveValue=this.buildSaveValue();
-            //let save = JSON.stringify(saveValue);
-            if(saveValue.success) {
-                if (this.uiDesignType == EnumValues.uiDesignType.webListDesign) {
-                    RemoteRestInterface.saveWebListDesign(saveValue.value, successFun);
-                } else if (this.uiDesignType == EnumValues.uiDesignType.webFormDesign) {
-
-                } else if (this.uiDesignType == EnumValues.uiDesignType.appListDesign) {
-
-                } else if (this.uiDesignType == EnumValues.uiDesignType.appFormDesign) {
-
-                }
+            let editorValues=this.getEditorValues();
+            let validateResult =this.$refs.uidBaseInfoComponent.validateSaveEnable(editorValues);
+            if(validateResult.success){
+                this.$refs.uidBaseInfoComponent.save(editorValues,successFun);
             }
             else{
-                DialogUtility.AlertText(saveValue.resultMsg.join("<br />"));
+                DialogUtility.AlertText(validateResult.msg.join("<br />"));
             }
         },
         saveNotClose(){
@@ -222,68 +224,5 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
-    @import "../less/Variable.less";
-
-    .ui-design-main-root{
-        display: flex;
-        //background-color: #0B61A4;
-        height: 100%;
-        overflow: hidden;
-        padding: 4px;
-        box-sizing: border-box;
-
-        .tab-panel{
-            height:calc(100% - 50px);
-            padding: 4px;
-
-            >div{
-                width: 100%;
-                height: 100%
-            }
-        }
-
-        .button-outer-wrap{
-            position: absolute;
-            height: 30px;
-            /*background-color: red;*/
-            right: 10px;
-            top: 10px;
-
-            .las{
-                font-size: 22px;
-            }
-
-            span{
-                line-height: 22px;
-                vertical-align: top;
-            }
-
-            .ant-btn{
-                height: 28px;
-                padding: 2px 15px;
-            }
-            /*>div{
-                display: inline-block;
-                margin: 2px;
-                font-size: 13px;
-                border: 1px solid @g-concrete-color-v10;
-                padding: 2px 4px;
-                border-radius: 4px;
-                cursor: pointer;
-                background-color: @g-peter-river-color-v02;
-
-                >span{
-                    line-height: 22px;
-                    vertical-align: top;
-                }
-                >.las{
-                    font-size: 22px;
-                }
-            }
-            >div:hover{
-                background-color: @g-peter-river-color-v04;
-            }*/
-        }
-    }
+<style scoped>
 </style>

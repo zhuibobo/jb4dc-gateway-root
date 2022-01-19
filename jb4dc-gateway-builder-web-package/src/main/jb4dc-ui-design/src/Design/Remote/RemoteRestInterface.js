@@ -2,19 +2,20 @@ import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 
 let acInterface= {
-    getTablesDataUrl: "/Rest/Builder/DataStorage/DataBase/Table/GetTablesForZTreeNodeList",
-    getTableFieldsUrl: "/Rest/Builder/DataStorage/DataBase/Table/GetTableFieldsByTableId",
-    getTablesFieldsByTableIdsUrl:"/Rest/Builder/DataStorage/DataBase/Table/GetTablesFieldsByTableIds",
-    getEnvVariableGroupTreeDataUrl:"/Rest/Builder/EnvVariableGroup/GetTreeData",
-    getEnvVariableListDataUrl:"/Rest/Builder/EnvVariable/GetListData",
-    getDataSetsForZTreeNodeListUrl:"/Rest/Builder/DataSet/DataSetMain/GetDataSetsForZTreeNodeList",
-    getDataSetDataUrl:"/Rest/Builder/DataSet/DataSetMain/GetDataSetData",
-    getWebFormForZTreeNodeListUrl:"/Rest/Builder/Form/GetWebFormForZTreeNodeList",
-    getFormMainTableFieldsUrl:"/Rest/Builder/Form/GetFormMainTableFields",
-    getAPISForZTreeNodeListUrl:"/Rest/Builder/ApiItem/GetAPISForZTreeNodeList",
-    getDictionaryEntityGroupTreeDataUrl:"/Rest/SystemSetting/Dict/DictionaryGroup/GetTreeData",
+    getTablesDataUrl: "/JB4DCBuilder/Rest/Builder/DataStorage/DataBase/Table/GetTablesForZTreeNodeList",
+    getTableFieldsUrl: "/JB4DCBuilder/Rest/Builder/DataStorage/DataBase/Table/GetTableFieldsByTableId",
+    getTablesFieldsByTableIdsUrl:"/JB4DCBuilder/Rest/Builder/DataStorage/DataBase/Table/GetTablesFieldsByTableIds",
+    getEnvVariableGroupTreeDataUrl:"/JB4DCBuilder/Rest/Builder/EnvVariableGroup/GetTreeData",
+    getEnvVariableListDataUrl:"/JB4DCBuilder/Rest/Builder/EnvVariable/GetListData",
+    getDataSetsForZTreeNodeListUrl:"/JB4DCBuilder/Rest/Builder/DataSet/DataSetMain/GetDataSetsForZTreeNodeList",
+    getDataSetDataUrl:"/JB4DCBuilder/Rest/Builder/DataSet/DataSetMain/GetDataSetData",
+    getWebFormForZTreeNodeListUrl:"/JB4DCBuilder/Rest/Builder/Form/GetWebFormForZTreeNodeList",
+    getFormMainTableFieldsUrl:"/JB4DCBuilder/Rest/Builder/Form/GetFormMainTableFields",
+    getAPISForZTreeNodeListUrl:"/JB4DCBuilder/Rest/Builder/ApiItem/GetAPISForZTreeNodeList",
+    getDictionaryEntityGroupTreeDataUrl:"/JB4DCBuilder/Rest/SystemSetting/Dict/DictionaryGroup/GetTreeData",
 
-    saveWebListDesign:"/Rest/Builder/List/SaveEdit"
+    saveWebListDesignUrl:"/JB4DCBuilder/Rest/Builder/List/SaveEdit",
+    getWebListDesignPOUrl:"/JB4DCBuilder/Rest/Builder/List/GetDetailData"
 }
 
 let storeDataSet={};
@@ -109,7 +110,15 @@ let RemoteRestInterface = {
         });
     },
     saveWebListDesign(sendData,successFunc){
-        axios.post(acInterface.saveWebListDesign, sendData).then(function (response) {
+        console.log(sendData);
+        axios.post(acInterface.saveWebListDesignUrl, sendData).then(function (response) {
+            successFunc(response.data)
+        }).catch(function (error) {
+            console.log(error);
+        });
+    },
+    getWebListDesignPOAndBindTo(sendData,successFunc){
+        axios.post(acInterface.getWebListDesignPOUrl, sendData).then(function (response) {
             successFunc(response.data)
         }).catch(function (error) {
             console.log(error);
@@ -139,4 +148,8 @@ let getAPISForZTreeNodeListUrlData={"success": true, "message": "获取数据成
 mock.onPost(acInterface.getAPISForZTreeNodeListUrl).reply(200, getAPISForZTreeNodeListUrlData);
 let getDictionaryEntityGroupTreeDataUrlData={"success": true, "message": "获取数据成功!", "cacheKey": "", "traceMsg": "", "errorCode": null, "data": [{"dictGroupId": "0", "dictGroupValue": "数据字典分组", "dictGroupText": "数据字典分组", "dictGroupOrderNum": 91, "dictGroupCreateTime": "2021-11-21 22:43:08", "dictGroupDesc": "", "dictGroupStatus": "启用", "dictGroupParentId": "-1", "dictGroupIsSystem": "是", "dictGroupDelEnable": "是", "dictGroupEnpItem": "是"}, {"dictGroupId": "DevDemoDictionaryGroupRoot", "dictGroupValue": "开发示例", "dictGroupText": "开发示例", "dictGroupOrderNum": 92, "dictGroupCreateTime": "2021-11-21 22:43:08", "dictGroupDesc": "", "dictGroupStatus": "启用", "dictGroupParentId": "0", "dictGroupIsSystem": "是", "dictGroupDelEnable": "是", "dictGroupEnpItem": "是"}, {"dictGroupId": "DevDemoDictionaryGroupBindSelect", "dictGroupValue": "DevDemoDictionaryGroupBindSelect", "dictGroupText": "绑定下拉列表", "dictGroupOrderNum": 93, "dictGroupCreateTime": "2021-11-21 22:43:08", "dictGroupDesc": "", "dictGroupStatus": "启用", "dictGroupParentId": "DevDemoDictionaryGroupRoot", "dictGroupIsSystem": "是", "dictGroupDelEnable": "是", "dictGroupEnpItem": "是"}, {"dictGroupId": "DevDemoDictionaryGroupBindRadio", "dictGroupValue": "DevDemoDictionaryGroupBindRadio", "dictGroupText": "绑定单选项", "dictGroupOrderNum": 94, "dictGroupCreateTime": "2021-11-21 22:43:08", "dictGroupDesc": "", "dictGroupStatus": "启用", "dictGroupParentId": "DevDemoDictionaryGroupRoot", "dictGroupIsSystem": "是", "dictGroupDelEnable": "是", "dictGroupEnpItem": "是"}, {"dictGroupId": "DevDemoDictionaryGroupBindCheckbox", "dictGroupValue": "DevDemoDictionaryGroupBindCheckbox", "dictGroupText": "绑定复选项", "dictGroupOrderNum": 95, "dictGroupCreateTime": "2021-11-21 22:43:08", "dictGroupDesc": "", "dictGroupStatus": "启用", "dictGroupParentId": "DevDemoDictionaryGroupRoot", "dictGroupIsSystem": "是", "dictGroupDelEnable": "是", "dictGroupEnpItem": "是"}], "exKVData": {}}
 mock.onPost(acInterface.getDictionaryEntityGroupTreeDataUrl).reply(200, getDictionaryEntityGroupTreeDataUrlData);
+
+mock.onPost(acInterface.getWebListDesignPOUrl).passThrough()
+mock.onPost(acInterface.saveWebListDesignUrl).passThrough()
+
 export {RemoteRestInterface as default};

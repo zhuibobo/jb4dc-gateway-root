@@ -131,22 +131,25 @@ export default {
             storeDataSet:{}
         }
     },
+    mounted() {
+
+    },
     methods:{
         //region dialog
-        selectDefaultValueDialogBegin:function(targetWindow,oldData){
+        selectDefaultValueDialogBegin(targetWindow,oldData){
             this.$refs.selectDefaultValueDialog.beginSelect(oldData);
             this.selectDefaultValueTargetWindow=targetWindow;
         },
-        onSelectedDefaultValue:function(result){
+        onSelectedDefaultValue(result){
             this.selectDefaultValueTargetWindow._SelectBindObj.setSelectEnvVariableResultValue(result);
         },
         //endregion
-        changeTheme:function(value){
+        changeTheme(value){
             //alert(value);
             //var themeVo=this.getTheme(value);
             //CKEditorUtility.SetThemeVo(themeVo);
         },
-        selectedDataset:function(treeNode){
+        selectedDataset(treeNode){
             this.listResourceEntity.listDatasetName=treeNode.text;
             this.listResourceEntity.listDatasetId=treeNode.id;
             GeneralPlugin.setBaseInfoBindToDataSetId(this.listResourceEntity.listDatasetId);

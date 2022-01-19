@@ -10,21 +10,21 @@ let AFDCT_TabLayoutPlugin={
         return GeneralPlugin.newControlInstance(this,instanceId);
     },
     constructionElem(){
-        this._$elem=$(`<div jbuild4dc_custom="true" class="uid-afdct-tab-layout-wrap">
+        this._$elem=$(`<div jbuild4dc_custom="true" class="uid-layout-container-wrap uid-layout-tab-layout-wrap">
                         <ul>
                             <li><a href="#${this.id}-base">基础信息</a></li>
                             <li><a href="#${this.id}-extend">扩展信息</a></li>
                             <li><a href="#${this.id}-files">相关附件</a></li>
                         </ul>
-                        <div id="${this.id}-base" class="uid-afdct-tab-panel-outer-wrap">
+                        <div id="${this.id}-base" class="uid-layout-tab-panel-outer-wrap">
                             <div>
                             </div>
                         </div>
-                        <div id="${this.id}-extend" class="uid-afdct-tab-panel-outer-wrap">
+                        <div id="${this.id}-extend" class="uid-layout-tab-panel-outer-wrap">
                             <div>
                             </div>
                         </div>
-                        <div id="${this.id}-files" class="uid-afdct-tab-panel-outer-wrap">
+                        <div id="${this.id}-files" class="uid-layout-tab-panel-outer-wrap">
                             <div>
                             </div>
                         </div>

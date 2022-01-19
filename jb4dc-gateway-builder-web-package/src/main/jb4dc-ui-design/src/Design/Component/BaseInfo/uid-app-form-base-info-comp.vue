@@ -116,6 +116,17 @@ export default {
         }
     },
     methods:{
+        //region 需要实现的方法
+        init(recordId,status,completedFunc) {
+
+        },
+        save(editorValues,successFun) {
+
+        },
+        validateSaveEnable(editorValues){
+
+        },
+        //endregion
         changeTheme(){
 
         },

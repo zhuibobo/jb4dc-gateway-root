@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "jb4dc-ui-design-dev": "webpack --config ./webpack.config.js",
+    "jb4dc-ui-design-dev-watch": "webpack --watch --config ./webpack.config.js",
     "start-webpack-dev-jb4dc-ui-design": "webpack serve"
   },
   "author": "",

@@ -5,7 +5,7 @@
       "singleName": "AFDCT_SingleTableLayout",
       "text": "表格布局",
       "class": "",
-      "icon": "Layout1.png",
+      "icon": "table.png",
       "dragTo": "wysiwygContainer,AFDCT_TabLayout",
       "serverResolve": "",
       "clientResolve": "",
@@ -24,7 +24,7 @@
       "singleName": "AFDCT_SingleGridStackLayout",
       "text": "网格布局",
       "class": "",
-      "icon": "Layout1.png",
+      "icon": "gridstack.png",
       "dragTo": "wysiwygContainer",
       "serverResolve": "",
       "clientResolve": "",
@@ -43,7 +43,7 @@
       "singleName": "AFDCT_TabLayout",
       "text": "Tab布局",
       "class": "",
-      "icon": "Layout1.png",
+      "icon": "tabs.png",
       "dragTo": "wysiwygContainer",
       "serverResolve": "",
       "clientResolve": "",
@@ -56,79 +56,6 @@
       "serverDynamicBind": "false",
       "showRemoveButton": "false",
       "showInEditorToolbar": "true"
-    },
-    {
-      "group": "Layout",
-      "singleName": "TabGridStack",
-      "text": "Tab选项卡",
-      "class": "",
-      "icon": "Layout1.png",
-      "dragTo": "false",
-      "serverResolve": "",
-      "clientResolve": "",
-      "clientResolveJs": "",
-      "enableChildControls": "",
-      "dialogWidth": "600",
-      "dialogHeight": "550",
-      "isJBuild4DCData": "false",
-      "controlCategory": "LayoutControl",
-      "serverDynamicBind": "false",
-      "showRemoveButton": "false",
-      "showInEditorToolbar": "true",
-      "children": [
-        {
-          "group": "Layout",
-          "singleName": "TabGridStack1",
-          "text": "Tab选项卡1",
-          "class": "",
-          "icon": "Layout1.png",
-          "dragTo": "Root",
-          "children": [
-            {
-              "group": "Layout",
-              "singleName": "TabGridStack1-1",
-              "text": "Tab选项卡1-1",
-              "class": "",
-              "icon": "Layout1.png",
-              "dragTo": "Root"
-            },
-            {
-              "group": "Layout",
-              "singleName": "TabGridStack1-2",
-              "text": "Tab选项卡1-2",
-              "class": "",
-              "icon": "Layout1.png",
-              "dragTo": "Root"
-            }
-          ]
-        },
-        {
-          "group": "Layout",
-          "singleName": "TabGridStack2",
-          "text": "Tab选项卡2",
-          "class": "",
-          "icon": "Layout1.png",
-          "dragTo": "Root",
-          "children": [
-            {
-              "group": "Layout",
-              "singleName": "TabGridStack2-1",
-              "text": "Tab选项卡2-1",
-              "class": "",
-              "icon": "Layout1.png",
-              "dragTo": "Root"
-            },
-            {
-              "group": "Layout",
-              "singleName": "TabGridStack2-2",
-              "text": "Tab选项卡2-2",
-              "class": "",
-              "icon": "Layout1.png",
-              "dragTo": "Root"
-            }
-          ]
-        }
-      ]
     },
     {
       "group": "InputControl",

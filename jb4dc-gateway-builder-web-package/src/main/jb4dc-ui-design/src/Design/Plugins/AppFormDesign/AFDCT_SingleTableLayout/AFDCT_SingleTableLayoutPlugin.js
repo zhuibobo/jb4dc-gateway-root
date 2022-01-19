@@ -10,7 +10,7 @@ let AFDCT_SingleTableLayoutPlugin={
         return GeneralPlugin.newControlInstance(this,instanceId);
     },
     constructionElem() {
-        this._$elem = $(`<div class="uid-afdct-single-table-layout-wrap">
+        this._$elem = $(`<div class="uid-layout-container-wrap uid-layout-single-table-layout-wrap">
                     <table contenteditable="true" class="AFDCT_SingleTableLayoutPlugin">
                         <colgroup><col style="width: 8%" /><col style="width: 15%" /><col style="width: 8%"><col style="width: 15%"><col style="width: 8%"><col style="width: 16%"></colgroup>
                         <tr><td colspan="6"></td></tr>

@@ -7,6 +7,7 @@ Vue.component("module-list-weblist-comp", {
         return {
             acInterface:{
                 editView: "/HTML/Builder/List/ListDesign.html",
+                editViewVersion2:"/HTML/UIDesign/UIDesignMain.html",
                 reloadData: "/Rest/Builder/List/GetListDataForModule",
                 delete: "/Rest/Builder/List/Delete",
                 move: "/Rest/Builder/List/Move",
@@ -167,6 +168,19 @@ Vue.component("module-list-weblist-comp", {
                 DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, "请选择模块!", null);
             }
         },
+        addVersion2:function (){
+            if(this.moduleData!=null) {
+                var url = BaseUtility.BuildView(this.acInterface.editViewVersion2, {
+                    "op": "add",
+                    "uiDesignType":"webListDesign",
+                    "moduleId": this.moduleData.moduleId
+                });
+                DialogUtility.OpenNewTabWindow(url);
+            }
+            else {
+                DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, "请选择模块!", null);
+            }
+        },
         edit: function (recordId) {
             //debugger;
             var url = BaseUtility.BuildView(this.acInterface.editView, {
@@ -204,6 +218,7 @@ Vue.component("module-list-weblist-comp", {
                         <div class="list-button-inner-wrap">\
                             <ButtonGroup>\
                                 <i-button  type="success" @click="add()" icon="md-add">新增</i-button>\
+                                <i-button  type="success" @click="addVersion2()" icon="md-add">新增V2版本设计器</i-button>\
                                 <i-button type="primary" @click="copy()" icon="md-albums">复制</i-button>\
                                 <i-button type="error" icon="md-pricetag">预览</i-button>\
                                 <i-button type="error" icon="md-bookmarks">历史版本</i-button>\

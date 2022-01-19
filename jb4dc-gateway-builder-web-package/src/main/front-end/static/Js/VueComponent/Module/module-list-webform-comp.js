@@ -6,6 +6,7 @@ Vue.component("module-list-webform-comp", {
         return {
             acInterface:{
                 editView: "/HTML/Builder/Form/FormDesign.html",
+                editViewVersion2:"/HTML/UIDesign/UIDesignMain.html",
                 previewWebFormUrl:"/HTML/Builder/Form/FormPreview.html",
                 reloadData: "/Rest/Builder/Form/GetListData",
                 delete: "/Rest/Builder/Form/Delete",
@@ -154,6 +155,21 @@ Vue.component("module-list-webform-comp", {
                 DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, "请选择模块!", null);
             }
         },
+        addVersion2:function (){
+            if(this.moduleData!=null) {
+                var url = BaseUtility.BuildView(this.acInterface.editViewVersion2, {
+                    "op": "add",
+                    "uiDesignType":"appFormDesign",
+                    "moduleId": this.moduleData.moduleId
+                });
+                //alert(url);
+                //DialogUtility.OpenNewWindow(window, DialogUtility.DialogId, url, {width: 0, height: 0}, 2);
+                DialogUtility.OpenNewTabWindow(url);
+            }
+            else {
+                DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, "请选择模块!", null);
+            }
+        },
         edit: function (recordId) {
             //debugger;
             var url = BaseUtility.BuildView(this.acInterface.editView, {
@@ -210,6 +226,7 @@ Vue.component("module-list-webform-comp", {
                         <div class="list-button-inner-wrap">
                             <ButtonGroup>
                                 <i-button  type="success" @click="add()" icon="md-add">新增</i-button>
+                                <i-button  type="success" @click="addVersion2()" icon="md-add">新增V2版本设计器</i-button>
                                 <i-button type="primary" @click="copy()" icon="md-albums">复制</i-button>
                                 <i-button type="primary" @click="previewWebForm()"  icon="md-pricetag">预览</i-button>
                                 <i-button type="primary" disabled icon="md-add">引入URL </i-button>

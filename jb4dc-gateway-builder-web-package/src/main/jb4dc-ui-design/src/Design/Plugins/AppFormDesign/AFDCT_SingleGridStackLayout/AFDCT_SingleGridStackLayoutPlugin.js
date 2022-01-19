@@ -10,7 +10,7 @@ let AFDCT_SingleGridStackLayoutPlugin={
         return GeneralPlugin.newControlInstance(this,instanceId);
     },
     constructionElem(){
-        this._$elem=$(`<div jbuild4dc_custom="true" class="grid-stack" style=""></div>`);
+        this._$elem=$(`<div jbuild4dc_custom="true" class="uid-layout-container-wrap grid-stack" style=""></div>`);
         GeneralPlugin.serializePropsToElemForNewControl(this._$elem,this.config,{
             designControlInstanceName:this.id,
             id:this.id

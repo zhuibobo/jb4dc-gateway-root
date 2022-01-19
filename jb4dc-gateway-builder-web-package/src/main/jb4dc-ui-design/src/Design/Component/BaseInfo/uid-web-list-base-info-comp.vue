@@ -114,6 +114,9 @@
 
 <script>
 import GeneralPlugin from "../../Plugins/GeneralPlugin";
+import RemoteRestInterface from "../../Remote/RemoteRestInterface";
+import UIDesignUtility from "../../Utility/UIDesignUtility.js"
+
 export default {
     name: "uid-web-list-base-info-comp",
     data(){
@@ -126,7 +129,7 @@ export default {
                 getDataSetUrl:"/Rest/Builder/DataSet/DataSetMain/GetDataSetData"
             },
             currUserEntity:null,
-            recordId:BaseUtility.GetUrlParaValue("recordId"),
+            recordId:null,
             /*Js Bean*/
             listResourceEntity:{
                 listId:"",
@@ -165,13 +168,54 @@ export default {
                 name:"默认样式",
                 value:"uid-theme-wrap-default"
             }],
-            status: BaseUtility.GetUrlParaValue("op"),
-            oldSelectedTabName:"",
-            selectedTabName:"",
+            status: null,
             storeDataSet:{}
         }
     },
     methods:{
+        //region 需要实现的方法
+        init(recordId,status,completedFunc) {
+            this.recordId = recordId;
+            this.status = status;
+            RemoteRestInterface.getWebListDesignPOAndBindTo({
+                recordId: this.recordId,
+                op: this.status
+            }, (result) => {
+                if (this.status == "add") {
+                    this.recordId = result.data.listId;
+                    this.listResourceEntity.listId = this.recordId;
+                    this.listResourceEntity.listType="WebList";
+                    this.listResourceEntity.listModuleId = BaseUtility.GetUrlParaValue("moduleId");
+                    completedFunc(this.recordId, null);
+                } else {
+                    let editorValues = UIDesignUtility.buildEditorValues(
+                        this.listResourceEntity.listHtmlSource,
+                        this.listResourceEntity.listJsContent,
+                        this.listResourceEntity.listCssContent,
+                        "","",""
+                    );
+                    completedFunc(this.recordId, editorValues);
+                }
+            });
+        },
+        save(editorValues,successFun) {
+            this.listResourceEntity.listHtmlSource = editorValues.htmlValue;
+            this.listResourceEntity.listJsContent = editorValues.jsValue;
+            this.listResourceEntity.listCssContent = editorValues.cssValue;
+            RemoteRestInterface.saveWebListDesign(this.listResourceEntity, successFun);
+        },
+        validateSaveEnable(editorValues){
+            let resultMsg={
+                success:true,
+                msg:[]
+            }
+            if(this.listResourceEntity.listName==""){
+                resultMsg.success=false;
+                resultMsg.msg.push("请填写列表名称!");
+            }
+            return resultMsg;
+        },
+        //endregion
         //region dialog
         selectDefaultValueDialogBegin(targetWindow,oldData){
             this.$refs.selectDefaultValueDialog.beginSelect(oldData);
@@ -190,22 +234,9 @@ export default {
             this.listResourceEntity.listDatasetName=treeNode.text;
             this.listResourceEntity.listDatasetId=treeNode.id;
             GeneralPlugin.setBaseInfoBindToDataSetId(this.listResourceEntity.listDatasetId);
-        },
-        validateSaveEnable(){
-            let resultMsg={
-                success:true,
-                msg:[]
-            }
-            if(this.listResourceEntity.listName==""){
-                resultMsg.success=false;
-                resultMsg.msg.push("请填写列表名称!");
-            }
-            return resultMsg;
-        },
-        buildSaveValue(editorValue){
-
+        }
+        /*buildSaveValue(editorValue){
             let validateResult=this.validateSaveEnable();
-
             this.listResourceEntity.listHtmlSource=editorValue.htmlValue;
             this.listResourceEntity.listJsContent=editorValue.jsValue;
             this.listResourceEntity.listCssContent=editorValue.cssValue;
@@ -215,7 +246,7 @@ export default {
                 success:validateResult.success,
                 errorMessages:validateResult.msg
             };
-        }
+        },*/
     }
 }
 </script>
