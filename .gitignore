@@ -10,6 +10,7 @@ t3plibs
 node_modules
 GenerateCodeFiles/
 !GenerateCodeFiles/GenerateCodeFiles.txt
+dist
 
 ##############################
 ## Files                    ##
