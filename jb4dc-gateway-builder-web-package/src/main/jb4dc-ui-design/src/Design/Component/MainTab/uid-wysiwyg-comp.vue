@@ -67,7 +67,9 @@ export default {
             $("#uid-wysiwyg-plugin-list-comp-wrap").accordion({
                 heightStyle: "fill"
             });
+            //alert(this.uiDesignType);
             this.controlPluginsConfig=controlPluginsUtility.getControlPluginsConfigByDesignType(this.uiDesignType);
+            //alert(this.controlPluginsConfig);
             //console.log(controlPluginsUtility.findBySingleName("TabGridStack1-1"));
             //console.log(allPlugins);
             for (let pluginKey in allPlugins) {

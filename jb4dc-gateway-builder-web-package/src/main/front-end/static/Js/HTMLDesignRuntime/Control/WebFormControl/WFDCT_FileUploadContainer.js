@@ -80,8 +80,9 @@ var WFDCT_FileUploadContainer={
     },
     GetThisRecordId:function(){
         var objId="";
-        if(formRuntimeInst&&formRuntimeInst.GetWebFormRTParas()&&formRuntimeInst.GetWebFormRTParas().RecordId) {
-            objId=formRuntimeInst.GetWebFormRTParas().RecordId;
+        //if(formRuntimeInst&&formRuntimeInst.GetWebFormRTParas()&&formRuntimeInst.GetWebFormRTParas().RecordId) {
+        if(formRuntimeInst&&formRuntimeInst.GetRecordId()) {
+            objId=formRuntimeInst.GetRecordId();
         }
         else{
             DialogUtility.AlertText("查找不到绑定的记录ID");

@@ -24,7 +24,9 @@
 <th:block th:replace="Fragment/GeneralLib::WorkFlowRuntimeLib"></th:block>
 <th:block th:replace="Fragment/GeneralLib::PortletRuntimeLib"></th:block>
 <script>
+    //待重构
     var flowRuntimePageObject;
+    var formRuntimeInst;
 
     /*var flowBpmnJsModelerView=window.ExFlowBpmnJsModelerView.CreateInstance({
         RendererToElemId: "flow-canvas",
@@ -52,7 +54,8 @@
                 //console.log(result);
                 //console.log(JsonUtility.JsonToString(result));
                 BaseUtility.SetSystemFavicon();
-                FlowRuntimePageObject.pageReadyForProcessStatus(false, result.data,result.cacheKey,this);
+                flowRuntimePageObject = FlowRuntimePageObject.pageReadyForProcessStatus(false, result.data, result.cacheKey, this);
+                formRuntimeInst = flowRuntimePageObject;
                 FlowRuntimePageObject.changeTaskToView(result.data.executionTaskEntity);
                 //var windowHeight=formRuntimeInst.GetWebFormRTParas().WindowHeight;
                 //if(windowHeight) {

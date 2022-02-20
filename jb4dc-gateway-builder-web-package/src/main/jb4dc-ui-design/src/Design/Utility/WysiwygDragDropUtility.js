@@ -56,40 +56,43 @@ let WysiwygDragDropUtility={
         }
         return false;
     },
-    dropControlToWysiwygContainer (event){
+    dropControlToWysiwygContainer (event) {
+        //debugger;
+        //console.log(event);
         //debugger;
         let dragSourceSingleName = this.getDropSingleName(event);
-        let $dropToTarget = $(event.target);
-        let pluginObj=generalPlugin.getControlInstanceObj(dragSourceSingleName);
-        if(pluginObj) {
-            //let newControlInstance=Object.create(pluginInstance);
-            //eval("let ");
-            if (this.isDropToRootContainer($dropToTarget)) {
-                if(this.enableDropToValidate(dragSourceSingleName,$dropToTarget)) {
-                    generalPlugin.dropControlToContainer(pluginObj.instance, $dropToTarget, $dropToTarget);
-                }
-            } else {
-                let $dropToLayout;
-                if ($dropToTarget.attr("group") == "Layout") {
-                    $dropToLayout = $dropToTarget;
+        if(dragSourceSingleName) {
+            let $dropToTarget = $(event.target);
+            let pluginObj = generalPlugin.getControlInstanceObj(dragSourceSingleName);
+            if (pluginObj) {
+                //let newControlInstance=Object.create(pluginInstance);
+                if (this.isDropToRootContainer($dropToTarget)) {
+                    if (this.enableDropToValidate(dragSourceSingleName, $dropToTarget)) {
+                        generalPlugin.dropControlToContainer(pluginObj.instance, $dropToTarget, $dropToTarget);
+                    }
                 } else {
-                    $dropToLayout = $dropToTarget.parents("[group='Layout']")[0];
+                    let $dropToLayout;
+                    if ($dropToTarget.attr("group") == "Layout") {
+                        $dropToLayout = $dropToTarget;
+                    } else {
+                        $dropToLayout = $dropToTarget.parents("[group='Layout']")[0];
+                    }
+                    $dropToLayout = $($dropToLayout);
+                    if (this.enableDropToValidate(dragSourceSingleName, $dropToLayout)) {
+                        let dropToLayoutObjectSingleName = $dropToLayout.attr("singlename");
+                        let dropToLayoutInstanceObj = generalPlugin.getControlInstanceObj(dropToLayoutObjectSingleName);
+                        console.log(dropToLayoutInstanceObj);
+                        dropToLayoutInstanceObj.instance.dropControlToContainer(pluginObj.instance, $dropToTarget, $dropToLayout);
+                    } else {
+                        alert("不允许拖拽到该位置!");
+                    }
                 }
-                $dropToLayout = $($dropToLayout);
-                if(this.enableDropToValidate(dragSourceSingleName,$dropToLayout)) {
-                    let dropToLayoutObjectSingleName = $dropToLayout.attr("singlename");
-                    let dropToLayoutInstanceObj = generalPlugin.getControlInstanceObj(dropToLayoutObjectSingleName);
-                    console.log(dropToLayoutInstanceObj);
-                    dropToLayoutInstanceObj.instance.dropControlToContainer(pluginObj.instance, $dropToTarget, $dropToLayout);
-                }
-                else{
-                    alert("不允许拖拽到该位置!");
-                }
+                generalPlugin.regTooltipEvent();
+            } else {
+                let errorMessage = "WysiwygDragDropUtility.dropControlToWysiwygContainer:未找到相关插件!";
+                DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, errorMessage);
+                throw errorMessage;
             }
-            generalPlugin.regTooltipEvent();
-        }
-        else{
-            DialogUtility.Alert(window,DialogUtility.DialogAlertId,{},"dropControlToWysiwygContainer:未找到相关插件!");
         }
     }
 }

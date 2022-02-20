@@ -19,7 +19,9 @@
     </div>
 </div>
 <script>
+    //待重构
     var flowRuntimePageObject;
+    var formRuntimeInst;
 
     var flowInstanceViewVueContainer = new Vue({
         el:"#flowInstanceViewContainer",
@@ -41,6 +43,7 @@
                 BaseUtility.SetSystemFavicon();
                 var isStartInstanceStatus = true;
                 flowRuntimePageObject = FlowRuntimePageObject.pageReadyForStartStatus(isStartInstanceStatus, result.data,result.cacheKey,this);
+                formRuntimeInst=flowRuntimePageObject;
             }, this);
         },
         methods: {

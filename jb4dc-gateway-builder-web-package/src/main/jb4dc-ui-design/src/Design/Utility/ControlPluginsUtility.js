@@ -7,6 +7,8 @@ controlPluginsConfigAllArray=controlPluginsConfigAllArray.concat(controlPluginsC
 
 let ControlPluginsUtility={
     getControlPluginsConfigByDesignType(uiDesignType){
+        //alert(JsonUtility.JsonToString(controlPluginsConfig));
+        //alert(uiDesignType);
         return controlPluginsConfig[uiDesignType];
     },
     findBySingleName(singleName,arr) {

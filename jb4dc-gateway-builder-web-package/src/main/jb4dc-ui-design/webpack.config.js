@@ -125,7 +125,7 @@ config = {
         compress: true,
         hot: true,
         port: 8881,
-        open: ['/UIDesignMain.html']
+        open: ['/UIDesignMain.html?uiDesignType=webListDesign']
     },
     optimization: {
         splitChunks: {
