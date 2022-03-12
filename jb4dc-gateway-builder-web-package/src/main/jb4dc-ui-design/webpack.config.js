@@ -17,7 +17,8 @@ config = {
     devtool: 'source-map',
     entry: {
         /*"editTableSelectDefaultValue": './EditTable/Renderers/EditTable_SelectDefaultValue.js',*/
-        "UIDesignMain": './src/Design/UIDesignMain.js'
+        "UIDesignMain": './src/Design/UIDesignMain.js',
+        "UIRuntimeWebListMain": './src/Runtime/WebListRuntime/UIRuntimeWebListMain.js'
     },
     context: path.resolve(__dirname, ""),
     output: {
@@ -25,8 +26,8 @@ config = {
         //filename: '[name].[hash].js',
         filename: '[name].js',
         // 输出文件都放到 dist 目录下
-        //path: path.resolve(__dirname, './dist'),
-        path: path.resolve(__dirname, '../resources/static/JB4DCBuilder/HTML/UIDesign'),
+        path: path.resolve(__dirname, './dist'),
+        //path: path.resolve(__dirname, '../resources/static/JB4DCBuilder/HTML/UIDesign'),
     },
     mode: 'development',
     module: {
@@ -89,6 +90,13 @@ config = {
             title: 'webpack Boilerplate',
             template: path.resolve(__dirname, './src/template.html'), // template file
             filename: 'UIDesignMain.html', // output file
+            chunks:['UIDesignMain']
+        }),
+        new HtmlWebpackPlugin({
+            title: 'webpack Boilerplate',
+            template: path.resolve(__dirname, './src/template.html'), // template file
+            filename: 'UIRuntimeWebListMain.html', // output file
+            chunks:['UIRuntimeWebListMain']
         }),
         // 添加 VueLoaderPlugin 插件
         new VueLoaderPlugin(),

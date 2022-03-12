@@ -184,16 +184,19 @@ export default {
                 if (this.status == "add") {
                     this.recordId = result.data.listId;
                     this.listResourceEntity.listId = this.recordId;
-                    this.listResourceEntity.listType="WebList";
+                    this.listResourceEntity.listType = "WebList";
                     this.listResourceEntity.listModuleId = BaseUtility.GetUrlParaValue("moduleId");
                     completedFunc(this.recordId, null);
                 } else {
+                    console.log(result);
+                    this.listResourceEntity = result.data;
                     let editorValues = UIDesignUtility.buildEditorValues(
                         this.listResourceEntity.listHtmlSource,
                         this.listResourceEntity.listJsContent,
                         this.listResourceEntity.listCssContent,
-                        "","",""
+                        "", "", ""
                     );
+                    GeneralPlugin.setBaseInfoBindToDataSetId(this.listResourceEntity.listDatasetId);
                     completedFunc(this.recordId, editorValues);
                 }
             });

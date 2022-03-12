@@ -118,12 +118,21 @@ let RemoteRestInterface = {
         });
     },
     getWebListDesignPOAndBindTo(sendData,successFunc){
-        axios.post(acInterface.getWebListDesignPOUrl, sendData).then(function (response) {
+        let sendDataURLSearchParams=sendDataToURLSearchParams(sendData);
+        axios.post(acInterface.getWebListDesignPOUrl, sendDataURLSearchParams).then(function (response) {
             successFunc(response.data)
         }).catch(function (error) {
             console.log(error);
         });
     }
+}
+
+function sendDataToURLSearchParams(sendData){
+    const params = new URLSearchParams();
+    for (let paramsKey in sendData) {
+        params.append(paramsKey,sendData[paramsKey]);
+    }
+    return params;
 }
 
 let mock = new MockAdapter(axios,{ delayResponse: 200 });

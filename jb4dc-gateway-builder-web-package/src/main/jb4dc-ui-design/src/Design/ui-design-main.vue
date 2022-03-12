@@ -130,10 +130,18 @@ export default {
     methods:{
         init(){
             //debugger;
-            window.setTimeout(()=>{
-                this.$refs.uidBaseInfoComponent.init(this.recordId,this.status,function (recordId,editorValues){
-                    if(editorValues){
-
+            window.setTimeout(()=> {
+                this.$refs.uidBaseInfoComponent.init(this.recordId, this.status, (recordId, editorValues) => {
+                    console.log(recordId);
+                    console.log(editorValues);
+                    if (editorValues) {
+                        this.setWysiwygEditorValue(editorValues.htmlValue);
+                        this.setHtmlCodeEditorValue(editorValues.htmlValue);
+                        this.setJSCodeEditorValue(editorValues.jsValue);
+                        this.setCssCodeEditorValue(editorValues.cssValue);
+                        this.setDesignDescriptionEditorValue(editorValues.designDescriptionValue);
+                        this.setExDatasetEditorValue(editorValues.exDataSetValue);
+                        this.setExParametersEditorValue(editorValues.exParametersValue);
                     }
                 });
             },300);
@@ -182,18 +190,48 @@ export default {
         getHtmlCodeEditorValue(){
             return this.$refs.uidHtmlCodeEditorComp.getValue();
         },
+        setJSCodeEditorValue(value){
+            this.$refs.uidJSCodeEditorComp.setValue(value);
+        },
+        getJSCodeEditorValue(){
+            return this.$refs.uidJSCodeEditorComp.getValue();
+        },
+        setCssCodeEditorValue(value){
+            this.$refs.uidCssCodeEditorComp.setValue(value);
+        },
+        getCssCodeEditorValue(){
+            return this.$refs.uidCssCodeEditorComp.getValue();
+        },
+        setDesignDescriptionEditorValue(value){
+            this.$refs.uidDesignDescriptionComp.setValue(value);
+        },
+        getDesignDescriptionEditorValue(){
+            return this.$refs.uidDesignDescriptionComp.getValue();
+        },
+        setExDatasetEditorValue(value){
+            this.$refs.uidExDatasetComp.setValue(value);
+        },
+        getExDatasetEditorValue(){
+            return this.$refs.uidExDatasetComp.getValue();
+        },
+        setExParametersEditorValue(value){
+            this.$refs.uidExParametersComp.setValue(value);
+        },
+        getExParametersEditorValue(){
+            return this.$refs.uidExParametersComp.getValue();
+        },
         getEditorValues(){
-            let htmlValue=this.$refs.uidWysiwygComp.getValue();
+            let htmlValue=this.getWysiwygEditorValue();
             if(this.currentMainTabName=="uid-html-code-editor-comp-tab"){
-                htmlValue=this.$refs.uidHtmlCodeEditorComp.getValue();
+                htmlValue=this.getHtmlCodeEditorValue();
             }
             return UIDesignUtility.buildEditorValues(
                 htmlValue,
-                this.$refs.uidJSCodeEditorComp.getValue(),
-                this.$refs.uidCssCodeEditorComp.getValue(),
-                this.$refs.uidDesignDescriptionComp.getValue(),
-                this.$refs.uidExDatasetComp.getValue(),
-                this.$refs.uidExParametersComp.getValue()
+                this.getJSCodeEditorValue(),
+                this.getCssCodeEditorValue(),
+                this.getDesignDescriptionEditorValue(),
+                this.getExDatasetEditorValue(),
+                this.getExParametersEditorValue()
             );
         },
         save(successFun){

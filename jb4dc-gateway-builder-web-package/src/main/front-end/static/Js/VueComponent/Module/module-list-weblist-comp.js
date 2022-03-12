@@ -124,7 +124,7 @@ Vue.component("module-list-weblist-comp", {
     },
     methods:{
         getModuleName: function () {
-            return this.moduleData == null ? "请选中模块" : this.moduleData.moduleText;
+            return this.moduleData == null ? "请选中模块." : this.moduleData.moduleText;
         },
         selectionChange: function (selection) {
             this.selectionRows = selection;
@@ -183,11 +183,26 @@ Vue.component("module-list-weblist-comp", {
         },
         edit: function (recordId) {
             //debugger;
+            //alert(recordId);
+            if(recordId=="75ffdba7-bef1-4342-87de-d16578afb5da"){
+                this.editViewVersion2(recordId);
+                return;
+            }
+
             var url = BaseUtility.BuildView(this.acInterface.editView, {
                 "op": "update",
                 "recordId": recordId
             });
             //DialogUtility.OpenNewWindow(window, DialogUtility.DialogId, url, {width: 0, height: 0}, 2);
+            DialogUtility.OpenNewTabWindow(url);
+        },
+        editViewVersion2: function (recordId){
+            var url = BaseUtility.BuildView(this.acInterface.editViewVersion2, {
+                "op": "update",
+                "uiDesignType":"webListDesign",
+                "moduleId": this.moduleData.moduleId,
+                "recordId": recordId
+            });
             DialogUtility.OpenNewTabWindow(url);
         },
         del: function (recordId) {

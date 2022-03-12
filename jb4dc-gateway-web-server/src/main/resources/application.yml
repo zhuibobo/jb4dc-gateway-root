@@ -20,7 +20,7 @@ jb4dc:
 server:
   port: 28080
   ssl:
-    enabled: false
+    enabled: true
     key-store-type: jks
     key-store-password: jb4d82
     key-alias: jb4dchttps

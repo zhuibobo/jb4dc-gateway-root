@@ -185,14 +185,14 @@ export default {
                 return;
             }
             this.baseInfo = props.baseInfo ? props.baseInfo : this.baseInfo;
-            var datasetName = $elem.attr("datasetname");
-            var datasetId = $elem.attr("datasetid");
-            var pageSize = $elem.attr("pagesize");
-            var desc = $elem.attr("desc");
-            var condition = $elem.attr("condition");
-            var serverGetDataAPI = $elem.attr("servergetdataapi");
-            var serverGetDataAPIPara = $elem.attr("servergetdataapipara");
-            var clientResolveDataMethod = $elem.attr("clientresolvedatamethod");
+            let datasetName = $elem.attr("datasetname");
+            let datasetId = $elem.attr("datasetid");
+            let pageSize = $elem.attr("pagesize");
+            let desc = $elem.attr("desc");
+            let condition = $elem.attr("condition");
+            let serverGetDataAPI = $elem.attr("servergetdataapi");
+            let serverGetDataAPIPara = $elem.attr("servergetdataapipara");
+            let clientResolveDataMethod = $elem.attr("clientresolvedatamethod");
             this.normalProps.datasetName = datasetName;
             this.normalProps.datasetId = datasetId;
             if (pageSize!=""&&pageSize!="null") {

@@ -490,13 +490,13 @@ let GeneralPlugin= {
             }
         }
         //如果查找不到,则使用基础属性中的dataSetId
-        if (!this.dataSetId) {
+        //if (!this.dataSetId) {
             //console.log(window.parent.listDesign.listResourceEntity.listDatasetId);
             //this.dataSetId=window.parent.listDesign.listResourceEntity.listDatasetId;
             //return window.parent.listDesign.listResourceEntity.listDatasetId;
             return this._baseInfoBindToDataSetId;
-        }
-        return null;
+        //}
+        //return null;
         /*if(!this.dataSetId){
             DialogUtility.AlertText("请先设定DataSet");
         }
