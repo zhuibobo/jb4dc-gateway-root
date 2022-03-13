@@ -1,31 +1,42 @@
 import GeneralPlugin from "../../GeneralPlugin";
 
-let WLDCT_LayoutContainerPlugin={
-    singleName:"WLDCT_LayoutContainer",
-    config:GeneralPlugin.configProp,
-    _$elem:null,
-    id:null,
-    props:JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
-    buildInstanceObj(instanceId){
-        return GeneralPlugin.newControlInstance(this,instanceId);
+let WLDCT_LayoutContainerPlugin = {
+    singleName: "WLDCT_LayoutContainer",
+    config: GeneralPlugin.configProp,
+    _$elem: null,
+    id: null,
+    props: JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
+    buildInstanceObj(instanceId) {
+        return GeneralPlugin.newControlInstance(this, instanceId);
     },
-    constructionElem(){
-        this._$elem=$(`<div class="uid-wldct-layout-container-wrap"></div>`);
-        GeneralPlugin.serializePropsToElemForNewControl(this._$elem,this.config,{
-            designControlInstanceName:this.id,
-            id:this.id
+    constructionElem() {
+        this._$elem = $(`<div class="uid-wldct-layout-container-wrap"></div>`);
+        GeneralPlugin.serializePropsToElemForNewControl(this._$elem, this.config, {
+            designControlInstanceName: this.id,
+            id: this.id
         });
         return this._$elem;
     },
-    setElem($elem){
-        this._$elem=$elem;
+    setElem($elem) {
+        this._$elem = $elem;
     },
-    registeredEvent($elem){
-        GeneralPlugin.registeredGeneralEvent(this._$elem,this);
+    resetWysiwygElemProps($elem, props) {
+        GeneralPlugin.serializePropsToElem(this._$elem, props, this.config, props.normalProps.buttonCaption);
     },
-    dropControlToContainer(plugin,$dropToTarget,$dropToLayout){}
+    registeredEvent($elem) {
+        GeneralPlugin.registeredGeneralEvent(this._$elem, this);
+    },
+    dropControlToContainer(plugin, $dropToTarget, $dropToLayout) {
+        let controlInstance = plugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(plugin.singleName)).instance;
+        let $elem = controlInstance.constructionElem();
+        console.log($elem);
+        $dropToTarget.append($elem);
+        if (typeof (controlInstance.registeredEvent) == "function") {
+            controlInstance.registeredEvent($elem);
+        }
+    }
 }
 
-GeneralPlugin.registeredPlugin(WLDCT_LayoutContainerPlugin.singleName,WLDCT_LayoutContainerPlugin);
+GeneralPlugin.registeredPlugin(WLDCT_LayoutContainerPlugin.singleName, WLDCT_LayoutContainerPlugin);
 
-export { WLDCT_LayoutContainerPlugin as default};
+export {WLDCT_LayoutContainerPlugin as default};

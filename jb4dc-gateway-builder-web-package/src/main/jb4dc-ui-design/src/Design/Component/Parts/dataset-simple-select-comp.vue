@@ -1,19 +1,20 @@
 <template>
     <div>
         <a-input search class="input_border_bottom" ref="txt_search_text" placeholder="请输入表名或者标题"></a-input>
-        <ul id="dataset-simple-select-comp-dataSetZTreeUL" class="ztree"></ul>
+        <ul ref="zTreeUL" class="ztree"></ul>
     </div>
 </template>
 
 <script>
 import remoteRestInterface from "../../Remote/RemoteRestInterface.js"
+
 export default {
     name: "dataset-simple-select-comp",
     data: function () {
         var _self = this;
         return {
-            acInterface:{
-                getDataSetData:"/Rest/Builder/DataSet/DataSetMain/GetDataSetsForZTreeNodeList"
+            acInterface: {
+                getDataSetData: "/Rest/Builder/DataSet/DataSetMain/GetDataSetsForZTreeNodeList"
             },
             dataSetTree: {
                 treeObj: null,
@@ -54,58 +55,35 @@ export default {
             }
         }
     },
-    mounted:function(){
+    mounted: function () {
         this.bindDataSetTree();
     },
-    methods:{
+    methods: {
         bindDataSetTree: function () {
-            /*var _self = this;
-            AjaxUtility.Post(this.acInterface.getDataSetData, {}, function (result) {
+            remoteRestInterface.getDataSetsForZTreeNodeList({}).then((response) => {
+                let result = response.data;
+                //console.log(result);
                 if (result.success) {
-                    if(result.data!=null&&result.data.length>0){
-                        for(var i=0;i<result.data.length;i++) {
-                            if(result.data[i].nodeTypeName=="DataSetGroup"){
-                                result.data[i].icon = "/Themes/Png16X16/package.png";
-                            }
-                            else {
-                                result.data[i].icon = "/Themes/Png16X16/application_view_columns.png";
-                            }
-                        }
-                    }
-
-                    _self.dataSetTree.treeData = result.data;
-                    _self.dataSetTree.treeObj = $.fn.zTree.init($("#dataSetZTreeUL"), _self.dataSetTree.treeSetting, _self.dataSetTree.treeData);
-                    _self.dataSetTree.treeObj.expandAll(true);
-                    fuzzySearchTreeObj(_self.dataSetTree.treeObj,_self.$refs.txt_search_text.$refs.input,null,true);
-                }
-                else {
-                    DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
-                }
-            }, this);*/
-            remoteRestInterface.getDataSetsForZTreeNodeList({},(result)=>{
-                if (result.success) {
-                    if(result.data!=null&&result.data.length>0){
-                        for(let i=0;i<result.data.length;i++) {
-                            if(result.data[i].nodeTypeName=="DataSetGroup"){
+                    if (result.data != null && result.data.length > 0) {
+                        for (let i = 0; i < result.data.length; i++) {
+                            if (result.data[i].nodeTypeName == "DataSetGroup") {
                                 result.data[i].icon = "Images/Png16X16/package.png";
-                            }
-                            else {
+                            } else {
                                 result.data[i].icon = "Images/Png16X16/application_view_columns.png";
                             }
                         }
                     }
 
                     this.dataSetTree.treeData = result.data;
-                    this.dataSetTree.treeObj = $.fn.zTree.init($("#dataset-simple-select-comp-dataSetZTreeUL"), this.dataSetTree.treeSetting, this.dataSetTree.treeData);
+                    this.dataSetTree.treeObj = $.fn.zTree.init($(this.$refs.zTreeUL), this.dataSetTree.treeSetting, this.dataSetTree.treeData);
                     this.dataSetTree.treeObj.expandAll(true);
-                    fuzzySearchTreeObj(this.dataSetTree.treeObj,this.$refs.txt_search_text.input,null,true);
-                }
-                else {
+                    fuzzySearchTreeObj(this.dataSetTree.treeObj, this.$refs.txt_search_text.input, null, true);
+                } else {
                     DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
                 }
             })
         },
-        selectedNode:function (treeNode) {
+        selectedNode: function (treeNode) {
             this.$emit('on-selected-dataset', treeNode);
         }
     }

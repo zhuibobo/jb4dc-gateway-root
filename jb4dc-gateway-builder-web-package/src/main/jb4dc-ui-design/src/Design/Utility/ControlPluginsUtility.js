@@ -1,17 +1,21 @@
 import controlPluginsConfig from '../Config/ControlPlugins.json';
 
-let controlPluginsConfigAllArray=controlPluginsConfig.appFormDesign;
-controlPluginsConfigAllArray=controlPluginsConfigAllArray.concat(controlPluginsConfig.appListDesign);
-controlPluginsConfigAllArray=controlPluginsConfigAllArray.concat(controlPluginsConfig.webFormDesign);
-controlPluginsConfigAllArray=controlPluginsConfigAllArray.concat(controlPluginsConfig.webListDesign);
-
-let ControlPluginsUtility={
-    getControlPluginsConfigByDesignType(uiDesignType){
+let controlPluginsConfigAllArray = controlPluginsConfig.appFormDesign.controls;
+controlPluginsConfigAllArray = controlPluginsConfigAllArray.concat(controlPluginsConfig.appListDesign.controls)
+controlPluginsConfigAllArray = controlPluginsConfigAllArray.concat(controlPluginsConfig.webFormDesign.controls)
+controlPluginsConfigAllArray = controlPluginsConfigAllArray.concat(controlPluginsConfig.webListDesign.controls)
+let ControlPluginsUtility = {
+    getControlGroupsConfigByDesignType(uiDesignType) {
         //alert(JsonUtility.JsonToString(controlPluginsConfig));
         //alert(uiDesignType);
-        return controlPluginsConfig[uiDesignType];
+        return controlPluginsConfig[uiDesignType].groups;
     },
-    findBySingleName(singleName,arr) {
+    getControlPluginsConfigByDesignType(uiDesignType) {
+        //alert(JsonUtility.JsonToString(controlPluginsConfig));
+        //alert(uiDesignType);
+        return controlPluginsConfig[uiDesignType].controls;
+    },
+    findBySingleName(singleName, arr) {
         if (!arr) {
             arr = controlPluginsConfigAllArray;
         }
@@ -30,4 +34,4 @@ let ControlPluginsUtility={
     }
 }
 
-export { ControlPluginsUtility as default};
+export {ControlPluginsUtility as default};

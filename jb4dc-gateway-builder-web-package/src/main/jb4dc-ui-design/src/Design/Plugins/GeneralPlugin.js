@@ -1,11 +1,10 @@
-
-let GeneralPlugin= {
+let GeneralPlugin = {
     _controlInstances: {},
     _wysiwygComponent: null,
     _uiDesignMain: null,
-    _baseInfoBindToDataSetId:null,
-    _wysiwygLastSelectedElem:null,
-    _prevWysiwygHtml:"",
+    _baseInfoBindToDataSetId: null,
+    _wysiwygLastSelectedElem: null,
+    _prevWysiwygHtml: "",
 
     dropControlToContainer(plugin, $dropToTarget, $dropToLayout) {
         //let dropToObjectId=$dropToObject.attr("id");
@@ -22,9 +21,9 @@ let GeneralPlugin= {
             controlInstance.registeredEvent($elem);
         }
     },
-    newControlInstanceId(singleName) {
+    newControlInstanceId(singleName, append) {
         let instanceId = singleName + "_" + StringUtility.Timestamp();
-        return instanceId;
+        return append ? instanceId + "_" + append : instanceId;
     },
     newControlInstance(plugin, instanceId) {
         let newControlInstance = Object.create(plugin);
@@ -54,7 +53,7 @@ let GeneralPlugin= {
     getControlInstanceObj(instanceId) {
         return this._controlInstances[instanceId];
     },
-    getControlDescriptionElem: function (text,$elem,config,props) {
+    getControlDescriptionElem: function (text, $elem, config, props) {
         //console.log(pluginSetting);
         //console.log(props);
         /*console.log(props);
@@ -77,7 +76,7 @@ let GeneralPlugin= {
                 }
             }
         }*/
-        if(!props){
+        if (!props) {
 
         }
         if (!text) {
@@ -88,32 +87,32 @@ let GeneralPlugin= {
     },
     regTooltipEvent() {
         $("[tip-with-instance]").hover(function () {
-            let instanceId = $(this).attr("tip-with-instance");
+                let instanceId = $(this).attr("tip-with-instance");
 
-            let instanceObj = GeneralPlugin.getControlInstanceObj(instanceId);
-            GeneralPlugin.createControlDescriptionPanel($(this),instanceId,instanceObj);
-            //GeneralPlugin.createControlTooltipPanel(instanceObj.)
-            //console.log("1");
-        },
-        function () {
-            GeneralPlugin.clearControlDescriptionPanel();
-        });
+                let instanceObj = GeneralPlugin.getControlInstanceObj(instanceId);
+                GeneralPlugin.createControlDescriptionPanel($(this), instanceId, instanceObj);
+                //GeneralPlugin.createControlTooltipPanel(instanceObj.)
+                //console.log("1");
+            },
+            function () {
+                GeneralPlugin.clearControlDescriptionPanel();
+            });
         $("[tip-with-instance]").on("click", {}, function (event) {
             event.preventDefault();
             event.stopPropagation();
         });
     },
-    constructionGeneralInputElem(controlInstance,exAttrs) {
+    constructionGeneralInputElem(controlInstance, exAttrs) {
         //let newControl=GeneralPlugin.newControlInstance(plugin);
-        let classNames="uid-design-input-control redips-drag";
-        if(controlInstance.config.class) {
+        let classNames = "uid-design-input-control redips-drag";
+        if (controlInstance.config.class) {
             classNames += " " + controlInstance.config.class;
         }
         let html = `<div jbuild4dc_custom="true" singlename="${controlInstance.singleName}" designControlInstanceName="${controlInstance.id}" class="${classNames}" contenteditable="false" id="${controlInstance.id}"></div>`;
         let $elem = $(html);
-        if(exAttrs){
+        if (exAttrs) {
             for (let attrKey in exAttrs) {
-                $elem.attr(attrKey,exAttrs[attrKey]);
+                $elem.attr(attrKey, exAttrs[attrKey]);
             }
         }
         controlInstance._$elem = $elem;
@@ -133,7 +132,7 @@ let GeneralPlugin= {
             event.preventDefault();
             event.stopPropagation();
             GeneralPlugin.createControlEditInnerPanel($(this));
-            GeneralPlugin._wysiwygLastSelectedElem=$(this);
+            GeneralPlugin._wysiwygLastSelectedElem = $(this);
         });
         $elem.on("dblclick", {_this: sender}, function (event) {
             //alert("1");
@@ -143,15 +142,15 @@ let GeneralPlugin= {
             GeneralPlugin.showPluginPropEditDialog(event.data._this, event.data._this.singleName + "Property", $(this))
         });
     },
-    buildListSearchControlGeneralText(config,props){
-        return config.text+"["+props.bindToSearchField.columnCaption+"]";
+    buildListSearchControlGeneralText(config, props) {
+        return config.text + "[" + props.bindToSearchField.columnCaption + "]";
     },
 
-    clearHelperPanel(){
-      this.clearControlEditInnerPanel();
-      this.clearControlDescriptionPanel();
+    clearHelperPanel() {
+        this.clearControlEditInnerPanel();
+        this.clearControlDescriptionPanel();
     },
-    clearControlDescriptionPanel(){
+    clearControlDescriptionPanel() {
         $(".control-description-tip-inner-panel").remove();
     },
     /*autoClearHelperPanel(currentWysiwygHtml){
@@ -163,7 +162,7 @@ let GeneralPlugin= {
             this._prevWysiwygHtml=currentWysiwygHtml;
         }
     },*/
-    createControlDescriptionPanel($elem,instanceId,instanceObj){
+    createControlDescriptionPanel($elem, instanceId, instanceObj) {
         this.clearControlDescriptionPanel();
         let panel = $('<div></div>');
         panel.addClass("control-description-tip-inner-panel");
@@ -180,7 +179,7 @@ let GeneralPlugin= {
         //console.log("1");
     },
     createControlEditInnerPanel($elem) {
-        console.log($elem);
+        //console.log($elem);
         this.clearControlEditInnerPanel();
         //debugger;
         let pluginInnerPanel = $('<div></div>');
@@ -293,7 +292,7 @@ let GeneralPlugin= {
             desc: "",
             status: "enable",
             groupName: "",
-            designControlInstanceName:""
+            designControlInstanceName: ""
         },
         bindToSearchField: {
             columnTitle: "",
@@ -358,7 +357,7 @@ let GeneralPlugin= {
 
         return props;
     },
-    serializePropsToElemForNewControl($elem, config,props) {
+    serializePropsToElemForNewControl($elem, config, props) {
         $elem.attr("jbuild4dc_custom", "true");
         $elem.attr("singlename", config.singleName);
         $elem.attr("is_jbuild4dc_data", config.isJBuild4DCData);
@@ -369,7 +368,7 @@ let GeneralPlugin= {
         $elem.attr("designControlInstanceName", props.designControlInstanceName);
         $elem.attr("id", props.id);
     },
-    serializePropsToElem($elem, props, config,innerHTMl) {
+    serializePropsToElem($elem, props, config, innerHTMl) {
         //debugger;
         $elem.attr("jbuild4dc_custom", "true");
         $elem.attr("singlename", config.singleName);
@@ -381,7 +380,7 @@ let GeneralPlugin= {
         //将服务端解析方法,动态绑定属性设置,移到服务端进行解析时处理
         //elem.attr("serverresolve",controlSetting.ServerResolve);
         //elem.attr("server_dynamic_bind",controlSetting.ServerDynamicBind);
-        if(innerHTMl){
+        if (innerHTMl) {
             $elem.find("[name='elem-display-name']").html(innerHTMl);
         }
 
@@ -475,12 +474,12 @@ let GeneralPlugin= {
         this._uiDesignMain.selectValidateRuleDialogBegin(oldData, caller);
     },
 
-    setBaseInfoBindToDataSetId(dataSetId){
-        this._baseInfoBindToDataSetId=dataSetId;
+    setBaseInfoBindToDataSetId(dataSetId) {
+        this._baseInfoBindToDataSetId = dataSetId;
     },
-    tryGetDataSetId($elem,parents) {
+    tryGetDataSetId($elem, parents) {
         //从html中查找datasetId;
-        if ($elem&&$elem.length>0) {
+        if ($elem && $elem.length > 0) {
             for (let i = parents.length - 1; i--; i >= 0) {
                 if (parents[i].getAttribute("datasetid") != null && parents[i].getAttribute("datasetid") != "") {
                     //console.log(parents[i].getAttribute("datasetid"));
@@ -491,10 +490,10 @@ let GeneralPlugin= {
         }
         //如果查找不到,则使用基础属性中的dataSetId
         //if (!this.dataSetId) {
-            //console.log(window.parent.listDesign.listResourceEntity.listDatasetId);
-            //this.dataSetId=window.parent.listDesign.listResourceEntity.listDatasetId;
-            //return window.parent.listDesign.listResourceEntity.listDatasetId;
-            return this._baseInfoBindToDataSetId;
+        //console.log(window.parent.listDesign.listResourceEntity.listDatasetId);
+        //this.dataSetId=window.parent.listDesign.listResourceEntity.listDatasetId;
+        //return window.parent.listDesign.listResourceEntity.listDatasetId;
+        return this._baseInfoBindToDataSetId;
         //}
         //return null;
         /*if(!this.dataSetId){
@@ -504,28 +503,28 @@ let GeneralPlugin= {
             this.bindDataSetFieldTree(this.dataSetId);
         }*/
     },
-    tryGetListButtonsInPluginPage($elem){
+    tryGetListButtonsInPluginPage($elem) {
         //debugger;
-        let buttons=[];
-        let listTemplateElem=$elem.parents("[singlename='WLDCT_ListTemplate']");
-        let $buttons=$(listTemplateElem).find("[isopbutton]");
+        let buttons = [];
+        let listTemplateElem = $elem.parents("[singlename='WLDCT_ListTemplate']");
+        let $buttons = $(listTemplateElem).find("[isopbutton]");
         $buttons.each(function () {
-            let buttonCaption=$(this).attr("buttoncaption")?$(this).attr("buttoncaption"):"未设置按钮名称";
-            let buttonId=$(this).attr("id");
+            let buttonCaption = $(this).attr("buttoncaption") ? $(this).attr("buttoncaption") : "未设置按钮名称";
+            let buttonId = $(this).attr("id");
             buttons.push({
-                buttonCaption:buttonCaption,
-                buttonId:buttonId
+                buttonCaption: buttonCaption,
+                buttonId: buttonId
             })
         });
         return buttons;
     },
 
-    getWysiwygLastSelectedElem(){
+    getWysiwygLastSelectedElem() {
         return this._wysiwygLastSelectedElem;
     }
 }
 
 //提供给EditTable_SelectDefaultValue使用
-window.GeneralPlugin=GeneralPlugin;
+window.GeneralPlugin = GeneralPlugin;
 
-export { GeneralPlugin as default};
+export {GeneralPlugin as default};

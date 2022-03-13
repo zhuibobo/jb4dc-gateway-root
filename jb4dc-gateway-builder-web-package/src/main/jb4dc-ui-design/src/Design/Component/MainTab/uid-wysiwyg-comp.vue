@@ -8,26 +8,13 @@
         </div>
         <div @mouseover="mouseoverWysiwygPluginListParent">
             <div id="uid-wysiwyg-plugin-list-comp-wrap" style="font-size: 0.8125em">
-                <h3>布局控件</h3>
-                <div class="plugin-list-wrap">
-                    <uid-wysiwyg-plugin-list-comp :control-plugins-config="controlPluginsConfig"
-                                                  group-name="Layout"></uid-wysiwyg-plugin-list-comp>
-                </div>
-                <h3>输入&显示控件</h3>
-                <div class="plugin-list-wrap">
-                    <uid-wysiwyg-plugin-list-comp :control-plugins-config="controlPluginsConfig"
-                                                  group-name="InputControl"></uid-wysiwyg-plugin-list-comp>
-                </div>
-                <h3>动态控件</h3>
-                <div class="plugin-list-wrap">
-                    <uid-wysiwyg-plugin-list-comp :control-plugins-config="controlPluginsConfig"
-                                                  group-name="DynamicContainer"></uid-wysiwyg-plugin-list-comp>
-                </div>
-                <h3>模板控件</h3>
-                <div class="plugin-list-wrap">
-                    <uid-wysiwyg-plugin-list-comp :control-plugins-config="controlPluginsConfig"
-                                                  group-name="TemplateContainer"></uid-wysiwyg-plugin-list-comp>
-                </div>
+                <template v-for="group in controlGroupsConfig">
+                    <h3>{{ group.text }}</h3>
+                    <div class="plugin-list-wrap">
+                        <uid-wysiwyg-plugin-list-comp :control-plugins-config="controlPluginsConfig"
+                                                      :group-name="group.name"></uid-wysiwyg-plugin-list-comp>
+                    </div>
+                </template>
             </div>
         </div>
         <div class="plugin-prop-edit-dialog" id="plugin-prop-edit-dialog">
@@ -51,6 +38,7 @@ export default {
     props: ["uiDesignType"],
     data() {
         return {
+            controlGroupsConfig: [],
             controlPluginsConfig: [],
             wysiwygContainerId: wysiwygDragDropUtility.wysiwygContainerId,
             pluginPropEditVueEmptyName: "uid-empty-comp",
@@ -72,15 +60,20 @@ export default {
     },
     methods: {
         init() {
-            $("#uid-wysiwyg-plugin-list-comp-wrap").accordion({
-                heightStyle: "fill"
-            });
+
+            this.controlGroupsConfig = controlPluginsUtility.getControlGroupsConfigByDesignType(this.uiDesignType);
             this.controlPluginsConfig = controlPluginsUtility.getControlPluginsConfigByDesignType(this.uiDesignType);
+
             for (let pluginKey in allPlugins) {
                 let configSingleName = pluginKey.replace("Plugin", "");
                 let configSingle = controlPluginsUtility.findBySingleName(configSingleName);
                 allPlugins[pluginKey].config = configSingle;
             }
+            window.setTimeout(() => {
+                $("#uid-wysiwyg-plugin-list-comp-wrap").accordion({
+                    heightStyle: "fill"
+                });
+            }, 400);
         },
         wysiwygContainerClick() {
             GeneralPlugin.clearControlEditInnerPanel();
@@ -146,7 +139,7 @@ export default {
             this.pluginPropEditDialog.dialog("open");
             window.setTimeout(() => {
                 this.$refs.pluginPropEditComponent.setControlProps($elem, props);
-            }, 200);
+            }, 800);
         },
         getValue() {
             return $("#" + this.wysiwygContainerId).html();
@@ -161,7 +154,6 @@ export default {
             for (let i = 0; i < $elem.children().length; i++) {
                 try {
                     let $childSingleElem = $($elem.children()[i]);
-
                     //let _cloneRendererChainParas = {};
                     //JsonUtility.SimpleCloneAttr(_cloneRendererChainParas, _rendererChainParas);
                     //_cloneRendererChainParas.$singleControlElem = $childSingleElem;

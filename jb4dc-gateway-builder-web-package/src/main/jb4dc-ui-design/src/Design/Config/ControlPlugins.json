@@ -1,129 +1,31 @@
 {
-  "appFormDesign": [
-    {
-      "group": "Layout",
-      "singleName": "AFDCT_SingleTableLayout",
-      "text": "表格布局",
-      "class": "",
-      "icon": "table.png",
-      "dragTo": "wysiwygContainer,AFDCT_TabLayout",
-      "serverResolve": "",
-      "clientResolve": "",
-      "clientResolveJs": "",
-      "enableChildControls": "",
-      "dialogWidth": "600",
-      "dialogHeight": "550",
-      "isJBuild4DCData": "false",
-      "controlCategory": "LayoutControl",
-      "serverDynamicBind": "false",
-      "showRemoveButton": "false",
-      "showInEditorToolbar": "true"
-    },
-    {
-      "group": "Layout",
-      "singleName": "AFDCT_SingleGridStackLayout",
-      "text": "网格布局",
-      "class": "",
-      "icon": "gridstack.png",
-      "dragTo": "wysiwygContainer",
-      "serverResolve": "",
-      "clientResolve": "",
-      "clientResolveJs": "",
-      "enableChildControls": "",
-      "dialogWidth": "600",
-      "dialogHeight": "550",
-      "isJBuild4DCData": "false",
-      "controlCategory": "LayoutControl",
-      "serverDynamicBind": "false",
-      "showRemoveButton": "false",
-      "showInEditorToolbar": "true"
-    },
-    {
-      "group": "Layout",
-      "singleName": "AFDCT_TabLayout",
-      "text": "Tab布局",
-      "class": "",
-      "icon": "tabs.png",
-      "dragTo": "wysiwygContainer",
-      "serverResolve": "",
-      "clientResolve": "",
-      "clientResolveJs": "",
-      "enableChildControls": "",
-      "dialogWidth": "600",
-      "dialogHeight": "550",
-      "isJBuild4DCData": "false",
-      "controlCategory": "LayoutControl",
-      "serverDynamicBind": "false",
-      "showRemoveButton": "false",
-      "showInEditorToolbar": "true"
-    },
-    {
-      "group": "InputControl",
-      "singleName": "AFDCT_TextBox",
-      "text": "单行输入框",
-      "class": "",
-      "icon": "Layout1.png",
-      "dragTo": "Layout",
-      "serverResolve": "",
-      "clientResolve": "",
-      "clientResolveJs": "",
-      "enableChildControls": "",
-      "dialogWidth": "600",
-      "dialogHeight": "550",
-      "isJBuild4DCData": "true",
-      "controlCategory": "InputControl",
-      "serverDynamicBind": "false",
-      "showRemoveButton": "true",
-      "showInEditorToolbar": "true"
-    }
-  ],
-  "appListDesign": [
-  ],
-  "webFormDesign": [
-  ],
-  "webListDesign": {
+  "appFormDesign": {
     "groups": [
       {
         "name": "",
         "text": ""
-      }, {
+      },
+      {
         "name": "",
         "text": ""
-      },{
+      },
+      {
         "name": "",
         "text": ""
-      },{
+      },
+      {
         "name": "",
         "text": ""
       }
     ],
     "controls": [
       {
-      "group": "Layout",
-      "singleName": "WLDCT_LayoutContainer",
-      "text": "数据集布局容器",
-      "class": "",
-      "icon": "Layout1.png",
-      "dragTo": "wysiwygContainer",
-      "serverResolve": "",
-      "clientResolve": "",
-      "clientResolveJs": "",
-      "enableChildControls": "",
-      "dialogWidth": "600",
-      "dialogHeight": "550",
-      "isJBuild4DCData": "false",
-      "controlCategory": "LayoutControl",
-      "serverDynamicBind": "false",
-      "showRemoveButton": "false",
-      "showInEditorToolbar": "false"
-    },
-      {
         "group": "Layout",
-        "singleName": "WLDCT_LayoutTemplate_Group",
-        "text": "布局模版",
+        "singleName": "AFDCT_SingleTableLayout",
+        "text": "表格布局",
         "class": "",
-        "icon": "Layout1.png",
-        "dragTo": "false",
+        "icon": "table.png",
+        "dragTo": "wysiwygContainer,AFDCT_TabLayout",
         "serverResolve": "",
         "clientResolve": "",
         "clientResolveJs": "",
@@ -138,6 +40,144 @@
       },
       {
         "group": "Layout",
+        "singleName": "AFDCT_SingleGridStackLayout",
+        "text": "网格布局",
+        "class": "",
+        "icon": "gridstack.png",
+        "dragTo": "wysiwygContainer",
+        "serverResolve": "",
+        "clientResolve": "",
+        "clientResolveJs": "",
+        "enableChildControls": "",
+        "dialogWidth": "600",
+        "dialogHeight": "550",
+        "isJBuild4DCData": "false",
+        "controlCategory": "LayoutControl",
+        "serverDynamicBind": "false",
+        "showRemoveButton": "false",
+        "showInEditorToolbar": "true"
+      },
+      {
+        "group": "Layout",
+        "singleName": "AFDCT_TabLayout",
+        "text": "Tab布局",
+        "class": "",
+        "icon": "tabs.png",
+        "dragTo": "wysiwygContainer",
+        "serverResolve": "",
+        "clientResolve": "",
+        "clientResolveJs": "",
+        "enableChildControls": "",
+        "dialogWidth": "600",
+        "dialogHeight": "550",
+        "isJBuild4DCData": "false",
+        "controlCategory": "LayoutControl",
+        "serverDynamicBind": "false",
+        "showRemoveButton": "false",
+        "showInEditorToolbar": "true"
+      },
+      {
+        "group": "InputControl",
+        "singleName": "AFDCT_TextBox",
+        "text": "单行输入框",
+        "class": "",
+        "icon": "Layout1.png",
+        "dragTo": "Layout",
+        "serverResolve": "",
+        "clientResolve": "",
+        "clientResolveJs": "",
+        "enableChildControls": "",
+        "dialogWidth": "600",
+        "dialogHeight": "550",
+        "isJBuild4DCData": "true",
+        "controlCategory": "InputControl",
+        "serverDynamicBind": "false",
+        "showRemoveButton": "true",
+        "showInEditorToolbar": "true"
+      }
+    ]
+  },
+  "appListDesign": {
+    "groups": [],
+    "controls": []
+  },
+  "webFormDesign": {
+    "groups": [],
+    "controls": []
+  },
+  "webListDesign": {
+    "groups": [
+      {
+        "name": "ListLayoutTemplate",
+        "text": "列表模板"
+      },
+      {
+        "name": "ListDataSource",
+        "text": "数据源"
+      }
+    ],
+    "controls": [
+      {
+        "group": "ListLayoutTemplate",
+        "singleName": "WLDCT_LayoutContainer",
+        "text": "数据集布局容器",
+        "class": "",
+        "icon": "Layout1.png",
+        "dragTo": "false",
+        "serverResolve": "",
+        "clientResolve": "",
+        "clientResolveJs": "",
+        "enableChildControls": "",
+        "dialogWidth": "600",
+        "dialogHeight": "550",
+        "isJBuild4DCData": "false",
+        "controlCategory": "LayoutControl",
+        "serverDynamicBind": "false",
+        "showRemoveButton": "false",
+        "showInEditorToolbar": "true",
+        "children": [
+          {
+            "group": "ListLayoutTemplate",
+            "singleName": "WLDCT_LayoutContainerLR",
+            "text": "左右布局容器",
+            "class": "",
+            "icon": "Layout2.png",
+            "dragTo": "wysiwygContainer",
+            "serverResolve": "",
+            "clientResolve": "",
+            "clientResolveJs": "",
+            "enableChildControls": "",
+            "dialogWidth": "600",
+            "dialogHeight": "550",
+            "isJBuild4DCData": "false",
+            "controlCategory": "LayoutControl",
+            "serverDynamicBind": "false",
+            "showRemoveButton": "false",
+            "showInEditorToolbar": "true"
+          },
+          {
+            "group": "ListLayoutTemplate",
+            "singleName": "WLDCT_LayoutContainerLR",
+            "text": "上下布局容器",
+            "class": "",
+            "icon": "Layout3.png",
+            "dragTo": "wysiwygContainer",
+            "serverResolve": "",
+            "clientResolve": "",
+            "clientResolveJs": "",
+            "enableChildControls": "",
+            "dialogWidth": "600",
+            "dialogHeight": "550",
+            "isJBuild4DCData": "false",
+            "controlCategory": "LayoutControl",
+            "serverDynamicBind": "false",
+            "showRemoveButton": "false",
+            "showInEditorToolbar": "true"
+          }
+        ]
+      },
+      {
+        "group": "ListLayoutTemplate",
         "singleName": "WLDCT_ListTemplate",
         "text": "列表模版",
         "class": "",
@@ -156,7 +196,7 @@
         "showInEditorToolbar": "true",
         "children": [
           {
-            "group": "Layout",
+            "group": "ListLayoutTemplate",
             "singleName": "WLDCT_HideContainer",
             "text": "隐藏区域",
             "class": "",
@@ -175,7 +215,7 @@
             "showInEditorToolbar": "true"
           },
           {
-            "group": "Layout",
+            "group": "ListLayoutTemplate",
             "singleName": "WLDCT_ListSimpleSearchContainer",
             "text": "查询区域",
             "class": "",
@@ -194,7 +234,7 @@
             "showInEditorToolbar": "true",
             "children": [
               {
-                "group": "Layout",
+                "group": "ListLayoutTemplate",
                 "singleName": "WLDCT_Search_TextBox",
                 "text": "查询单行输入框",
                 "class": "",
@@ -215,7 +255,7 @@
             ]
           },
           {
-            "group": "Layout",
+            "group": "ListLayoutTemplate",
             "singleName": "WLDCT_ListComplexSearchContainer",
             "text": "弹出查询区域",
             "class": "",
@@ -234,7 +274,7 @@
             "showInEditorToolbar": "false"
           },
           {
-            "group": "Layout",
+            "group": "ListLayoutTemplate",
             "singleName": "WLDCT_ListButtonContainer",
             "text": "操作按钮区域",
             "class": "",
@@ -274,7 +314,7 @@
             ]
           },
           {
-            "group": "Layout",
+            "group": "ListLayoutTemplate",
             "singleName": "WLDCT_ListTableContainer",
             "text": "表格显示区域",
             "class": "",
@@ -293,7 +333,7 @@
             "showInEditorToolbar": "true",
             "children": [
               {
-                "group": "Layout",
+                "group": "ListLayoutTemplate",
                 "singleName": "WLDCT_ListTableLabel",
                 "text": "列表内标签",
                 "class": "",
@@ -312,7 +352,7 @@
                 "showInEditorToolbar": "true"
               },
               {
-                "group": "Layout",
+                "group": "ListLayoutTemplate",
                 "singleName": "WLDCT_ListTableInnerButtonSingle",
                 "text": "列表内按钮",
                 "class": "",
