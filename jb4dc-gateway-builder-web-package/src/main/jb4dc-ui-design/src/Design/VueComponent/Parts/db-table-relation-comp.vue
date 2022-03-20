@@ -1,7 +1,8 @@
 <template>
     <div class="db-table-relation-comp">
         <a-divider orientation="left" style="font-size: 12px">数据关系关联设置</a-divider>
-        <div style="float: left;width: 350px;height: 500px;border: #ddddf1 1px solid;border-radius: 4px;padding: 10px 10px 10px 10px;">
+        <div
+            style="float: left;width: 350px;height: 500px;border: #ddddf1 1px solid;border-radius: 4px;padding: 10px 10px 10px 10px;">
             <a-button type="primary" size="small" @click="beginSelectTableToRelationTable">&nbsp;添加&nbsp;</a-button>
             <a-button type="primary" size="small" @click="deleteSelectedRelationTreeNode">&nbsp;删除&nbsp;</a-button>
             <a-button type="primary" size="small" @click="alertSerializeRelation">序列化</a-button>
@@ -9,24 +10,30 @@
             <a-button type="primary" size="small">说明</a-button>
             <ul id="dataRelationZTreeUL" class="ztree" style="overflow-x: hidden"></ul>
         </div>
-        <div style="float: right;width: 630px;height: 500px;border: #ddddf1 1px solid;border-radius: 4px;padding: 10px 10px 10px 10px;">
-            <table class="light-gray-table" cellpadding="0" cellspacing="0" border="0" v-if="relationTableEditorView.isShowTableEditDetail">
+        <div
+            style="float: right;width: 630px;height: 500px;border: #ddddf1 1px solid;border-radius: 4px;padding: 10px 10px 10px 10px;">
+            <table class="light-gray-table" cellpadding="0" cellspacing="0" border="0"
+                   v-if="relationTableEditorView.isShowTableEditDetail">
                 <colgroup>
-                    <col style="width: 19%" />
-                    <col style="width: 33%" />
-                    <col style="width: 15%" />
-                    <col style="width: 33%" />
+                    <col style="width: 19%"/>
+                    <col style="width: 33%"/>
+                    <col style="width: 15%"/>
+                    <col style="width: 33%"/>
                 </colgroup>
                 <tbody>
                 <tr>
                     <td class="label">SingleName：</td>
                     <td>
-                        <a-input v-model:value="currentEditorData.singleName" size="small" placeholder="本关联中的唯一名称,可以为空" />
+                        <a-input v-model:value="currentEditorData.singleName" size="small"
+                                 placeholder="本关联中的唯一名称,可以为空"/>
                     </td>
                     <td class="label">PKKey：</td>
                     <td>
-                        <a-select placeholder="默认使用Id字段" v-model:value="currentEditorData.pkFieldName" size="small" style="width:100%">
-                            <a-select-option v-for="item in relationTableEditorView.selPKData" :value="item.fieldName" :key="item.fieldName">{{item.fieldCaption}}</a-select-option>
+                        <a-select placeholder="默认使用Id字段" v-model:value="currentEditorData.pkFieldName" size="small"
+                                  style="width:100%">
+                            <a-select-option v-for="item in relationTableEditorView.selPKData" :value="item.fieldName"
+                                             :key="item.fieldName">{{ item.fieldCaption }}
+                            </a-select-option>
                         </a-select>
                     </td>
                 </tr>
@@ -49,27 +56,35 @@
                 <tr v-if="relationTableEditorView.isSubEditTr">
                     <td class="label">本身关联字段：</td>
                     <td>
-                        <a-select placeholder="默认使用Id字段" v-model:value="currentEditorData.selfKeyFieldName" size="small" style="width:100%">
-                            <a-select-option v-for="item in relationTableEditorView.selSelfKeyData" :value="item.fieldName" :key="item.fieldName">{{item.fieldCaption}}</a-select-option>
+                        <a-select placeholder="默认使用Id字段" v-model:value="currentEditorData.selfKeyFieldName" size="small"
+                                  style="width:100%">
+                            <a-select-option v-for="item in relationTableEditorView.selSelfKeyData"
+                                             :value="item.fieldName" :key="item.fieldName">{{ item.fieldCaption }}
+                            </a-select-option>
                         </a-select>
                     </td>
                     <td class="label">外联字段：</td>
                     <td>
-                        <a-select placeholder="默认使用Id字段" v-model:value="currentEditorData.outerKeyFieldName" size="small" style="width:100%">
-                            <a-select-option v-for="item in relationTableEditorView.selForeignKeyData" :value="item.fieldName" :key="item.fieldName">{{item.fieldCaption}}</a-select-option>
+                        <a-select placeholder="默认使用Id字段" v-model:value="currentEditorData.outerKeyFieldName"
+                                  size="small" style="width:100%">
+                            <a-select-option v-for="item in relationTableEditorView.selForeignKeyData"
+                                             :value="item.fieldName" :key="item.fieldName">{{ item.fieldCaption }}
+                            </a-select-option>
                         </a-select>
                     </td>
                 </tr>
                 <tr>
                     <td class="label">Desc：</td>
                     <td colspan="3">
-                        <a-input v-model:value="currentEditorData.desc" size="small" placeholder="说明" />
+                        <a-input v-model:value="currentEditorData.desc" size="small" placeholder="说明"/>
                     </td>
                 </tr>
                 <tr>
                     <td class="label">加载条件：</td>
                     <td colspan="3">
-                        <sql-general-design-comp ref="sqlGeneralDesignComp" :sqlDesignerHeight="230" v-model="currentEditorData.condition" :showField="true"></sql-general-design-comp>
+                        <sql-general-design-comp ref="sqlGeneralDesignComp" :sqlDesignerHeight="230"
+                                                 v-model="currentEditorData.condition"
+                                                 :showField="true"></sql-general-design-comp>
                     </td>
                 </tr>
                 </tbody>
@@ -82,12 +97,16 @@
                 </i-select>
             </i-input>-->
             <a-input-group compact>
-                <a-select v-model:value="selectTableTree.oldSelectedDBLinkId" @change="changeDBLink" :disabled="selectTableTree.disabledDBLink" style="width: 40%" >
-                    <a-select-option v-model:value="item.dbId" v-for="item in selectTableTree.dbLinkEntities" :key="item.dbId">{{item.dbLinkName}}</a-select-option>
+                <a-select v-model:value="selectTableTree.oldSelectedDBLinkId" @change="changeDBLink"
+                          :disabled="selectTableTree.disabledDBLink" style="width: 40%">
+                    <a-select-option v-model:value="item.dbId" v-for="item in selectTableTree.dbLinkEntities"
+                                     :key="item.dbId">{{ item.dbLinkName }}
+                    </a-select-option>
                 </a-select>
-                <a-input ref="txt_table_search_text" style="width: 60%" />
+                <a-input ref="txt_table_search_text" style="width: 60%"/>
             </a-input-group>
-            <ul id="selectTableZTreeUL" class="ztree div-custom-scroll" style="height: 500px;overflow-y:scroll;overflow-x:hidden"></ul>
+            <ul id="selectTableZTreeUL" class="ztree div-custom-scroll"
+                style="height: 500px;overflow-y:scroll;overflow-x:hidden"></ul>
         </div>
     </div>
 </template>
@@ -97,7 +116,7 @@ import remoteRestInterface from "../../Remote/RemoteRestInterface.js"
 
 export default {
     name: "db-table-relation-comp",
-    data:function(){
+    data: function () {
         return {
             acInterface: {
                 getTablesDataUrl: "/Rest/Builder/DataStorage/DataBase/Table/GetTablesForZTreeNodeList",
@@ -149,7 +168,7 @@ export default {
                 selSelfKeyData: [],
                 selForeignKeyData: []
             },
-            emptyEditorData:{
+            emptyEditorData: {
                 id: "",
                 parentId: "",
                 singleName: "",
@@ -159,10 +178,10 @@ export default {
                 outerKeyFieldName: "",
                 relationType: "1ToN",
                 isSave: "true",
-                condition:"",
-                tableId:"",
-                tableName:"",
-                tableCaption:""
+                condition: "",
+                tableId: "",
+                tableName: "",
+                tableCaption: ""
             },
             currentEditorData: {
                 id: "",
@@ -174,15 +193,15 @@ export default {
                 outerKeyFieldName: "",
                 relationType: "1ToN",
                 isSave: "true",
-                condition:"",
-                tableId:"",
-                tableName:"",
-                tableCaption:""
+                condition: "",
+                tableId: "",
+                tableName: "",
+                tableCaption: ""
             },
             selectTableTree: {
-                oldSelectedDBLinkId:"JBuild4dLocationDBLink",
-                disabledDBLink:false,
-                dbLinkEntities:[],
+                oldSelectedDBLinkId: "JBuild4dLocationDBLink",
+                disabledDBLink: false,
+                dbLinkEntities: [],
                 tableTreeObj: null,
                 tableTreeSetting: {
                     view: {
@@ -222,32 +241,32 @@ export default {
                     }
                 },
                 tableTreeData: null,//${tableTreeData},
-                allTableTreeData:null,
+                allTableTreeData: null,
                 selectedTableName: "无"
             },
             tempDataStore: {},
             resultData: [],
-            treeNodeSetting:{
+            treeNodeSetting: {
                 MainTableNodeImg: "/Images/Png16X16/page_key.png",
-                SubTableNodeImg:"/Images/Png16X16/page_refresh.png"
+                SubTableNodeImg: "/Images/Png16X16/page_refresh.png"
             }
         }
     },
-    mounted:function(){
+    mounted: function () {
         this.getTablesAndBindOldSelected();
         //初始化根节点
-        this.relationTableTree.treeObj=$.fn.zTree.init($("#dataRelationZTreeUL"), this.relationTableTree.tableTreeSetting,this.relationTableTree.tableTreeRootData);
+        this.relationTableTree.treeObj = $.fn.zTree.init($("#dataRelationZTreeUL"), this.relationTableTree.tableTreeSetting, this.relationTableTree.tableTreeRootData);
         this.relationTableTree.treeObj.expandAll(true);
-        this.relationTableTree.currentSelectedNode=this.relationTableTree.treeObj.getNodeByParam("id","-1");
+        this.relationTableTree.currentSelectedNode = this.relationTableTree.treeObj.getNodeByParam("id", "-1");
         //将对象附加到window上,提供给后边进行操作
-        window._dbtablerelationcomp=this;
+        window._dbtablerelationcomp = this;
     },
     watch: {
         currentEditorData: { //深度监听，可监听到对象、数组的变化
-            handler:function(val, oldVal){
+            handler: function (val, oldVal) {
                 //console.log(val.id);
                 //使用设置值覆盖掉结果集中的值.
-                for(var i=0;i<this.resultData.length;i++) {
+                for (var i = 0; i < this.resultData.length; i++) {
                     if (this.resultData[i].id == val.id) {
                         /*this.resultData[i].singleName=val.singleName;
                         this.resultData[i].pkFieldName=val.pkFieldName;
@@ -257,33 +276,32 @@ export default {
                         this.resultData[i].relationType=val.relationType;
                         this.resultData[i].isSave=val.isSave;
                         this.resultData[i].condition=val.condition;*/
-                        this.resultItemCopyEditEnableValue(this.resultData[i],val);
+                        this.resultItemCopyEditEnableValue(this.resultData[i], val);
                     }
                 }
             },
-            deep:true
+            deep: true
         }
     },
     methods: {
-        resultItemCopyEditEnableValue:function(toObj,fromObj){
-            toObj.singleName=fromObj.singleName;
-            toObj.pkFieldName=fromObj.pkFieldName;
-            toObj.desc=fromObj.desc;
-            toObj.selfKeyFieldName=fromObj.selfKeyFieldName;
-            toObj.outerKeyFieldName=fromObj.outerKeyFieldName;
-            toObj.relationType=fromObj.relationType;
-            toObj.isSave=fromObj.isSave;
-            toObj.condition=fromObj.condition;
+        resultItemCopyEditEnableValue: function (toObj, fromObj) {
+            toObj.singleName = fromObj.singleName;
+            toObj.pkFieldName = fromObj.pkFieldName;
+            toObj.desc = fromObj.desc;
+            toObj.selfKeyFieldName = fromObj.selfKeyFieldName;
+            toObj.outerKeyFieldName = fromObj.outerKeyFieldName;
+            toObj.relationType = fromObj.relationType;
+            toObj.isSave = fromObj.isSave;
+            toObj.condition = fromObj.condition;
             //toObj.code=fromObj.code;
         },
-        getTableFieldsByTableId:function (tableId) {
-            if(tableId=="-1"){
+        getTableFieldsByTableId: function (tableId) {
+            if (tableId == "-1") {
                 return null;
             }
-            if(this.tempDataStore["tableField_"+tableId]){
-                return this.tempDataStore["tableField_"+tableId];
-            }
-            else {
+            if (this.tempDataStore["tableField_" + tableId]) {
+                return this.tempDataStore["tableField_" + tableId];
+            } else {
                 /*let _self=this;
                 AjaxUtility.PostSync(this.acInterface.getTableFieldsUrl,{tableId:tableId},function (result) {
                     if(result.success){
@@ -293,57 +311,43 @@ export default {
                         DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
                     }
                 },this);*/
-                remoteRestInterface.getTableFields({tableId:tableId},(result)=>{
-                    if(result.success){
-                        this.tempDataStore["tableField_"+tableId]=result.data;
-                    }
-                    else {
+                remoteRestInterface.getTableFieldsSync({tableId: tableId}).then((response) => {
+                    let result = response.data;
+                    if (result.success) {
+                        this.tempDataStore["tableField_" + tableId] = result.data;
+                    } else {
                         DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
                     }
-                })
+                });
             }
             //debugger;
-            if(this.tempDataStore["tableField_"+tableId]){
-                return this.tempDataStore["tableField_"+tableId];
-            }
-            else{
+            if (this.tempDataStore["tableField_" + tableId]) {
+                return this.tempDataStore["tableField_" + tableId];
+            } else {
                 return null;
             }
         },
-        getEmptyResultItem:function(){
+        getEmptyResultItem: function () {
             return JsonUtility.CloneSimple(this.emptyEditorData);
         },
-        getExistResultItem:function(id){
-            for(var i=0;i<this.resultData.length;i++){
-                if(this.resultData[i].id==id){
+        getExistResultItem: function (id) {
+            for (var i = 0; i < this.resultData.length; i++) {
+                if (this.resultData[i].id == id) {
                     return this.resultData[i];
                 }
             }
             return null;
         },
-        getTablesAndBindOldSelected:function(){
-            /*var _self = this;
-            AjaxUtility.Post(this.acInterface.getTablesDataUrl, {}, function (result) {
+        getTablesAndBindOldSelected: function () {
+            remoteRestInterface.getTablesData({}).then((response) => {
+                let result = response.data;
+                console.log(response);
                 if (result.success) {
-                    _self.selectTableTree.dbLinkEntities=result.exKVData.dbLinkEntityList;
-                    _self.selectTableTree.allTableTreeData=result.data;
-                    _self.bindSelectTableTree(true);
-                    fuzzySearchTreeObj(_self.selectTableTree.tableTreeObj,_self.$refs.txt_table_search_text.$refs.input,null,true);
-                }
-                else {
-                    DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
-                }
-            },this);*/
-            remoteRestInterface.getTablesData({},(result)=>{
-                if (result.success) {
-                    this.selectTableTree.dbLinkEntities=result.exKVData.dbLinkEntityList;
-                    this.selectTableTree.allTableTreeData=result.data;
+                    this.selectTableTree.dbLinkEntities = result.exKVData.dbLinkEntityList;
+                    this.selectTableTree.allTableTreeData = result.data;
                     this.bindSelectTableTree(true);
-                    //debugger;
-                    //console.log(this.$refs.txt_table_search_text.$refs.input);
-                    fuzzySearchTreeObj(this.selectTableTree.tableTreeObj,this.$refs.txt_table_search_text.input,null,true);
-                }
-                else {
+                    fuzzySearchTreeObj(this.selectTableTree.tableTreeObj, this.$refs.txt_table_search_text.input, null, true);
+                } else {
                     DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
                 }
             });
@@ -351,17 +355,16 @@ export default {
         bindSelectTableTree: function (isGetCookieOldSelected) {
             //debugger;
 
-            var oldSelectedDBLinkId=CookieUtility.GetCookie("DBTRCDBLINKID");
-            if(oldSelectedDBLinkId&&isGetCookieOldSelected){
-                this.selectTableTree.oldSelectedDBLinkId=oldSelectedDBLinkId;
-            }
-            else{
-                oldSelectedDBLinkId=this.selectTableTree.oldSelectedDBLinkId;
+            var oldSelectedDBLinkId = CookieUtility.GetCookie("DBTRCDBLINKID");
+            if (oldSelectedDBLinkId && isGetCookieOldSelected) {
+                this.selectTableTree.oldSelectedDBLinkId = oldSelectedDBLinkId;
+            } else {
+                oldSelectedDBLinkId = this.selectTableTree.oldSelectedDBLinkId;
             }
 
-            var bindToTreeData=[];
+            var bindToTreeData = [];
 
-            for(var i=0;i<this.selectTableTree.allTableTreeData.length;i++) {
+            for (var i = 0; i < this.selectTableTree.allTableTreeData.length; i++) {
                 if (oldSelectedDBLinkId == this.selectTableTree.allTableTreeData[i].outerId) {
                     bindToTreeData.push(this.selectTableTree.allTableTreeData[i]);
                 }
@@ -372,49 +375,46 @@ export default {
             this.selectTableTree.tableTreeObj = $.fn.zTree.init($("#selectTableZTreeUL"), this.selectTableTree.tableTreeSetting, this.selectTableTree.tableTreeData);
             this.selectTableTree.tableTreeObj.expandAll(true);
         },
-        changeDBLink:function(dbLinkId){
-            CookieUtility.SetCookie1Month("DBTRCDBLINKID",dbLinkId);
+        changeDBLink: function (dbLinkId) {
+            CookieUtility.SetCookie1Month("DBTRCDBLINKID", dbLinkId);
             this.bindSelectTableTree(true);
         },
-        getMainTableDBLinkId:function(){
+        getMainTableDBLinkId: function () {
             //debugger;
-            for(var i=0;i<this.selectTableTree.allTableTreeData.length;i++){
-                if(this.selectTableTree.allTableTreeData[i].id==this.getMainTableId()){
+            for (var i = 0; i < this.selectTableTree.allTableTreeData.length; i++) {
+                if (this.selectTableTree.allTableTreeData[i].id == this.getMainTableId()) {
                     return this.selectTableTree.allTableTreeData[i].outerId;
                 }
             }
             return "";
         },
-        deleteSelectedRelationTreeNode:function(){
-            if(this.relationTableTree.currentSelectedNode){
-                if(!this.isSelectedRootRelationTableNode()){
-                    if(!this.relationTableTree.currentSelectedNode.isParent){
-                        for(var i=0;i<this.resultData.length;i++){
-                            if(this.resultData[i].id==this.relationTableTree.currentSelectedNode.id){
-                                this.resultData.splice(i,1);
+        deleteSelectedRelationTreeNode: function () {
+            if (this.relationTableTree.currentSelectedNode) {
+                if (!this.isSelectedRootRelationTableNode()) {
+                    if (!this.relationTableTree.currentSelectedNode.isParent) {
+                        for (var i = 0; i < this.resultData.length; i++) {
+                            if (this.resultData[i].id == this.relationTableTree.currentSelectedNode.id) {
+                                this.resultData.splice(i, 1);
                                 break;
                             }
                         }
-                        this.resultItemCopyEditEnableValue(this.currentEditorData,this.emptyEditorData);
-                        this.currentEditorData.id="";
-                        this.currentEditorData.parentId="";
+                        this.resultItemCopyEditEnableValue(this.currentEditorData, this.emptyEditorData);
+                        this.currentEditorData.id = "";
+                        this.currentEditorData.parentId = "";
                         this.$refs.sqlGeneralDesignComp.setValue("");
-                        this.relationTableEditorView.selPKData=[];
-                        this.relationTableEditorView.selSelfKeyData=[];
-                        this.relationTableEditorView.selForeignKeyData=[];
-                        this.relationTableEditorView.isShowTableEditDetail=false;
-                        this.relationTableTree.treeObj.removeNode(this.relationTableTree.currentSelectedNode,false);
-                        this.relationTableTree.currentSelectedNode=null;
-                    }
-                    else{
+                        this.relationTableEditorView.selPKData = [];
+                        this.relationTableEditorView.selSelfKeyData = [];
+                        this.relationTableEditorView.selForeignKeyData = [];
+                        this.relationTableEditorView.isShowTableEditDetail = false;
+                        this.relationTableTree.treeObj.removeNode(this.relationTableTree.currentSelectedNode, false);
+                        this.relationTableTree.currentSelectedNode = null;
+                    } else {
                         DialogUtility.AlertText("不能删除父节点!");
                     }
-                }
-                else{
+                } else {
                     DialogUtility.AlertText("不能删除根节点!");
                 }
-            }
-            else{
+            } else {
                 DialogUtility.AlertText("请选择要删除的节点!");
             }
         },
@@ -428,69 +428,65 @@ export default {
 
                 //debugger;
                 //如果已经设置了主表,则只能使用相同连接下的表
-                var mainTableDBLinkId=this.getMainTableDBLinkId();
-                if(mainTableDBLinkId){
-                    this.selectTableTree.oldSelectedDBLinkId=mainTableDBLinkId;
+                var mainTableDBLinkId = this.getMainTableDBLinkId();
+                if (mainTableDBLinkId) {
+                    this.selectTableTree.oldSelectedDBLinkId = mainTableDBLinkId;
                     this.bindSelectTableTree(false);
-                    this.selectTableTree.disabledDBLink=true;
+                    this.selectTableTree.disabledDBLink = true;
+                } else {
+                    this.selectTableTree.disabledDBLink = false;
                 }
-                else{
-                    this.selectTableTree.disabledDBLink=false;
-                }
-            }
-            else {
+            } else {
                 DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, "选择一个父节点!", null);
             }
         },
-        appendMainTableNodeProp:function(node){
+        appendMainTableNodeProp: function (node) {
             node._nodeExType = "MainNode";
             node.icon = this.treeNodeSetting.MainTableNodeImg;
         },
-        appendSubTableNodeProp:function(node){
+        appendSubTableNodeProp: function (node) {
             node._nodeExType = "SubNode";
             node.icon = this.treeNodeSetting.SubTableNodeImg;
         },
-        buildRelationTableNode:function(sourceNode,treeNodeId){
+        buildRelationTableNode: function (sourceNode, treeNodeId) {
             if (this.relationTableTree.currentSelectedNode._nodeExType == "root") {
                 //sourceNode._nodeExType = "MainNode";
                 //sourceNode.icon = this.treeNodeSetting.MainTableNodeImg;
                 this.appendMainTableNodeProp(sourceNode);
-            }
-            else {
+            } else {
                 //sourceNode._nodeExType = "SubNode";
                 //sourceNode.icon = this.treeNodeSetting.SubTableNodeImg;
                 this.appendSubTableNodeProp(sourceNode);
             }
-            sourceNode.tableId=sourceNode.id;
-            if(treeNodeId){
+            sourceNode.tableId = sourceNode.id;
+            if (treeNodeId) {
                 sourceNode.id = treeNodeId;
-            }
-            else {
+            } else {
                 sourceNode.id = StringUtility.Guid();
             }
             return sourceNode;
         },
-        getMainRelationTableNode:function(){
-            var node=this.relationTableTree.treeObj.getNodeByParam("_nodeExType", "MainNode");
-            if(node){
+        getMainRelationTableNode: function () {
+            var node = this.relationTableTree.treeObj.getNodeByParam("_nodeExType", "MainNode");
+            if (node) {
                 return node;
             }
             return null;
         },
-        getMainTableId:function() {
+        getMainTableId: function () {
             return this.getMainRelationTableNode() ? this.getMainRelationTableNode().tableId : "";
         },
-        getMainTableName:function() {
+        getMainTableName: function () {
             return this.getMainRelationTableNode() ? this.getMainRelationTableNode().value : "";
         },
-        getMainTableCaption:function() {
+        getMainTableCaption: function () {
             return this.getMainRelationTableNode() ? this.getMainRelationTableNode().attr1 : "";
         },
-        isSelectedRootRelationTableNode:function(){
+        isSelectedRootRelationTableNode: function () {
             return this.relationTableTree.currentSelectedNode.id == "-1";
         },
-        isSelectedMainRelationTableNode:function(){
-            return this.relationTableTree.currentSelectedNode._nodeExType=="MainNode";
+        isSelectedMainRelationTableNode: function () {
+            return this.relationTableTree.currentSelectedNode._nodeExType == "MainNode";
         },
         addTableToRelationTableTree: function (newNode) {
             //debugger;
@@ -508,10 +504,10 @@ export default {
             var newResultItem = this.getEmptyResultItem();
             newResultItem.id = newNode.id;
             newResultItem.parentId = this.relationTableTree.currentSelectedNode.id;
-            newResultItem.tableId=newNode.tableId;
-            newResultItem.tableName=newNode.value;
-            newResultItem.tableCaption=newNode.attr1;
-            newResultItem.tableCode=newNode.code;
+            newResultItem.tableId = newNode.tableId;
+            newResultItem.tableName = newNode.value;
+            newResultItem.tableCaption = newNode.attr1;
+            newResultItem.tableCode = newNode.code;
 
             this.resultData.push(newResultItem);
         },
@@ -519,91 +515,89 @@ export default {
             //return;
             //debugger;
             this.relationTableTree.currentSelectedNode = node;
-            this.relationTableEditorView.isShowTableEditDetail=!this.isSelectedRootRelationTableNode();
-            this.relationTableEditorView.isMainEditTr=this.isSelectedMainRelationTableNode();
-            this.relationTableEditorView.isSubEditTr=!this.isSelectedMainRelationTableNode();
-            if(this.isSelectedRootRelationTableNode()){
+            this.relationTableEditorView.isShowTableEditDetail = !this.isSelectedRootRelationTableNode();
+            this.relationTableEditorView.isMainEditTr = this.isSelectedMainRelationTableNode();
+            this.relationTableEditorView.isSubEditTr = !this.isSelectedMainRelationTableNode();
+            if (this.isSelectedRootRelationTableNode()) {
                 return
             }
             //debugger;
             //绑定主键的下拉列表
             //alert(node.id);
             //var parentNode=node.getParentNode();
-            this.relationTableEditorView.selPKData=this.getTableFieldsByTableId(node.tableId)!=null?this.getTableFieldsByTableId(node.tableId):[];
+            this.relationTableEditorView.selPKData = this.getTableFieldsByTableId(node.tableId) != null ? this.getTableFieldsByTableId(node.tableId) : [];
             //console.log(this.relationTableEditorView.selPKData);
             //绑定本身关联字段的下拉列表
-            this.relationTableEditorView.selSelfKeyData=this.getTableFieldsByTableId(node.tableId)!=null?this.getTableFieldsByTableId(node.tableId):[];
+            this.relationTableEditorView.selSelfKeyData = this.getTableFieldsByTableId(node.tableId) != null ? this.getTableFieldsByTableId(node.tableId) : [];
             //绑定外联字段的下拉列表
-            var parentNode=node.getParentNode();
-            this.relationTableEditorView.selForeignKeyData=this.getTableFieldsByTableId(parentNode.tableId)!=null?this.getTableFieldsByTableId(parentNode.tableId):[];
-            this.currentEditorData.id=this.relationTableTree.currentSelectedNode.id;
-            this.currentEditorData.parentId=parentNode.id;
+            var parentNode = node.getParentNode();
+            this.relationTableEditorView.selForeignKeyData = this.getTableFieldsByTableId(parentNode.tableId) != null ? this.getTableFieldsByTableId(parentNode.tableId) : [];
+            this.currentEditorData.id = this.relationTableTree.currentSelectedNode.id;
+            this.currentEditorData.parentId = parentNode.id;
 
 
             //从关联的结果数据中,查找出当前节点的数据,绑定到编辑窗口
-            var existResultItem=this.getExistResultItem(node.id);
-            if(existResultItem!=null){
-                this.resultItemCopyEditEnableValue(this.currentEditorData,existResultItem);
+            var existResultItem = this.getExistResultItem(node.id);
+            if (existResultItem != null) {
+                this.resultItemCopyEditEnableValue(this.currentEditorData, existResultItem);
                 //调用sql编辑的组件,进行赋值
-                var _self=this;
+                var _self = this;
                 window.setTimeout(function () {
                     _self.$refs.sqlGeneralDesignComp.setValue(_self.currentEditorData.condition);
                     //_self.$refs.sqlGeneralDesignComp.selfTableFields=_self.relationTableEditorView.selSelfKeyData;
-                    _self.$refs.sqlGeneralDesignComp.setAboutTableFields(_self.relationTableEditorView.selSelfKeyData,_self.relationTableEditorView.selForeignKeyData);
-                },600);
+                    _self.$refs.sqlGeneralDesignComp.setAboutTableFields(_self.relationTableEditorView.selSelfKeyData, _self.relationTableEditorView.selForeignKeyData);
+                }, 600);
                 //debugger;
-            }
-            else{
+            } else {
                 alert("通过getExistResultItem获取不到数据!");
             }
         },
-        getResultData:function(){
+        getResultData: function () {
             return this.resultData;
         },
-        serializeRelation:function(isFormat){
+        serializeRelation: function (isFormat) {
             alert("serializeRelation已经停用");
             return;
-            if(isFormat){
+            if (isFormat) {
                 return JsonUtility.JsonToStringFormat(this.resultData);
             }
             return JsonUtility.JsonToString(this.resultData);
         },
-        deserializeRelation:function(jsonString){
+        deserializeRelation: function (jsonString) {
             alert("deserializeRelation已经停用");
             return;
         },
-        getValue:function(){
-            var result={
-                mainTableId:this.getMainTableId(),
-                mainTableName:this.getMainTableName(),
-                mainTableCaption:this.getMainTableCaption(),
-                relationData:this.resultData
+        getValue: function () {
+            var result = {
+                mainTableId: this.getMainTableId(),
+                mainTableName: this.getMainTableName(),
+                mainTableCaption: this.getMainTableCaption(),
+                relationData: this.resultData
             }
             return result;
         },
-        setValue:function(jsonString){
+        setValue: function (jsonString) {
             //debugger;
-            var tempData=JsonUtility.StringToJson(jsonString);
-            this.resultData=tempData;
+            var tempData = JsonUtility.StringToJson(jsonString);
+            this.resultData = tempData;
             //构造树形式的展现
             //转换数据为树格式的数据
-            var treeNodeData=new Array();
-            for(var i=0;i<tempData.length;i++){
-                var treeNode={
-                    "value":tempData[i].tableName,
-                    "attr1":tempData[i].tableCaption,
-                    "text":"【"+tempData[i].tableCode+"】"+tempData[i].tableCaption+"【"+tempData[i].tableName+"】",
-                    "id":tempData[i].id,
-                    "parentId":tempData[i].parentId,
-                    "tableId":tempData[i].tableId,
-                    "tableName":tempData[i].tableName,
-                    "tableCaption":tempData[i].tableCaption,
-                    "tableCode":tempData[i].tableCode
+            var treeNodeData = new Array();
+            for (var i = 0; i < tempData.length; i++) {
+                var treeNode = {
+                    "value": tempData[i].tableName,
+                    "attr1": tempData[i].tableCaption,
+                    "text": "【" + tempData[i].tableCode + "】" + tempData[i].tableCaption + "【" + tempData[i].tableName + "】",
+                    "id": tempData[i].id,
+                    "parentId": tempData[i].parentId,
+                    "tableId": tempData[i].tableId,
+                    "tableName": tempData[i].tableName,
+                    "tableCaption": tempData[i].tableCaption,
+                    "tableCode": tempData[i].tableCode
                 }
-                if(tempData[i].parentId=="-1"){
+                if (tempData[i].parentId == "-1") {
                     this.appendMainTableNodeProp(treeNode);
-                }
-                else{
+                } else {
                     this.appendSubTableNodeProp(treeNode);
                 }
                 //tempData[i].value=tempData[i].tableName;
@@ -614,22 +608,21 @@ export default {
             //this.relationTableTree.treeObj.removeChildNodes(this.relationTableTree.tableTreeRootData);
             treeNodeData.push(this.relationTableTree.tableTreeRootData);
             //debugger;
-            this.relationTableTree.treeObj = $.fn.zTree.init($("#dataRelationZTreeUL"), this.relationTableTree.tableTreeSetting,treeNodeData);
+            this.relationTableTree.treeObj = $.fn.zTree.init($("#dataRelationZTreeUL"), this.relationTableTree.tableTreeSetting, treeNodeData);
             this.relationTableTree.treeObj.expandAll(true);
         },
-        alertSerializeRelation:function(){
+        alertSerializeRelation: function () {
             DialogUtility.AlertJsonCode(this.resultData);
         },
-        inputDeserializeRelation:function(){
-            DialogUtility.Prompt(window,{
+        inputDeserializeRelation: function () {
+            DialogUtility.Prompt(window, {
                 width: 900,
                 height: 600
-            },DialogUtility.DialogPromptId,"请贴入数据关联Json设置字符串",function (jsonString) {
-                try{
+            }, DialogUtility.DialogPromptId, "请贴入数据关联Json设置字符串", function (jsonString) {
+                try {
                     window._dbtablerelationcomp.setValue(jsonString);
-                }
-                catch (e) {
-                    alert("反序列化失败:"+e);
+                } catch (e) {
+                    alert("反序列化失败:" + e);
                 }
             });
         }

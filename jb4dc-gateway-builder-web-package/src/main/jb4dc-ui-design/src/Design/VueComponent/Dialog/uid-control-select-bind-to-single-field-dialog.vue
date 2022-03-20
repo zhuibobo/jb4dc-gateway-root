@@ -1,6 +1,7 @@
 <template>
     <div style="position: absolute;top: -1000px">
-        <div ref="fdControlSelectBindToSingleFieldDialogWrap" class="general-edit-page-wrap html-design-plugin-dialog-wraper">
+        <div ref="fdControlSelectBindToSingleFieldDialogWrap"
+             class="general-edit-page-wrap html-design-plugin-dialog-wraper">
             <div class="select-table-wraper">
                 <a-divider orientation="left" :plain="true">选择表</a-divider>
                 <!--<input type="text" id="txtSearchTableTree" style="width: 100%;height: 32px;margin-top: 2px" />-->
@@ -14,7 +15,9 @@
                              size="small" :customRow="customRow" :scroll="{ y: 450 }" :pagination="false">
                         <template #bodyCell="{ column, record }">
                             <template v-if="column.dataIndex === 'isSelectedToBind'">
-                                <div class="list-row-button-wrap" v-if="record[column.dataIndex] === '1'"><div class="list-row-button selected"></div></div>
+                                <div class="list-row-button-wrap" v-if="record[column.dataIndex] === '1'">
+                                    <div class="list-row-button selected"></div>
+                                </div>
                                 <div></div>
                             </template>
                         </template>
@@ -23,8 +26,8 @@
             </div>
             <div class="button-outer-wrap">
                 <div class="button-inner-wrap">
-                    <a-button type="primary" @click="selectComplete()"> 确 认 </a-button>
-                    <a-button type="primary" @click="clearComplete()"> 清 空 </a-button>
+                    <a-button type="primary" @click="selectComplete()"> 确 认</a-button>
+                    <a-button type="primary" @click="clearComplete()"> 清 空</a-button>
                     <a-button @click="handleClose()">关 闭</a-button>
                 </div>
             </div>
@@ -34,18 +37,19 @@
 
 <script>
 import remoteRestInterface from "../../Remote/RemoteRestInterface.js"
+
 export default {
     name: "uid-control-select-bind-to-single-field-dialog",
-    data:function () {
-        var _self=this;
+    data: function () {
+        var _self = this;
         return {
             acInterface: {
                 getTablesDataUrl: "/Rest/Builder/DataStorage/DataBase/Table/GetTablesForZTreeNodeList",
                 getTableFieldsDataUrl: "/Rest/Builder/DataStorage/DataBase/Table/GetTableFieldsByTableId",
-                getTablesFieldsByTableIds:"/Rest/Builder/DataStorage/DataBase/Table/GetTablesFieldsByTableIds"
+                getTablesFieldsByTableIds: "/Rest/Builder/DataStorage/DataBase/Table/GetTablesFieldsByTableIds"
             },
             selectedData: {
-                relationId:"",
+                relationId: "",
                 tableId: "",
                 tableName: "",
                 tableCaption: "",
@@ -113,8 +117,8 @@ export default {
                             _self.selectedData.fieldLength = "";
 
                             //window.setTimeout(function (){
-                                _self.fieldTable.fieldData = [];
-                                _self.filterAllFieldsToTable(_self.selectedData.tableId);
+                            _self.fieldTable.fieldData = [];
+                            _self.filterAllFieldsToTable(_self.selectedData.tableId);
                             //},1000);
                         },
                         onDblClick: function (event, treeId, treeNode) {
@@ -137,7 +141,7 @@ export default {
                         title: '选中',
                         width: 60,
                         align: "center",
-                        dataIndex:"isSelectedToBind",
+                        dataIndex: "isSelectedToBind",
                         key: 'isSelectedToBind'/*,
                         render: function (h, params) {
                             //console.log(params);
@@ -158,32 +162,32 @@ export default {
                     },
                     {
                         title: '名称',
-                        dataIndex:"fieldName",
+                        dataIndex: "fieldName",
                         key: 'fieldName',
                         align: "center"
                     }, {
                         title: '标题',
-                        dataIndex:"fieldCaption",
+                        dataIndex: "fieldCaption",
                         key: 'fieldCaption',
                         align: "center"
                     }
                 ]
             },
-            oldRelationDataString:"",
-            relationData:null,
-            allFields:null,
-            oldBindFieldData:null
+            oldRelationDataString: "",
+            relationData: null,
+            allFields: null,
+            oldBindFieldData: null
         }
     },
-    mounted:function (){
+    mounted: function () {
         /*window.setTimeout(function () {
             appSelectView.bindOldSelectedValue();
             appSelectView.bindHistorySelectedValue();
             appSelectView.bindTableTree();
         },400);*/
     },
-    methods:{
-        beginSelect:function (relationData,oldBindFieldData) {
+    methods: {
+        beginSelect: function (relationData, oldBindFieldData) {
             console.log("关联表数据：")
             console.log(relationData);
             console.log("已经绑定了的数据：")
@@ -217,18 +221,18 @@ export default {
                 "fieldLength": ""
             };*/
 
-            if(relationData==null||relationData==""||relationData.length==0){
+            if (relationData == null || relationData == "" || relationData.length == 0) {
                 DialogUtility.AlertText("请先设置表单的数据关联！");
                 //$(window.document).find(".ui-widget-overlay").css("zIndex",10100);
                 //$(window.document).find(".ui-dialog").css("zIndex",10101);
                 return;
             }
             //alert(PageStyleUtility.GetPageHeight());
-            var elem=this.$refs.fdControlSelectBindToSingleFieldDialogWrap;
+            var elem = this.$refs.fdControlSelectBindToSingleFieldDialogWrap;
             //debugger;
             //this.getTableDataInitTree();
 
-            var height=450;
+            var height = 450;
             /*if(PageStyleUtility.GetPageHeight()>550){
                 height=600;
             }*/
@@ -243,46 +247,45 @@ export default {
             //$(window.document).find(".ui-widget-overlay").css("zIndex",10100);
             //$(window.document).find(".ui-dialog").css("zIndex",10101);
 
-            this.oldBindFieldData=oldBindFieldData;
-            this.selectedData=JsonUtility.CloneSimple(oldBindFieldData);
-            if (JsonUtility.JsonToString(relationData)!=this.oldRelationDataString){
-                for(var i=0;i<relationData.length;i++){
-                    relationData[i].displayText=relationData[i].tableName+"["+relationData[i].tableCaption+"]("+relationData[i].relationType+")";
-                    if(relationData[i].parentId=="-1"){
-                        relationData[i].displayText=relationData[i].tableName+"["+relationData[i].tableCaption+"]";
+            this.oldBindFieldData = oldBindFieldData;
+            this.selectedData = JsonUtility.CloneSimple(oldBindFieldData);
+            if (JsonUtility.JsonToString(relationData) != this.oldRelationDataString) {
+                for (var i = 0; i < relationData.length; i++) {
+                    relationData[i].displayText = relationData[i].tableName + "[" + relationData[i].tableCaption + "](" + relationData[i].relationType + ")";
+                    if (relationData[i].parentId == "-1") {
+                        relationData[i].displayText = relationData[i].tableName + "[" + relationData[i].tableCaption + "]";
                     }
                     relationData[i].icon = "Images/Png16X16/table.png";
                 }
                 //将relationData的数据进行装换，用于形成树节点的数据
                 //将关联数据加载成为树，并从服务端加载字段信息。
-                this.tableTree.tableTreeObj=$.fn.zTree.init($("#tableZTreeUL"), this.tableTree.tableTreeSetting,relationData);
+                this.tableTree.tableTreeObj = $.fn.zTree.init($("#tableZTreeUL"), this.tableTree.tableTreeSetting, relationData);
                 this.tableTree.tableTreeObj.expandAll(true);
 
-                this.oldRelationDataString=JsonUtility.JsonToString(relationData);
-                this.relationData=relationData;
+                this.oldRelationDataString = JsonUtility.JsonToString(relationData);
+                this.relationData = relationData;
                 this.getAllTablesFields(relationData);
-            }
-            else{
+            } else {
                 this.resetFieldToSelectedStatus(this.allFields);
             }
 
-            if(oldBindFieldData&&oldBindFieldData.tableId&&oldBindFieldData.tableId!="") {
+            if (oldBindFieldData && oldBindFieldData.tableId && oldBindFieldData.tableId != "") {
                 var selectedNode = this.tableTree.tableTreeObj.getNodeByParam("tableId", oldBindFieldData.tableId);
                 //debugger;
                 this.tableTree.tableTreeObj.selectNode(selectedNode, false, true);
             }
         },
-        resetFieldToSelectedStatus:function(_allFields){
+        resetFieldToSelectedStatus: function (_allFields) {
             //debugger;
-            for(var i=0;i<this.fieldTable.fieldData.length;i++){
-                this.fieldTable.fieldData[i].isSelectedToBind="0";
+            for (var i = 0; i < this.fieldTable.fieldData.length; i++) {
+                this.fieldTable.fieldData[i].isSelectedToBind = "0";
                 //this.fieldTable.fieldData[i].fieldDesc='1';
             }
             //console.log(this.fieldTable.fieldData);
             //var temp=this.fieldTable.fieldData;
             //this.fieldTable.fieldData=[];
             //this.fieldTable.fieldData=temp;
-            if(_allFields) {
+            if (_allFields) {
                 for (var i = 0; i < _allFields.length; i++) {
                     _allFields[i].isSelectedToBind = "0";
                     if (_allFields[i].fieldTableId == this.oldBindFieldData.tableId) {
@@ -295,9 +298,9 @@ export default {
             }
             this.filterAllFieldsToTable(this.oldBindFieldData.tableId);
         },
-        getAllTablesFields:function(relationData){
-            var tableIds=[];
-            for(var i=0;i<relationData.length;i++){
+        getAllTablesFields: function (relationData) {
+            var tableIds = [];
+            for (var i = 0; i < relationData.length; i++) {
                 tableIds.push(relationData[i].tableId);
             }
             /*var _self=this;
@@ -314,23 +317,23 @@ export default {
                     DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
                 }
             },this);*/
-            remoteRestInterface.getAllTablesFields({"tableIds": tableIds},(result)=>{
+            remoteRestInterface.getAllTablesFields({"tableIds": tableIds}).then((response) => {
+                let result = response.data;
                 if (result.success) {
                     let allFields = result.data;
                     let singleTable = result.exKVData.Tables[0];
                     console.log("重新获取数据");
                     console.log(allFields);
                     this.resetFieldToSelectedStatus(allFields);
-                }
-                else {
+                } else {
                     DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
                 }
             })
         },
-        filterAllFieldsToTable:function(tableId){
-            if(tableId) {
-                var fields = [];
-                for (var i = 0; i < this.allFields.length; i++) {
+        filterAllFieldsToTable: function (tableId) {
+            if (tableId) {
+                let fields = [];
+                for (let i = 0; i < this.allFields.length; i++) {
                     if (this.allFields[i].fieldTableId == tableId) {
                         fields.push(this.allFields[i]);
                     }
@@ -420,21 +423,21 @@ export default {
         getSelectInstanceName:function () {
             return BaseUtility.GetUrlParaValue("instanceName");
         },*/
-        selectedField:function(selection,index){
+        selectedField: function (selection, index) {
             //alert(selection.fieldName);
-            this.selectedData.fieldName=selection.fieldName;
-            this.selectedData.fieldCaption=selection.fieldCaption;
-            this.selectedData.fieldDataType=selection.fieldDataType;
-            this.selectedData.fieldLength=selection.fieldDataLength;
+            this.selectedData.fieldName = selection.fieldName;
+            this.selectedData.fieldCaption = selection.fieldCaption;
+            this.selectedData.fieldDataType = selection.fieldDataType;
+            this.selectedData.fieldLength = selection.fieldDataLength;
 
             //根据选中的表id,从树结构中获取表的相关信息
             let selectedNode = this.tableTree.tableTreeObj.getNodeByParam("tableId", selection.fieldTableId);
             this.selectedData.tableId = selectedNode.tableId;
             this.selectedData.tableName = selectedNode.tableName;
             this.selectedData.tableCaption = selectedNode.tableCaption;
-            this.selectedData.relationId=selectedNode.id;
+            this.selectedData.relationId = selectedNode.id;
             //console.log(this.selectedData);
-            if(this.allFields) {
+            if (this.allFields) {
                 for (let i = 0; i < this.allFields.length; i++) {
                     this.allFields[i].isSelectedToBind = "0";
                     if (this.allFields[i].fieldTableId == this.selectedData.tableId) {
@@ -445,28 +448,27 @@ export default {
                 }
             }
         },
-        selectComplete:function () {
-            let result=this.selectedData;
-            if(!StringUtility.IsNullOrEmpty(result.tableId)&&!StringUtility.IsNullOrEmpty(result.fieldName)) {
+        selectComplete: function () {
+            let result = this.selectedData;
+            if (!StringUtility.IsNullOrEmpty(result.tableId) && !StringUtility.IsNullOrEmpty(result.fieldName)) {
                 //window.OpenerWindowObj[this.getSelectInstanceName()].setSelectFieldResultValue(result);
                 //this.setHistorySelectedTableDataToCookie(result.tableId,result.tableName,result.tableCaption);
                 this.$emit('on-selected-bind-to-single-field', result);
                 this.handleClose();
-            }
-            else{
-                DialogUtility.Alert(window, DialogUtility.DialogAlertId, {},"请选择需要绑定的字段!", null);
+            } else {
+                DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, "请选择需要绑定的字段!", null);
             }
         },
-        clearComplete:function(){
+        clearComplete: function () {
             window.OpenerWindowObj[this.getSelectInstanceName()].setSelectFieldResultValue(null);
             this.handleClose();
         },
         handleClose: function () {
             DialogUtility.CloseDialogElem(this.$refs.fdControlSelectBindToSingleFieldDialogWrap);
         },
-        customRow:function (record) {
+        customRow: function (record) {
             return {
-                onClick:(event)=>{
+                onClick: (event) => {
                     console.log(event);
                     console.log(record);
                     this.selectedField(record);

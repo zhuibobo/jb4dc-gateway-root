@@ -1,20 +1,26 @@
 import GeneralPlugin from "../../GeneralPlugin";
 
-let WLDCT_ListTableContainerPlugin={
-    singleName:"WLDCT_ListTableContainer",
-    config:GeneralPlugin.configProp,
-    _$elem:null,
-    id:null,
-    props:JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
-    buildInstanceObj(instanceId){
-        return GeneralPlugin.newControlInstance(this,instanceId);
+let WLDCT_ListTableContainerPlugin = {
+    singleName: "WLDCT_ListTableContainer",
+    config: GeneralPlugin.configProp,
+    _$elem: null,
+    id: null,
+    props: JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
+    buildInstanceObj(instanceId) {
+        return GeneralPlugin.newControlInstance(this, instanceId);
     },
     constructionElem() {
         this._$elem = $(`<div class="uid-wldct-container-wrap uid-wldct-list-table-container-wrap">
                              <table class="list-table" contenteditable="true">
+                                 <colgroup>
+                                    <col style="width: 8%" />
+                                    <col style="width: 68%" />
+                                    <col style="width: 8%" />
+                                    <col style="width: 8%" />
+                                    <col style="width: 8%" />
+                                 </colgroup>
                                  <thead>
                                      <tr>
-                                         <th></th>
                                          <th></th>
                                          <th></th>
                                          <th></th>
@@ -24,7 +30,6 @@ let WLDCT_ListTableContainerPlugin={
                                  </thead>
                                  <tbody>
                                      <tr>
-                                         <td></td>
                                          <td></td>
                                          <td></td>
                                          <td></td>
@@ -56,29 +61,30 @@ let WLDCT_ListTableContainerPlugin={
         });
         return this._$elem;
     },
-    setElem($elem){
-        this._$elem=$elem;
+    setElem($elem) {
+        this._$elem = $elem;
     },
-    registeredEvent($elem){
+    registeredEvent($elem) {
         let rd = REDIPS.drag;
         rd.init(this._$elem.attr("id"));
-        GeneralPlugin.registeredGeneralEvent(this._$elem,this);
+        GeneralPlugin.registeredGeneralEvent(this._$elem, this);
     },
-    dropControlToContainer(plugin,$dropToTarget,$dropToLayout){
-        let controlInstance=plugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(plugin.singleName)).instance;
-        let $elem=controlInstance.constructionElem();
+    dropControlToContainer(plugin, $dropToTarget, $dropToLayout) {
+        let controlInstance = plugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(plugin.singleName)).instance;
+        let $elem = controlInstance.constructionElem();
         console.log($elem);
         $dropToTarget.append($elem);
-        if(typeof(controlInstance.registeredEvent)=="function"){
+        if (typeof (controlInstance.registeredEvent) == "function") {
             controlInstance.registeredEvent($elem);
         }
 
         let rd = REDIPS.drag;
         rd.init($dropToLayout.attr("id"));
         REDIPS.drag.enableDrag('init');
-    }
+    },
+    getContextMenu: GeneralPlugin.getTableEditorContextMenu
 }
 
-GeneralPlugin.registeredPlugin(WLDCT_ListTableContainerPlugin.singleName,WLDCT_ListTableContainerPlugin);
+GeneralPlugin.registeredPlugin(WLDCT_ListTableContainerPlugin.singleName, WLDCT_ListTableContainerPlugin);
 
-export { WLDCT_ListTableContainerPlugin as default};
+export {WLDCT_ListTableContainerPlugin as default};

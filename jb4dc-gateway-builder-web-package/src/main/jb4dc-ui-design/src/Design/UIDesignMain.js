@@ -1,4 +1,4 @@
-import { createApp } from 'vue';
+import {createApp} from 'vue';
 import uiDesignMain from './ui-design-main.vue'
 import "../Less/UIDesignMain.less";
 import "../Less/UIRuntimeMain.less";
@@ -9,7 +9,7 @@ import "../Less/EditTable.less";
 //import uidJsEditorComponent from './Component/MainTab/uid-js-editor-component.vue'
 //import uidWysiwygPluginListComponent from './Component/MainTab/uid-wysiwyg-plugin-list-component.vue'
 
-import uidEmptyComp from './Component/uid-empty-comp.vue'
+//import uidEmptyComp from './Component/uid-empty-comp.vue'
 
 //import uidAppFormBaseInfoComponent from './Component/BaseInfo/uid-app-form-base-info-component.vue'
 //import uidAppListBaseInfoComponent from './Component/BaseInfo/uid-app-list-base-info-component.vue'
@@ -20,15 +20,15 @@ import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 //import * as Icons from '@ant-design/icons-vue';
 
-import allPluginsPropertyVue  from './Plugins/IndexVue'
-import allComponentVue  from './Component/IndexVue'
+import allPluginsPropertyVue from './Plugins/IndexVue'
+import allComponentVue from './VueComponent/IndexVue'
 
 const app = createApp(uiDesignMain) // 通过 createApp 初始化 app
 //app.component('uid-wysiwyg-component', uidWysiwygComponent)
 //app.component('uid-html-editor-component', uidHtmlEditorComponent)
 //app.component('uid-js-editor-component', uidJsEditorComponent)
 //app.component('uid-wysiwyg-plugin-list-component', uidWysiwygPluginListComponent)
-app.component('uid-empty-comp', uidEmptyComp)
+//app.component('uid-empty-comp', uidEmptyComp)
 //app.component('uid-app-form-base-info-component', uidAppFormBaseInfoComponent)
 //app.component('uid-app-list-base-info-component', uidAppListBaseInfoComponent)
 //app.component('uid-web-form-base-info-component', uidWebFormBaseInfoComponent)

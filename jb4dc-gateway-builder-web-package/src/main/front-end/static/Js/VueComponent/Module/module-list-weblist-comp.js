@@ -1,17 +1,17 @@
 /*html编辑器中的元素辅助列表*/
 Vue.component("module-list-weblist-comp", {
-    props:['listHeight','moduleData','activeTabName'],
+    props: ['listHeight', 'moduleData', 'activeTabName'],
     data: function () {
-        var _self=this;
+        var _self = this;
 
         return {
-            acInterface:{
+            acInterface: {
                 editView: "/HTML/Builder/List/ListDesign.html",
-                editViewVersion2:"/HTML/UIDesign/UIDesignMain.html",
+                editViewVersion2: "/HTML/UIDesign/UIDesignMain.html",
                 reloadData: "/Rest/Builder/List/GetListDataForModule",
                 delete: "/Rest/Builder/List/Delete",
                 move: "/Rest/Builder/List/Move",
-                copyList:"/Rest/Builder/List/CopyList"
+                copyList: "/Rest/Builder/List/CopyList"
             },
             idFieldName: "listId",
             searchCondition: {
@@ -71,58 +71,56 @@ Vue.component("module-list-weblist-comp", {
                     render: function (h, params) {
                         //console.log(params);
                         //console.log(this);
-                        return h('div',{class: "list-row-button-wrap"},[
-                            ListPageUtility.IViewTableInnerButton.EditButton(h,params,_self.idFieldName,_self),
-                            ListPageUtility.IViewTableInnerButton.DeleteButton(h,params,_self.idFieldName,_self)
+                        return h('div', {class: "list-row-button-wrap"}, [
+                            ListPageUtility.IViewTableInnerButton.EditButton(h, params, _self.idFieldName, _self),
+                            ListPageUtility.IViewTableInnerButton.DeleteButton(h, params, _self.idFieldName, _self)
                         ]);
                     }
                 }
             ],
             tableData: [],
-            tableDataOriginal:[],
+            tableDataOriginal: [],
             selectionRows: null,
             pageTotal: 0,
             pageSize: 500,
             pageNum: 1,
-            searchText:""
+            searchText: ""
         }
     },
-    mounted:function(){
+    mounted: function () {
         //this.reloadData();
         //将对象附加到window上,提供给后边进行操作
-        window._modulelistweblistcomp=this;
+        window._modulelistweblistcomp = this;
         //alert(this.activeTabName);
         //alert(this.listHeight);
     },
     watch: {
-        moduleData:function (newVal) {
+        moduleData: function (newVal) {
             this.reloadData();
         },
-        activeTabName:function (newVal) {
+        activeTabName: function (newVal) {
             //alert(this.activeTabName);
             this.reloadData();
         },
-        searchText:function (newVal) {
+        searchText: function (newVal) {
             //console.log(this.searchText);
-            if(newVal) {
+            if (newVal) {
                 var filterTableData = [];
                 for (var i = 0; i < this.tableData.length; i++) {
                     var row = this.tableData[i];
                     if (row.formCode.indexOf(newVal) >= 0) {
                         filterTableData.push(row);
-                    }
-                    else if (row.formName.indexOf(newVal) >= 0) {
+                    } else if (row.formName.indexOf(newVal) >= 0) {
                         filterTableData.push(row);
                     }
                 }
                 this.tableData = filterTableData;
-            }
-            else{
-                this.tableData = this.tableDataOriginal ;
+            } else {
+                this.tableData = this.tableDataOriginal;
             }
         }
     },
-    methods:{
+    methods: {
         getModuleName: function () {
             return this.moduleData == null ? "请选中模块." : this.moduleData.moduleText;
         },
@@ -131,7 +129,7 @@ Vue.component("module-list-weblist-comp", {
         },
         reloadData: function () {
             //debugger;
-            if(this.moduleData!=null&&this.activeTabName=="list-weblist") {
+            if (this.moduleData != null && this.activeTabName == "list-weblist") {
                 this.searchCondition.listModuleId.value = this.moduleData.moduleId;
                 /*ListPageUtility.IViewTableLoadDataSearch(this.acInterface.reloadData, this.pageNum, this.pageSize, this.searchCondition, this, this.idFieldName, true, function (result,pageAppObj) {
                     pageAppObj.tableDataOriginal=result.data.list;
@@ -145,17 +143,17 @@ Vue.component("module-list-weblist-comp", {
                     tableList: this,
                     idField: this.idFieldName,
                     autoSelectedOldRows: true,
-                    successFunc: function (result,pageAppObj) {
-                        pageAppObj.tableDataOriginal=result.data.list;
+                    successFunc: function (result, pageAppObj) {
+                        pageAppObj.tableDataOriginal = result.data.list;
                     },
                     loadDict: false,
                     custParas: {},
-                    _expandedALL:true
+                    _expandedALL: true
                 });
             }
         },
         add: function () {
-            if(this.moduleData!=null) {
+            if (this.moduleData != null) {
                 var url = BaseUtility.BuildView(this.acInterface.editView, {
                     "op": "add",
                     "moduleId": this.moduleData.moduleId
@@ -163,28 +161,26 @@ Vue.component("module-list-weblist-comp", {
                 //alert(url);
                 //DialogUtility.OpenNewWindow(window, DialogUtility.DialogId, url, {width: 0, height: 0}, 2);
                 DialogUtility.OpenNewTabWindow(url);
-            }
-            else {
+            } else {
                 DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, "请选择模块!", null);
             }
         },
-        addVersion2:function (){
-            if(this.moduleData!=null) {
+        addVersion2: function () {
+            if (this.moduleData != null) {
                 var url = BaseUtility.BuildView(this.acInterface.editViewVersion2, {
                     "op": "add",
-                    "uiDesignType":"webListDesign",
+                    "uiDesignType": "webListDesign",
                     "moduleId": this.moduleData.moduleId
                 });
                 DialogUtility.OpenNewTabWindow(url);
-            }
-            else {
+            } else {
                 DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, "请选择模块!", null);
             }
         },
         edit: function (recordId) {
             //debugger;
             //alert(recordId);
-            if(recordId=="75ffdba7-bef1-4342-87de-d16578afb5da"){
+            if (recordId == "75ffdba7-bef1-4342-87de-d16578afb5da" || recordId == "8318f6ec-3c94-4e6f-b561-76c881f35899") {
                 this.editViewVersion2(recordId);
                 return;
             }
@@ -196,10 +192,10 @@ Vue.component("module-list-weblist-comp", {
             //DialogUtility.OpenNewWindow(window, DialogUtility.DialogId, url, {width: 0, height: 0}, 2);
             DialogUtility.OpenNewTabWindow(url);
         },
-        editViewVersion2: function (recordId){
+        editViewVersion2: function (recordId) {
             var url = BaseUtility.BuildView(this.acInterface.editViewVersion2, {
                 "op": "update",
-                "uiDesignType":"webListDesign",
+                "uiDesignType": "webListDesign",
                 "moduleId": this.moduleData.moduleId,
                 "recordId": recordId
             });
@@ -214,14 +210,14 @@ Vue.component("module-list-weblist-comp", {
         move: function (type) {
             ListPageUtility.IViewMoveFace(this.acInterface.move, this.selectionRows, this.idFieldName, type, this);
         },
-        copy:function () {
-            ListPageUtility.IViewTableMareSureSelectedOne(this.selectionRows,this).then(function (selectionRows) {
+        copy: function () {
+            ListPageUtility.IViewTableMareSureSelectedOne(this.selectionRows, this).then(function (selectionRows) {
                 var recordId = selectionRows[0][this.idFieldName];
                 AjaxUtility.Post(this.acInterface.copyList, {listId: recordId}, function (result) {
                     if (result.success) {
                         DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, function () {
                             this.reloadData();
-                        },this);
+                        }, this);
                     }
                 }, this);
             });

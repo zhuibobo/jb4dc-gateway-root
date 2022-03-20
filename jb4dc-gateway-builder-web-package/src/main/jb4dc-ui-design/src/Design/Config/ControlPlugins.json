@@ -239,7 +239,7 @@
                 "text": "查询单行输入框",
                 "class": "",
                 "icon": "textfield.png",
-                "dragTo": "WLDCT_ListSimpleSearchContainer,WLDCT_ListComplexSearchContainer",
+                "dragTo": "WLDCT_ListSimpleSearchContainer,WLDCT_ListComplexSearchContainer,WLDCT_HideContainer",
                 "serverResolve": "",
                 "clientResolve": "",
                 "clientResolveJs": "",

@@ -2,8 +2,8 @@
     <div class="ui-design-main-root">
         <div id="ui-design-main-tabs" style="height:calc(100% - 10px);flex-grow: 2">
             <ul>
-                <li><a href="#uid-base-editor-comp-tab">基础信息</a></li>
                 <li><a href="#uid-wysiwyg-comp-tab">界面设计</a></li>
+                <li><a href="#uid-base-editor-comp-tab">基础信息</a></li>
                 <li><a href="#uid-html-code-editor-comp-tab">HTML源码</a></li>
                 <li><a href="#uid-js-code-editor-comp-tab">JS源码</a></li>
                 <li><a href="#uid-css-code-editor-comp-tab">CSS</a></li>
@@ -11,34 +11,38 @@
                 <li><a href="#uid-extend-dataset-comp-tab">扩展数据集</a></li>
                 <li><a href="#uid-extend-paras-comp-tab">扩展参数</a></li>
             </ul>
-            <div id="uid-base-editor-comp-tab" class="tab-panel">
-                <div>
-                    <component v-bind:is="baseInfoComponentName" ref="uidBaseInfoComponent"></component>
-                </div>
-            </div>
             <div id="uid-wysiwyg-comp-tab" class="tab-panel">
                 <div>
                     <uid-wysiwyg-comp :ui-design-type="uiDesignType" ref="uidWysiwygComp"></uid-wysiwyg-comp>
                 </div>
             </div>
+            <div id="uid-base-editor-comp-tab" class="tab-panel">
+                <div>
+                    <component v-bind:is="baseInfoComponentName" ref="uidBaseInfoComponent"></component>
+                </div>
+            </div>
             <div id="uid-html-code-editor-comp-tab" class="tab-panel">
                 <div>
-                    <uid-html-code-editor-comp :ui-design-type="uiDesignType" ref="uidHtmlCodeEditorComp"></uid-html-code-editor-comp>
+                    <uid-html-code-editor-comp :ui-design-type="uiDesignType"
+                                               ref="uidHtmlCodeEditorComp"></uid-html-code-editor-comp>
                 </div>
             </div>
             <div id="uid-js-code-editor-comp-tab" class="tab-panel">
                 <div>
-                    <uid-js-code-editor-comp :ui-design-type="uiDesignType" ref="uidJSCodeEditorComp"></uid-js-code-editor-comp>
+                    <uid-js-code-editor-comp :ui-design-type="uiDesignType"
+                                             ref="uidJSCodeEditorComp"></uid-js-code-editor-comp>
                 </div>
             </div>
             <div id="uid-css-code-editor-comp-tab" class="tab-panel">
                 <div>
-                    <uid-css-code-editor-comp :ui-design-type="uiDesignType" ref="uidCssCodeEditorComp"></uid-css-code-editor-comp>
+                    <uid-css-code-editor-comp :ui-design-type="uiDesignType"
+                                              ref="uidCssCodeEditorComp"></uid-css-code-editor-comp>
                 </div>
             </div>
             <div id="uid-design-description-comp-tab" class="tab-panel">
                 <div>
-                    <uid-design-description-comp :ui-design-type="uiDesignType" ref="uidDesignDescriptionComp"></uid-design-description-comp>
+                    <uid-design-description-comp :ui-design-type="uiDesignType"
+                                                 ref="uidDesignDescriptionComp"></uid-design-description-comp>
                 </div>
             </div>
             <div id="uid-extend-dataset-comp-tab" class="tab-panel">
@@ -48,19 +52,27 @@
             </div>
             <div id="uid-extend-paras-comp-tab" class="tab-panel">
                 <div>
-                    <uid-ex-parameters-comp :ui-design-type="uiDesignType" ref="uidExParametersComp"></uid-ex-parameters-comp>
+                    <uid-ex-parameters-comp :ui-design-type="uiDesignType"
+                                            ref="uidExParametersComp"></uid-ex-parameters-comp>
                 </div>
             </div>
         </div>
         <div class="ant-btn-group button-outer-wrap">
-            <a-button type="primary" class="green-btn" @click="saveNotClose"><i class="las la-save"></i><span>保存</span></a-button>
-            <a-button type="primary" class="green-btn" @click="saveAndClose"><i class="las la-save"></i><span>发布并关闭</span></a-button>
-            <a-button type="primary" class="green-btn" @click="historyVersion"><i class="las la-save"></i><span>历史版本</span></a-button>
+            <a-button type="primary" class="green-btn" @click="saveNotClose"><i class="las la-save"></i><span>保存</span>
+            </a-button>
+            <a-button type="primary" class="green-btn" @click="saveAndClose"><i
+                class="las la-save"></i><span>发布并关闭</span></a-button>
+            <a-button type="primary" class="green-btn" @click="historyVersion"><i
+                class="las la-save"></i><span>历史版本</span></a-button>
         </div>
         <!--各类对话框的引用-->
-        <uid-control-select-bind-to-single-field-dialog @on-selected-bind-to-single-field="onSelectedBindToSingleField" ref="fdControlSelectBindToSingleFieldDialog"></uid-control-select-bind-to-single-field-dialog>
-        <uid-select-default-value-dialog @on-selected-default-value="onSelectedDefaultValue" ref="selectDefaultValueDialog"></uid-select-default-value-dialog>
-        <uid-select-validate-rule-dialog @on-clear-validate-rule="onClearValidateRule" @on-selected-validate-rule="onSelectedValidateRule" ref="selectValidateRuleDialog"></uid-select-validate-rule-dialog>
+        <uid-control-select-bind-to-single-field-dialog @on-selected-bind-to-single-field="onSelectedBindToSingleField"
+                                                        ref="fdControlSelectBindToSingleFieldDialog"></uid-control-select-bind-to-single-field-dialog>
+        <uid-select-default-value-dialog @on-selected-default-value="onSelectedDefaultValue"
+                                         ref="selectDefaultValueDialog"></uid-select-default-value-dialog>
+        <uid-select-validate-rule-dialog @on-clear-validate-rule="onClearValidateRule"
+                                         @on-selected-validate-rule="onSelectedValidateRule"
+                                         ref="selectValidateRuleDialog"></uid-select-validate-rule-dialog>
     </div>
 </template>
 
@@ -78,43 +90,41 @@ import RemoteRestInterface from "./Remote/RemoteRestInterface";
 
 export default {
     name: "ui-design-main",
-    data:function () {
+    data: function () {
         return {
             //uiDesignType:EnumValues.uiDesignType.webListDesign,
-            uiDesignType:BaseUtility.GetUrlParaValue("uiDesignType"),
-            baseInfoComponentName:"uid-empty-comp",
-            currentMainTabName:"uid-wysiwyg-comp-tab",
-            recordId:BaseUtility.GetUrlParaValue("recordId"),
+            uiDesignType: BaseUtility.GetUrlParaValue("uiDesignType"),
+            baseInfoComponentName: "uid-empty-comp",
+            currentMainTabName: "uid-wysiwyg-comp-tab",
+            recordId: BaseUtility.GetUrlParaValue("recordId"),
             status: BaseUtility.GetUrlParaValue("op")
         }
     },
     mounted() {
-        let _this=this;
+        let _this = this;
         $("#ui-design-main-tabs").tabs({
-            active: 1,
-            activate: function( event, ui ) {
-                let oldTabName=ui.oldTab.find("a").attr("href").replace("#","");
-                let newTabName=ui.newTab.find("a").attr("href").replace("#","");
-                _this.currentMainTabName=newTabName;
-                if(oldTabName=="uid-wysiwyg-comp-tab"&&newTabName=="uid-html-code-editor-comp-tab"){
-                    let htmlCodeValue=_this.getWysiwygEditorValue();
+            active: 0,
+            activate: function (event, ui) {
+                let oldTabName = ui.oldTab.find("a").attr("href").replace("#", "");
+                let newTabName = ui.newTab.find("a").attr("href").replace("#", "");
+                _this.currentMainTabName = newTabName;
+                if (oldTabName == "uid-wysiwyg-comp-tab") {
+                    let htmlCodeValue = _this.getWysiwygEditorValue();
                     _this.setHtmlCodeEditorValue(htmlCodeValue);
-                }
-                else if(oldTabName=="uid-html-code-editor-comp-tab"){
-                    let htmlCodeValue=_this.getHtmlCodeEditorValue();
+                } else if (oldTabName == "uid-html-code-editor-comp-tab") {
+                    let htmlCodeValue = _this.getHtmlCodeEditorValue();
                     _this.setWysiwygEditorValue(htmlCodeValue);
                 }
 
-                if(oldTabName=="uid-wysiwyg-comp-tab"){
+                if (oldTabName == "uid-wysiwyg-comp-tab") {
                     GeneralPlugin.clearHelperPanel();
                 }
             }
         });
-        if(this.uiDesignType==EnumValues.uiDesignType.appFormDesign){
-            this.baseInfoComponentName="uid-app-form-base-info-comp";
-        }
-        else if(this.uiDesignType==EnumValues.uiDesignType.webListDesign){
-            this.baseInfoComponentName="uid-web-list-base-info-comp";
+        if (this.uiDesignType == EnumValues.uiDesignType.appFormDesign) {
+            this.baseInfoComponentName = "uid-app-form-base-info-comp";
+        } else if (this.uiDesignType == EnumValues.uiDesignType.webListDesign) {
+            this.baseInfoComponentName = "uid-web-list-base-info-comp";
         }
         GeneralPlugin.setUIDesignMain(this);
 
@@ -127,10 +137,10 @@ export default {
         //this.$refs.selectDefaultValueDialog.beginSelect(null);
         //this.$refs.selectValidateRuleDialog.beginSelect({msg:"",rules:[]});
     },
-    methods:{
-        init(){
+    methods: {
+        init() {
             //debugger;
-            window.setTimeout(()=> {
+            window.setTimeout(() => {
                 this.$refs.uidBaseInfoComponent.init(this.recordId, this.status, (recordId, editorValues) => {
                     console.log(recordId);
                     console.log(editorValues);
@@ -144,86 +154,86 @@ export default {
                         this.setExParametersEditorValue(editorValues.exParametersValue);
                     }
                 });
-            },300);
+            }, 300);
         },
         //绑定单个字段
-        selectBindToSingleFieldDialogBegin(oldBindFieldData,caller){
-            let relationConfig=this.$refs.uidBaseInfoComponent.getFormRelationConfig();
+        selectBindToSingleFieldDialogBegin(oldBindFieldData, caller) {
+            let relationConfig = this.$refs.uidBaseInfoComponent.getFormRelationConfig();
             //将关联表设置提供给选择绑定字段的组件，判定是否需要重新加载控件的字段
-            this._selectBindToSingleFieldDialogCaller=caller;
-            this.$refs.fdControlSelectBindToSingleFieldDialog.beginSelect(relationConfig.relationData,oldBindFieldData);
+            this._selectBindToSingleFieldDialogCaller = caller;
+            this.$refs.fdControlSelectBindToSingleFieldDialog.beginSelect(relationConfig.relationData, oldBindFieldData);
         },
-        onSelectedBindToSingleField(result){
+        onSelectedBindToSingleField(result) {
             this._selectBindToSingleFieldDialogCaller.setSelectFieldResultValue(result);
         },
         //绑定默认值
-        selectDefaultValueDialogBegin(oldData,caller){
-            this._selectDefaultValueDialogCaller=caller;
-            this.$refs.selectDefaultValueDialog.beginSelect(oldData,caller);
+        selectDefaultValueDialogBegin(oldData, caller) {
+            this._selectDefaultValueDialogCaller = caller;
+            this.$refs.selectDefaultValueDialog.beginSelect(oldData, caller);
             //this.selectDefaultValueTargetWindow=targetWindow;
         },
-        onSelectedDefaultValue(result){
+        onSelectedDefaultValue(result) {
             this._selectDefaultValueDialogCaller.setSelectEnvVariableResultValue(result);
         },
         //绑定验证规则
-        onClearValidateRule(){
+        onClearValidateRule() {
             this.selectDefaultValueTargetWindow._SelectBindObj.setSelectValidateRuleResultValue(null);
         },
-        selectValidateRuleDialogBegin(oldData,caller){
-            this._selectValidateRuleDialogCaller=caller;
+        selectValidateRuleDialogBegin(oldData, caller) {
+            this._selectValidateRuleDialogCaller = caller;
             this.$refs.selectValidateRuleDialog.beginSelect(oldData);
             //this.selectDefaultValueTargetWindow=targetWindow;
         },
-        onSelectedValidateRule(result){
+        onSelectedValidateRule(result) {
             this._selectValidateRuleDialogCaller.setSelectValidateRuleResultValue(result);
             //this.selectDefaultValueTargetWindow._SelectBindObj.setSelectValidateRuleResultValue(result);
         },
-        setWysiwygEditorValue(value){
+        setWysiwygEditorValue(value) {
             return this.$refs.uidWysiwygComp.setValue(value);
         },
-        getWysiwygEditorValue(){
+        getWysiwygEditorValue() {
             return this.$refs.uidWysiwygComp.getValue();
         },
-        setHtmlCodeEditorValue(value){
+        setHtmlCodeEditorValue(value) {
             this.$refs.uidHtmlCodeEditorComp.setValue(value);
         },
-        getHtmlCodeEditorValue(){
+        getHtmlCodeEditorValue() {
             return this.$refs.uidHtmlCodeEditorComp.getValue();
         },
-        setJSCodeEditorValue(value){
+        setJSCodeEditorValue(value) {
             this.$refs.uidJSCodeEditorComp.setValue(value);
         },
-        getJSCodeEditorValue(){
+        getJSCodeEditorValue() {
             return this.$refs.uidJSCodeEditorComp.getValue();
         },
-        setCssCodeEditorValue(value){
+        setCssCodeEditorValue(value) {
             this.$refs.uidCssCodeEditorComp.setValue(value);
         },
-        getCssCodeEditorValue(){
+        getCssCodeEditorValue() {
             return this.$refs.uidCssCodeEditorComp.getValue();
         },
-        setDesignDescriptionEditorValue(value){
+        setDesignDescriptionEditorValue(value) {
             this.$refs.uidDesignDescriptionComp.setValue(value);
         },
-        getDesignDescriptionEditorValue(){
+        getDesignDescriptionEditorValue() {
             return this.$refs.uidDesignDescriptionComp.getValue();
         },
-        setExDatasetEditorValue(value){
+        setExDatasetEditorValue(value) {
             this.$refs.uidExDatasetComp.setValue(value);
         },
-        getExDatasetEditorValue(){
+        getExDatasetEditorValue() {
             return this.$refs.uidExDatasetComp.getValue();
         },
-        setExParametersEditorValue(value){
+        setExParametersEditorValue(value) {
             this.$refs.uidExParametersComp.setValue(value);
         },
-        getExParametersEditorValue(){
+        getExParametersEditorValue() {
             return this.$refs.uidExParametersComp.getValue();
         },
-        getEditorValues(){
-            let htmlValue=this.getWysiwygEditorValue();
-            if(this.currentMainTabName=="uid-html-code-editor-comp-tab"){
-                htmlValue=this.getHtmlCodeEditorValue();
+        getEditorValues() {
+            let htmlValue = this.getWysiwygEditorValue();
+            if (this.currentMainTabName == "uid-html-code-editor-comp-tab") {
+                htmlValue = this.getHtmlCodeEditorValue();
             }
             return UIDesignUtility.buildEditorValues(
                 htmlValue,
@@ -234,28 +244,27 @@ export default {
                 this.getExParametersEditorValue()
             );
         },
-        save(successFun){
-            let editorValues=this.getEditorValues();
-            let validateResult =this.$refs.uidBaseInfoComponent.validateSaveEnable(editorValues);
-            if(validateResult.success){
-                this.$refs.uidBaseInfoComponent.save(editorValues,successFun);
-            }
-            else{
+        save(successFun) {
+            let editorValues = this.getEditorValues();
+            let validateResult = this.$refs.uidBaseInfoComponent.validateSaveEnable(editorValues);
+            if (validateResult.success) {
+                this.$refs.uidBaseInfoComponent.save(editorValues, successFun);
+            } else {
                 DialogUtility.AlertText(validateResult.msg.join("<br />"));
             }
         },
-        saveNotClose(){
-            this.save((result)=>{
+        saveNotClose() {
+            this.save((result) => {
                 DialogUtility.AlertText(result.message);
             })
         },
-        saveAndRelease(){
+        saveAndRelease() {
 
         },
-        saveAndClose(){
+        saveAndClose() {
 
         },
-        historyVersion(){
+        historyVersion() {
 
         }
     }

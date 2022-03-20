@@ -1,3 +1,5 @@
+import TableEditor from "../ExComponent/TableEditor/TableEditor";
+
 let GeneralPlugin = {
     _controlInstances: {},
     _wysiwygComponent: null,
@@ -88,16 +90,18 @@ let GeneralPlugin = {
     regTooltipEvent() {
         $("[tip-with-instance]").hover(function () {
                 let instanceId = $(this).attr("tip-with-instance");
-
                 let instanceObj = GeneralPlugin.getControlInstanceObj(instanceId);
                 GeneralPlugin.createControlDescriptionPanel($(this), instanceId, instanceObj);
-                //GeneralPlugin.createControlTooltipPanel(instanceObj.)
-                //console.log("1");
             },
             function () {
                 GeneralPlugin.clearControlDescriptionPanel();
             });
         $("[tip-with-instance]").on("click", {}, function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $($(this).parent()).trigger("click");
+        });
+        $("[tip-with-instance]").on("mousedown", {}, function (event) {
             event.preventDefault();
             event.stopPropagation();
         });
@@ -131,9 +135,21 @@ let GeneralPlugin = {
         $elem.on("click", {}, function (event) {
             event.preventDefault();
             event.stopPropagation();
-            GeneralPlugin.createControlEditInnerPanel($(this));
+            console.log(1234);
+            //debugger;
+            //GeneralPlugin.createControlEditInnerPanel($(this));
             GeneralPlugin._wysiwygLastSelectedElem = $(this);
         });
+        /*$elem.on("contextmenu", {}, function (event) {
+            console.log(event);
+            console.log(event.which);
+            if (event.which == 3) {
+                event.preventDefault();
+                event.stopPropagation();
+                event.stopImmediatePropagation();
+            }
+        });*/
+        //debugger;
         $elem.on("dblclick", {_this: sender}, function (event) {
             //alert("1");
             event.preventDefault();
@@ -141,6 +157,19 @@ let GeneralPlugin = {
             GeneralPlugin.clearHelperPanel();
             GeneralPlugin.showPluginPropEditDialog(event.data._this, event.data._this.singleName + "Property", $(this))
         });
+
+        if (typeof (sender.getContextMenu) == "function") {
+            let contentMenu = sender.getContextMenu(sender, $elem);
+            this.initContextMenu(sender, $elem, contentMenu);
+        }
+    },
+    registeredRedipsInit($elem, sender) {
+        let rd = REDIPS.drag;
+        rd.init($elem.attr("id"));
+        rd.event.dropped = () => {
+            GeneralPlugin.clearControlEditInnerPanel();
+        }
+        rd.enableDrag('init');
     },
     buildListSearchControlGeneralText(config, props) {
         return config.text + "[" + props.bindToSearchField.columnCaption + "]";
@@ -186,9 +215,9 @@ let GeneralPlugin = {
         pluginInnerPanel.addClass("control-edit-inner-panel");
         $(document.body).append(pluginInnerPanel);
         pluginInnerPanel.position({
+            of: $elem,
             my: "left top",
             at: "left+2 bottom+4",
-            of: $elem
         });
 
 
@@ -521,6 +550,54 @@ let GeneralPlugin = {
 
     getWysiwygLastSelectedElem() {
         return this._wysiwygLastSelectedElem;
+    },
+
+    initContextMenu(sender, $elem, contentMenu) {
+        $.contextMenu({
+            selector: "#" + $elem.attr("id") + " td,#" + $elem.attr("id") + " th,#" + $elem.attr("id"),
+            callback: function (key, opt) {
+                let m = "clicked: " + key;
+                //console.log($tableElem);
+                //window.console && console.log(m) || alert(m);
+                console.log(m);
+            },
+            items: contentMenu
+        });
+    },
+    getTableEditorContextMenu(sender, $elem) {
+        let generalContextMenu = GeneralPlugin.getGeneralContextMenu(sender, $elem);
+        let tableContextMenu = TableEditor.getTableEditorContextMenu(sender, $elem);
+        for (const generalContextMenuKey in generalContextMenu) {
+            tableContextMenu[generalContextMenuKey] = generalContextMenu[generalContextMenuKey];
+        }
+        return tableContextMenu;
+    },
+    getGeneralContextMenu(sender, $elem) {
+        return {
+            "SelectedElem": {
+                name: "SelectedElem",
+                icon: function (opt, $itemElement, itemKey, item) {
+                    // Set the content to the menu trigger selector and add an bootstrap icon to the item.
+                    // $itemElement.html('<i class="las la-closed-captioning"></i> ' + item.name);
+                    // Add the context-menu-icon-updated class to the item
+                    return 'context-menu-icon context-menu-icon-edit';
+                }
+            },
+            "CopyId": {name: "CopyId", icon: "copy"},
+            "Delete": {
+                name: "Delete",
+                icon: "delete",
+                callback: (key, opt) => {
+                    $elem.remove();
+                }
+            },
+            "sep1": "---------",
+            "Quit": {
+                name: "Quit", icon: function () {
+                    return 'context-menu-icon context-menu-icon-quit';
+                }
+            }
+        }
     }
 }
 

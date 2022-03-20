@@ -139,7 +139,7 @@ export default {
             this.pluginPropEditDialog.dialog("open");
             window.setTimeout(() => {
                 this.$refs.pluginPropEditComponent.setControlProps($elem, props);
-            }, 800);
+            }, 600);
         },
         getValue() {
             return $("#" + this.wysiwygContainerId).html();
@@ -170,6 +170,7 @@ export default {
                     throw "reInstanceWysiwygChain error:" + i + e;
                 }
             }
+            GeneralPlugin.regTooltipEvent();
         }
     }
 }

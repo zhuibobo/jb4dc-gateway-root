@@ -1,28 +1,28 @@
 import GeneralPlugin from "../../GeneralPlugin";
 
-let WLDCT_ListTableLabelPlugin={
-    singleName:"WLDCT_ListTableLabel",
-    config:GeneralPlugin.configProp,
-    _$elem:null,
-    id:null,
-    props:JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
-    buildInstanceObj(instanceId){
-        return GeneralPlugin.newControlInstance(this,instanceId);
+let WLDCT_ListTableLabelPlugin = {
+    singleName: "WLDCT_ListTableLabel",
+    config: GeneralPlugin.configProp,
+    _$elem: null,
+    id: null,
+    props: JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
+    buildInstanceObj(instanceId) {
+        return GeneralPlugin.newControlInstance(this, instanceId);
     },
-    constructionElem(){
+    constructionElem() {
         return GeneralPlugin.constructionGeneralInputElem(this);
     },
-    setElem($elem){
-        this._$elem=$elem;
+    setElem($elem) {
+        this._$elem = $elem;
     },
-    resetWysiwygElemProps($elem,props){
-        GeneralPlugin.serializePropsToElem(this._$elem,props,this.config,props.normalProps.columnCaption);
+    resetWysiwygElemProps($elem, props) {
+        GeneralPlugin.serializePropsToElem(this._$elem, props, this.config, props.normalProps.columnCaption);
     },
     registeredEvent($elem) {
-        GeneralPlugin.registeredGeneralEvent(this._$elem,this);
+        GeneralPlugin.registeredGeneralEvent(this._$elem, this);
     }
 }
 
-GeneralPlugin.registeredPlugin(WLDCT_ListTableLabelPlugin.singleName,WLDCT_ListTableLabelPlugin);
+GeneralPlugin.registeredPlugin(WLDCT_ListTableLabelPlugin.singleName, WLDCT_ListTableLabelPlugin);
 
-export { WLDCT_ListTableLabelPlugin as default};
+export {WLDCT_ListTableLabelPlugin as default};

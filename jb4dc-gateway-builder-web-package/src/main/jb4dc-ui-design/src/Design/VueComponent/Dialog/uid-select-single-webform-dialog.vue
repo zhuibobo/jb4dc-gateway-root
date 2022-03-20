@@ -1,5 +1,6 @@
 <template>
-    <div ref="selectModelDialogWrap" class="general-edit-page-wrap html-design-plugin-dialog-wraper" style="display: none;">
+    <div ref="selectModelDialogWrap" class="general-edit-page-wrap html-design-plugin-dialog-wraper"
+         style="display: none;">
         <div>
             <a-input search class="input_border_bottom" ref="txt_form_search_text" placeholder="请输入表单名称">
             </a-input>
@@ -18,14 +19,15 @@
 
 <script>
 import remoteRestInterface from "../../Remote/RemoteRestInterface.js"
+
 export default {
     name: "uid-select-single-webform-dialog",
     data: function () {
         return {
             acInterface: {
-                getTableDataUrl:"/Rest/Builder/Form/GetWebFormForZTreeNodeList"
+                getTableDataUrl: "/Rest/Builder/Form/GetWebFormForZTreeNodeList"
             },
-            jsEditorInstance:null,
+            jsEditorInstance: null,
             tree: {
                 treeObj: null,
                 treeSetting: {
@@ -54,35 +56,35 @@ export default {
                     callback: {
                         //点击树节点事件
                         onClick: function (event, treeId, treeNode) {
-                            var _self=this.getZTreeObj(treeId)._host;
+                            var _self = this.getZTreeObj(treeId)._host;
                             if (treeNode.nodeTypeName == "WebForm") {
-                                _self.selectedForm(event,treeId,treeNode);
+                                _self.selectedForm(event, treeId, treeNode);
                             }
                         }
                     }
                 },
                 treeData: null
             },
-            selectedFormData:null,
-            oldSelectedFormId:""
+            selectedFormData: null,
+            oldSelectedFormId: ""
         }
     },
-    mounted:function(){
+    mounted: function () {
 
     },
-    methods:{
+    methods: {
         handleClose: function () {
             DialogUtility.CloseDialogElem(this.$refs.selectModelDialogWrap);
         },
-        beginSelectForm:function (formId) {
+        beginSelectForm: function (formId) {
             //alert(PageStyleUtility.GetPageHeight());
-            let elem=this.$refs.selectModelDialogWrap;
+            let elem = this.$refs.selectModelDialogWrap;
             //debugger;
             this.getFormDataInitTree();
 
-            this.oldSelectedFormId=formId;
+            this.oldSelectedFormId = formId;
 
-            let height=500;
+            let height = 500;
 
             DialogUtility.DialogElemObj(elem, {
                 modal: true,
@@ -91,7 +93,7 @@ export default {
                 title: "选择窗体"
             });
         },
-        getFormDataInitTree:function () {
+        getFormDataInitTree: function () {
             /*var _self = this;
             AjaxUtility.Post(this.acInterface.getTableDataUrl, {}, function (result) {
                 if (result.success) {
@@ -124,55 +126,53 @@ export default {
                     DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
                 }
             }, this);*/
-            remoteRestInterface.getWebFormForZTreeNodeList({},(result)=>{
+            remoteRestInterface.getWebFormForZTreeNodeList({}).then((response) => {
+                let result = response.data;
                 if (result.success) {
                     this.tree.treeData = result.data;
 
-                    for(let i=0;i<this.tree.treeData.length;i++){
-                        if(this.tree.treeData[i].nodeTypeName=="WebForm"){
-                            this.tree.treeData[i].icon="Images/Png16X16/table.png";
-                        }
-                        else if(this.tree.treeData[i].nodeTypeName=="Module"){
-                            this.tree.treeData[i].icon="Images/Png16X16/folder-table.png";
+                    for (let i = 0; i < this.tree.treeData.length; i++) {
+                        if (this.tree.treeData[i].nodeTypeName == "WebForm") {
+                            this.tree.treeData[i].icon = "Images/Png16X16/table.png";
+                        } else if (this.tree.treeData[i].nodeTypeName == "Module") {
+                            this.tree.treeData[i].icon = "Images/Png16X16/folder-table.png";
                         }
                     }
 
-                    this.$refs.formZTreeUL.setAttribute("id","select-form-single-comp-"+StringUtility.Guid());
+                    this.$refs.formZTreeUL.setAttribute("id", "select-form-single-comp-" + StringUtility.Guid());
                     this.tree.treeObj = $.fn.zTree.init($(this.$refs.formZTreeUL), this.tree.treeSetting, this.tree.treeData);
                     this.tree.treeObj.expandAll(true);
-                    this.tree.treeObj._host=this;
-                    fuzzySearchTreeObj(this.tree.treeObj,this.$refs.txt_form_search_text.input,null,true);
+                    this.tree.treeObj._host = this;
+                    fuzzySearchTreeObj(this.tree.treeObj, this.$refs.txt_form_search_text.input, null, true);
 
                     //
-                    if(this.oldSelectedFormId!=null&&this.oldSelectedFormId!=""){
+                    if (this.oldSelectedFormId != null && this.oldSelectedFormId != "") {
 
-                        let selectedNode=this.tree.treeObj.getNodeByParam("id",this.oldSelectedFormId);
+                        let selectedNode = this.tree.treeObj.getNodeByParam("id", this.oldSelectedFormId);
                         this.tree.treeObj.selectNode(selectedNode);
 
                     }
-                }
-                else {
+                } else {
                     DialogUtility.Alert(window, DialogUtility.DialogAlertId, {}, result.message, null);
                 }
             });
         },
-        selectedForm:function (event,treeId,formData) {
-            this.selectedFormData=formData;
+        selectedForm: function (event, treeId, formData) {
+            this.selectedFormData = formData;
         },
-        completed:function () {
-            if(this.selectedFormData) {
-                let result={
-                    formModuleId:this.selectedFormData.attr4,
-                    formModuleName:this.selectedFormData.attr3,
-                    formId:this.selectedFormData.id,
-                    formName:this.selectedFormData.attr1,
-                    formCode:this.selectedFormData.attr2,
+        completed: function () {
+            if (this.selectedFormData) {
+                let result = {
+                    formModuleId: this.selectedFormData.attr4,
+                    formModuleName: this.selectedFormData.attr3,
+                    formId: this.selectedFormData.id,
+                    formName: this.selectedFormData.attr1,
+                    formCode: this.selectedFormData.attr2,
                 }
 
                 this.$emit('on-selected-form', result);
                 this.handleClose();
-            }
-            else{
+            } else {
                 DialogUtility.AlertText("请选择窗体!");
             }
         }

@@ -7,9 +7,9 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')*/
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { VueLoaderPlugin } = require('vue-loader/dist/index')
+const {VueLoaderPlugin} = require('vue-loader/dist/index')
 const CopyPlugin = require('copy-webpack-plugin');
-const {CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 config = {
@@ -26,8 +26,8 @@ config = {
         //filename: '[name].[hash].js',
         filename: '[name].js',
         // 输出文件都放到 dist 目录下
-        path: path.resolve(__dirname, './dist'),
-        //path: path.resolve(__dirname, '../resources/static/JB4DCBuilder/HTML/UIDesign'),
+        //path: path.resolve(__dirname, './dist'),
+        path: path.resolve(__dirname, '../resources/static/JB4DCBuilder/HTML/UIDesign'),
     },
     mode: 'development',
     module: {
@@ -62,10 +62,10 @@ config = {
                         sourceMap: true,
                     },
                 }]
-            },{
+            }, {
                 test: /\.vue$/,
                 loader: 'vue-loader'
-            },{
+            }, {
                 test: /\.css$/,
                 use: [
                     {
@@ -81,22 +81,22 @@ config = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin (
+        new CleanWebpackPlugin(
             {
-                cleanAfterEveryBuildPatterns: ['**/*.js','**/*.css','!**/Images/**','!**/bpmn-font/**','!**/diagram-js.css'],
+                cleanAfterEveryBuildPatterns: ['**/*.js', '**/*.css', '!**/Images/**', '!**/bpmn-font/**', '!**/diagram-js.css'],
             }
         ),
         new HtmlWebpackPlugin({
-            title: 'webpack Boilerplate',
-            template: path.resolve(__dirname, './src/template.html'), // template file
+            title: 'DesignMain',
+            template: path.resolve(__dirname, './src/DesignMainTemplate.html'), // template file
             filename: 'UIDesignMain.html', // output file
-            chunks:['UIDesignMain']
+            chunks: ['UIDesignMain']
         }),
         new HtmlWebpackPlugin({
-            title: 'webpack Boilerplate',
-            template: path.resolve(__dirname, './src/template.html'), // template file
+            title: 'RuntimeWebList',
+            template: path.resolve(__dirname, './src/RuntimeWebListMainTemplate.html'), // template file
             filename: 'UIRuntimeWebListMain.html', // output file
-            chunks:['UIRuntimeWebListMain']
+            chunks: ['UIRuntimeWebListMain']
         }),
         // 添加 VueLoaderPlugin 插件
         new VueLoaderPlugin(),
@@ -110,8 +110,8 @@ config = {
         }),
         new CopyPlugin({
             patterns: [
-                { from: "./src/Externals", to: "Externals" },
-                { from: "./src/Less/Images", to: "Images" }
+                {from: "./src/Externals", to: "Externals"},
+                {from: "./src/Less/Images", to: "Images"}
             ],
         }),
         new MonacoWebpackPlugin(),
@@ -133,7 +133,9 @@ config = {
         compress: true,
         hot: true,
         port: 8881,
+        //open: ['/UIDesignMain.html?op=update&uiDesignType=webListDesign&moduleId=b6641464-e55f-4d1c-afea-400769f6f6a3&recordId=8318f6ec-3c94-4e6f-b561-76c881f35899&timestamp=1647655263616'],
         open: ['/UIDesignMain.html?uiDesignType=webListDesign']
+        /*open: ['/UIRuntimeWebListMain.html']*/
     },
     optimization: {
         splitChunks: {
@@ -143,6 +145,6 @@ config = {
 };
 
 
-module.exports=[
+module.exports = [
     config
 ]

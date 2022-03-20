@@ -1,13 +1,13 @@
 import GeneralPlugin from "../../GeneralPlugin";
 
-let WLDCT_ListButtonContainerPlugin={
-    singleName:"WLDCT_ListButtonContainer",
-    config:GeneralPlugin.configProp,
-    _$elem:null,
-    id:null,
-    props:JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
-    buildInstanceObj(instanceId){
-        return GeneralPlugin.newControlInstance(this,instanceId);
+let WLDCT_ListButtonContainerPlugin = {
+    singleName: "WLDCT_ListButtonContainer",
+    config: GeneralPlugin.configProp,
+    _$elem: null,
+    id: null,
+    props: JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
+    buildInstanceObj(instanceId) {
+        return GeneralPlugin.newControlInstance(this, instanceId);
     },
     constructionElem() {
         this._$elem = $(`<div class="uid-wldct-container-wrap uid-wldct-list-button-container-wrap">
@@ -39,29 +39,30 @@ let WLDCT_ListButtonContainerPlugin={
         });
         return this._$elem;
     },
-    setElem($elem){
-        this._$elem=$elem;
+    setElem($elem) {
+        this._$elem = $elem;
     },
-    registeredEvent($elem){
+    registeredEvent($elem) {
         let rd = REDIPS.drag;
         rd.init(this._$elem.attr("id"));
-        GeneralPlugin.registeredGeneralEvent(this._$elem,this);
+        GeneralPlugin.registeredGeneralEvent(this._$elem, this);
     },
-    dropControlToContainer(plugin,$dropToTarget,$dropToLayout){
-        let controlInstance=plugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(plugin.singleName)).instance;
-        let $elem=controlInstance.constructionElem();
+    dropControlToContainer(plugin, $dropToTarget, $dropToLayout) {
+        let controlInstance = plugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(plugin.singleName)).instance;
+        let $elem = controlInstance.constructionElem();
         console.log($elem);
         $dropToTarget.append($elem);
-        if(typeof(controlInstance.registeredEvent)=="function"){
+        if (typeof (controlInstance.registeredEvent) == "function") {
             controlInstance.registeredEvent($elem);
         }
 
         let rd = REDIPS.drag;
         rd.init($dropToLayout.attr("id"));
         REDIPS.drag.enableDrag('init');
-    }
+    },
+    getContextMenu: GeneralPlugin.getTableEditorContextMenu
 }
 
-GeneralPlugin.registeredPlugin(WLDCT_ListButtonContainerPlugin.singleName,WLDCT_ListButtonContainerPlugin);
+GeneralPlugin.registeredPlugin(WLDCT_ListButtonContainerPlugin.singleName, WLDCT_ListButtonContainerPlugin);
 
-export { WLDCT_ListButtonContainerPlugin as default};
+export {WLDCT_ListButtonContainerPlugin as default};
