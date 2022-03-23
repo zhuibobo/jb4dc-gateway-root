@@ -133,8 +133,8 @@ config = {
         compress: true,
         hot: true,
         port: 8881,
-        //open: ['/UIDesignMain.html?op=update&uiDesignType=webListDesign&moduleId=b6641464-e55f-4d1c-afea-400769f6f6a3&recordId=8318f6ec-3c94-4e6f-b561-76c881f35899&timestamp=1647655263616'],
-        open: ['/UIDesignMain.html?uiDesignType=webListDesign']
+        open: ['/UIDesignMain.html?op=update&uiDesignType=webListDesign&moduleId=b6641464-e55f-4d1c-afea-400769f6f6a3&recordId=8318f6ec-3c94-4e6f-b561-76c881f35899&timestamp=1647655263616'],
+        //open: ['/UIDesignMain.html?uiDesignType=webListDesign']
         /*open: ['/UIRuntimeWebListMain.html']*/
     },
     optimization: {

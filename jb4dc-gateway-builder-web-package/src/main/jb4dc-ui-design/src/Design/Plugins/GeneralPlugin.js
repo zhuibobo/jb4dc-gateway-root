@@ -84,24 +84,32 @@ let GeneralPlugin = {
         if (!text) {
             text = config.text;
         }
-        let $descriptionElemWrap = $(`<div runtime_auto_remove="true" class="wysiwyg-auto-remove-tip"><div name="elem-display-name" class="elem-display-name">${text}</div><div class="wysiwyg-control-tip las la-question-circle" tip-with-instance="${$elem.attr("designControlInstanceName")}"></div></div>`);
+        let $descriptionElemWrap = $(`<div runtime_auto_remove="true" class="wysiwyg-auto-remove-tip"><div name="elem-display-name" class="elem-display-name">${text}</div><div class="wysiwyg-control-tip las la-list" tip-with-instance="${$elem.attr("designControlInstanceName")}"></div></div>`);
         return $descriptionElemWrap;
     },
     regTooltipEvent() {
-        $("[tip-with-instance]").hover(function () {
+
+        $("div[tip-with-instance]").unbind('mouseenter mouseleave').hover(function () {
                 let instanceId = $(this).attr("tip-with-instance");
                 let instanceObj = GeneralPlugin.getControlInstanceObj(instanceId);
+                console.log(1111);
                 GeneralPlugin.createControlDescriptionPanel($(this), instanceId, instanceObj);
             },
             function () {
                 GeneralPlugin.clearControlDescriptionPanel();
             });
-        $("[tip-with-instance]").on("click", {}, function (event) {
+        $("[tip-with-instance]").unbind('click').on("click", {}, function (event) {
             event.preventDefault();
             event.stopPropagation();
-            $($(this).parent()).trigger("click");
+            //$($(this).parent()).trigger("click");
+            let $controlElem = $($(this).parent().parent());
+            GeneralPlugin._wysiwygLastSelectedElem = $controlElem;
+            $controlElem.trigger("dblclick");
+            console.log(1);
+            //GeneralPlugin.clearHelperPanel();
+            //GeneralPlugin.showPluginPropEditDialog(event.data._this, event.data._this.singleName + "Property", $($(this).parent()));
         });
-        $("[tip-with-instance]").on("mousedown", {}, function (event) {
+        $("[tip-with-instance]").unbind('mousedown').on("mousedown", {}, function (event) {
             event.preventDefault();
             event.stopPropagation();
         });

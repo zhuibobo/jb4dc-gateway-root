@@ -1,23 +1,26 @@
-let MonacoEditorUtility={
-    setValue(monacoEditorInstance,value){
+let MonacoEditorUtility = {
+    setValue(monacoEditorInstance, value) {
         monacoEditorInstance.getModel().setValue(value);
-        monacoEditorInstance.getAction(['editor.action.formatDocument'])._run();
+
+        window.setTimeout(() => {
+            monacoEditorInstance.getAction(['editor.action.formatDocument'])._run();
+        }, 200);
     },
-    getValue(monacoEditorInstance){
+    getValue(monacoEditorInstance) {
         return monacoEditorInstance.getModel().getValue();
     },
-    autoSelectionFirstMatchText(monacoEditorInstance,text){
+    autoSelectionFirstMatchText(monacoEditorInstance, text) {
         console.log(text);
-        let matches=monacoEditorInstance.getModel().findMatches(text);
+        let matches = monacoEditorInstance.getModel().findMatches(text);
         console.log(matches);
-        if(matches){
-            let match=matches[0];
+        if (matches) {
+            let match = matches[0];
             monacoEditorInstance.setSelection(match.range)
             //把选中的位置放到中间显示
             monacoEditorInstance.revealRangeInCenter(match.range)
         }
     },
-    getWebAppListJsCodeDefaultContent(){
+    getWebAppListJsCodeDefaultContent() {
         return `var BuilderListPageRuntimeInstance = {
     data: {
         listPO: null
@@ -38,4 +41,4 @@ let MonacoEditorUtility={
     }
 }
 
-export { MonacoEditorUtility as default};
+export {MonacoEditorUtility as default};

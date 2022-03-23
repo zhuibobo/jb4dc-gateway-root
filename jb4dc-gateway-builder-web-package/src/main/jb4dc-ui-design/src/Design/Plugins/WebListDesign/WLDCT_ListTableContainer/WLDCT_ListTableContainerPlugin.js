@@ -21,10 +21,10 @@ let WLDCT_ListTableContainerPlugin = {
                                  </colgroup>
                                  <thead>
                                      <tr>
-                                         <th></th>
-                                         <th></th>
-                                         <th></th>
-                                         <th></th>
+                                         <th>编号</th>
+                                         <th>标题</th>
+                                         <th>状态</th>
+                                         <th>更新时间</th>
                                          <th>操作</th>
                                      </tr>
                                  </thead>
@@ -65,8 +65,9 @@ let WLDCT_ListTableContainerPlugin = {
         this._$elem = $elem;
     },
     registeredEvent($elem) {
-        let rd = REDIPS.drag;
-        rd.init(this._$elem.attr("id"));
+        /*let rd = REDIPS.drag;
+        rd.init(this._$elem.attr("id"));*/
+        GeneralPlugin.registeredRedipsInit(this._$elem, this);
         GeneralPlugin.registeredGeneralEvent(this._$elem, this);
     },
     dropControlToContainer(plugin, $dropToTarget, $dropToLayout) {
@@ -77,10 +78,10 @@ let WLDCT_ListTableContainerPlugin = {
         if (typeof (controlInstance.registeredEvent) == "function") {
             controlInstance.registeredEvent($elem);
         }
-
-        let rd = REDIPS.drag;
+        GeneralPlugin.registeredRedipsInit($dropToLayout, this);
+        /*let rd = REDIPS.drag;
         rd.init($dropToLayout.attr("id"));
-        REDIPS.drag.enableDrag('init');
+        REDIPS.drag.enableDrag('init');*/
     },
     getContextMenu: GeneralPlugin.getTableEditorContextMenu
 }

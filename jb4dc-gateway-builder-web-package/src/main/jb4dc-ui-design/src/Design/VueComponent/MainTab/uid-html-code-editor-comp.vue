@@ -10,28 +10,32 @@ import enumValues from "../../EnumValues.js"
 
 export default {
     name: "uid-html-code-editor-comp",
-    props:["uiDesignType"],
-    data(){
+    props: ["uiDesignType"],
+    data() {
         return {
             //monacoEditor:null
         }
     },
     mounted() {
-        window.uidHtmlCodeMonacoEditor=monaco.editor.create(document.getElementById('uid-html-code-editor-comp-root'), {
-            value:``,
+        window.uidHtmlCodeMonacoEditor = monaco.editor.create(document.getElementById('uid-html-code-editor-comp-root'), {
+            value: ``,
             //编辑器初始显示文字
-            language:'html',
-            minimap: { enabled: false },
+            language: 'html',
+            minimap: {enabled: false},
             automaticLayout: true,//自动布局
-            theme:'vs-dark' //官方自带三种主题vs, hc-black, or vs-dark
+            //wrappingColumn: 0,
+            //wordWrapColumn: "160",
+            //wordWrap: 'wordWrapColumn',
+            //wrappingStrategy: "advanced",
+            theme: 'vs-dark' //官方自带三种主题vs, hc-black, or vs-dark
         });
     },
-    methods:{
-        getValue(){
-            return  MonacoEditorUtility.getValue(window.uidHtmlCodeMonacoEditor);
+    methods: {
+        getValue() {
+            return MonacoEditorUtility.getValue(window.uidHtmlCodeMonacoEditor);
         },
         setValue(value) {
-            if(value) {
+            if (value) {
                 //console.log(value);
                 MonacoEditorUtility.setValue(window.uidHtmlCodeMonacoEditor, value);
                 let _wysiwygLastSelectedElem = GeneralPlugin.getWysiwygLastSelectedElem();
@@ -46,13 +50,13 @@ export default {
 </script>
 
 <style scoped lang="less">
-    @import "../../../Less/Variable.less";
+@import "../../../Less/Variable.less";
 
-    #uid-html-code-editor-comp-root{
-        height: 100%;
-        border: 1px solid @g-concrete-color-v04;
-        border-radius: 4px;
-        padding: 2px;
-        background-color: #1e1e1e;
-    }
+#uid-html-code-editor-comp-root {
+    height: 100%;
+    border: 1px solid @g-concrete-color-v04;
+    border-radius: 4px;
+    padding: 2px;
+    background-color: #1e1e1e;
+}
 </style>
