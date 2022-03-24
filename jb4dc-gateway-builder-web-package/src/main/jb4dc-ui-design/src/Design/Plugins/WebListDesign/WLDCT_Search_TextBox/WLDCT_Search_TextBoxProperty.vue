@@ -16,18 +16,19 @@
 <script>
 import GeneralPlugin from "../../GeneralPlugin";
 import RemoteRestInterface from "../../../Remote/RemoteRestInterface";
+
 export default {
     name: "WLDCT_Search_TextBoxProperty",
-    data(){
+    data() {
         return {
-            baseInfo:GeneralPlugin.defaultProps.baseInfo,
+            baseInfo: GeneralPlugin.defaultProps.baseInfo,
             defaultValue: GeneralPlugin.defaultProps.defaultValue,
-            bindToSearchField:GeneralPlugin.defaultProps.bindToSearchField,
-            dataSetId:null,
-            bindToField:null
+            bindToSearchField: GeneralPlugin.defaultProps.bindToSearchField,
+            dataSetId: null,
+            bindToField: null
         }
     },
-    mounted:function () {
+    mounted: function () {
 
     },
     methods: {
@@ -35,20 +36,20 @@ export default {
             this.baseInfo.id="txt_"+StringUtility.Timestamp();
             this.baseInfo.name=this.baseInfo.id;
         },*/
-        bindDataSetFieldTree:function(){
+        bindDataSetFieldTree: function () {
             //debugger;
-            if(this.dataSetId){
+            if (this.dataSetId) {
                 //let dataSetPO=window.parent.listDesign.getDataSet(this.dataSetId);
-                RemoteRestInterface.getDataSetData(this.dataSetId,(result)=>{
+                RemoteRestInterface.getDataSetData(this.dataSetId).then((response) => {
+                    let result = response.data;
                     this.$refs.listSearchControlBindToComp.init(result.data);
                 });
-            }
-            else {
+            } else {
                 alert("请先设定DataSet");
             }
         },
-        getControlProps:function () {
-            let bindData=this.$refs.listSearchControlBindToComp.getData();
+        getControlProps: function () {
+            let bindData = this.$refs.listSearchControlBindToComp.getData();
             let result = {
                 success: true,
                 baseInfo: this.baseInfo,
@@ -57,17 +58,17 @@ export default {
             }
             return result;
         },
-        setControlProps:function ($elem,props) {
+        setControlProps: function ($elem, props) {
             //console.log($elem.parent());
             //
-            this.dataSetId=GeneralPlugin.tryGetDataSetId($elem,$elem.parents());
+            this.dataSetId = GeneralPlugin.tryGetDataSetId($elem, $elem.parents());
             this.bindDataSetFieldTree();
 
             this.baseInfo = props.baseInfo ? props.baseInfo : this.baseInfo;
             this.bindToSearchField = props.bindToSearchField ? props.bindToSearchField : this.bindToSearchField;
             this.defaultValue = props.defaultValue ? props.defaultValue : this.defaultValue;
 
-            this.$refs.listSearchControlBindToComp.setData(this.bindToSearchField,this.defaultValue);
+            this.$refs.listSearchControlBindToComp.setData(this.bindToSearchField, this.defaultValue);
         }
     }
 }

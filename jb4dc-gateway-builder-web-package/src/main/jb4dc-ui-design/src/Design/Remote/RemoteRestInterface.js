@@ -60,9 +60,10 @@ let RemoteRestInterface = {
         });
     },
     getDataSetData(dataSetId) {
+        let promiseObj;
         if (storeDataSet[dataSetId]) {
             let dataSetResponseData = storeDataSet[dataSetId];
-            let promiseObj = new Promise((resolve, reject) => {
+            promiseObj = new Promise((resolve, reject) => {
                 resolve({
                     data: dataSetResponseData
                 })
@@ -71,15 +72,19 @@ let RemoteRestInterface = {
             return promiseObj;
         }
 
-        return axios.post(acInterface.getDataSetDataUrl, {
-            "op": "view",
-            "recordId": dataSetId
-        }).then(function (response) {
-            //successFunc(response.data)
-            storeDataSet[dataSetId] = response.data;
-        }).catch(function (error) {
-            console.log(error);
+        promiseObj = new Promise((resolve, reject) => {
+            axios.post(acInterface.getDataSetDataUrl, {
+                "op": "view",
+                "recordId": dataSetId
+            }).then(function (response) {
+                //successFunc(response.data)
+                storeDataSet[dataSetId] = response.data;
+                resolve(response);
+            }).catch(function (error) {
+                console.log(error);
+            });
         });
+        return promiseObj;
     },
     getWebFormForZTreeNodeList(sendData) {
         return axios.post(acInterface.getWebFormForZTreeNodeListUrl, sendData).catch(function (error) {

@@ -225,7 +225,7 @@ export default {
         },
         setControlProps: function ($elem, props) {
             //console.log(props);;
-            debugger;
+            //debugger;
             this.dataSetId = GeneralPlugin.tryGetDataSetId($elem, $elem.parents());
             this.bindDataSetFieldTree();
 
