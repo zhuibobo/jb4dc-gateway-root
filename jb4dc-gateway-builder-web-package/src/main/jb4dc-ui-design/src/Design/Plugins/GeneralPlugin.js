@@ -84,7 +84,7 @@ let GeneralPlugin = {
         if (!text) {
             text = config.text;
         }
-        let $descriptionElemWrap = $(`<div runtime_auto_remove="true" class="wysiwyg-auto-remove-tip"><div name="elem-display-name" class="elem-display-name">${text}</div><div class="wysiwyg-control-tip las la-list" tip-with-instance="${$elem.attr("designControlInstanceName")}"></div></div>`);
+        let $descriptionElemWrap = $(`<div runtime_auto_remove="true" class="wysiwyg-auto-remove-tip"><div name="elem-display-name" class="elem-display-name">${text}</div><div class="wysiwyg-control-tip las la-control-tip" tip-with-instance="${$elem.attr("designControlInstanceName")}"></div></div>`);
         return $descriptionElemWrap;
     },
     regTooltipEvent() {
