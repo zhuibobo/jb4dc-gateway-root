@@ -2,7 +2,7 @@
     <div class="ui-design-main-root">
         <div id="ui-design-main-tabs" style="height:calc(100% - 10px);flex-grow: 2">
             <ul>
-                <li><a href="#uid-wysiwyg-comp-tab">界面设计</a></li>
+                <li><a href="#uid-wysiwyg-comp-tab">界面设计1</a></li>
                 <li><a href="#uid-base-editor-comp-tab">基础信息</a></li>
                 <li><a href="#uid-html-code-editor-comp-tab">HTML源码</a></li>
                 <li><a href="#uid-js-code-editor-comp-tab">JS源码</a></li>
