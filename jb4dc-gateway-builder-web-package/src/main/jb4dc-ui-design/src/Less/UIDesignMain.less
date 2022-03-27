@@ -579,3 +579,22 @@ html, body {
   background-color: #47cb89;
   border-color: #47cb89;
 }
+
+div[status=disable] {
+  opacity: 0.3;
+}
+
+div[status=disable]:before {
+  content: "不启用";
+  float: right;
+  position: relative;
+  right: 2px;
+  top: 28px;
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  transform: rotate(11deg);
+  width: 52px;
+  height: 0px;
+}

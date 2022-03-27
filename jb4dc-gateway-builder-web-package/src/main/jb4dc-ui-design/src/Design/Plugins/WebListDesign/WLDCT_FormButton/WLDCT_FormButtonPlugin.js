@@ -1,28 +1,28 @@
 import GeneralPlugin from "../../GeneralPlugin";
 
-let WLDCT_FormButtonPlugin={
-    singleName:"WLDCT_FormButton",
-    config:GeneralPlugin.configProp,
-    _$elem:null,
-    id:null,
-    props:JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
-    buildInstanceObj(instanceId){
-        return GeneralPlugin.newControlInstance(this,instanceId);
+let WLDCT_FormButtonPlugin = {
+    singleName: "WLDCT_FormButton",
+    config: GeneralPlugin.configProp,
+    _$elem: null,
+    id: null,
+    props: JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
+    buildInstanceObj(instanceId) {
+        return GeneralPlugin.newControlInstance(this, instanceId);
     },
-    constructionElem(){
-        return GeneralPlugin.constructionGeneralInputElem(this,{isopbutton:"true"});
+    constructionElem() {
+        return GeneralPlugin.constructionGeneralInputElem(this, {isopbutton: "true"});
     },
-    setElem($elem){
-        this._$elem=$elem;
+    setElem($elem) {
+        this._$elem = $elem;
     },
-    resetWysiwygElemProps($elem,props){
-        GeneralPlugin.serializePropsToElem(this._$elem,props,this.config,props.normalProps.buttonCaption);
+    resetWysiwygElemProps($elem, props) {
+        GeneralPlugin.serializePropsToElem(this._$elem, props, this.config, GeneralPlugin.buildListButtonControlGeneralText(this.config, props));
     },
     registeredEvent($elem) {
-        GeneralPlugin.registeredGeneralEvent(this._$elem,this);
+        GeneralPlugin.registeredGeneralEvent(this._$elem, this);
     }
 }
 
-GeneralPlugin.registeredPlugin(WLDCT_FormButtonPlugin.singleName,WLDCT_FormButtonPlugin);
+GeneralPlugin.registeredPlugin(WLDCT_FormButtonPlugin.singleName, WLDCT_FormButtonPlugin);
 
-export { WLDCT_FormButtonPlugin as default};
+export {WLDCT_FormButtonPlugin as default};

@@ -90,24 +90,29 @@ let GeneralPlugin = {
     regTooltipEvent() {
 
         $("div[tip-with-instance]").unbind('mouseenter mouseleave').hover(function () {
-                let instanceId = $(this).attr("tip-with-instance");
-                let instanceObj = GeneralPlugin.getControlInstanceObj(instanceId);
-                console.log(1111);
-                GeneralPlugin.createControlDescriptionPanel($(this), instanceId, instanceObj);
-            },
-            function () {
-                GeneralPlugin.clearControlDescriptionPanel();
-            });
+            let instanceId = $(this).attr("tip-with-instance");
+            let instanceObj = GeneralPlugin.getControlInstanceObj(instanceId);
+            console.log(1111);
+            GeneralPlugin.createControlDescriptionPanel($(this), instanceId, instanceObj);
+        }, function () {
+            GeneralPlugin.clearControlDescriptionPanel();
+        });
         $("[tip-with-instance]").unbind('click').on("click", {}, function (event) {
             event.preventDefault();
             event.stopPropagation();
             //$($(this).parent()).trigger("click");
             let $controlElem = $($(this).parent().parent());
             GeneralPlugin._wysiwygLastSelectedElem = $controlElem;
-            $controlElem.trigger("dblclick");
+            //$controlElem.trigger("dblclick");
             console.log(1);
             //GeneralPlugin.clearHelperPanel();
             //GeneralPlugin.showPluginPropEditDialog(event.data._this, event.data._this.singleName + "Property", $($(this).parent()));
+        });
+        $("[tip-with-instance]").unbind('dblclick').on("dblclick", {}, function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            let $controlElem = $($(this).parent().parent());
+            $controlElem.trigger("dblclick");
         });
         $("[tip-with-instance]").unbind('mousedown').on("mousedown", {}, function (event) {
             event.preventDefault();
@@ -182,7 +187,9 @@ let GeneralPlugin = {
     buildListSearchControlGeneralText(config, props) {
         return config.text + "[" + props.bindToSearchField.columnCaption + "]";
     },
-
+    buildListButtonControlGeneralText(config, props) {
+        return config.text + "[" + props.normalProps.buttonCaption + "]";
+    },
     clearHelperPanel() {
         this.clearControlEditInnerPanel();
         this.clearControlDescriptionPanel();
