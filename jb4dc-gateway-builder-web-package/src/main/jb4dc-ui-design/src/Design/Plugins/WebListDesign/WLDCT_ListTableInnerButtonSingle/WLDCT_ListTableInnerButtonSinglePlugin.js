@@ -1,28 +1,29 @@
 import GeneralPlugin from "../../GeneralPlugin";
 
-let WLDCT_ListTableInnerButtonSinglePlugin={
-    singleName:"WLDCT_ListTableInnerButtonSingle",
-    config:GeneralPlugin.configProp,
-    _$elem:null,
-    id:null,
-    props:JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
-    buildInstanceObj(instanceId){
-        return GeneralPlugin.newControlInstance(this,instanceId);
+let WLDCT_ListTableInnerButtonSinglePlugin = {
+    singleName: "WLDCT_ListTableInnerButtonSingle",
+    config: GeneralPlugin.configProp,
+    _$elem: null,
+    id: null,
+    props: JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
+    settings: JsonUtility.CloneStringify(GeneralPlugin.settings),
+    buildInstanceObj(instanceId) {
+        return GeneralPlugin.newControlInstance(this, instanceId);
     },
-    constructionElem(){
+    constructionElem() {
         return GeneralPlugin.constructionGeneralInputElem(this);
     },
-    setElem($elem){
-        this._$elem=$elem;
+    setElem($elem) {
+        this._$elem = $elem;
     },
-    resetWysiwygElemProps($elem,props){
-        GeneralPlugin.serializePropsToElem(this._$elem,props,this.config,props.normalProps.caption);
+    resetWysiwygElemProps($elem, props) {
+        GeneralPlugin.serializePropsToElem(this._$elem, props, this.config, props.normalProps.caption);
     },
     registeredEvent($elem) {
-        GeneralPlugin.registeredGeneralEvent(this._$elem,this);
+        GeneralPlugin.registeredGeneralEvent(this._$elem, this);
     }
 }
 
-GeneralPlugin.registeredPlugin(WLDCT_ListTableInnerButtonSinglePlugin.singleName,WLDCT_ListTableInnerButtonSinglePlugin);
+GeneralPlugin.registeredPlugin(WLDCT_ListTableInnerButtonSinglePlugin.singleName, WLDCT_ListTableInnerButtonSinglePlugin);
 
-export { WLDCT_ListTableInnerButtonSinglePlugin as default};
+export {WLDCT_ListTableInnerButtonSinglePlugin as default};

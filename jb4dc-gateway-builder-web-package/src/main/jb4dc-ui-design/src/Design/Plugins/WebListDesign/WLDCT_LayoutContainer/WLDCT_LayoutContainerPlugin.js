@@ -6,6 +6,7 @@ let WLDCT_LayoutContainerPlugin = {
     _$elem: null,
     id: null,
     props: JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
+    settings: JsonUtility.CloneStringify(GeneralPlugin.settings),
     buildInstanceObj(instanceId) {
         return GeneralPlugin.newControlInstance(this, instanceId);
     },
@@ -26,8 +27,8 @@ let WLDCT_LayoutContainerPlugin = {
     registeredEvent($elem) {
         GeneralPlugin.registeredGeneralEvent(this._$elem, this);
     },
-    dropControlToContainer(plugin, $dropToTarget, $dropToLayout) {
-        let controlInstance = plugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(plugin.singleName)).instance;
+    dropControlToContainer(dragPlugin, $dropToTarget, $dropToLayout) {
+        let controlInstance = dragPlugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(dragPlugin.singleName)).instance;
         let $elem = controlInstance.constructionElem();
         console.log($elem);
         $dropToTarget.append($elem);

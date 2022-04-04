@@ -8,21 +8,6 @@ let GeneralPlugin = {
     _wysiwygLastSelectedElem: null,
     _prevWysiwygHtml: "",
 
-    dropControlToContainer(plugin, $dropToTarget, $dropToLayout) {
-        //let dropToObjectId=$dropToObject.attr("id");
-        //console.log(dragSourceSingleName);
-        //console.log($dropToObject);
-        //console.log(dropToObjectId);
-        //let pluginInstance=this.getPluginInstanceName(dragSourceSingleName);
-        //debugger;
-        let controlInstance = plugin.buildInstanceObj(this.newControlInstanceId(plugin.singleName)).instance;
-        let $elem = controlInstance.constructionElem();
-        console.log($elem);
-        $dropToTarget.append($elem);
-        if (typeof (controlInstance.registeredEvent) == "function") {
-            controlInstance.registeredEvent($elem);
-        }
-    },
     newControlInstanceId(singleName, append) {
         let instanceId = singleName + "_" + StringUtility.Timestamp();
         return append ? instanceId + "_" + append : instanceId;
@@ -175,6 +160,34 @@ let GeneralPlugin = {
             let contentMenu = sender.getContextMenu(sender, $elem);
             this.initContextMenu(sender, $elem, contentMenu);
         }
+    },
+    dropControlToContainer(plugin, $dropToTarget, $dropToLayout) {
+        //let dropToObjectId=$dropToObject.attr("id");
+        //console.log(dragSourceSingleName);
+        //console.log($dropToObject);
+        //console.log(dropToObjectId);
+        //let pluginInstance=this.getPluginInstanceName(dragSourceSingleName);
+        //debugger;
+        let controlInstance = plugin.buildInstanceObj(this.newControlInstanceId(plugin.singleName)).instance;
+        let $elem = controlInstance.constructionElem();
+        console.log($elem);
+        $dropToTarget.append($elem);
+        if (typeof (controlInstance.registeredEvent) == "function") {
+            controlInstance.registeredEvent($elem);
+        }
+    },
+    dropControlToTableContainer(tableContainerControlInstance, dragPlugin, $dropToTarget, $dropToLayout) {
+        let dragControlInstance = dragPlugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(dragPlugin.singleName)).instance;
+        let $elem = dragControlInstance.constructionElem();
+        console.log($elem);
+        $dropToTarget.append($elem);
+        if (typeof (dragControlInstance.registeredEvent) == "function") {
+            dragControlInstance.registeredEvent($elem);
+        }
+        GeneralPlugin.registeredRedipsInit($dropToLayout, tableContainerControlInstance);
+        /*let rd = REDIPS.drag;
+        rd.init($dropToLayout.attr("id"));
+        REDIPS.drag.enableDrag('init');*/
     },
     registeredRedipsInit($elem, sender) {
         let rd = REDIPS.drag;
@@ -363,6 +376,7 @@ let GeneralPlugin = {
             level2BindControlId: ""
         }
     },
+    settings: {},
     setWysiwygComponent(wysiwygComponent) {
         this._wysiwygComponent = wysiwygComponent;
     },

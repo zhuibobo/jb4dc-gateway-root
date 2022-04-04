@@ -6,6 +6,7 @@ let WLDCT_Search_TextBoxPlugin = {
     _$elem: null,
     id: null,
     props: JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
+    settings: JsonUtility.CloneStringify(GeneralPlugin.settings),
     buildInstanceObj(instanceId) {
         return GeneralPlugin.newControlInstance(this, instanceId);
     },

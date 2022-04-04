@@ -8,6 +8,7 @@ let WLDCT_LayoutContainerLRPlugin = {
     _$elem: null,
     id: null,
     props: JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
+    settings: JsonUtility.CloneStringify(GeneralPlugin.settings),
     buildInstanceObj(instanceId) {
         return GeneralPlugin.newControlInstance(this, instanceId);
     },
@@ -45,7 +46,7 @@ let WLDCT_LayoutContainerLRPlugin = {
     registeredEvent($elem) {
         GeneralPlugin.registeredGeneralEvent(this._$elem, this);
     },
-    dropControlToContainer(plugin, $dropToTarget, $dropToLayout) {
+    dropControlToContainer(dragPlugin, $dropToTarget, $dropToLayout) {
 
     }
 }

@@ -1,16 +1,6 @@
 import GeneralPlugin from "../../GeneralPlugin";
 
-let WLDCT_ListComplexSearchContainerPlugin = {
-    singleName: "WLDCT_ListComplexSearchContainer",
-    config: GeneralPlugin.configProp,
-    _$elem: null,
-    id: null,
-    props: JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
-    buildInstanceObj(instanceId) {
-        return GeneralPlugin.newControlInstance(this, instanceId);
-    },
-    constructionElem() {
-        this._$elem = $(`<div class="uid-wldct-container-wrap uid-wldct-list-complex-search-container-wrap">
+let innerHTML = `<div class="uid-wldct-container-wrap uid-wldct-list-complex-search-container-wrap">
                             <table contenteditable="true">
                                 <colgroup>
                                        <col style="width: 8%" />
@@ -52,7 +42,20 @@ let WLDCT_ListComplexSearchContainerPlugin = {
                                        <td class="label">(到):</td>
                                        <td></td>
                                    </tr>
-                            </table></div>`);
+                            </table></div>`
+
+let WLDCT_ListComplexSearchContainerPlugin = {
+    singleName: "WLDCT_ListComplexSearchContainer",
+    config: GeneralPlugin.configProp,
+    _$elem: null,
+    id: null,
+    props: JsonUtility.CloneStringify(GeneralPlugin.defaultProps),
+    settings: JsonUtility.CloneStringify(GeneralPlugin.settings),
+    buildInstanceObj(instanceId) {
+        return GeneralPlugin.newControlInstance(this, instanceId);
+    },
+    constructionElem() {
+        this._$elem = $(innerHTML);
         GeneralPlugin.serializePropsToElemForNewControl(this._$elem, this.config, {
             designControlInstanceName: this.id,
             id: this.id
@@ -71,18 +74,8 @@ let WLDCT_ListComplexSearchContainerPlugin = {
     resetWysiwygElemProps($elem, props) {
         GeneralPlugin.serializePropsToElem(this._$elem, props, this.config, "");
     },
-    dropControlToContainer(plugin, $dropToTarget, $dropToLayout) {
-        let controlInstance = plugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(plugin.singleName)).instance;
-        let $elem = controlInstance.constructionElem();
-        console.log($elem);
-        $dropToTarget.append($elem);
-        if (typeof (controlInstance.registeredEvent) == "function") {
-            controlInstance.registeredEvent($elem);
-        }
-        GeneralPlugin.registeredRedipsInit($dropToLayout, this);
-        /*let rd = REDIPS.drag;
-        rd.init($dropToLayout.attr("id"));
-        REDIPS.drag.enableDrag('init');*/
+    dropControlToContainer(dragPlugin, $dropToTarget, $dropToLayout) {
+        GeneralPlugin.dropControlToTableContainer(this, dragPlugin, $dropToTarget, $dropToLayout);
     },
     getContextMenu: GeneralPlugin.getTableEditorContextMenu
 }
