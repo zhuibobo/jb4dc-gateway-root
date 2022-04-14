@@ -129,7 +129,411 @@ function sendDataToURLSearchParams(sendData) {
 }
 
 let mockAjax = true;
-let mockForm = "<div class=\"uid-wldct-list-template-wrap\" jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTemplate\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" designcontrolinstancename=\"WLDCT_ListTemplate_612897919\" id=\"WLDCT_ListTemplate_612897919\">\n    <div class=\"uid-wldct-container-wrap uid-wldct-list-simple-search-container-wrap\" jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListSimpleSearchContainer\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" designcontrolinstancename=\"WLDCT_ListSimpleSearchContainer_612897919\" id=\"WLDCT_ListSimpleSearchContainer_612897919\">\n        <table contenteditable=\"true\">\n            <colgroup>\n                <col style=\"width: 8%\">\n                <col style=\"width: 17%\">\n                <col style=\"width: 8%\">\n                <col style=\"width: 17%\">\n                <col style=\"width: 8%\">\n                <col style=\"width: 17%\">\n                <col style=\"width: 8%\">\n                <col style=\"width: 17%\">\n            </colgroup>\n            <tbody>\n                <tr>\n                    <td class=\"label\">名称:</td>\n                    <td>\n                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_Search_TextBox\" designcontrolinstancename=\"WLDCT_Search_TextBox_616248594\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_Search_TextBox_616248594\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n                                <div name=\"elem-display-name\" class=\"elem-display-name\">查询单行输入框</div>\n                                <div class=\"wysiwyg-control-tip las la-control-tip\" tip-with-instance=\"WLDCT_Search_TextBox_616248594\"></div>\n                            </div>\n                        </div>\n                    </td>\n                    <td class=\"label\">标题:</td>\n                    <td>\n                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_Search_TextBox\" designcontrolinstancename=\"WLDCT_Search_TextBox_616252187\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_Search_TextBox_616252187\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n                                <div name=\"elem-display-name\" class=\"elem-display-name\">查询单行输入框</div>\n                                <div class=\"wysiwyg-control-tip las la-control-tip\" tip-with-instance=\"WLDCT_Search_TextBox_616252187\"></div>\n                            </div>\n                        </div>\n                    </td>\n                    <td class=\"label\">时间(从):</td>\n                    <td></td>\n                    <td class=\"label\">(到):</td>\n                    <td></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n    <div class=\"uid-wldct-container-wrap uid-wldct-list-complex-search-container-wrap\" jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListComplexSearchContainer\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" designcontrolinstancename=\"WLDCT_ListComplexSearchContainer_612897920\" id=\"WLDCT_ListComplexSearchContainer_612897920\">\n        <table contenteditable=\"true\">\n            <colgroup>\n                <col style=\"width: 8%\">\n                <col style=\"width: 17%\">\n                <col style=\"width: 8%\">\n                <col style=\"width: 17%\">\n                <col style=\"width: 8%\">\n                <col style=\"width: 17%\">\n                <col style=\"width: 8%\">\n                <col style=\"width: 17%\">\n            </colgroup>\n            <tbody>\n                <tr>\n                    <td class=\"label\">名称:</td>\n                    <td></td>\n                    <td class=\"label\">标题:</td>\n                    <td></td>\n                    <td class=\"label\">时间(从):</td>\n                    <td></td>\n                    <td class=\"label\">(到):</td>\n                    <td></td>\n                </tr>\n                <tr>\n                    <td class=\"label\">名称:</td>\n                    <td></td>\n                    <td class=\"label\">标题:</td>\n                    <td></td>\n                    <td class=\"label\">时间(从):</td>\n                    <td></td>\n                    <td class=\"label\">(到):</td>\n                    <td></td>\n                </tr>\n                <tr>\n                    <td class=\"label\">名称:</td>\n                    <td></td>\n                    <td class=\"label\">标题:</td>\n                    <td></td>\n                    <td class=\"label\">时间(从):</td>\n                    <td></td>\n                    <td class=\"label\">(到):</td>\n                    <td></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n    <div class=\"uid-wldct-container-wrap uid-wldct-list-button-container-wrap\" jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListButtonContainer\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" designcontrolinstancename=\"WLDCT_ListButtonContainer_612897920\" id=\"WLDCT_ListButtonContainer_612897920\">\n        <table is-op-button-wrap-table=\"true\">\n            <colgroup>\n                <col style=\"width: 10%\">\n                <col style=\"width: 10%\">\n                <col style=\"width: 10%\">\n                <col style=\"width: 10%\">\n                <col style=\"width: 10%\">\n                <col style=\"width: 10%\">\n                <col style=\"width: 10%\">\n                <col style=\"width: 10%\">\n            </colgroup>\n            <tbody>\n                <tr>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                    <td>\n                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_FormButton\" designcontrolinstancename=\"WLDCT_FormButton_616262916\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_FormButton_616262916\" isopbutton=\"true\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"Layout\">\n                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n                                <div name=\"elem-display-name\" class=\"elem-display-name\">窗体按钮</div>\n                                <div class=\"wysiwyg-control-tip las la-control-tip\" tip-with-instance=\"WLDCT_FormButton_616262916\"></div>\n                            </div>\n                        </div>\n                    </td>\n                    <td>\n                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_FormButton\" designcontrolinstancename=\"WLDCT_FormButton_616265001\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_FormButton_616265001\" isopbutton=\"true\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"Layout\">\n                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n                                <div name=\"elem-display-name\" class=\"elem-display-name\">窗体按钮</div>\n                                <div class=\"wysiwyg-control-tip las la-control-tip\" tip-with-instance=\"WLDCT_FormButton_616265001\"></div>\n                            </div>\n                        </div>\n                    </td>\n                    <td>\n                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_FormButton\" designcontrolinstancename=\"WLDCT_FormButton_616266776\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_FormButton_616266776\" isopbutton=\"true\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"Layout\">\n                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n                                <div name=\"elem-display-name\" class=\"elem-display-name\">窗体按钮</div>\n                                <div class=\"wysiwyg-control-tip las la-control-tip\" tip-with-instance=\"WLDCT_FormButton_616266776\"></div>\n                            </div>\n                        </div>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n    <div class=\"uid-wldct-container-wrap uid-wldct-list-table-container-wrap\" jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableContainer\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" designcontrolinstancename=\"WLDCT_ListTableContainer_612897920\" id=\"WLDCT_ListTableContainer_612897920\">\n        <table class=\"list-table\" contenteditable=\"true\">\n            <thead>\n                <tr>\n                    <th>编号</th>\n                    <th>标题</th>\n                    <th>时间</th>\n                    <th>状态</th>\n                    <th>操作</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr>\n                    <td>\n                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableLabel\" designcontrolinstancename=\"WLDCT_ListTableLabel_616272420\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_ListTableLabel_616272420\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n                                <div name=\"elem-display-name\" class=\"elem-display-name\">列表内标签</div>\n                                <div class=\"wysiwyg-control-tip las la-control-tip\" tip-with-instance=\"WLDCT_ListTableLabel_616272420\"></div>\n                            </div>\n                        </div>\n                    </td>\n                    <td>\n                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableLabel\" designcontrolinstancename=\"WLDCT_ListTableLabel_616274872\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_ListTableLabel_616274872\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n                                <div name=\"elem-display-name\" class=\"elem-display-name\">列表内标签</div>\n                                <div class=\"wysiwyg-control-tip las la-control-tip\" tip-with-instance=\"WLDCT_ListTableLabel_616274872\"></div>\n                            </div>\n                        </div>\n                    </td>\n                    <td>\n                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableLabel\" designcontrolinstancename=\"WLDCT_ListTableLabel_616276875\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_ListTableLabel_616276875\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n                                <div name=\"elem-display-name\" class=\"elem-display-name\">列表内标签</div>\n                                <div class=\"wysiwyg-control-tip las la-control-tip\" tip-with-instance=\"WLDCT_ListTableLabel_616276875\"></div>\n                            </div>\n                        </div>\n                    </td>\n                    <td style=\"\">\n                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableLabel\" designcontrolinstancename=\"WLDCT_ListTableLabel_616278827\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_ListTableLabel_616278827\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n                                <div name=\"elem-display-name\" class=\"elem-display-name\">列表内标签</div>\n                                <div class=\"wysiwyg-control-tip las la-control-tip\" tip-with-instance=\"WLDCT_ListTableLabel_616278827\"></div>\n                            </div>\n                        </div>\n                    </td>\n                    <td class=\"op-button-container-outer-td\" style=\"\">\n                        <div class=\"uid-wldct-list-table-inner-button-container-wrap\">\n                            <div class=\"uid-wldct-container-wrap uid-wldct-list-table-inner-button-inner-wrap\">\n                                <table is-inner-op-button-wrap-table=\"true\">\n                                    <colgroup>\n                                        <col style=\"width: 33%\">\n                                        <col style=\"width: 33%\">\n                                        <col style=\"width: 33%\">\n                                    </colgroup>\n                                    <tbody>\n                                        <tr>\n                                            <td style=\"\">\n                                                <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableInnerButtonSingle\" designcontrolinstancename=\"WLDCT_ListTableInnerButtonSingle_616282798\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_ListTableInnerButtonSingle_616282798\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n                                                    <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n                                                        <div name=\"elem-display-name\" class=\"elem-display-name\">列表内按钮\n                                                        </div>\n                                                        <div class=\"wysiwyg-control-tip las la-control-tip\" tip-with-instance=\"WLDCT_ListTableInnerButtonSingle_616282798\">\n                                                        </div>\n                                                    </div>\n                                                </div>\n                                            </td>\n                                            <td>\n                                                <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableInnerButtonSingle\" designcontrolinstancename=\"WLDCT_ListTableInnerButtonSingle_616284721\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_ListTableInnerButtonSingle_616284721\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n                                                    <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n                                                        <div name=\"elem-display-name\" class=\"elem-display-name\">列表内按钮\n                                                        </div>\n                                                        <div class=\"wysiwyg-control-tip las la-control-tip\" tip-with-instance=\"WLDCT_ListTableInnerButtonSingle_616284721\">\n                                                        </div>\n                                                    </div>\n                                                </div>\n                                            </td>\n                                            <td>\n                                                <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableInnerButtonSingle\" designcontrolinstancename=\"WLDCT_ListTableInnerButtonSingle_616287294\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_ListTableInnerButtonSingle_616287294\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n                                                    <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n                                                        <div name=\"elem-display-name\" class=\"elem-display-name\">列表内按钮\n                                                        </div>\n                                                        <div class=\"wysiwyg-control-tip las la-control-tip\" tip-with-instance=\"WLDCT_ListTableInnerButtonSingle_616287294\">\n                                                        </div>\n                                                    </div>\n                                                </div>\n                                            </td>\n                                        </tr>\n                                    </tbody>\n                                </table>\n                            </div>\n                        </div>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n    <div class=\"uid-wldct-container-wrap uid-wldct-hide-container-wrap\" jbuild4dc_custom=\"true\" singlename=\"WLDCT_HideContainer\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" designcontrolinstancename=\"WLDCT_HideContainer_612897920\" id=\"WLDCT_HideContainer_612897920\">\n        <table contenteditable=\"true\">\n            <colgroup>\n                <col style=\"width: 8%\">\n                <col style=\"width: 15%\">\n                <col style=\"width: 8%\">\n                <col style=\"width: 15%\">\n                <col style=\"width: 8%\">\n                <col style=\"width: 16%\">\n            </colgroup>\n            <tbody>\n                <tr>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                </tr>\n                <tr>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                </tr>\n                <tr>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                </tr>\n                <tr>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                    <td></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n    <div id=\"redips_clone\" style=\"height: 1px; width: 1px;\"></div>\n</div>";
+let mockForm = "<div class=\"uid-wldct-list-template-wrap\" jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTemplate\"\n" +
+    "    is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\"\n" +
+    "    designcontrolinstancename=\"WLDCT_ListTemplate_612897919\" id=\"WLDCT_ListTemplate_612897919\">\n" +
+    "    <div class=\"uid-wldct-container-wrap uid-wldct-list-simple-search-container-wrap\" jbuild4dc_custom=\"true\"\n" +
+    "        singlename=\"WLDCT_ListSimpleSearchContainer\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\"\n" +
+    "        show_remove_button=\"false\" group=\"ListLayoutTemplate\"\n" +
+    "        designcontrolinstancename=\"WLDCT_ListSimpleSearchContainer_612897919\"\n" +
+    "        id=\"WLDCT_ListSimpleSearchContainer_612897919\">\n" +
+    "        <table contenteditable=\"true\">\n" +
+    "            <colgroup>\n" +
+    "                <col style=\"width: 8%\">\n" +
+    "                <col style=\"width: 17%\">\n" +
+    "                <col style=\"width: 8%\">\n" +
+    "                <col style=\"width: 17%\">\n" +
+    "                <col style=\"width: 8%\">\n" +
+    "                <col style=\"width: 17%\">\n" +
+    "                <col style=\"width: 8%\">\n" +
+    "                <col style=\"width: 17%\">\n" +
+    "            </colgroup>\n" +
+    "            <tbody>\n" +
+    "                <tr>\n" +
+    "                    <td class=\"label\">序号：</td>\n" +
+    "                    <td>\n" +
+    "                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_Search_TextBox\"\n" +
+    "                            designcontrolinstancename=\"WLDCT_Search_TextBox_616248594\"\n" +
+    "                            class=\"uid-design-input-control redips-drag\" contenteditable=\"false\"\n" +
+    "                            id=\"WLDCT_Search_TextBox_616248594\" is_jbuild4dc_data=\"false\"\n" +
+    "                            control_category=\"InputControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\"\n" +
+    "                            style=\"\" serialize=\"true\" name=\"\" classname=\"\" placeholder=\"\" custreadonly=\"noreadonly\"\n" +
+    "                            custdisabled=\"nodisabled\" desc=\"\" status=\"enable\" groupname=\"\" defaulttype=\"\"\n" +
+    "                            defaultvalue=\"\" defaulttext=\"\" columntitle=\"\" columntablename=\"TQC_ISSUES\"\n" +
+    "                            columnname=\"ISS_NUM\" columncaption=\"序号\" columndatatypename=\"字符串\" columnoperator=\"匹配\">\n" +
+    "                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n" +
+    "                                <div name=\"elem-display-name\" class=\"elem-display-name\" style=\"background-image: url('Images/Plugin//datetimefield.png')\">查询单行输入框[序号]</div>\n" +
+    "                                <div class=\"wysiwyg-control-tip las la-control-tip\"\n" +
+    "                                    tip-with-instance=\"WLDCT_Search_TextBox_616248594\"></div>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </td>\n" +
+    "                    <td class=\"label\">标题:</td>\n" +
+    "                    <td>\n" +
+    "                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_Search_TextBox\"\n" +
+    "                            designcontrolinstancename=\"WLDCT_Search_TextBox_616252187\"\n" +
+    "                            class=\"uid-design-input-control redips-drag\" contenteditable=\"false\"\n" +
+    "                            id=\"WLDCT_Search_TextBox_616252187\" is_jbuild4dc_data=\"false\"\n" +
+    "                            control_category=\"InputControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\"\n" +
+    "                            style=\"\" serialize=\"true\" name=\"\" classname=\"\" placeholder=\"\" custreadonly=\"noreadonly\"\n" +
+    "                            custdisabled=\"nodisabled\" desc=\"\" status=\"enable\" groupname=\"\" defaulttype=\"\"\n" +
+    "                            defaultvalue=\"\" defaulttext=\"\" columntitle=\"\" columntablename=\"TQC_ISSUES\"\n" +
+    "                            columnname=\"ISS_TITLE\" columncaption=\"标题\" columndatatypename=\"字符串\" columnoperator=\"匹配\">\n" +
+    "                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n" +
+    "                                <div name=\"elem-display-name\" class=\"elem-display-name\">查询单行输入框[标题]</div>\n" +
+    "                                <div class=\"wysiwyg-control-tip las la-control-tip\"\n" +
+    "                                    tip-with-instance=\"WLDCT_Search_TextBox_616252187\"></div>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </td>\n" +
+    "                    <td class=\"label\">时间(从):</td>\n" +
+    "                    <td>\n" +
+    "                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_Search_TextDateTime\"\n" +
+    "                            designcontrolinstancename=\"WLDCT_Search_TextDateTime_925665491\"\n" +
+    "                            class=\"uid-design-input-control redips-drag\" contenteditable=\"false\"\n" +
+    "                            id=\"WLDCT_Search_TextDateTime_925665491\" is_jbuild4dc_data=\"false\"\n" +
+    "                            control_category=\"InputControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\"\n" +
+    "                            style=\"\" serialize=\"true\" name=\"\" classname=\"\" placeholder=\"\" custreadonly=\"noreadonly\"\n" +
+    "                            custdisabled=\"nodisabled\" desc=\"\" status=\"enable\" groupname=\"\" defaulttype=\"\"\n" +
+    "                            defaultvalue=\"\" defaulttext=\"\" columntitle=\"\" columntablename=\"TQC_ISSUES\"\n" +
+    "                            columnname=\"ISS_CREATOR_DATE\" columncaption=\"录入时间\" columndatatypename=\"日期时间\"\n" +
+    "                            columnoperator=\"gt_eq\">\n" +
+    "                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n" +
+    "                                <div name=\"elem-display-name\" class=\"elem-display-name\">查询日期输入框[录入时间]</div>\n" +
+    "                                <div class=\"wysiwyg-control-tip las la-control-tip\"\n" +
+    "                                    tip-with-instance=\"WLDCT_Search_TextDateTime_925665491\"></div>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </td>\n" +
+    "                    <td class=\"label\">(到):</td>\n" +
+    "                    <td>\n" +
+    "                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_Search_TextDateTime\"\n" +
+    "                            designcontrolinstancename=\"WLDCT_Search_TextDateTime_925682452\"\n" +
+    "                            class=\"uid-design-input-control redips-drag\" contenteditable=\"false\"\n" +
+    "                            id=\"WLDCT_Search_TextDateTime_925682452\" is_jbuild4dc_data=\"false\"\n" +
+    "                            control_category=\"InputControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\"\n" +
+    "                            style=\"\" serialize=\"true\" name=\"\" classname=\"\" placeholder=\"\" custreadonly=\"noreadonly\"\n" +
+    "                            custdisabled=\"nodisabled\" desc=\"\" status=\"enable\" groupname=\"\" defaulttype=\"\"\n" +
+    "                            defaultvalue=\"\" defaulttext=\"\" columntitle=\"\" columntablename=\"TQC_ISSUES\"\n" +
+    "                            columnname=\"ISS_CREATOR_DATE\" columncaption=\"录入时间\" columndatatypename=\"日期时间\"\n" +
+    "                            columnoperator=\"lt_eq\">\n" +
+    "                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n" +
+    "                                <div name=\"elem-display-name\" class=\"elem-display-name\">查询日期输入框[录入时间]</div>\n" +
+    "                                <div class=\"wysiwyg-control-tip las la-control-tip\"\n" +
+    "                                    tip-with-instance=\"WLDCT_Search_TextDateTime_925682452\"></div>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </td>\n" +
+    "                </tr>\n" +
+    "            </tbody>\n" +
+    "        </table>\n" +
+    "    </div>\n" +
+    "    <div class=\"uid-wldct-container-wrap uid-wldct-list-complex-search-container-wrap\" jbuild4dc_custom=\"true\"\n" +
+    "        singlename=\"WLDCT_ListComplexSearchContainer\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\"\n" +
+    "        show_remove_button=\"false\" group=\"ListLayoutTemplate\"\n" +
+    "        designcontrolinstancename=\"WLDCT_ListComplexSearchContainer_612897920\"\n" +
+    "        id=\"WLDCT_ListComplexSearchContainer_612897920\">\n" +
+    "        <table contenteditable=\"true\">\n" +
+    "            <colgroup>\n" +
+    "                <col style=\"width: 8%\">\n" +
+    "                <col style=\"width: 17%\">\n" +
+    "                <col style=\"width: 8%\">\n" +
+    "                <col style=\"width: 17%\">\n" +
+    "                <col style=\"width: 8%\">\n" +
+    "                <col style=\"width: 17%\">\n" +
+    "                <col style=\"width: 8%\">\n" +
+    "                <col style=\"width: 17%\">\n" +
+    "            </colgroup>\n" +
+    "            <tbody>\n" +
+    "                <tr>\n" +
+    "                    <td class=\"label\">名称:</td>\n" +
+    "                    <td></td>\n" +
+    "                    <td class=\"label\">标题:</td>\n" +
+    "                    <td></td>\n" +
+    "                    <td class=\"label\">时间(从):</td>\n" +
+    "                    <td></td>\n" +
+    "                    <td class=\"label\">(到):</td>\n" +
+    "                    <td></td>\n" +
+    "                </tr>\n" +
+    "                <tr>\n" +
+    "                    <td class=\"label\">名称:</td>\n" +
+    "                    <td></td>\n" +
+    "                    <td class=\"label\">标题:</td>\n" +
+    "                    <td></td>\n" +
+    "                    <td class=\"label\">时间(从):</td>\n" +
+    "                    <td></td>\n" +
+    "                    <td class=\"label\">(到):</td>\n" +
+    "                    <td></td>\n" +
+    "                </tr>\n" +
+    "                <tr>\n" +
+    "                    <td class=\"label\">名称:</td>\n" +
+    "                    <td></td>\n" +
+    "                    <td class=\"label\">标题:</td>\n" +
+    "                    <td></td>\n" +
+    "                    <td class=\"label\">时间(从):</td>\n" +
+    "                    <td></td>\n" +
+    "                    <td class=\"label\">(到):</td>\n" +
+    "                    <td></td>\n" +
+    "                </tr>\n" +
+    "            </tbody>\n" +
+    "        </table>\n" +
+    "    </div>\n" +
+    "    <div class=\"uid-wldct-container-wrap uid-wldct-list-button-container-wrap\" jbuild4dc_custom=\"true\"\n" +
+    "        singlename=\"WLDCT_ListButtonContainer\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\"\n" +
+    "        show_remove_button=\"false\" group=\"ListLayoutTemplate\"\n" +
+    "        designcontrolinstancename=\"WLDCT_ListButtonContainer_612897920\" id=\"WLDCT_ListButtonContainer_612897920\">\n" +
+    "        <table is-op-button-wrap-table=\"true\">\n" +
+    "            <colgroup>\n" +
+    "                <col style=\"width: 10%\">\n" +
+    "                <col style=\"width: 10%\">\n" +
+    "                <col style=\"width: 10%\">\n" +
+    "                <col style=\"width: 10%\">\n" +
+    "                <col style=\"width: 10%\">\n" +
+    "                <col style=\"width: 10%\">\n" +
+    "                <col style=\"width: 10%\">\n" +
+    "                <col style=\"width: 10%\">\n" +
+    "            </colgroup>\n" +
+    "            <tbody>\n" +
+    "                <tr>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td>\n" +
+    "                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_FormButton\"\n" +
+    "                            designcontrolinstancename=\"WLDCT_FormButton_616262916\"\n" +
+    "                            class=\"uid-design-input-control redips-drag\" contenteditable=\"false\"\n" +
+    "                            id=\"WLDCT_FormButton_616262916\" isopbutton=\"true\" is_jbuild4dc_data=\"false\"\n" +
+    "                            control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"Layout\">\n" +
+    "                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n" +
+    "                                <div name=\"elem-display-name\" class=\"elem-display-name\">窗体按钮</div>\n" +
+    "                                <div class=\"wysiwyg-control-tip las la-control-tip\"\n" +
+    "                                    tip-with-instance=\"WLDCT_FormButton_616262916\"></div>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </td>\n" +
+    "                    <td>\n" +
+    "                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_FormButton\"\n" +
+    "                            designcontrolinstancename=\"WLDCT_FormButton_616265001\"\n" +
+    "                            class=\"uid-design-input-control redips-drag\" contenteditable=\"false\"\n" +
+    "                            id=\"WLDCT_FormButton_616265001\" isopbutton=\"true\" is_jbuild4dc_data=\"false\"\n" +
+    "                            control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"Layout\">\n" +
+    "                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n" +
+    "                                <div name=\"elem-display-name\" class=\"elem-display-name\">窗体按钮</div>\n" +
+    "                                <div class=\"wysiwyg-control-tip las la-control-tip\"\n" +
+    "                                    tip-with-instance=\"WLDCT_FormButton_616265001\"></div>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </td>\n" +
+    "                    <td>\n" +
+    "                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_FormButton\"\n" +
+    "                            designcontrolinstancename=\"WLDCT_FormButton_616266776\"\n" +
+    "                            class=\"uid-design-input-control redips-drag\" contenteditable=\"false\"\n" +
+    "                            id=\"WLDCT_FormButton_616266776\" isopbutton=\"true\" is_jbuild4dc_data=\"false\"\n" +
+    "                            control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"Layout\">\n" +
+    "                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n" +
+    "                                <div name=\"elem-display-name\" class=\"elem-display-name\">窗体按钮</div>\n" +
+    "                                <div class=\"wysiwyg-control-tip las la-control-tip\"\n" +
+    "                                    tip-with-instance=\"WLDCT_FormButton_616266776\"></div>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </td>\n" +
+    "                </tr>\n" +
+    "            </tbody>\n" +
+    "        </table>\n" +
+    "    </div>\n" +
+    "    <div class=\"uid-wldct-container-wrap uid-wldct-list-table-container-wrap\" jbuild4dc_custom=\"true\"\n" +
+    "        singlename=\"WLDCT_ListTableContainer\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\"\n" +
+    "        show_remove_button=\"false\" group=\"ListLayoutTemplate\"\n" +
+    "        designcontrolinstancename=\"WLDCT_ListTableContainer_612897920\" id=\"WLDCT_ListTableContainer_612897920\">\n" +
+    "        <table class=\"list-table\" contenteditable=\"true\">\n" +
+    "            <thead>\n" +
+    "                <tr>\n" +
+    "                    <th>编号</th>\n" +
+    "                    <th>标题</th>\n" +
+    "                    <th>时间</th>\n" +
+    "                    <th>状态</th>\n" +
+    "                    <th>操作</th>\n" +
+    "                </tr>\n" +
+    "            </thead>\n" +
+    "            <tbody>\n" +
+    "                <tr>\n" +
+    "                    <td>\n" +
+    "                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableLabel\"\n" +
+    "                            designcontrolinstancename=\"WLDCT_ListTableLabel_616272420\"\n" +
+    "                            class=\"uid-design-input-control redips-drag\" contenteditable=\"false\"\n" +
+    "                            id=\"WLDCT_ListTableLabel_616272420\" is_jbuild4dc_data=\"false\"\n" +
+    "                            control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n" +
+    "                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n" +
+    "                                <div name=\"elem-display-name\" class=\"elem-display-name\">列表内标签</div>\n" +
+    "                                <div class=\"wysiwyg-control-tip las la-control-tip\"\n" +
+    "                                    tip-with-instance=\"WLDCT_ListTableLabel_616272420\"></div>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </td>\n" +
+    "                    <td>\n" +
+    "                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableLabel\"\n" +
+    "                            designcontrolinstancename=\"WLDCT_ListTableLabel_616274872\"\n" +
+    "                            class=\"uid-design-input-control redips-drag\" contenteditable=\"false\"\n" +
+    "                            id=\"WLDCT_ListTableLabel_616274872\" is_jbuild4dc_data=\"false\"\n" +
+    "                            control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n" +
+    "                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n" +
+    "                                <div name=\"elem-display-name\" class=\"elem-display-name\">列表内标签</div>\n" +
+    "                                <div class=\"wysiwyg-control-tip las la-control-tip\"\n" +
+    "                                    tip-with-instance=\"WLDCT_ListTableLabel_616274872\"></div>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </td>\n" +
+    "                    <td>\n" +
+    "                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableLabel\"\n" +
+    "                            designcontrolinstancename=\"WLDCT_ListTableLabel_616276875\"\n" +
+    "                            class=\"uid-design-input-control redips-drag\" contenteditable=\"false\"\n" +
+    "                            id=\"WLDCT_ListTableLabel_616276875\" is_jbuild4dc_data=\"false\"\n" +
+    "                            control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n" +
+    "                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n" +
+    "                                <div name=\"elem-display-name\" class=\"elem-display-name\">列表内标签</div>\n" +
+    "                                <div class=\"wysiwyg-control-tip las la-control-tip\"\n" +
+    "                                    tip-with-instance=\"WLDCT_ListTableLabel_616276875\"></div>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </td>\n" +
+    "                    <td style=\"\">\n" +
+    "                        <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableLabel\"\n" +
+    "                            designcontrolinstancename=\"WLDCT_ListTableLabel_616278827\"\n" +
+    "                            class=\"uid-design-input-control redips-drag\" contenteditable=\"false\"\n" +
+    "                            id=\"WLDCT_ListTableLabel_616278827\" is_jbuild4dc_data=\"false\"\n" +
+    "                            control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n" +
+    "                            <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n" +
+    "                                <div name=\"elem-display-name\" class=\"elem-display-name\">列表内标签</div>\n" +
+    "                                <div class=\"wysiwyg-control-tip las la-control-tip\"\n" +
+    "                                    tip-with-instance=\"WLDCT_ListTableLabel_616278827\"></div>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </td>\n" +
+    "                    <td class=\"op-button-container-outer-td\" style=\"\">\n" +
+    "                        <div class=\"uid-wldct-list-table-inner-button-container-wrap\">\n" +
+    "                            <div class=\"uid-wldct-container-wrap uid-wldct-list-table-inner-button-inner-wrap\">\n" +
+    "                                <table is-inner-op-button-wrap-table=\"true\">\n" +
+    "                                    <colgroup>\n" +
+    "                                        <col style=\"width: 33%\">\n" +
+    "                                        <col style=\"width: 33%\">\n" +
+    "                                        <col style=\"width: 33%\">\n" +
+    "                                    </colgroup>\n" +
+    "                                    <tbody>\n" +
+    "                                        <tr>\n" +
+    "                                            <td style=\"\">\n" +
+    "                                                <div jbuild4dc_custom=\"true\"\n" +
+    "                                                    singlename=\"WLDCT_ListTableInnerButtonSingle\"\n" +
+    "                                                    designcontrolinstancename=\"WLDCT_ListTableInnerButtonSingle_616282798\"\n" +
+    "                                                    class=\"uid-design-input-control redips-drag\" contenteditable=\"false\"\n" +
+    "                                                    id=\"WLDCT_ListTableInnerButtonSingle_616282798\"\n" +
+    "                                                    is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\"\n" +
+    "                                                    show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n" +
+    "                                                    <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n" +
+    "                                                        <div name=\"elem-display-name\" class=\"elem-display-name\">列表内按钮\n" +
+    "                                                        </div>\n" +
+    "                                                        <div class=\"wysiwyg-control-tip las la-control-tip\"\n" +
+    "                                                            tip-with-instance=\"WLDCT_ListTableInnerButtonSingle_616282798\">\n" +
+    "                                                        </div>\n" +
+    "                                                    </div>\n" +
+    "                                                </div>\n" +
+    "                                            </td>\n" +
+    "                                            <td>\n" +
+    "                                                <div jbuild4dc_custom=\"true\"\n" +
+    "                                                    singlename=\"WLDCT_ListTableInnerButtonSingle\"\n" +
+    "                                                    designcontrolinstancename=\"WLDCT_ListTableInnerButtonSingle_616284721\"\n" +
+    "                                                    class=\"uid-design-input-control redips-drag\" contenteditable=\"false\"\n" +
+    "                                                    id=\"WLDCT_ListTableInnerButtonSingle_616284721\"\n" +
+    "                                                    is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\"\n" +
+    "                                                    show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n" +
+    "                                                    <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n" +
+    "                                                        <div name=\"elem-display-name\" class=\"elem-display-name\">列表内按钮\n" +
+    "                                                        </div>\n" +
+    "                                                        <div class=\"wysiwyg-control-tip las la-control-tip\"\n" +
+    "                                                            tip-with-instance=\"WLDCT_ListTableInnerButtonSingle_616284721\">\n" +
+    "                                                        </div>\n" +
+    "                                                    </div>\n" +
+    "                                                </div>\n" +
+    "                                            </td>\n" +
+    "                                            <td>\n" +
+    "                                                <div jbuild4dc_custom=\"true\"\n" +
+    "                                                    singlename=\"WLDCT_ListTableInnerButtonSingle\"\n" +
+    "                                                    designcontrolinstancename=\"WLDCT_ListTableInnerButtonSingle_616287294\"\n" +
+    "                                                    class=\"uid-design-input-control redips-drag\" contenteditable=\"false\"\n" +
+    "                                                    id=\"WLDCT_ListTableInnerButtonSingle_616287294\"\n" +
+    "                                                    is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\"\n" +
+    "                                                    show_remove_button=\"false\" group=\"ListLayoutTemplate\">\n" +
+    "                                                    <div runtime_auto_remove=\"true\" class=\"wysiwyg-auto-remove-tip\">\n" +
+    "                                                        <div name=\"elem-display-name\" class=\"elem-display-name\">列表内按钮\n" +
+    "                                                        </div>\n" +
+    "                                                        <div class=\"wysiwyg-control-tip las la-control-tip\"\n" +
+    "                                                            tip-with-instance=\"WLDCT_ListTableInnerButtonSingle_616287294\">\n" +
+    "                                                        </div>\n" +
+    "                                                    </div>\n" +
+    "                                                </div>\n" +
+    "                                            </td>\n" +
+    "                                        </tr>\n" +
+    "                                    </tbody>\n" +
+    "                                </table>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </td>\n" +
+    "                </tr>\n" +
+    "            </tbody>\n" +
+    "        </table>\n" +
+    "    </div>\n" +
+    "    <div class=\"uid-wldct-container-wrap uid-wldct-hide-container-wrap\" jbuild4dc_custom=\"true\"\n" +
+    "        singlename=\"WLDCT_HideContainer\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\"\n" +
+    "        show_remove_button=\"false\" group=\"ListLayoutTemplate\" designcontrolinstancename=\"WLDCT_HideContainer_612897920\"\n" +
+    "        id=\"WLDCT_HideContainer_612897920\">\n" +
+    "        <table contenteditable=\"true\">\n" +
+    "            <colgroup>\n" +
+    "                <col style=\"width: 8%\">\n" +
+    "                <col style=\"width: 15%\">\n" +
+    "                <col style=\"width: 8%\">\n" +
+    "                <col style=\"width: 15%\">\n" +
+    "                <col style=\"width: 8%\">\n" +
+    "                <col style=\"width: 16%\">\n" +
+    "            </colgroup>\n" +
+    "            <tbody>\n" +
+    "                <tr>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                </tr>\n" +
+    "                <tr>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                </tr>\n" +
+    "                <tr>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                </tr>\n" +
+    "                <tr>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                    <td></td>\n" +
+    "                </tr>\n" +
+    "            </tbody>\n" +
+    "        </table>\n" +
+    "    </div>\n" +
+    "    <div id=\"redips_clone\" style=\"height: 1px; width: 1px;\"></div>\n" +
+    "</div>";
 if (mockAjax) {
     let mock = new MockAdapter(axios, {delayResponse: 200});
     mock.onPost(acInterface.getTablesDataUrl).reply(200, {

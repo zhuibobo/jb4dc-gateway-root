@@ -256,7 +256,7 @@
                 "singleName": "WLDCT_Search_TextDateTime",
                 "text": "查询日期输入框",
                 "class": "",
-                "icon": "textfield.png",
+                "icon": "datetimefield.png",
                 "dragTo": "WLDCT_ListSimpleSearchContainer,WLDCT_ListComplexSearchContainer,WLDCT_HideContainer",
                 "serverResolve": "",
                 "clientResolve": "",
