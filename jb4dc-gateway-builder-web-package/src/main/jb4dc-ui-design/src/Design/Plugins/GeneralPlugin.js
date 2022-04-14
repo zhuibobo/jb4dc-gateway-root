@@ -27,6 +27,7 @@ let GeneralPlugin = {
         return instanceObj;
     },
     registeredPlugin(pluginName, plugin) {
+        //debugger;
         let instanceObj = {
             id: pluginName,
             name: pluginName,
@@ -197,7 +198,7 @@ let GeneralPlugin = {
         }
         rd.enableDrag('init');
     },
-    buildListSearchControlGeneralText(config, props) {
+    buildInputControlGeneralText(config, props) {
         return config.text + "[" + props.bindToSearchField.columnCaption + "]";
     },
     buildListButtonControlGeneralText(config, props) {

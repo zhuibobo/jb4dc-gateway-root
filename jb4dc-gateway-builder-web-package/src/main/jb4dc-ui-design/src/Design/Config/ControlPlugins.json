@@ -247,7 +247,25 @@
                 "dialogWidth": "600",
                 "dialogHeight": "550",
                 "isJBuild4DCData": "false",
-                "controlCategory": "LayoutControl",
+                "controlCategory": "InputControl",
+                "serverDynamicBind": "false",
+                "showRemoveButton": "false",
+                "showInEditorToolbar": "true"
+              }, {
+                "group": "ListLayoutTemplate",
+                "singleName": "WLDCT_Search_TextDateTime",
+                "text": "查询日期输入框",
+                "class": "",
+                "icon": "textfield.png",
+                "dragTo": "WLDCT_ListSimpleSearchContainer,WLDCT_ListComplexSearchContainer,WLDCT_HideContainer",
+                "serverResolve": "",
+                "clientResolve": "",
+                "clientResolveJs": "",
+                "enableChildControls": "",
+                "dialogWidth": "600",
+                "dialogHeight": "550",
+                "isJBuild4DCData": "false",
+                "controlCategory": "InputControl",
                 "serverDynamicBind": "false",
                 "showRemoveButton": "false",
                 "showInEditorToolbar": "true"
@@ -306,7 +324,7 @@
                 "dialogWidth": "600",
                 "dialogHeight": "550",
                 "isJBuild4DCData": "false",
-                "controlCategory": "LayoutControl",
+                "controlCategory": "InputControl",
                 "serverDynamicBind": "false",
                 "showRemoveButton": "false",
                 "showInEditorToolbar": "true"
@@ -346,7 +364,7 @@
                 "dialogWidth": "600",
                 "dialogHeight": "550",
                 "isJBuild4DCData": "false",
-                "controlCategory": "LayoutControl",
+                "controlCategory": "InputControl",
                 "serverDynamicBind": "false",
                 "showRemoveButton": "false",
                 "showInEditorToolbar": "true"
@@ -365,7 +383,7 @@
                 "dialogWidth": "600",
                 "dialogHeight": "550",
                 "isJBuild4DCData": "false",
-                "controlCategory": "LayoutControl",
+                "controlCategory": "InputControl",
                 "serverDynamicBind": "false",
                 "showRemoveButton": "false",
                 "showInEditorToolbar": "true"
