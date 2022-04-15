@@ -1,7 +1,5 @@
 package com.jb4dc.gateway.webserver.beanconfig.sys;
 
-import com.jb4dc.base.service.general.JB4DCSessionCenter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.server.reactive.ServerHttpRequest;

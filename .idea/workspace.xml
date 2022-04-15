@@ -6,17 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ccedc649-8eaf-4db4-ba50-beb85a54ca4c" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Config/ControlPlugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Config/ControlPlugins.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/AbstractInputBasePlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/AbstractInputBasePlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/GeneralPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/GeneralPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_FormButton/WLDCT_FormButtonPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_FormButton/WLDCT_FormButtonPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_ListTableInnerButtonSingle/WLDCT_ListTableInnerButtonSinglePlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_ListTableInnerButtonSingle/WLDCT_ListTableInnerButtonSinglePlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_ListTableInnerButtonSingle/WLDCT_ListTableInnerButtonSingleProperty.vue" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_ListTableInnerButtonSingle/WLDCT_ListTableInnerButtonSingleProperty.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_ListTableLabel/WLDCT_ListTableLabelPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_ListTableLabel/WLDCT_ListTableLabelPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Remote/RemoteRestInterface.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Remote/RemoteRestInterface.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/MainTab/uid-wysiwyg-comp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/MainTab/uid-wysiwyg-comp.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Less/UIDesignMain.less" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Less/UIDesignMain.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebListRuntime/ListRuntime.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebListRuntime/ListRuntime.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_HideContainer/WLDCT_HideContainerPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_HideContainer/WLDCT_HideContainerPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_ListComplexSearchContainer/WLDCT_ListComplexSearchContainerPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_ListComplexSearchContainer/WLDCT_ListComplexSearchContainerPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-web-server/src/main/java/com/jb4dc/gateway/webserver/beanconfig/sys/ReactiveRequestContextFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-web-server/src/main/java/com/jb4dc/gateway/webserver/beanconfig/sys/ReactiveRequestContextFilter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +96,7 @@
       <workItem from="1649899146711" duration="4160000" />
       <workItem from="1649903958565" duration="1390000" />
       <workItem from="1649916391749" duration="11969000" />
-      <workItem from="1649988339952" duration="12810000" />
+      <workItem from="1649988339952" duration="14937000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1648281991333</created>
@@ -127,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649930670362</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update">
+      <created>1650008644276</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1650008644276</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
