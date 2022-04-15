@@ -21,7 +21,8 @@ let WLDCT_ListTableInnerButtonSinglePlugin = {
     },
     registeredEvent($elem) {
         GeneralPlugin.registeredGeneralEvent(this._$elem, this);
-    }
+    },
+    getContextMenu: GeneralPlugin.getGeneralContextMenu
 }
 
 GeneralPlugin.registeredPlugin(WLDCT_ListTableInnerButtonSinglePlugin.singleName, WLDCT_ListTableInnerButtonSinglePlugin);

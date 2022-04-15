@@ -110,6 +110,7 @@ export default {
                 },
                 buttons: {
                     "确认": function () {
+                        //debugger;
                         //_this.$refs.pluginPropEditComponent.setControlProps(null,"啥啥啥所");
                         let props = _this.$refs.pluginPropEditComponent.getControlProps();
 

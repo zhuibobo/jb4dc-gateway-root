@@ -21,7 +21,8 @@ let WLDCT_ListTableLabelPlugin = {
     },
     registeredEvent($elem) {
         GeneralPlugin.registeredGeneralEvent(this._$elem, this);
-    }
+    },
+    getContextMenu: GeneralPlugin.getGeneralContextMenu
 }
 
 GeneralPlugin.registeredPlugin(WLDCT_ListTableLabelPlugin.singleName, WLDCT_ListTableLabelPlugin);

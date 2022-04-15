@@ -68,9 +68,9 @@ let GeneralPlugin = {
 
         }
         if (!text) {
-            text = config.text;
+            //text = config.text;
         }
-        let $descriptionElemWrap = $(`<div runtime_auto_remove="true" class="wysiwyg-auto-remove-tip"><div name="elem-display-name" class="elem-display-name" style="background-image: url('/Less/Images/datetimefield.png')">${text}</div><div class="wysiwyg-control-tip las la-control-tip" tip-with-instance="${$elem.attr("designControlInstanceName")}"></div></div>`);
+        let $descriptionElemWrap = $(`<div runtime_auto_remove="true" class="wysiwyg-auto-remove-tip"><div name="elem-display-name" class="elem-display-name" style="background-image: url('Images/Plugin/`+config.icon+`')">${text}</div><div class="wysiwyg-control-tip las la-control-tip" tip-with-instance="${$elem.attr("designControlInstanceName")}"></div></div>`);
         return $descriptionElemWrap;
     },
     regTooltipEvent() {
@@ -199,11 +199,16 @@ let GeneralPlugin = {
         rd.enableDrag('init');
     },
     buildInputControlGeneralText(config, props) {
-        return config.text + "[" + props.bindToSearchField.columnCaption + "]";
+        if(props.normalProps&&props.normalProps.buttonCaption){
+            return "[" + props.normalProps.buttonCaption + "]";
+        }
+        else {
+            return "[" + props.bindToSearchField.columnCaption + "]";
+        }
     },
-    buildListButtonControlGeneralText(config, props) {
-        return config.text + "[" + props.normalProps.buttonCaption + "]";
-    },
+    /*buildListButtonControlGeneralText(config, props) {
+        return "[" + props.normalProps.buttonCaption + "]";
+    },*/
     clearHelperPanel() {
         this.clearControlEditInnerPanel();
         this.clearControlDescriptionPanel();

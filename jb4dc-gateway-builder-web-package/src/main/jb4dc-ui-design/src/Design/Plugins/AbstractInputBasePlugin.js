@@ -1,18 +1,23 @@
 import GeneralPlugin from "./GeneralPlugin";
+import constructionGeneralInputElem from "./GeneralPlugin";
 
-function AbstractInputBasePlugin(singleName) {
+function AbstractInputBasePlugin(singleName,constructionElemExAttrs) {
     this.singleName = singleName;
     this.config = GeneralPlugin.configProp;
     this._$elem = null;
     this.id = null;
     this.props = JsonUtility.CloneStringify(GeneralPlugin.defaultProps);
     this.settings = JsonUtility.CloneStringify(GeneralPlugin.settings);
+    this.constructionElemExAttrs={};
+    if(constructionElemExAttrs){
+        this.constructionElemExAttrs=constructionElemExAttrs;
+    }
 }
 AbstractInputBasePlugin.prototype.buildInstanceObj = function (instanceId) {
     return GeneralPlugin.newControlInstance(this, instanceId);
 }
 AbstractInputBasePlugin.prototype.constructionElem = function () {
-    return GeneralPlugin.constructionGeneralInputElem(this);
+    return GeneralPlugin.constructionGeneralInputElem(this,this.constructionElemExAttrs);
 }
 AbstractInputBasePlugin.prototype.setElem = function ($elem) {
     this._$elem = $elem;
