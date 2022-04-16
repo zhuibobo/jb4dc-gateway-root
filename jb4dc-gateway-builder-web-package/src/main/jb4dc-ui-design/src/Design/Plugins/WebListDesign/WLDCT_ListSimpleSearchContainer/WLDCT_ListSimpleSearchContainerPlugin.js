@@ -27,13 +27,13 @@ let innerHTML = `<div class="uid-wldct-container-wrap uid-wldct-list-simple-sear
                             </table></div>`;
 let singleName="WLDCT_ListSimpleSearchContainer";
 
-function customizePlugin() {
+function CustomizePlugin() {
     AbstractTableLayoutBasePlugin.call(this, singleName, innerHTML);
 };
 
-ClassUtility.inheritPrototype(customizePlugin, AbstractTableLayoutBasePlugin);
+ClassUtility.inheritPrototype(CustomizePlugin, AbstractTableLayoutBasePlugin);
 
-let WLDCT_ListSimpleSearchContainer=new customizePlugin();
+let WLDCT_ListSimpleSearchContainer=new CustomizePlugin();
 GeneralPlugin.registeredPlugin(singleName, WLDCT_ListSimpleSearchContainer);
 export { WLDCT_ListSimpleSearchContainer as default };
 

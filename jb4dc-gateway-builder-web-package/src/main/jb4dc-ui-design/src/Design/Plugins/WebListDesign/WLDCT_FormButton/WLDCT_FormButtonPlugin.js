@@ -4,13 +4,13 @@ import AbstractInputBasePlugin from "../../AbstractInputBasePlugin";
 
 let singleName="WLDCT_FormButton";
 
-function customizePlugin() {
+function CustomizePlugin() {
     AbstractInputBasePlugin.call(this, singleName, {isopbutton: "true"});
 };
 
-ClassUtility.inheritPrototype(customizePlugin, AbstractInputBasePlugin);
+ClassUtility.inheritPrototype(CustomizePlugin, AbstractInputBasePlugin);
 
-let WLDCT_FormButton=new customizePlugin();
+let WLDCT_FormButton=new CustomizePlugin();
 GeneralPlugin.registeredPlugin(singleName, WLDCT_FormButton);
 export { WLDCT_FormButton as default };
 

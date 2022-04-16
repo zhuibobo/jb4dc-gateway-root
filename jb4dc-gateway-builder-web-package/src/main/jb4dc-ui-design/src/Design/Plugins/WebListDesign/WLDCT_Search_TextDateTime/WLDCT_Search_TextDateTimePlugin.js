@@ -4,12 +4,12 @@ import AbstractInputBasePlugin from "../../AbstractInputBasePlugin";
 
 let singleName="WLDCT_Search_TextDateTime";
 
-function customizePlugin() {
+function CustomizePlugin() {
     AbstractInputBasePlugin.call(this, singleName);
 };
 
-ClassUtility.inheritPrototype(customizePlugin, AbstractInputBasePlugin);
+ClassUtility.inheritPrototype(CustomizePlugin, AbstractInputBasePlugin);
 
-let WLDCT_Search_TextDateTime=new customizePlugin();
+let WLDCT_Search_TextDateTime=new CustomizePlugin();
 GeneralPlugin.registeredPlugin(singleName, WLDCT_Search_TextDateTime);
 export { WLDCT_Search_TextDateTime as default };

@@ -16,7 +16,7 @@ let TableEditor = {
                     return 'context-menu-icon context-menu-icon-edit';
                 },
                 callback: (key, opt) => {
-                    this.RemoveRow(sender, $elem, key, opt);
+                    this.removeRow(sender, $elem, key, opt);
                 }
             },
             "AddColumnAfter": {
@@ -35,6 +35,32 @@ let TableEditor = {
                 },
                 callback: (key, opt) => {
                     this.RemoveColumn(sender, $elem, key, opt);
+                }
+            },
+            "Cell":{
+                name:"Cell",
+                icon: function (opt, $itemElement, itemKey, item) {
+                    return 'context-menu-icon context-menu-icon-edit';
+                },
+                items: {
+                    "MergeDown":{
+                        name:"Cell-MergeDown",
+                        icon: function (opt, $itemElement, itemKey, item) {
+                            return 'context-menu-icon context-menu-icon-edit';
+                        },
+                        callback: (key, opt) => {
+                            this.RemoveColumn(sender, $elem, key, opt);
+                        }
+                    },
+                    "MergeUp":{
+                        name:"Cell-MergeUp",
+                        icon: function (opt, $itemElement, itemKey, item) {
+                            return 'context-menu-icon context-menu-icon-edit';
+                        },
+                        callback: (key, opt) => {
+                            this.removeColumn(sender, $elem, key, opt);
+                        }
+                    }
                 }
             },
             "sepTableEditor": "---------"
@@ -68,7 +94,7 @@ let TableEditor = {
         }
         console.log(opt);
     },
-    RemoveRow(sender, $elem, itemKey, opt) {
+    removeRow(sender, $elem, itemKey, opt) {
         let $tdOrTh = opt.$trigger;
         if ($tdOrTh.prop("tagName") == "TD") {
             $tdOrTh.parent().remove();
@@ -93,7 +119,7 @@ let TableEditor = {
             $(this).find('th').eq(cellIndex).after('<th></th>');
         });
     },
-    RemoveColumn(sender, $elem, itemKey, opt) {
+    removeColumn(sender, $elem, itemKey, opt) {
         let $tdOrTh = opt.$trigger;
         let cellIndex = opt.$trigger.prop("cellIndex");
         let $table = this._getTableByCell($tdOrTh);

@@ -276,13 +276,20 @@ html, body {
 
 .control-description-tip-inner-panel {
   border: 1px solid #69685d;
-  width: 150px;
-  height: 100px;
+  min-width: 220px;
+  min-height: 100px;
   border-radius: 2px;
   cursor: pointer;
   background-color: #ffffff;
   z-index: 1000;
   position: absolute;
+  font-size: 12px;
+
+  >div{
+    margin: 4px;
+    padding: 4px;
+    border-bottom: dotted 1px @g-concrete-color-v04;
+  }
 }
 
 .form-table {

@@ -4,13 +4,13 @@ import AbstractInputBasePlugin from "../../AbstractInputBasePlugin";
 
 let singleName="WLDCT_Search_TextBox";
 
-function customizePlugin() {
+function CustomizePlugin() {
     AbstractInputBasePlugin.call(this, singleName);
 };
 
-ClassUtility.inheritPrototype(customizePlugin, AbstractInputBasePlugin);
+ClassUtility.inheritPrototype(CustomizePlugin, AbstractInputBasePlugin);
 
-let WLDCT_Search_TextBox=new customizePlugin();
+let WLDCT_Search_TextBox=new CustomizePlugin();
 GeneralPlugin.registeredPlugin(singleName, WLDCT_Search_TextBox);
 export { WLDCT_Search_TextBox as default };
 

@@ -235,7 +235,10 @@ let GeneralPlugin = {
             at: "left+2 bottom+4",
             of: $elem
         });
-        console.log(instanceId);
+        let pluginName=instanceObj.instance.config.text;
+        panel.append(`<div>插件类型：${pluginName}</div>`);
+        //debugger;
+        //console.log(instanceObj);
     },
     clearControlEditInnerPanel() {
         $(".control-edit-inner-panel").remove();
