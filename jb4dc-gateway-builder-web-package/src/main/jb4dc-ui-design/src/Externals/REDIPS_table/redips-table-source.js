@@ -210,6 +210,10 @@ REDIPS.table = (function () {
 			td = getParentCell(evt.target || evt.srcElement),
 			mouseButton,
 			empty;
+		if(e.ctrlKey==false){
+			return;
+		}
+		console.log(e);
 		// return if td is not defined
 		if (!td) {
 			return;

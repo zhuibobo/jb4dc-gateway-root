@@ -24,6 +24,8 @@ redips.init = function () {
 	rt.cellIndex(true);
 	// define background color for marked cell
 	rt.color.cell = '#9BB3DA';
+	rt.mark(true, document.getElementById("mainTable"), 1, 2);
+	rt.mark(true, document.getElementById("mainTable"), 2, 2);
 };
 
 
