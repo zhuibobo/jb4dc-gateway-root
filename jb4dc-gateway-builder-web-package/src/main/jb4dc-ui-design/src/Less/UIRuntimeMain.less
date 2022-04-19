@@ -1,7 +1,95 @@
 @import "Variable.less";
 @import "DataTables.less";
 
-.uid-theme-wrap-default {
+html, body, form, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, fieldset, blockquote {
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+}
+
+.html-design-list-button{
+  align-items: flex-start;
+  background-color: #2d8cf0;
+  background-image: none;
+  border: #2d8cf0 1px solid;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-size: 12px;
+  font-stretch: 100%;
+  font-style: normal;
+  font-variant-caps: normal;
+  font-variant-east-asian: normal;
+  font-variant-ligatures: normal;
+  font-variant-numeric: normal;
+  font-weight: 400;
+  height: 31.8906px;
+  letter-spacing: normal;
+  line-height: 18px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  outline-color: rgb(255, 255, 255);
+  outline-style: none;
+  outline-width: 0px;
+  overflow-x: visible;
+  overflow-y: visible;
+  padding-bottom: 6px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  position: relative;
+  text-align: center;
+  text-decoration-color: rgb(255, 255, 255);
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  text-indent: 0px;
+  text-rendering: auto;
+  text-shadow: none;
+  text-size-adjust: 100%;
+  text-transform: none;
+  touch-action: manipulation;
+  transition-delay: 0s, 0s, 0s, 0s, 0s;
+  transition-duration: 0.2s, 0.2s, 0.2s, 0.2s, 0.2s;
+  transition-property: color, background-color, border, box-shadow, -webkit-box-shadow;
+  transition-timing-function: linear, linear, linear, linear, linear;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 75.3438px;
+  word-spacing: 0px;
+  writing-mode: horizontal-tb;
+  z-index: auto;
+  -webkit-appearance: none;
+  -webkit-box-direction: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-border-image: none;
+}
+
+.html-design-input-type-text{
+  /*background: transparent;*/
+  width: 100%;
+  padding: 4px 7px;
+  font-size: 12px;
+  border: 0px solid #dcdee2;
+  border-bottom: 1px solid #dcdee2;
+  border-radius: 4px;
+  color: #515a6e;
+  background-color: #fff;
+  background-image: none;
+  position: relative;
+  cursor: text;
+  -webkit-transition: border .2s ease-in-out,background .2s ease-in-out,-webkit-box-shadow .2s ease-in-out;
+  transition: border .2s ease-in-out,background .2s ease-in-out,-webkit-box-shadow .2s ease-in-out;
+  transition: border .2s ease-in-out,background .2s ease-in-out,box-shadow .2s ease-in-out;
+  transition: border .2s ease-in-out,background .2s ease-in-out,box-shadow .2s ease-in-out,-webkit-box-shadow .2s ease-in-out;
+}
+
+.uid-runtime-default-theme-root {
 
   .uid-layout-single-table-layout-wrap {
     border: 0px dashed LightBlue;
@@ -49,6 +137,73 @@
 
     .uid-layout-tab-panel-outer-wrap {
       min-height: 500px;
+    }
+  }
+
+  .uid-wldct-list-simple-search-container-wrap, .wldct-list-hide-outer-wrap{
+
+    .wldct-list-simple-search-inner-wrap, .wldct-list-hide-inner-wrap{
+      border: @g-wldct-list-border-color 1px solid;
+      border-radius: 4px;
+      /*min-height: 70px;*/
+      margin: 10px;
+      text-align: left;
+
+      table {
+        margin: 8px 8px 8px 8px;
+        border-collapse: collapse;
+        font-size: 12px;
+        width: 98.6%;
+
+        .title {
+          color: #2e6e9e;
+          text-align: center;
+          font-size: 16px;
+        }
+
+        tr {
+          td, th {
+            padding: 6px;
+            border: 1px solid #f0f0f0;
+
+            input[type="text"], textarea, select {
+              .html-design-input-type-text;
+            }
+          }
+          th {
+            color: #2e6e9e;
+            background-color: #f0f4fa;
+          }
+        }
+
+        .label {
+          background-color: #f7f7f7;
+          text-align: right;
+        }
+      }
+    }
+
+    .wldct-list-simple-search-button-inner-wrap{
+      position: absolute;
+      right: 10px;
+      top: 20px;
+
+      button{
+        .html-design-list-button;
+      }
+      button:hover{
+        background-color: #57a3f3;
+        border-color: #57a3f3;
+      }
+      button:first-child{
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+      }
+
+      button:last-child{
+        border-bottom-right-radius: 4px;
+        border-top-right-radius: 4px;
+      }
     }
   }
 }

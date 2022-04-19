@@ -2,7 +2,7 @@ import GeneralPlugin from "../../GeneralPlugin";
 import ClassUtility from "../../../Utility/ClassUtility";
 import AbstractTableLayoutBasePlugin from "../../AbstractTableLayoutBasePlugin";
 
-let innerHTML = `<div class="uid-wldct-container-wrap uid-wldct-list-simple-search-container-wrap">
+let innerHTML = `<div class="uid-wldct-container-wrap uid-wldct-list-simple-search-container-wrap"><div class="wysiwyg-wldct-list-simple-search-inner-wrap wldct-list-simple-search-inner-wrap">
                             <table contenteditable="true">
                                 <colgroup>
                                    <col style="width: 8%" />
@@ -24,7 +24,7 @@ let innerHTML = `<div class="uid-wldct-container-wrap uid-wldct-list-simple-sear
                                    <td class="label">(到):</td>
                                    <td></td>
                                </tr>
-                            </table></div>`;
+                            </table></div></div>`;
 let singleName="WLDCT_ListSimpleSearchContainer";
 
 function CustomizePlugin() {

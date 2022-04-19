@@ -24,7 +24,7 @@ let ListRuntime={
             //debugger;
             let result = response.data;
             this._ListPO=result.data;
-            this._$RendererToElem.append(result.data.listHtmlRuntime);
+            this._$RendererToElem.append("<div class=\"uid-runtime-default-theme-root\">"+result.data.listHtmlRuntime+"</div>>");
             //this._JSRuntimeInst = Object.create(HTMLJSRuntime);
             //this._JSRuntimeInst.Initialization({},this._$RendererToElem,this._ListPO.listJsContent);
 

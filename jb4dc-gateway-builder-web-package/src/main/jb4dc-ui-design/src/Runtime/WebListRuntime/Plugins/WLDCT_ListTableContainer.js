@@ -321,10 +321,10 @@ var WLDCT_ListTableContainer = {
             "searching": false,
             "info": false
         } );*/
-        var $templateTable = $singleControlElem.find("table");
-        var $templateTableRow = $singleControlElem.find("table tbody tr");
+        var $templateTable = $singleControlElem.children("table");
+        var $templateTableRow = $singleControlElem.find("table tbody tr:not([is-inner-op-button-wrap-table] tr)");
         var $templateTableHeaderRows = $singleControlElem.find("table thead tr");
-
+        //debugger
         this.AppendCheckBoxColumnTemplate($templateTable, $templateTableHeaderRows, $templateTableRow);
 
         HTMLControl.RendererChain(_rendererChainParas);
@@ -431,7 +431,7 @@ var WLDCT_ListTableContainer = {
 
         if ($templateTableRow.length > 0) {
             var $templateTableBody = $singleControlElem.children("table").children("tbody");
-            debugger;
+            //debugger;
             for (var i = 0; i < dataSet.list.length; i++) {
                 $templateTableBody.append(this.RendererSingleRow($templateTable, $templateTableRow, dataSet, dataSet.list[i]));
             }
@@ -471,20 +471,21 @@ var WLDCT_ListTableContainer = {
         //alert(PageStyleUtility.GetWindowHeight()+"|"+$(".wldct-list-simple-search-outer-wrap").height()+"|"+scrollY);
         //return;
         //debugger;
-        /*var table = $templateTable.DataTable({
+        var table = $templateTable.DataTable({
             scrollY: scrollY,
             scrollX: true,
             paging: false,
             "ordering": false,
             "searching": false,
             "info": false
-        });*/
+        });
     },
     AppendCheckBoxColumnTemplate: function ($templateTable, $templateTableHeaderRows, $templateTableRow) {
-        var $th = $("<th style='width: 30px'>选择</th>");
+        var $th = $("<th style='width: 30px'></th>");
         if ($templateTableHeaderRows.length > 1) {
             $th.attr("rowspan", $templateTableHeaderRows.length);
         }
+        $templateTable.find("colgroup").prepend("<col style=\"width: 30px\" />")
         var primaryKey=this._ListRuntimeInstance._ListPO.listDatasetPrimaryKey;
         $($templateTableHeaderRows[0]).prepend($th);
         $($templateTableRow.eq(0)).prepend(`<td>
@@ -531,7 +532,7 @@ var WLDCT_ListTableContainer = {
                 var bindToField = $divCTElem.attr("columnname");
                 var val = rowData[bindToField]?rowData[bindToField]:"";
                 var clientResolveInstanceName = $divCTElem.attr(HTMLControlAttrs.CLIENT_RESOLVE);
-                console.log(clientResolveInstanceName);
+                //console.log(clientResolveInstanceName);
                 //debugger;
                 var instance = WLDCT_ListTableContainer.GetInstance(clientResolveInstanceName);
 

@@ -1,7 +1,7 @@
 <template>
     <div class="uid-wysiwyg-comp-root">
         <div id="wysiwyg-container-parent">
-            <div class="wysiwyg-container uid-theme-wrap-default" :id="wysiwygContainerId" @dragover="dragover($event)"
+            <div class="wysiwyg-container uid-runtime-default-theme-root" :id="wysiwygContainerId" @dragover="dragover($event)"
                  @drop="drop($event)" @click="wysiwygContainerClick">
 
             </div>
