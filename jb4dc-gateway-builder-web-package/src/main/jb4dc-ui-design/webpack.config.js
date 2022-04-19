@@ -18,7 +18,7 @@ config = {
     entry: {
         /*"editTableSelectDefaultValue": './EditTable/Renderers/EditTable_SelectDefaultValue.js',*/
         "UIDesignMain": './src/Design/UIDesignMain.js',
-        "UIRuntimeWebListMain": './src/Runtime/WebListRuntime/UIRuntimeWebListMain.js'
+        "WebListRuntimeMain": './src/Runtime/WebListRuntime/WebListRuntimeMain.js'
     },
     context: path.resolve(__dirname, ""),
     output: {
@@ -96,7 +96,7 @@ config = {
             title: 'RuntimeWebList',
             template: path.resolve(__dirname, './src/RuntimeWebListMainTemplate.html'), // template file
             filename: 'UIRuntimeWebListMain.html', // output file
-            chunks: ['UIRuntimeWebListMain']
+            chunks: ['WebListRuntimeMain']
         }),
         // 添加 VueLoaderPlugin 插件
         new VueLoaderPlugin(),
@@ -133,9 +133,9 @@ config = {
         compress: true,
         hot: true,
         port: 8881,
-        open: ['/UIDesignMain.html?op=update&uiDesignType=webListDesign&moduleId=b6641464-e55f-4d1c-afea-400769f6f6a3&recordId=8318f6ec-3c94-4e6f-b561-76c881f35899&timestamp=1647655263616'],
+        //open: ['/UIDesignMain.html?op=update&uiDesignType=webListDesign&moduleId=b6641464-e55f-4d1c-afea-400769f6f6a3&recordId=8318f6ec-3c94-4e6f-b561-76c881f35899&timestamp=1647655263616'],
         //open: ['/UIDesignMain.html?uiDesignType=webListDesign']
-        /*open: ['/UIRuntimeWebListMain.html']*/
+        open: ['/UIRuntimeWebListMain.html']
     },
     optimization: {
         splitChunks: {

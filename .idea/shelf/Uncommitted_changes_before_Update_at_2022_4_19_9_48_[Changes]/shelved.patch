@@ -1,0 +1,83 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"ccedc649-8eaf-4db4-ba50-beb85a54ca4c\" name=\"Changes\" comment=\"update\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/REDIPS_table/example00/index.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/REDIPS_table/example00/index.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/REDIPS_table/example00/script.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/REDIPS_table/example00/script.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/REDIPS_table/redips-table-source.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/REDIPS_table/redips-table-source.js\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JavaScript File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"26ul7EaG4KvtAOlR5omaPVj9SO0\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"last_opened_file_path\": \"D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"spring.configuration.checksum\": \"a20725ffadde090221740434bf043edc\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RebelAgentSelection\">\r\n    <selection>jr</selection>\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\JavaProject\\jb4dc\\jb4dc-gateway-root\\jb4dc-gateway-builder-web-package\\src\\main\\jb4dc-ui-design\\src\\Externals\" />\r\n      <recent name=\"D:\\JavaProject\\jb4dc\\jb4dc-gateway-root\\jb4dc-gateway-builder-web-package\\src\\main\\jb4dc-ui-design\\src\\Design\\Plugins\\WebListDesign\\WLDCT_Search_TextDateTime\" />\r\n      <recent name=\"D:\\JavaProject\\jb4dc\\jb4dc-gateway-root\\jb4dc-gateway-builder-web-package\\src\\main\\jb4dc-ui-design\\src\\Design\\Plugins\\WebListDesign\\WLDCT_HideContainer\" />\r\n      <recent name=\"D:\\JavaProject\\jb4dc\\jb4dc-gateway-root\\jb4dc-gateway-builder-web-package\\src\\main\\jb4dc-ui-design\\src\\Design\\Plugins\\WebListDesign\\WLDCT_ListTableContainer\" />\r\n      <recent name=\"D:\\JavaProject\\jb4dc\\jb4dc-gateway-root\\jb4dc-gateway-builder-web-package\\src\\main\\jb4dc-ui-design\\src\\Design\\Plugins\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"start-webpack-dev-jb4dc-ui-design\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <package-json value=\"$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/package.json\" />\r\n      <command value=\"run\" />\r\n      <scripts>\r\n        <script value=\"start-webpack-dev-jb4dc-ui-design\" />\r\n      </scripts>\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"npm.start-webpack-dev-jb4dc-ui-design\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"ccedc649-8eaf-4db4-ba50-beb85a54ca4c\" name=\"Changes\" comment=\"\" />\r\n      <created>1648281186125</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1648281186125</updated>\r\n      <workItem from=\"1648281189244\" duration=\"844000\" />\r\n      <workItem from=\"1648465197910\" duration=\"22000\" />\r\n      <workItem from=\"1649899146711\" duration=\"4160000\" />\r\n      <workItem from=\"1649903958565\" duration=\"1390000\" />\r\n      <workItem from=\"1649916391749\" duration=\"11969000\" />\r\n      <workItem from=\"1649988339952\" duration=\"16360000\" />\r\n      <workItem from=\"1650075413189\" duration=\"9559000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"update\">\r\n      <created>1648281991333</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1648281991333</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"update\">\r\n      <created>1649924851387</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649924851387</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"update\">\r\n      <created>1649930670362</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649930670362</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"update\">\r\n      <created>1650008644276</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1650008644276</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"update\">\r\n      <created>1650012840945</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1650012840945</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"update\">\r\n      <created>1650093782955</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1650093782956</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"7\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"update\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"update\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision cdf890aae84722da5ccbd08d97c2fa7bdb8914e8)
++++ b/.idea/workspace.xml	(date 1650332314691)
+@@ -6,9 +6,6 @@
+   <component name="ChangeListManager">
+     <list default="true" id="ccedc649-8eaf-4db4-ba50-beb85a54ca4c" name="Changes" comment="update">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/REDIPS_table/example00/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/REDIPS_table/example00/index.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/REDIPS_table/example00/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/REDIPS_table/example00/script.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/REDIPS_table/redips-table-source.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/REDIPS_table/redips-table-source.js" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -40,21 +37,21 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "last_opened_file_path": "D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "spring.configuration.checksum": "a20725ffadde090221740434bf043edc",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;last_opened_file_path&quot;: &quot;D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;spring.configuration.checksum&quot;: &quot;a20725ffadde090221740434bf043edc&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RebelAgentSelection">
+     <selection>jr</selection>
+   </component>
+@@ -98,7 +95,9 @@
+       <workItem from="1649903958565" duration="1390000" />
+       <workItem from="1649916391749" duration="11969000" />
+       <workItem from="1649988339952" duration="16360000" />
+-      <workItem from="1650075413189" duration="9559000" />
++      <workItem from="1650075413189" duration="10332000" />
++      <workItem from="1650271152074" duration="40000" />
++      <workItem from="1650331075855" duration="627000" />
+     </task>
+     <task id="LOCAL-00001" summary="update">
+       <created>1648281991333</created>
+@@ -142,7 +141,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1650093782956</updated>
+     </task>
+-    <option name="localTasksCounter" value="7" />
++    <task id="LOCAL-00007" summary="update">
++      <created>1650097274069</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1650097274069</updated>
++    </task>
++    <option name="localTasksCounter" value="8" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">

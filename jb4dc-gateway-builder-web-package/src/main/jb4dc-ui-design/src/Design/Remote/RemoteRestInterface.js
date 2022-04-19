@@ -7084,7 +7084,7 @@ if (mockAjax) {
     mock.onPost(acInterface.getWebListDesignPOUrl).reply(200, getWebListDesignPOUrlDataForUpdate);
 }
 
-mock.onPost(acInterface.getWebListDesignPOUrl).passThrough()
-mock.onPost(acInterface.saveWebListDesignUrl).passThrough()
+//mock.onPost(acInterface.getWebListDesignPOUrl).passThrough()
+//mock.onPost(acInterface.saveWebListDesignUrl).passThrough()
 
 export {RemoteRestInterface as default};
