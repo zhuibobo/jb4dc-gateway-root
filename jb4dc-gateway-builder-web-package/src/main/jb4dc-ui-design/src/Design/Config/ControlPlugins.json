@@ -103,10 +103,10 @@
   },
   "webFormDesign": {
     "groups": [{
-      "name": "LayoutGroup",
+      "name": "InputGroup",
       "text": "输入控件"
     },{
-      "name": "InputGroup",
+      "name": "LayoutGroup",
       "text": "页面布局"
     },{
       "name": "DatasourceGroup",
@@ -150,6 +150,43 @@
         "controlCategory": "LayoutControl",
         "serverDynamicBind": "false",
         "showRemoveButton": "false",
+        "showInEditorToolbar": "true"
+      },
+      {
+        "group": "LayoutGroup",
+        "singleName": "WFDCT_SingleGridStackLayout",
+        "text": "网格布局",
+        "class": "",
+        "icon": "gridstack.png",
+        "dragTo": "wysiwygContainer",
+        "serverResolve": "",
+        "clientResolve": "",
+        "clientResolveJs": "",
+        "enableChildControls": "",
+        "dialogWidth": "600",
+        "dialogHeight": "550",
+        "isJBuild4DCData": "false",
+        "controlCategory": "LayoutControl",
+        "serverDynamicBind": "false",
+        "showRemoveButton": "false",
+        "showInEditorToolbar": "true"
+      },{
+        "group": "InputGroup",
+        "singleName": "WFDCT_TextBox",
+        "text": "单行输入框",
+        "class": "",
+        "icon": "Layout1.png",
+        "dragTo": "Layout",
+        "serverResolve": "",
+        "clientResolve": "",
+        "clientResolveJs": "",
+        "enableChildControls": "",
+        "dialogWidth": "600",
+        "dialogHeight": "550",
+        "isJBuild4DCData": "true",
+        "controlCategory": "InputControl",
+        "serverDynamicBind": "false",
+        "showRemoveButton": "true",
         "showInEditorToolbar": "true"
       }
     ]

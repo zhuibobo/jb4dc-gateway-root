@@ -79,9 +79,10 @@ let TableEditor = {
         return $table.children("thead");
     },
     addNewRow(sender, $elem, itemKey, opt, insertAt) {
+        //debugger;
         let $tdOrTh = opt.$trigger;
         let $tbody = this._getTBodyByCell($tdOrTh);
-        let $bodyTr = $tbody.children("tr:first").clone().find("td").html("").end();
+        let $bodyTr = $tdOrTh.parent().clone().find("td").html("").end();
         let $newTr = $("<tr>" + $bodyTr.html() + "</tr>");
         $newTr.find("td").removeClass("context-menu-active").html("");
 
