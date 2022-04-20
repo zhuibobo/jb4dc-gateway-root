@@ -1,7 +1,7 @@
 import GeneralPlugin from "../../GeneralPlugin";
 
-let innerHTML = `<div class="uid-wldct-table-container-wrap uid-wldct-list-button-container-wrap">
-                        <div class="uid-wldct-table-container-inner-wrap uid-wldct-list-button-container-inner-wrap">
+let innerHTML = `<div class="uid-wldct-list-button-container-wrap">
+                        <div class="uid-container-inner-wrap">
                              <table is-op-button-wrap-table="true">
                                 <colgroup>
                                     <col style="width: 10%" />

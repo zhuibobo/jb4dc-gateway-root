@@ -1,7 +1,7 @@
 import GeneralPlugin from "../../GeneralPlugin";
 
-let innerHTML = `<div class="uid-wldct-table-container-wrap uid-wldct-list-complex-search-container-wrap">
-                    <div class="uid-wldct-table-container-inner-wrap uid-wldct-list-complex-search-container-inner-wrap">
+let innerHTML = `<div class="uid-wldct-list-complex-search-container-wrap">
+                    <div class="uid-container-inner-wrap">
                         <table contenteditable="true">
                                 <colgroup>
                                        <col style="width: 8%" />

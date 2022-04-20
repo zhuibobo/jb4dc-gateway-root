@@ -1,8 +1,8 @@
 import GeneralPlugin from "../../GeneralPlugin";
 import WLDCT_ListTableInnerButtonContainerPlugin from "../WLDCT_ListTableInnerButtonContainer/WLDCT_ListTableInnerButtonContainerPlugin";
 
-let innerHTML = `<div class="uid-wldct-table-container-wrap uid-wldct-list-table-container-wrap">
-                    <div class="uid-wldct-table-container-inner-wrap uid-wldct-list-table-container-inner-wrap">
+let innerHTML = `<div class="uid-wldct-list-table-container-wrap">
+                    <div class="uid-container-inner-wrap">
                         <table class="list-table" contenteditable="true">
                                  <colgroup>
                                     <col style="width: 8%" />

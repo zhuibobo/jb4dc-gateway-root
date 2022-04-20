@@ -3,7 +3,7 @@ import ClassUtility from "../../../Utility/ClassUtility";
 import AbstractTableLayoutBasePlugin from "../../AbstractTableLayoutBasePlugin";
 
 let innerHTML = `<div class="uid-wldct-list-table-inner-button-container-wrap">
-                                                <div class="uid-wldct-table-container-inner-wrap uid-wldct-list-table-inner-button-inner-wrap">
+                                                <div class="uid-container-inner-wrap">
                                                     <table is-inner-op-button-wrap-table="true">
                                                         <colgroup>
                                                             <col style="width: 33%" />
