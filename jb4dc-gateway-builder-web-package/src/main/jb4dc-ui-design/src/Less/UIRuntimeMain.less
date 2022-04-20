@@ -93,7 +93,7 @@ html, body, form, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, fiel
 .uid-runtime-default-theme-root{
   .uid-wldct-list-simple-search-container-wrap, .wldct-list-hide-outer-wrap{
 
-    .uid-wldct-list-simple-search-container-inner-wrap, .wldct-list-hide-inner-wrap{
+    .uid-container-inner-wrap, .wldct-list-hide-inner-wrap{
       border: @g-wldct-list-border-color 1px solid;
       border-radius: 4px;
       /*min-height: 70px;*/
@@ -160,7 +160,7 @@ html, body, form, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, fiel
 
   .uid-wldct-list-button-container-wrap{
 
-    .uid-wldct-list-button-container-inner-wrap{
+    .uid-container-inner-wrap{
       border: @g-wldct-list-border-color 1px solid;
       border-radius: 4px;
       min-height: 48px;
@@ -217,7 +217,7 @@ html, body, form, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, fiel
 
   .uid-wldct-list-table-container-wrap{
 
-    .uid-wldct-list-table-container-inner-wrap{
+    .uid-container-inner-wrap{
       border:@g-wldct-list-border-color 1px solid;
       border-radius: 4px;
       min-height: 230px;
@@ -296,94 +296,8 @@ html, body, form, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, fiel
 
   }
 
-  .uid-wldct-list-table-inner-button-container-wrap {
-    text-align: center;
-
-    .wldct-list-table-row-inner-button {
-      width: 18px;
-      height: 18px;
-      display: inline-block;
-      margin-left: 8px;
-      cursor: pointer;
-      background-repeat: no-repeat;
-      background-position-x: 1px;
-      background-position-y: 1px;
-    }
-
-    .wldct-list-table-row-inner-button:hover{
-      background-color: #c8dcfe;
-      border-radius: 4px;
-    }
-
-    .ivu-tooltip:first-child {
-      .wldct-list-table-row-inner-button{
-        margin-left: 0px;
-      }
-    }
-
-    .view{
-      background-image: url("Images/BuilderRuntime/kdvi.png");
-    }
-    .edit{
-      background-image: url("Images/BuilderRuntime/kedit.png");
-    }
-    .del{
-      background-image: url("Images/BuilderRuntime/del.png");
-    }
-    .selected{
-      background-image: url("Images/BuilderRuntime/selected.png");
-    }
-    .listmanager{
-      background-image: url("Images/BuilderRuntime/List manager.png");
-    }
-    .edit-model{
-      background-image: url("Images/BuilderRuntime/edit_model.png");
-    }
-    .view-model{
-      background-image: url("Images/BuilderRuntime/view_model.png");
-    }
-    .move-up{
-      background-image: url("Images/BuilderRuntime/arrow_large_up_outline.png");
-    }
-    .move-down{
-      background-image: url("Images/BuilderRuntime/arrow_large_down_outline.png");
-    }
-    .kded{
-      background-image: url("Images/BuilderRuntime/kded.png");
-    }
-    .grade{
-      background-image: url("Images/BuilderRuntime/grade.png");
-    }
-    .image-cultured{
-      background-image: url("Images/BuilderRuntime/image-cultured.png");
-    }
-    .page-white-edit{
-      background-image: url("Images/BuilderRuntime/page-white-edit.png");
-    }
-    .page-attach{
-      background-image: url("Images/BuilderRuntime/page-attach.png");
-    }
-    .page-go{
-      background-image: url("Images/BuilderRuntime/page-go.png");
-    }
-    .script-go{
-      background-image: url("Images/BuilderRuntime/script-go.png");
-    }
-    .script-key{
-      background-image: url("Images/BuilderRuntime/script-key.png");
-    }
-    .wrench-orange{
-      background-image: url("Images/BuilderRuntime/wrench-orange.png");
-    }
-    .x-office-document-template{
-      background-image: url("Images/BuilderRuntime/x-office-document-template.png");
-    }
-    .x-office-drawing{
-      background-image: url("Images/BuilderRuntime/x-office-drawing.png");
-    }
-    .kjobviewer{
-      background-image: url("Images/BuilderRuntime/kjobviewer.png");
-    }
+  .uid-wldct-list-table-inner-button-container-wrap{
+    .uid-wldct-list-table-inner-button-container-wrap
   }
 
   .wrap-hide{

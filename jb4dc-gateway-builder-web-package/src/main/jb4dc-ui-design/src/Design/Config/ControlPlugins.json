@@ -480,7 +480,7 @@
                 "text": "列表内按钮",
                 "class": "",
                 "icon": "tableinnerbutton.png",
-                "dragTo": "WLDCT_ListTableContainer",
+                "dragTo": "WLDCT_ListTableInnerButtonContainer",
                 "serverResolve": "",
                 "clientResolve": "",
                 "clientResolveJs": "",

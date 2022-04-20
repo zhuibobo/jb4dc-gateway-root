@@ -29,7 +29,7 @@
           <tr>
             <td>选定图标：</td>
             <td colspan="5">
-              <div class="wldct-list-table-row-button-wrap ">
+              <div class="uid-wldct-list-table-inner-button-container-wrap ">
                 <div :class="normalProps.selectedClass"></div>
               </div>
             </td>
@@ -37,7 +37,7 @@
           <tr>
             <td>可选图标：</td>
             <td colspan="5">
-              <div class="wldct-list-table-row-button-wrap ">
+              <div class="uid-wldct-list-table-inner-button-container-wrap ">
                 <div class="wldct-list-table-row-inner-button view" @click="changeSelectedClass('view')"></div>
                 <div class="wldct-list-table-row-inner-button edit" @click="changeSelectedClass('edit')"></div>
                 <div class="wldct-list-table-row-inner-button del" @click="changeSelectedClass('del')"></div>

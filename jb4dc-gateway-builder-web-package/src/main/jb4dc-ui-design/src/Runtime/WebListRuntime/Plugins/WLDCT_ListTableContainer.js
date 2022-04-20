@@ -444,7 +444,7 @@ var WLDCT_ListTableContainer = {
 
         //创建分页操作区域
         //debugger;
-        $singleControlElem.find(".uid-wldct-list-table-container-inner-wrap").append(this.CreatePaging());
+        $singleControlElem.find(".uid-container-inner-wrap").append(this.CreatePaging());
         //alert(PageStyleUtility.GetWindowWidth());
         //$singleControlElem.find(".uid-wldct-list-table-container-inner-wrap").width(PageStyleUtility.GetPageWidth() - 20);
         $templateTable.addClass("stripe row-border order-column");

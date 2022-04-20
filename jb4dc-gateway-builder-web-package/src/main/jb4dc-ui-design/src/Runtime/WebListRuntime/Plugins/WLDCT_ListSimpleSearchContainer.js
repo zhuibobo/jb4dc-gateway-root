@@ -14,23 +14,23 @@ let WLDCT_ListSimpleSearchContainer={
     _$SingleControlElem:null,
     RendererChain:function (_rendererChainParas) {
         var $singleControlElem = _rendererChainParas.$singleControlElem;
-        this._$SingleControlElem=$singleControlElem;
+        this._$SingleControlElem = $singleControlElem;
 
         var pageWidth = PageStyleUtility.GetPageWidth();
 
-        var buttonWrapWidth=220;
+        var buttonWrapWidth = 220;
 
-        console.log(pageWidth-buttonWrapWidth);
+        console.log(pageWidth - buttonWrapWidth);
 
-        $singleControlElem.find("table:first").width(pageWidth-buttonWrapWidth);
+        $singleControlElem.find("table:first").width(pageWidth - buttonWrapWidth);
 
-       // HTMLControl.SaveControlNewInstanceToPool($singleControlElem,this);
+        // HTMLControl.SaveControlNewInstanceToPool($singleControlElem,this);
 
-        var $searchButtonsWrap=$("<div class='wldct-list-simple-search-button-inner-wrap' />");
-        $searchButtonsWrap.width(buttonWrapWidth-40);
+        var $searchButtonsWrap = $("<div class='wldct-list-simple-search-button-inner-wrap' />");
+        $searchButtonsWrap.width(buttonWrapWidth - 40);
 
-        this._$SimpleSearchButton=$("<button>查询</button>");
-        this._$ShowComplexSearchButton=$("<button>高级查询</button>");
+        this._$SimpleSearchButton = $("<button>查询</button>");
+        this._$ShowComplexSearchButton = $("<button>高级查询</button>");
 
         $searchButtonsWrap.append(this._$SimpleSearchButton);
         $searchButtonsWrap.append(this._$ShowComplexSearchButton);
