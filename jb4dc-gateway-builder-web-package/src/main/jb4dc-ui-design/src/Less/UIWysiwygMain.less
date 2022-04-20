@@ -99,59 +99,6 @@ html, body {
     background-image: url("data:image/svg+xml,%3Csvg width='120' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='%2348C9B0' font-family='system-ui, sans-serif' text-anchor='middle' dominant-baseline='middle' transform='rotate(10)' transform-origin='center'%3E网格布局%3C/text%3E%3C/svg%3E");
   }
 
-  .uid-layout-tab-layout-wrap {
-
-    .uid-layout-tab-panel-outer-wrap {
-      min-height: 500px;
-      background-repeat: no-repeat;
-      background-position: right top;
-      background-image: url("data:image/svg+xml,%3Csvg width='120' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='%2348C9B0' font-family='system-ui, sans-serif' text-anchor='middle' dominant-baseline='middle' transform='rotate(10)' transform-origin='center'%3ETab布局%3C/text%3E%3C/svg%3E");
-    }
-  }
-
-  .uid-layout-single-table-layout-wrap {
-    background-image: url("data:image/svg+xml,%3Csvg width='120' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='%2348C9B0' font-family='system-ui, sans-serif' text-anchor='middle' dominant-baseline='middle' transform='rotate(10)' transform-origin='center'%3E表格布局%3C/text%3E%3C/svg%3E");
-  }
-
-  .wysiwyg-auto-remove-tip {
-    .elem-display-name {
-      min-width: 120px;
-      background-size: 16px 16px;
-      background-repeat: no-repeat;
-      background-position-x: 4px;
-      background-position-y: 40%;
-    }
-
-    .wysiwyg-control-tip {
-      position: absolute;
-      right: 10px;
-      top: 4px;
-      width: 16px;
-      height: 16px;
-      font-size: 20px;
-      color: @g-pomegranate-color-v04;
-      cursor: pointer;
-    }
-  }
-
-  .uid-wldct-layout-container-wrap {
-    height: calc(100% - 12px);
-    /*background: url("data:image/svg+xml,%3Csvg width='400' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='14' fill-opacity='0.5' text-anchor='middle' dominant-baseline='middle' transform='rotate(-45, 100 100)'%3E数据集容器%3C/text%3E%3C/svg%3E");
-    background-color: @g-concrete-color-v01;*/
-    background-image: url("data:image/svg+xml,%3Csvg width='120' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='%2348C9B0' font-family='system-ui, sans-serif' text-anchor='middle' dominant-baseline='middle' transform='rotate(10)' transform-origin='center'%3E数据集容器%3C/text%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right top;
-    box-sizing: border-box;
-    margin: 6px;
-    border: @g-concrete-color-v03 solid 1px;
-  }
-
-  .uid-wldct-layout-container-lr-wrap {
-    height: 100%;
-    display: flex;
-    box-sizing: border-box;
-  }
-
   .uid-table-container-wrap {
     border: 1px dashed LightBlue;
     box-sizing: border-box;
@@ -192,6 +139,60 @@ html, body {
         }
       }
     }
+  }
+
+  .uid-layout-tab-layout-wrap {
+
+    .uid-layout-tab-panel-outer-wrap {
+      min-height: 500px;
+      background-repeat: no-repeat;
+      background-position: right top;
+      background-image: url("data:image/svg+xml,%3Csvg width='120' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='%2348C9B0' font-family='system-ui, sans-serif' text-anchor='middle' dominant-baseline='middle' transform='rotate(10)' transform-origin='center'%3ETab布局%3C/text%3E%3C/svg%3E");
+    }
+  }
+
+  .uid-wfdct-layout-single-table-layout-wrap {
+    .uid-table-container-wrap;
+    background-image: url("data:image/svg+xml,%3Csvg width='120' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='%2348C9B0' font-family='system-ui, sans-serif' text-anchor='middle' dominant-baseline='middle' transform='rotate(10)' transform-origin='center'%3E表格布局%3C/text%3E%3C/svg%3E");
+  }
+
+  .wysiwyg-auto-remove-tip {
+    .elem-display-name {
+      min-width: 120px;
+      background-size: 16px 16px;
+      background-repeat: no-repeat;
+      background-position-x: 4px;
+      background-position-y: 40%;
+    }
+
+    .wysiwyg-control-tip {
+      position: absolute;
+      right: 10px;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      font-size: 20px;
+      color: @g-pomegranate-color-v04;
+      cursor: pointer;
+    }
+  }
+
+  .uid-wldct-layout-container-wrap {
+    height: calc(100% - 12px);
+    /*background: url("data:image/svg+xml,%3Csvg width='400' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='14' fill-opacity='0.5' text-anchor='middle' dominant-baseline='middle' transform='rotate(-45, 100 100)'%3E数据集容器%3C/text%3E%3C/svg%3E");
+    background-color: @g-concrete-color-v01;*/
+    background-image: url("data:image/svg+xml,%3Csvg width='120' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='%2348C9B0' font-family='system-ui, sans-serif' text-anchor='middle' dominant-baseline='middle' transform='rotate(10)' transform-origin='center'%3E数据集容器%3C/text%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right top;
+    box-sizing: border-box;
+    margin: 6px;
+    border: @g-concrete-color-v03 solid 1px;
+  }
+
+  .uid-wldct-layout-container-lr-wrap {
+    height: 100%;
+    display: flex;
+    box-sizing: border-box;
   }
 
   .uid-wldct-hide-container-wrap {
