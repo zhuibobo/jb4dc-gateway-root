@@ -34,9 +34,9 @@ function CustomizePlugin() {
 
 ClassUtility.inheritPrototype(CustomizePlugin, AbstractTableLayoutBasePlugin);
 
-let WLDCT_ListSimpleSearchContainer=new CustomizePlugin();
-GeneralPlugin.registeredPlugin(singleName, WLDCT_ListSimpleSearchContainer);
-export { WLDCT_ListSimpleSearchContainer as default };
+let WLDCT_ListSimpleSearchContainerPlugin=new CustomizePlugin();
+GeneralPlugin.registeredPlugin(singleName, WLDCT_ListSimpleSearchContainerPlugin);
+export { WLDCT_ListSimpleSearchContainerPlugin as default };
 
 //let WLDCT_ListSimpleSearchContainerPlugin=new WLDCT_ListSimpleSearchContainerPluginClass();
 /*let WLDCT_ListSimpleSearchContainerPlugin = {

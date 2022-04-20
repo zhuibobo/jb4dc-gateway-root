@@ -26,6 +26,6 @@ function CustomizePlugin() {
 
 ClassUtility.inheritPrototype(CustomizePlugin, AbstractTableLayoutBasePlugin);
 
-let WLDCT_ListTableInnerButtonContainer=new CustomizePlugin();
-GeneralPlugin.registeredPlugin(singleName, WLDCT_ListTableInnerButtonContainer);
-export { WLDCT_ListTableInnerButtonContainer as default };
+let WLDCT_ListTableInnerButtonContainerPlugin=new CustomizePlugin();
+GeneralPlugin.registeredPlugin(singleName, WLDCT_ListTableInnerButtonContainerPlugin);
+export { WLDCT_ListTableInnerButtonContainerPlugin as default };

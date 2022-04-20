@@ -10,6 +10,6 @@ function CustomizePlugin() {
 
 ClassUtility.inheritPrototype(CustomizePlugin, AbstractInputBasePlugin);
 
-let WLDCT_Search_TextDateTime=new CustomizePlugin();
-GeneralPlugin.registeredPlugin(singleName, WLDCT_Search_TextDateTime);
-export { WLDCT_Search_TextDateTime as default };
+let WLDCT_Search_TextDateTimePlugin=new CustomizePlugin();
+GeneralPlugin.registeredPlugin(singleName, WLDCT_Search_TextDateTimePlugin);
+export { WLDCT_Search_TextDateTimePlugin as default };

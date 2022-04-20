@@ -10,9 +10,9 @@ function CustomizePlugin() {
 
 ClassUtility.inheritPrototype(CustomizePlugin, AbstractInputBasePlugin);
 
-let WLDCT_FormButton=new CustomizePlugin();
-GeneralPlugin.registeredPlugin(singleName, WLDCT_FormButton);
-export { WLDCT_FormButton as default };
+let WLDCT_FormButtonPlugin=new CustomizePlugin();
+GeneralPlugin.registeredPlugin(singleName, WLDCT_FormButtonPlugin);
+export { WLDCT_FormButtonPlugin as default };
 
 /*
 let WLDCT_FormButtonPlugin = {

@@ -10,9 +10,9 @@ function CustomizePlugin() {
 
 ClassUtility.inheritPrototype(CustomizePlugin, AbstractInputBasePlugin);
 
-let WLDCT_Search_TextBox=new CustomizePlugin();
-GeneralPlugin.registeredPlugin(singleName, WLDCT_Search_TextBox);
-export { WLDCT_Search_TextBox as default };
+let WLDCT_Search_TextBoxPlugin=new CustomizePlugin();
+GeneralPlugin.registeredPlugin(singleName, WLDCT_Search_TextBoxPlugin);
+export { WLDCT_Search_TextBoxPlugin as default };
 
 /*
 let WLDCT_Search_TextBoxPlugin = {
