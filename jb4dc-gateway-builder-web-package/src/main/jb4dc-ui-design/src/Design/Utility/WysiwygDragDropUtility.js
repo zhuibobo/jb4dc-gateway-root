@@ -46,6 +46,8 @@ let WysiwygDragDropUtility = {
         } else {
             let dropToTargetSingleName = $dropToLayout.attr("singleName");
             let pluginInstanceObj = generalPlugin.getControlInstanceObj(dropToTargetSingleName);
+            console.log($dropToLayout);
+            console.log(dropToTargetSingleName);
             if (enableDragToNames.indexOf("Layout") >= 0 && pluginInstanceObj.instance.config.controlCategory == "LayoutControl") {
                 return true;
             } else if (enableDragToNames.indexOf(dropToTargetSingleName) >= 0) {
@@ -77,6 +79,10 @@ let WysiwygDragDropUtility = {
                         $dropToLayout = $dropToTarget;
                     } else {
                         $dropToLayout = $dropToTarget.parents("[control_category='LayoutControl']")[0];
+                    }
+                    if($($dropToLayout).length==0){
+                        console.log("无法确认位置!");
+                        return;
                     }
                     $dropToLayout = $($dropToLayout);
                     if (this.enableDropToValidate(dragSourceSingleName, $dropToLayout)) {

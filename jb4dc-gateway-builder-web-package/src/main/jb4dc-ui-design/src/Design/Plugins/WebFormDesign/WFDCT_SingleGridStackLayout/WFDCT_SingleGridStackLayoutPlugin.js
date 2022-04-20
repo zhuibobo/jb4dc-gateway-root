@@ -23,11 +23,11 @@ let WFDCT_SingleGridStackLayoutPlugin={
     registeredEvent($elem){
         let grid = GridStack.init({
             minRow: 1, // don't let it collapse when empty
-            cellHeight: '40px',
+            cellHeight: '42px',
             margin: 0,
             acceptWidgets: '.drag-to-grid',
             float: true,
-            column: 16
+            column: 32
         }, this._$elem[0]);
         grid.on('added', (event, items)=> {
             let node=items[0];

@@ -103,11 +103,11 @@
   },
   "webFormDesign": {
     "groups": [{
-      "name": "InputGroup",
-      "text": "输入控件"
-    },{
       "name": "LayoutGroup",
       "text": "页面布局"
+    },{
+      "name": "InputGroup",
+      "text": "输入控件"
     },{
       "name": "DatasourceGroup",
       "text": "数据源"
@@ -171,11 +171,11 @@
         "showRemoveButton": "false",
         "showInEditorToolbar": "true"
       },{
-        "group": "InputGroup",
+        "group": "LayoutGroup",
         "singleName": "WFDCT_TextBox",
         "text": "单行输入框",
         "class": "",
-        "icon": "Layout1.png",
+        "icon": "textfield.png",
         "dragTo": "Layout",
         "serverResolve": "",
         "clientResolve": "",
