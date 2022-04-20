@@ -1,10 +1,8 @@
 import GeneralPlugin from "../../GeneralPlugin";
 
 import WLDCT_HideContainerPlugin from "../WLDCT_HideContainer/WLDCT_HideContainerPlugin";
-import WLDCT_ListSimpleSearchContainerPlugin
-    from "../WLDCT_ListSimpleSearchContainer/WLDCT_ListSimpleSearchContainerPlugin";
-import WLDCT_ListComplexSearchContainerPlugin
-    from "../WLDCT_ListComplexSearchContainer/WLDCT_ListComplexSearchContainerPlugin";
+import WLDCT_ListSimpleSearchContainerPlugin from "../WLDCT_ListSimpleSearchContainer/WLDCT_ListSimpleSearchContainerPlugin";
+import WLDCT_ListComplexSearchContainerPlugin from "../WLDCT_ListComplexSearchContainer/WLDCT_ListComplexSearchContainerPlugin";
 import WLDCT_ListButtonContainerPlugin from "../WLDCT_ListButtonContainer/WLDCT_ListButtonContainerPlugin";
 import WLDCT_ListTableContainerPlugin from "../WLDCT_ListTableContainer/WLDCT_ListTableContainerPlugin";
 

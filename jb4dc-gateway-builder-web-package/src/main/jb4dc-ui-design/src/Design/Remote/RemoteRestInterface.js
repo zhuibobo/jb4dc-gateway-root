@@ -287,6 +287,7 @@ let mockForm = `<div class="uid-wldct-list-template-wrap" jbuild4dc_custom="true
                         <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
                         <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
                     </tbody></table></div><div id="redips_clone" style="height: 1px; width: 1px;"></div></div>`;
+mockForm="";
 let mock = new MockAdapter(axios, {delayResponse: 200});
 if (mockAjax) {
     mock.onPost(acInterface.getTablesDataUrl).reply(200, {

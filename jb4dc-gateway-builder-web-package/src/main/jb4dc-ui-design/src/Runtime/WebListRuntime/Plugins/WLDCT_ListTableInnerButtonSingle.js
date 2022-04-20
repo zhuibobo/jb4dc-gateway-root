@@ -2,18 +2,22 @@ import HTMLControl from '../../HTMLControl.js'
 
 var WLDCT_ListTableInnerButtonSingle= {
     RendererChain: function (_rendererChainParas){
+        //debugger
         //console.log(_rendererChainParas);
+        //var $singleControlElem=_rendererChainParas.$singleControlElem;
+
+        //debugger
     },
     _ListRuntimeInstance:null,
     RendererDataChain:function (_rendererDataChainParas){
+        //debugger
         var $singleControlElem=_rendererDataChainParas.$singleControlElem;
         this._ListRuntimeInstance=_rendererDataChainParas.listRuntimeInstance;
 
         $singleControlElem.bind("click",{"selfInstance":this,"$elem":$singleControlElem,rowData:_rendererDataChainParas.rowData},this.ClickEvent);
         $singleControlElem.html("");
         $singleControlElem.attr("title",$singleControlElem.attr("caption"));
-
-
+        $singleControlElem.addClass($singleControlElem.attr("selectedclass"));
     },
     ClickEvent:function (sender) {
         //console.log(sender.data.rowData.ID);

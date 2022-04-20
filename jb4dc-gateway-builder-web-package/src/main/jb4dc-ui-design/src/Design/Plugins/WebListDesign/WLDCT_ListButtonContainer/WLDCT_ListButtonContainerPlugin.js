@@ -1,6 +1,7 @@
 import GeneralPlugin from "../../GeneralPlugin";
 
-let innerHTML = `<div class="uid-wldct-container-wrap uid-wldct-list-button-container-wrap">
+let innerHTML = `<div class="uid-wldct-table-container-wrap uid-wldct-list-button-container-wrap">
+                        <div class="uid-wldct-table-container-inner-wrap uid-wldct-list-button-container-inner-wrap">
                              <table is-op-button-wrap-table="true">
                                 <colgroup>
                                     <col style="width: 10%" />
@@ -22,7 +23,9 @@ let innerHTML = `<div class="uid-wldct-container-wrap uid-wldct-list-button-cont
                                     <td></td>
                                     <td></td>
                                 </tr>
-                            </table></div>`;
+                            </table>
+                        </div>
+                    </div>`;
 
 let WLDCT_ListButtonContainerPlugin = {
     singleName: "WLDCT_ListButtonContainer",

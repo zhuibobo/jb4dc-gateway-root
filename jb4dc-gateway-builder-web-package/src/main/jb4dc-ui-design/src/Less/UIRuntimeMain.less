@@ -1,10 +1,30 @@
 @import "Variable.less";
 @import "DataTables.less";
+@import "UIDesignBaseMain";
 
 html, body, form, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, fieldset, blockquote {
   padding: 0;
   margin: 0;
   font-size: 12px;
+}
+
+.html-design-input-type-text{
+  /*background: transparent;*/
+  width: 100%;
+  padding: 4px 7px;
+  font-size: 12px;
+  border: 0px solid #dcdee2;
+  border-bottom: 1px solid #dcdee2;
+  border-radius: 4px;
+  color: #515a6e;
+  background-color: #fff;
+  background-image: none;
+  box-sizing: border-box;
+  cursor: text;
+  -webkit-transition: border .2s ease-in-out,background .2s ease-in-out,-webkit-box-shadow .2s ease-in-out;
+  transition: border .2s ease-in-out,background .2s ease-in-out,-webkit-box-shadow .2s ease-in-out;
+  transition: border .2s ease-in-out,background .2s ease-in-out,box-shadow .2s ease-in-out;
+  transition: border .2s ease-in-out,background .2s ease-in-out,box-shadow .2s ease-in-out,-webkit-box-shadow .2s ease-in-out;
 }
 
 .html-design-list-button{
@@ -70,79 +90,10 @@ html, body, form, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, fiel
   -webkit-border-image: none;
 }
 
-.html-design-input-type-text{
-  /*background: transparent;*/
-  width: 100%;
-  padding: 4px 7px;
-  font-size: 12px;
-  border: 0px solid #dcdee2;
-  border-bottom: 1px solid #dcdee2;
-  border-radius: 4px;
-  color: #515a6e;
-  background-color: #fff;
-  background-image: none;
-  position: relative;
-  cursor: text;
-  -webkit-transition: border .2s ease-in-out,background .2s ease-in-out,-webkit-box-shadow .2s ease-in-out;
-  transition: border .2s ease-in-out,background .2s ease-in-out,-webkit-box-shadow .2s ease-in-out;
-  transition: border .2s ease-in-out,background .2s ease-in-out,box-shadow .2s ease-in-out;
-  transition: border .2s ease-in-out,background .2s ease-in-out,box-shadow .2s ease-in-out,-webkit-box-shadow .2s ease-in-out;
-}
-
-.uid-runtime-default-theme-root {
-
-  .uid-layout-single-table-layout-wrap {
-    border: 0px dashed LightBlue;
-    box-sizing: border-box;
-    width: 100%;
-    margin: 0px;
-    padding: 4px;
-
-    > table {
-      border-collapse: collapse;
-      width: 100%;
-
-      > tbody {
-        > tr {
-          > td {
-            border: 1px solid @g-concrete-color-v04;
-            text-align: center;
-            font-size: 10pt;
-            padding: 2px;
-            height: 30px;
-          }
-        }
-      }
-    }
-  }
-
-  .grid-stack {
-    min-height: 500px;
-    margin: 8px;
-    border: 1px dotted @g-concrete-color-v08;
-    border-radius: 2px;
-
-    .grid-stack-item {
-      .grid-stack-item-content {
-        background-color: @g-concrete-color-v01;
-        border: 1px solid @g-concrete-color-v08;
-        padding: 4px;
-      }
-    }
-  }
-
-  .uid-layout-tab-layout-wrap {
-    margin: 10px;
-    /*height:calc(100% - 20px);*/
-
-    .uid-layout-tab-panel-outer-wrap {
-      min-height: 500px;
-    }
-  }
-
+.uid-runtime-default-theme-root{
   .uid-wldct-list-simple-search-container-wrap, .wldct-list-hide-outer-wrap{
 
-    .wldct-list-simple-search-inner-wrap, .wldct-list-hide-inner-wrap{
+    .uid-wldct-list-simple-search-container-inner-wrap, .wldct-list-hide-inner-wrap{
       border: @g-wldct-list-border-color 1px solid;
       border-radius: 4px;
       /*min-height: 70px;*/
@@ -206,95 +157,232 @@ html, body, form, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, fiel
       }
     }
   }
-}
 
-.wldct-list-table-row-button-wrap {
-  text-align: center;
+  .uid-wldct-list-button-container-wrap{
 
-  .wldct-list-table-row-inner-button {
-    width: 18px;
-    height: 18px;
-    display: inline-block;
-    margin-left: 8px;
-    cursor: pointer;
-    background-repeat: no-repeat;
-    background-position-x: 1px;
-    background-position-y: 1px;
-  }
+    .uid-wldct-list-button-container-inner-wrap{
+      border: @g-wldct-list-border-color 1px solid;
+      border-radius: 4px;
+      min-height: 48px;
+      margin: 10px;
 
-  .wldct-list-table-row-inner-button:hover{
-    background-color: #c8dcfe;
-    border-radius: 4px;
-  }
+      table {
+        margin: 8px auto 8px auto;
+        border-collapse: collapse;
+        font-size: 12px;
+        width: 98%;
 
-  .ivu-tooltip:first-child {
-    .wldct-list-table-row-inner-button{
-      margin-left: 0px;
+        tr {
+          td {
+            padding: 6px;
+            border: 1px solid #d5d5d5;
+          }
+        }
+      }
+    }
+
+    .uid-wldct-list-button-inner-inside-wrap{
+      box-sizing: border-box;
+      color: rgb(81, 90, 110);
+      display: block;
+      float: right;
+      font-size: 12px;
+      height: 31.8906px;
+      line-height: 18px;
+      margin: 6px;
+      padding: 0px;
+      text-size-adjust: 100%;
+      -webkit-box-direction: normal;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+      .wldct-list-button{
+        .html-design-list-button;
+      }
+      .wldct-list-button:hover{
+        background-color: #57a3f3;
+        border-color: #57a3f3;
+      }
+      .wldct-list-button:first-child{
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+      }
+
+      .wldct-list-button:last-child{
+        border-bottom-right-radius: 4px;
+        border-top-right-radius: 4px;
+      }
     }
   }
 
-  .view{
-    background-image: url("Images/BuilderRuntime/kdvi.png");
+  .uid-wldct-list-table-container-wrap{
+
+    .uid-wldct-list-table-container-inner-wrap{
+      border:@g-wldct-list-border-color 1px solid;
+      border-radius: 4px;
+      min-height: 230px;
+      margin: 10px;
+
+      th, td { white-space: nowrap; }
+      .op-button-container-outer-td{
+        width: 120px;
+        text-align: center;
+      }
+      .list-table {
+        /*margin: 8px auto 8px auto;*/
+        //border-collapse: collapse;
+        //font-size: 12px;
+        width: 98%;
+
+        /*thead{
+            tr {
+                th {
+                    padding: 6px;
+                    border: 1px solid #d5d5d5 !important;
+                    text-align: center;
+                    background-color: #eaeef9;
+                }
+            }
+        }
+
+        tbody{
+            tr {
+                td {
+                    padding: 6px;
+                    border: 1px solid #d5d5d5 !important;
+                }
+            }
+        }*/
+      }
+
+      .table-paging-outer{
+        /*float: right;*/
+        width: 100%;
+        height: 40px;
+        .table-paging-inner{
+          float: right;
+
+          .table-paging-button{
+            float: left;
+            width: 70px;
+            border: #e0e0e0 1px solid;
+            border-radius: 6px;
+            text-align: center;
+            margin: 6px;
+            height: 28px;
+            line-height: 28px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+          }
+
+          .table-paging-button:hover{
+            background-color: #fdfdfd;
+          }
+
+          .table-paging-info {
+            float: left;
+            width: 190px;
+            border: #e0e0e0 0px solid;
+            border-radius: 6px;
+            text-align: center;
+            margin: 6px;
+            height: 28px;
+            line-height: 28px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
   }
-  .edit{
-    background-image: url("Images/BuilderRuntime/kedit.png");
-  }
-  .del{
-    background-image: url("Images/BuilderRuntime/del.png");
-  }
-  .selected{
-    background-image: url("Images/BuilderRuntime/selected.png");
-  }
-  .listmanager{
-    background-image: url("Images/BuilderRuntime/List manager.png");
-  }
-  .edit-model{
-    background-image: url("Images/BuilderRuntime/edit_model.png");
-  }
-  .view-model{
-    background-image: url("Images/BuilderRuntime/view_model.png");
-  }
-  .move-up{
-    background-image: url("Images/BuilderRuntime/arrow_large_up_outline.png");
-  }
-  .move-down{
-    background-image: url("Images/BuilderRuntime/arrow_large_down_outline.png");
-  }
-  .kded{
-    background-image: url("Images/BuilderRuntime/kded.png");
-  }
-  .grade{
-    background-image: url("Images/BuilderRuntime/grade.png");
-  }
-  .image-cultured{
-    background-image: url("Images/BuilderRuntime/image-cultured.png");
-  }
-  .page-white-edit{
-    background-image: url("Images/BuilderRuntime/page-white-edit.png");
-  }
-  .page-attach{
-    background-image: url("Images/BuilderRuntime/page-attach.png");
-  }
-  .page-go{
-    background-image: url("Images/BuilderRuntime/page-go.png");
-  }
-  .script-go{
-    background-image: url("Images/BuilderRuntime/script-go.png");
-  }
-  .script-key{
-    background-image: url("Images/BuilderRuntime/script-key.png");
-  }
-  .wrench-orange{
-    background-image: url("Images/BuilderRuntime/wrench-orange.png");
-  }
-  .x-office-document-template{
-    background-image: url("Images/BuilderRuntime/x-office-document-template.png");
-  }
-  .x-office-drawing{
-    background-image: url("Images/BuilderRuntime/x-office-drawing.png");
-  }
-  .kjobviewer{
-    background-image: url("Images/BuilderRuntime/kjobviewer.png");
+
+  .uid-wldct-list-table-inner-button-container-wrap {
+    text-align: center;
+
+    .wldct-list-table-row-inner-button {
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+      margin-left: 8px;
+      cursor: pointer;
+      background-repeat: no-repeat;
+      background-position-x: 1px;
+      background-position-y: 1px;
+    }
+
+    .wldct-list-table-row-inner-button:hover{
+      background-color: #c8dcfe;
+      border-radius: 4px;
+    }
+
+    .ivu-tooltip:first-child {
+      .wldct-list-table-row-inner-button{
+        margin-left: 0px;
+      }
+    }
+
+    .view{
+      background-image: url("Images/BuilderRuntime/kdvi.png");
+    }
+    .edit{
+      background-image: url("Images/BuilderRuntime/kedit.png");
+    }
+    .del{
+      background-image: url("Images/BuilderRuntime/del.png");
+    }
+    .selected{
+      background-image: url("Images/BuilderRuntime/selected.png");
+    }
+    .listmanager{
+      background-image: url("Images/BuilderRuntime/List manager.png");
+    }
+    .edit-model{
+      background-image: url("Images/BuilderRuntime/edit_model.png");
+    }
+    .view-model{
+      background-image: url("Images/BuilderRuntime/view_model.png");
+    }
+    .move-up{
+      background-image: url("Images/BuilderRuntime/arrow_large_up_outline.png");
+    }
+    .move-down{
+      background-image: url("Images/BuilderRuntime/arrow_large_down_outline.png");
+    }
+    .kded{
+      background-image: url("Images/BuilderRuntime/kded.png");
+    }
+    .grade{
+      background-image: url("Images/BuilderRuntime/grade.png");
+    }
+    .image-cultured{
+      background-image: url("Images/BuilderRuntime/image-cultured.png");
+    }
+    .page-white-edit{
+      background-image: url("Images/BuilderRuntime/page-white-edit.png");
+    }
+    .page-attach{
+      background-image: url("Images/BuilderRuntime/page-attach.png");
+    }
+    .page-go{
+      background-image: url("Images/BuilderRuntime/page-go.png");
+    }
+    .script-go{
+      background-image: url("Images/BuilderRuntime/script-go.png");
+    }
+    .script-key{
+      background-image: url("Images/BuilderRuntime/script-key.png");
+    }
+    .wrench-orange{
+      background-image: url("Images/BuilderRuntime/wrench-orange.png");
+    }
+    .x-office-document-template{
+      background-image: url("Images/BuilderRuntime/x-office-document-template.png");
+    }
+    .x-office-drawing{
+      background-image: url("Images/BuilderRuntime/x-office-drawing.png");
+    }
+    .kjobviewer{
+      background-image: url("Images/BuilderRuntime/kjobviewer.png");
+    }
   }
 }
-

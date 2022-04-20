@@ -8,14 +8,16 @@ var WLDCT_FormButton= {
     ResolveSelf:function (_rendererChainParas) {
         var $singleControlElem=_rendererChainParas.$singleControlElem;
         //console.log($singleControlElem);
-        var caption=$singleControlElem.attr("buttoncaption");
-        var $button=$("<button class='wldct-list-button'>"+caption+"</button>");
+        var caption=$singleControlElem.attr("buttoncaption")?$singleControlElem.attr("buttoncaption"):"未设置";
+        var $button=$("<button>"+caption+"</button>");
 
         var attributes = $singleControlElem.prop("attributes");
 
         $.each(attributes, function() {
             $button.attr(this.name, this.value);
         });
+
+        $button.addClass("wldct-list-button");
 
         $button.bind("click",{"buttonElem":$button,"selfInstance":this},this.ClickEvent);
         //debugger;

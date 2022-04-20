@@ -1,7 +1,6 @@
 import {createApp} from 'vue';
 import uiDesignMain from './ui-design-main.vue'
-import "../Less/UIDesignMain.less";
-import "../Less/UIRuntimeMain.less";
+import "../Less/UIWysiwygMain.less";
 import "../Less/ANTVueCust.less";
 import "../Less/EditTable.less";
 //import uidWysiwygComponent from './Component/MainTab/uid-wysiwyg-component.vue'

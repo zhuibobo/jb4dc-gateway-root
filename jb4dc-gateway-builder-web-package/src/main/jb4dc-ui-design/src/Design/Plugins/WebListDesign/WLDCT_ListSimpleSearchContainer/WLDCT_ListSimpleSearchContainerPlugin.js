@@ -2,7 +2,8 @@ import GeneralPlugin from "../../GeneralPlugin";
 import ClassUtility from "../../../Utility/ClassUtility";
 import AbstractTableLayoutBasePlugin from "../../AbstractTableLayoutBasePlugin";
 
-let innerHTML = `<div class="uid-wldct-container-wrap uid-wldct-list-simple-search-container-wrap"><div class="wysiwyg-wldct-list-simple-search-inner-wrap wldct-list-simple-search-inner-wrap">
+let innerHTML = `<div class="uid-wldct-table-container-wrap uid-wldct-list-simple-search-container-wrap">
+                    <div class="uid-wldct-table-container-inner-wrap uid-wldct-list-simple-search-container-inner-wrap">
                             <table contenteditable="true">
                                 <colgroup>
                                    <col style="width: 8%" />

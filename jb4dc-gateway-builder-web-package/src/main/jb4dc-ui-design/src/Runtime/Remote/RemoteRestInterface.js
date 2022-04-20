@@ -32,6 +32,383 @@ function sendDataToURLSearchParams(sendData) {
 let mockAjax = true;
 let mock = new MockAdapter(axios, {delayResponse: 200});
 if (mockAjax) {
+    let listHtmlRuntimeForm=`<div class="uid-wldct-list-template-wrap" jbuild4dc_custom="true" singlename="WLDCT_ListTemplate" is_jbuild4dc_data="false" control_category="LayoutControl" show_remove_button="false" group="ListLayoutTemplate" designcontrolinstancename="WLDCT_ListTemplate_991306828" id="WLDCT_ListTemplate_991306828"> 
+                                 <div class="uid-wldct-table-container-wrap uid-wldct-list-simple-search-container-wrap" jbuild4dc_custom="true" singlename="WLDCT_ListSimpleSearchContainer" is_jbuild4dc_data="false" control_category="LayoutControl" show_remove_button="false" group="ListLayoutTemplate" designcontrolinstancename="WLDCT_ListSimpleSearchContainer_991306829" id="WLDCT_ListSimpleSearchContainer_991306829" client_resolve="WLDCT_ListSimpleSearchContainer" client_instance_name="WLDCT_ListSimpleSearchContainer_44648b1fb29a4301a1e75841a830f3f5"> 
+                                 <div class="uid-wldct-table-container-inner-wrap uid-wldct-list-simple-search-container-inner-wrap">
+                                  <table> 
+                                   <colgroup> 
+                                    <col style="width: 8%"> 
+                                    <col style="width: 17%"> 
+                                    <col style="width: 8%"> 
+                                    <col style="width: 17%"> 
+                                    <col style="width: 8%"> 
+                                    <col style="width: 17%"> 
+                                    <col style="width: 8%"> 
+                                    <col style="width: 17%"> 
+                                   </colgroup> 
+                                   <tbody> 
+                                    <tr> 
+                                     <td class="label">序号:</td> 
+                                     <td> <input jbuild4dc_custom="true" singlename="WLDCT_Search_TextBox" designcontrolinstancename="WLDCT_Search_TextBox_991316521" class="uid-design-input-control redips-drag" contenteditable="false" id="WLDCT_Search_TextBox_991316521" is_jbuild4dc_data="false" control_category="InputControl" show_remove_button="false" group="ListLayoutTemplate" style="" serialize="true" name="" placeholder="" desc="" status="enable" groupname="" defaulttype="" defaultvalue="" defaulttext="" columntitle="" columntablename="TQC_ISSUES" columnname="ISS_NUM" columncaption="序号" columndatatypename="字符串" columnoperator="匹配" client_resolve="WLDCT_Search_TextBox" type="text"></td> 
+                                     <td class="label">标题:</td> 
+                                     <td> <input jbuild4dc_custom="true" singlename="WLDCT_Search_TextBox" designcontrolinstancename="WLDCT_Search_TextBox_991318480" class="uid-design-input-control redips-drag" contenteditable="false" id="WLDCT_Search_TextBox_991318480" is_jbuild4dc_data="false" control_category="InputControl" show_remove_button="false" group="ListLayoutTemplate" style="" serialize="true" name="" placeholder="" desc="" status="enable" groupname="" defaulttype="" defaultvalue="" defaulttext="" columntitle="" columntablename="TQC_ISSUES" columnname="ISS_TITLE" columncaption="标题" columndatatypename="字符串" columnoperator="匹配" client_resolve="WLDCT_Search_TextBox" type="text"></td> 
+                                     <td class="label">受理时间(从):</td> 
+                                     <td> <input jbuild4dc_custom="true" singlename="WLDCT_Search_TextDateTime" designcontrolinstancename="WLDCT_Search_TextDateTime_991320230" class="uid-design-input-control redips-drag Wdate" contenteditable="false" id="WLDCT_Search_TextDateTime_991320230" is_jbuild4dc_data="false" control_category="InputControl" show_remove_button="false" group="ListLayoutTemplate" style="" serialize="true" name="" placeholder="" desc="" status="enable" groupname="" defaulttype="" defaultvalue="" defaulttext="" columntitle="" columntablename="TQC_ISSUES" columnname="ISS_ACCEPT_DATE" columncaption="受理时间" columndatatypename="日期时间" columnoperator="gt_eq" client_resolve="WLDCT_Search_TextDateTime" type="text" onclick="WdatePicker({readOnly:true})"></td> 
+                                     <td class="label">(到):</td> 
+                                     <td> <input jbuild4dc_custom="true" singlename="WLDCT_Search_TextDateTime" designcontrolinstancename="WLDCT_Search_TextDateTime_991321867" class="uid-design-input-control redips-drag Wdate" contenteditable="false" id="WLDCT_Search_TextDateTime_991321867" is_jbuild4dc_data="false" control_category="InputControl" show_remove_button="false" group="ListLayoutTemplate" style="" serialize="true" name="" placeholder="" desc="" status="enable" groupname="" defaulttype="" defaultvalue="" defaulttext="" columntitle="" columntablename="TQC_ISSUES" columnname="ISS_ACCEPT_DATE" columncaption="受理时间" columndatatypename="日期时间" columnoperator="lt_eq" client_resolve="WLDCT_Search_TextDateTime" type="text" onclick="WdatePicker({readOnly:true})"></td> 
+                                    </tr> 
+                                   </tbody> 
+                                  </table> 
+                                </div>
+                                 </div> 
+                                 <div class="uid-wldct-container-wrap uid-wldct-list-complex-search-container-wrap" jbuild4dc_custom="true" singlename="WLDCT_ListComplexSearchContainer" is_jbuild4dc_data="false" control_category="LayoutControl" show_remove_button="false" group="ListLayoutTemplate" designcontrolinstancename="WLDCT_ListComplexSearchContainer_991306829" id="WLDCT_ListComplexSearchContainer_991306829" serialize="true" name="" placeholder="" style="" desc="" status="disable" groupname="" client_resolve="WLDCT_ListComplexSearchContainer" client_instance_name="WLDCT_ListComplexSearchContainer_bdc28da1918a463a97d84f90b3e6a381"> 
+                                  <table> 
+                                   <colgroup> 
+                                    <col style="width: 8%"> 
+                                    <col style="width: 17%"> 
+                                    <col style="width: 8%"> 
+                                    <col style="width: 17%"> 
+                                    <col style="width: 8%"> 
+                                    <col style="width: 17%"> 
+                                    <col style="width: 8%"> 
+                                    <col style="width: 17%"> 
+                                   </colgroup> 
+                                   <tbody> 
+                                    <tr> 
+                                     <td class="label">名称:</td> 
+                                     <td></td> 
+                                     <td class="label">标题:</td> 
+                                     <td></td> 
+                                     <td class="label">时间(从):</td> 
+                                     <td></td> 
+                                     <td class="label">(到):</td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td class="label">名称:</td> 
+                                     <td></td> 
+                                     <td class="label">标题:</td> 
+                                     <td></td> 
+                                     <td class="label">时间(从):</td> 
+                                     <td></td> 
+                                     <td class="label">(到):</td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td class="label">名称:</td> 
+                                     <td></td> 
+                                     <td class="label">标题:</td> 
+                                     <td></td> 
+                                     <td class="label">时间(从):</td> 
+                                     <td></td> 
+                                     <td class="label">(到):</td> 
+                                     <td></td> 
+                                    </tr> 
+                                   </tbody> 
+                                  </table> 
+                                 </div> 
+                                 <div class="uid-wldct-container-wrap uid-wldct-list-button-container-wrap" jbuild4dc_custom="true" singlename="WLDCT_ListButtonContainer" is_jbuild4dc_data="false" control_category="LayoutControl" show_remove_button="false" group="ListLayoutTemplate" designcontrolinstancename="WLDCT_ListButtonContainer_991306829" id="WLDCT_ListButtonContainer_991306829" client_resolve="WLDCT_ListButtonContainer" client_instance_name="WLDCT_ListButtonContainer_643c2d56219349458fdbc7c57e7b6cce"> 
+                                  <div class="uid-wldct-table-container-inner-wrap uid-wldct-list-button-container-inner-wrap">
+                                  <table is-op-button-wrap-table="true"> 
+                                   <colgroup> 
+                                    <col style="width: 10%"> 
+                                    <col style="width: 10%"> 
+                                    <col style="width: 10%"> 
+                                    <col style="width: 10%"> 
+                                    <col style="width: 10%"> 
+                                    <col style="width: 10%"> 
+                                    <col style="width: 10%"> 
+                                    <col style="width: 10%"> 
+                                   </colgroup> 
+                                   <tbody> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td> 
+                                      <div jbuild4dc_custom="true" singlename="WLDCT_FormButton" designcontrolinstancename="WLDCT_FormButton_991324413" class="uid-design-input-control redips-drag" contenteditable="false" id="WLDCT_FormButton_991324413" isopbutton="true" is_jbuild4dc_data="false" control_category="InputControl" show_remove_button="false" group="Layout" style="" serialize="false" name="" placeholder="" desc="" status="enable" groupname="" buttontype="ListFormButton" formmoduleid="b6641464-e55f-4d1c-afea-400769f6f6a3" formmodulename="运维问题模块" formid="017d78b0-56f2-41a4-9636-5a0180e689ca" formname="问题登记表单" formcode="100001" buttoncaption="新增" windowcaption="运维问题" opentype="Dialog" windowheight="768" windowwidth="1124" isshow="true" operation="add" bindauthority="notAuth" innerbuttonjsonstring="[{&quot;caption&quot;:&quot;保存&quot;,&quot;saveAndClose&quot;:&quot;true&quot;,&quot;apis&quot;:[],&quot;fields&quot;:[],&quot;id&quot;:&quot;inner_form_save_button_992787528&quot;,&quot;buttonType&quot;:&quot;保存按钮&quot;,&quot;custServerResolveMethod&quot;:&quot;&quot;,&quot;custServerResolveMethodPara&quot;:&quot;&quot;,&quot;custClientRendererMethod&quot;:&quot;&quot;,&quot;custClientRendererMethodPara&quot;:&quot;&quot;,&quot;custClientRendererAfterMethod&quot;:&quot;&quot;,&quot;custClientRendererAfterMethodPara&quot;:&quot;&quot;,&quot;custClientClickBeforeMethod&quot;:&quot;&quot;,&quot;custClientClickBeforeMethodPara&quot;:&quot;&quot;},{&quot;caption&quot;:&quot;关闭&quot;,&quot;id&quot;:&quot;inner_close_button_992801832&quot;,&quot;buttonType&quot;:&quot;关闭按钮&quot;}]" buttonid="8318f6ec-3c94-4e6f-b561-76c881f35899-WLDCT_FormButton_991324413" client_resolve="WLDCT_FormButton"></div></td> 
+                                     <td> 
+                                      <div jbuild4dc_custom="true" singlename="WLDCT_FormButton" designcontrolinstancename="WLDCT_FormButton_991326114" class="uid-design-input-control redips-drag" contenteditable="false" id="WLDCT_FormButton_991326114" isopbutton="true" is_jbuild4dc_data="false" control_category="InputControl" show_remove_button="false" group="Layout" style="" serialize="false" name="" placeholder="" desc="" status="enable" groupname="" buttontype="ListFormButton" formmoduleid="b6641464-e55f-4d1c-afea-400769f6f6a3" formmodulename="运维问题模块" formid="017d78b0-56f2-41a4-9636-5a0180e689ca" formname="问题登记表单" formcode="100001" buttoncaption="修改" opentype="Dialog" windowheight="768" windowwidth="1124" isshow="true" operation="update" bindauthority="notAuth" innerbuttonjsonstring="[{&quot;caption&quot;:&quot;保存&quot;,&quot;saveAndClose&quot;:&quot;true&quot;,&quot;apis&quot;:[],&quot;fields&quot;:[],&quot;id&quot;:&quot;inner_form_save_button_003962135&quot;,&quot;buttonType&quot;:&quot;保存按钮&quot;,&quot;custServerResolveMethod&quot;:&quot;&quot;,&quot;custServerResolveMethodPara&quot;:&quot;&quot;,&quot;custClientRendererMethod&quot;:&quot;&quot;,&quot;custClientRendererMethodPara&quot;:&quot;&quot;,&quot;custClientRendererAfterMethod&quot;:&quot;&quot;,&quot;custClientRendererAfterMethodPara&quot;:&quot;&quot;,&quot;custClientClickBeforeMethod&quot;:&quot;&quot;,&quot;custClientClickBeforeMethodPara&quot;:&quot;&quot;},{&quot;caption&quot;:&quot;关闭&quot;,&quot;id&quot;:&quot;inner_close_button_003970353&quot;,&quot;buttonType&quot;:&quot;关闭按钮&quot;}]" buttonid="8318f6ec-3c94-4e6f-b561-76c881f35899-WLDCT_FormButton_991326114" client_resolve="WLDCT_FormButton"></div></td> 
+                                     <td> 
+                                      <div jbuild4dc_custom="true" singlename="WLDCT_FormButton" designcontrolinstancename="WLDCT_FormButton_991327490" class="uid-design-input-control redips-drag" contenteditable="false" id="WLDCT_FormButton_991327490" isopbutton="true" is_jbuild4dc_data="false" control_category="InputControl" show_remove_button="false" group="Layout" style="" buttonid="8318f6ec-3c94-4e6f-b561-76c881f35899-WLDCT_FormButton_991327490" client_resolve="WLDCT_FormButton"></div></td> 
+                                    </tr> 
+                                   </tbody> 
+                                  </table>
+                                  </div> 
+                                 </div> 
+                                 <div class="uid-wldct-table-container-wrap uid-wldct-list-table-container-wrap" jbuild4dc_custom="true" singlename="WLDCT_ListTableContainer" is_jbuild4dc_data="false" control_category="LayoutControl" show_remove_button="false" group="ListLayoutTemplate" designcontrolinstancename="WLDCT_ListTableContainer_991306830" id="WLDCT_ListTableContainer_991306830" client_resolve="WLDCT_ListTableContainer" client_instance_name="WLDCT_ListTableContainer_6c7ddc72b3bd49bf9685ef0fb68a385a"> 
+                                    <div class="uid-wldct-table-container-inner-wrap uid-wldct-list-table-container-inner-wrap">
+                                        <table class="list-table"> 
+                                   <colgroup> 
+                                    <col style="width: 8%"> 
+                                    <col style="width: 68%"> 
+                                    <col style="width: 8%"> 
+                                    <col style="width: 8%"> 
+                                    <col style="width: 8%"> 
+                                   </colgroup> 
+                                   <thead> 
+                                    <tr> 
+                                     <th class="">编号</th> 
+                                     <th class="">标题</th> 
+                                     <th>状态</th> 
+                                     <th>处理时间</th> 
+                                     <th>操作</th> 
+                                    </tr> 
+                                   </thead> 
+                                   <tbody> 
+                                    <tr> 
+                                     <td> 
+                                      <div jbuild4dc_custom="true" singlename="WLDCT_ListTableLabel" designcontrolinstancename="WLDCT_ListTableLabel_991330736" class="uid-design-input-control redips-drag" contenteditable="false" id="WLDCT_ListTableLabel_991330736" is_jbuild4dc_data="false" control_category="InputControl" show_remove_button="false" group="ListLayoutTemplate" style="" serialize="true" name="" placeholder="" desc="" status="enable" groupname="" defaulttype="" defaultvalue="" defaulttext="" columnname="ISS_NUM" columncaption="序号" columndatatypename="字符串" targetbuttonid="" columnalign="居中对齐" defformat="notFormat" dictionarygroupdatasourcetext="" dictionarygroupdatasourceid="" omitlength="" client_resolve="WLDCT_ListTableLabel"></div></td> 
+                                     <td> 
+                                      <div jbuild4dc_custom="true" singlename="WLDCT_ListTableLabel" designcontrolinstancename="WLDCT_ListTableLabel_991332781" class="uid-design-input-control redips-drag" contenteditable="false" id="WLDCT_ListTableLabel_991332781" is_jbuild4dc_data="false" control_category="InputControl" show_remove_button="false" group="ListLayoutTemplate" style="" serialize="true" name="" placeholder="" desc="" status="enable" groupname="" defaulttype="" defaultvalue="" defaulttext="" columnname="ISS_TITLE" columncaption="标题" columndatatypename="字符串" targetbuttonid="" columnalign="居中对齐" defformat="notFormat" dictionarygroupdatasourcetext="" dictionarygroupdatasourceid="" omitlength="" client_resolve="WLDCT_ListTableLabel"></div></td> 
+                                     <td> 
+                                      <div jbuild4dc_custom="true" singlename="WLDCT_ListTableLabel" designcontrolinstancename="WLDCT_ListTableLabel_991334466" class="uid-design-input-control redips-drag" contenteditable="false" id="WLDCT_ListTableLabel_991334466" is_jbuild4dc_data="false" control_category="InputControl" show_remove_button="false" group="ListLayoutTemplate" style="" serialize="true" name="" placeholder="" desc="" status="enable" groupname="" defaulttype="" defaultvalue="" defaulttext="" columnname="ISS_STATUS" columncaption="处理状态" columndatatypename="字符串" targetbuttonid="" columnalign="居中对齐" defformat="notFormat" dictionarygroupdatasourcetext="" dictionarygroupdatasourceid="" omitlength="" client_resolve="WLDCT_ListTableLabel"></div></td> 
+                                     <td> 
+                                      <div jbuild4dc_custom="true" singlename="WLDCT_ListTableLabel" designcontrolinstancename="WLDCT_ListTableLabel_991335816" class="uid-design-input-control redips-drag" contenteditable="false" id="WLDCT_ListTableLabel_991335816" is_jbuild4dc_data="false" control_category="InputControl" show_remove_button="false" group="ListLayoutTemplate" style="" serialize="true" name="" placeholder="" desc="" status="enable" groupname="" defaulttype="" defaultvalue="" defaulttext="" columnname="ISS_HANDLER_SEND_DATE" columncaption="分配给-分配时间" columndatatypename="日期时间" targetbuttonid="" columnalign="居中对齐" defformat="notFormat" dictionarygroupdatasourcetext="" dictionarygroupdatasourceid="" omitlength="" client_resolve="WLDCT_ListTableLabel"></div></td> 
+                                     <td class="op-button-container-outer-td"> 
+                                      <div class="uid-wldct-list-table-inner-button-container-wrap" jbuild4dc_custom="true"
+                                        singlename="WLDCT_ListTableInnerButtonContainer" is_jbuild4dc_data="false"
+                                        control_category="LayoutControl" show_remove_button="false" group="ListLayoutTemplate"
+                                        designcontrolinstancename="WLDCT_ListTableInnerButtonContainer_441197323"
+                                        id="WLDCT_ListTableInnerButtonContainer_441197323" client_resolve="WLDCT_ListTableInnerButtonContainer">
+                                        <div
+                                            class="uid-wldct-table-container-inner-wrap uid-wldct-list-table-inner-button-inner-wrap">
+                                        <table is-inner-op-button-wrap-table="true"> 
+                                         <colgroup> 
+                                          <col style="width: 33%"> 
+                                          <col style="width: 33%"> 
+                                          <col style="width: 33%"> 
+                                         </colgroup> 
+                                         <tbody> 
+                                          <tr> 
+                                           <td> 
+                                            <div jbuild4dc_custom="true" singlename="WLDCT_ListTableInnerButtonSingle" designcontrolinstancename="WLDCT_ListTableInnerButtonSingle_991337838" class="uid-design-input-control redips-drag" contenteditable="false" id="WLDCT_ListTableInnerButtonSingle_991337838" is_jbuild4dc_data="false" control_category="InputControl" show_remove_button="false" group="ListLayoutTemplate" style="" serialize="true" name="" placeholder="" desc="" status="enable" groupname="" targetbuttonid="WLDCT_FormButton_991326114" selectedclass="wldct-list-table-row-inner-button edit" caption="修改" alertmsg="" client_resolve="WLDCT_ListTableInnerButtonSingle"></div></td> 
+                                           <td></td> 
+                                           <td></td> 
+                                          </tr> 
+                                         </tbody> 
+                                        </table> 
+                                       </div> 
+                                      </div> </td> 
+                                    </tr> 
+                                   </tbody> 
+                                  </table> 
+                                    </div>
+                                 </div> 
+                                 <div class="uid-wldct-container-wrap uid-wldct-hide-container-wrap" jbuild4dc_custom="true" singlename="WLDCT_HideContainer" is_jbuild4dc_data="false" control_category="LayoutControl" show_remove_button="false" group="ListLayoutTemplate" designcontrolinstancename="WLDCT_HideContainer_991306830" id="WLDCT_HideContainer_991306830" client_resolve=""> 
+                                    <table contenteditable="true"> 
+                                   <colgroup> 
+                                    <col style="width: 8%"> 
+                                    <col style="width: 15%"> 
+                                    <col style="width: 8%"> 
+                                    <col style="width: 15%"> 
+                                    <col style="width: 8%"> 
+                                    <col style="width: 16%"> 
+                                   </colgroup> 
+                                   <tbody> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                    <tr> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                     <td></td> 
+                                    </tr> 
+                                   </tbody> 
+                                  </table> 
+                                 </div>
+                             </div> 
+                            <script>var WLDCT_ListSimpleSearchContainer_44648b1fb29a4301a1e75841a830f3f5=Object.create(WLDCT_ListSimpleSearchContainer);HTMLControl._SaveControlNewInstanceToPool("WLDCT_ListSimpleSearchContainer_44648b1fb29a4301a1e75841a830f3f5",WLDCT_ListSimpleSearchContainer_44648b1fb29a4301a1e75841a830f3f5);</script> 
+                            <script>var WLDCT_ListComplexSearchContainer_bdc28da1918a463a97d84f90b3e6a381=Object.create(WLDCT_ListComplexSearchContainer);HTMLControl._SaveControlNewInstanceToPool("WLDCT_ListComplexSearchContainer_bdc28da1918a463a97d84f90b3e6a381",WLDCT_ListComplexSearchContainer_bdc28da1918a463a97d84f90b3e6a381);</script> 
+                            <script>var WLDCT_ListButtonContainer_643c2d56219349458fdbc7c57e7b6cce=Object.create(WLDCT_ListButtonContainer);HTMLControl._SaveControlNewInstanceToPool("WLDCT_ListButtonContainer_643c2d56219349458fdbc7c57e7b6cce",WLDCT_ListButtonContainer_643c2d56219349458fdbc7c57e7b6cce);</script> 
+                            <script>var WLDCT_ListTableContainer_6c7ddc72b3bd49bf9685ef0fb68a385a=Object.create(WLDCT_ListTableContainer);HTMLControl._SaveControlNewInstanceToPool("WLDCT_ListTableContainer_6c7ddc72b3bd49bf9685ef0fb68a385a",WLDCT_ListTableContainer_6c7ddc72b3bd49bf9685ef0fb68a385a);</script>`;
+
     let loadHTMLData = {
         "success": true,
         "message": "操作成功！",
@@ -74,7 +451,7 @@ if (mockAjax) {
             "listCssContent": "#uid-css-code-editor-comp-root{\n        height: 100%;\n        border: 1px solid #ffffff;\n        border-radius: 4px;\n        padding: 2px;\n        background-color: #1e1e1e;\n    }",
             "listConfigContent": "",
             "listDesignRemark": null,
-            "listHtmlRuntime": "<div class=\"uid-wldct-list-template-wrap\" jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTemplate\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" designcontrolinstancename=\"WLDCT_ListTemplate_991306828\" id=\"WLDCT_ListTemplate_991306828\"> \n <div class=\"uid-wldct-container-wrap uid-wldct-list-simple-search-container-wrap\" jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListSimpleSearchContainer\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" designcontrolinstancename=\"WLDCT_ListSimpleSearchContainer_991306829\" id=\"WLDCT_ListSimpleSearchContainer_991306829\" client_resolve=\"WLDCT_ListSimpleSearchContainer\" client_instance_name=\"WLDCT_ListSimpleSearchContainer_44648b1fb29a4301a1e75841a830f3f5\"> \n  <table contenteditable=\"true\"> \n   <colgroup> \n    <col style=\"width: 8%\"> \n    <col style=\"width: 17%\"> \n    <col style=\"width: 8%\"> \n    <col style=\"width: 17%\"> \n    <col style=\"width: 8%\"> \n    <col style=\"width: 17%\"> \n    <col style=\"width: 8%\"> \n    <col style=\"width: 17%\"> \n   </colgroup> \n   <tbody> \n    <tr> \n     <td class=\"label\">序号:</td> \n     <td> <input jbuild4dc_custom=\"true\" singlename=\"WLDCT_Search_TextBox\" designcontrolinstancename=\"WLDCT_Search_TextBox_991316521\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_Search_TextBox_991316521\" is_jbuild4dc_data=\"false\" control_category=\"InputControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" style=\"\" serialize=\"true\" name=\"\" placeholder=\"\" desc=\"\" status=\"enable\" groupname=\"\" defaulttype=\"\" defaultvalue=\"\" defaulttext=\"\" columntitle=\"\" columntablename=\"TQC_ISSUES\" columnname=\"ISS_NUM\" columncaption=\"序号\" columndatatypename=\"字符串\" columnoperator=\"匹配\" client_resolve=\"WLDCT_Search_TextBox\" type=\"text\"></td> \n     <td class=\"label\">标题:</td> \n     <td> <input jbuild4dc_custom=\"true\" singlename=\"WLDCT_Search_TextBox\" designcontrolinstancename=\"WLDCT_Search_TextBox_991318480\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_Search_TextBox_991318480\" is_jbuild4dc_data=\"false\" control_category=\"InputControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" style=\"\" serialize=\"true\" name=\"\" placeholder=\"\" desc=\"\" status=\"enable\" groupname=\"\" defaulttype=\"\" defaultvalue=\"\" defaulttext=\"\" columntitle=\"\" columntablename=\"TQC_ISSUES\" columnname=\"ISS_TITLE\" columncaption=\"标题\" columndatatypename=\"字符串\" columnoperator=\"匹配\" client_resolve=\"WLDCT_Search_TextBox\" type=\"text\"></td> \n     <td class=\"label\">受理时间(从):</td> \n     <td> <input jbuild4dc_custom=\"true\" singlename=\"WLDCT_Search_TextDateTime\" designcontrolinstancename=\"WLDCT_Search_TextDateTime_991320230\" class=\"uid-design-input-control redips-drag Wdate\" contenteditable=\"false\" id=\"WLDCT_Search_TextDateTime_991320230\" is_jbuild4dc_data=\"false\" control_category=\"InputControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" style=\"\" serialize=\"true\" name=\"\" placeholder=\"\" desc=\"\" status=\"enable\" groupname=\"\" defaulttype=\"\" defaultvalue=\"\" defaulttext=\"\" columntitle=\"\" columntablename=\"TQC_ISSUES\" columnname=\"ISS_ACCEPT_DATE\" columncaption=\"受理时间\" columndatatypename=\"日期时间\" columnoperator=\"gt_eq\" client_resolve=\"WLDCT_Search_TextDateTime\" type=\"text\" onclick=\"WdatePicker({readOnly:true})\"></td> \n     <td class=\"label\">(到):</td> \n     <td> <input jbuild4dc_custom=\"true\" singlename=\"WLDCT_Search_TextDateTime\" designcontrolinstancename=\"WLDCT_Search_TextDateTime_991321867\" class=\"uid-design-input-control redips-drag Wdate\" contenteditable=\"false\" id=\"WLDCT_Search_TextDateTime_991321867\" is_jbuild4dc_data=\"false\" control_category=\"InputControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" style=\"\" serialize=\"true\" name=\"\" placeholder=\"\" desc=\"\" status=\"enable\" groupname=\"\" defaulttype=\"\" defaultvalue=\"\" defaulttext=\"\" columntitle=\"\" columntablename=\"TQC_ISSUES\" columnname=\"ISS_ACCEPT_DATE\" columncaption=\"受理时间\" columndatatypename=\"日期时间\" columnoperator=\"lt_eq\" client_resolve=\"WLDCT_Search_TextDateTime\" type=\"text\" onclick=\"WdatePicker({readOnly:true})\"></td> \n    </tr> \n   </tbody> \n  </table> \n </div> \n <div class=\"uid-wldct-container-wrap uid-wldct-list-complex-search-container-wrap\" jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListComplexSearchContainer\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" designcontrolinstancename=\"WLDCT_ListComplexSearchContainer_991306829\" id=\"WLDCT_ListComplexSearchContainer_991306829\" serialize=\"true\" name=\"\" placeholder=\"\" style=\"\" desc=\"\" status=\"disable\" groupname=\"\" client_resolve=\"WLDCT_ListComplexSearchContainer\" client_instance_name=\"WLDCT_ListComplexSearchContainer_bdc28da1918a463a97d84f90b3e6a381\"> \n  <table contenteditable=\"true\"> \n   <colgroup> \n    <col style=\"width: 8%\"> \n    <col style=\"width: 17%\"> \n    <col style=\"width: 8%\"> \n    <col style=\"width: 17%\"> \n    <col style=\"width: 8%\"> \n    <col style=\"width: 17%\"> \n    <col style=\"width: 8%\"> \n    <col style=\"width: 17%\"> \n   </colgroup> \n   <tbody> \n    <tr> \n     <td class=\"label\">名称:</td> \n     <td></td> \n     <td class=\"label\">标题:</td> \n     <td></td> \n     <td class=\"label\">时间(从):</td> \n     <td></td> \n     <td class=\"label\">(到):</td> \n     <td></td> \n    </tr> \n    <tr> \n     <td class=\"label\">名称:</td> \n     <td></td> \n     <td class=\"label\">标题:</td> \n     <td></td> \n     <td class=\"label\">时间(从):</td> \n     <td></td> \n     <td class=\"label\">(到):</td> \n     <td></td> \n    </tr> \n    <tr> \n     <td class=\"label\">名称:</td> \n     <td></td> \n     <td class=\"label\">标题:</td> \n     <td></td> \n     <td class=\"label\">时间(从):</td> \n     <td></td> \n     <td class=\"label\">(到):</td> \n     <td></td> \n    </tr> \n   </tbody> \n  </table> \n </div> \n <div class=\"uid-wldct-container-wrap uid-wldct-list-button-container-wrap\" jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListButtonContainer\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" designcontrolinstancename=\"WLDCT_ListButtonContainer_991306829\" id=\"WLDCT_ListButtonContainer_991306829\" client_resolve=\"WLDCT_ListButtonContainer\" client_instance_name=\"WLDCT_ListButtonContainer_643c2d56219349458fdbc7c57e7b6cce\"> \n  <table is-op-button-wrap-table=\"true\"> \n   <colgroup> \n    <col style=\"width: 10%\"> \n    <col style=\"width: 10%\"> \n    <col style=\"width: 10%\"> \n    <col style=\"width: 10%\"> \n    <col style=\"width: 10%\"> \n    <col style=\"width: 10%\"> \n    <col style=\"width: 10%\"> \n    <col style=\"width: 10%\"> \n   </colgroup> \n   <tbody> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td> \n      <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_FormButton\" designcontrolinstancename=\"WLDCT_FormButton_991324413\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_FormButton_991324413\" isopbutton=\"true\" is_jbuild4dc_data=\"false\" control_category=\"InputControl\" show_remove_button=\"false\" group=\"Layout\" style=\"\" serialize=\"false\" name=\"\" placeholder=\"\" desc=\"\" status=\"enable\" groupname=\"\" buttontype=\"ListFormButton\" formmoduleid=\"b6641464-e55f-4d1c-afea-400769f6f6a3\" formmodulename=\"运维问题模块\" formid=\"017d78b0-56f2-41a4-9636-5a0180e689ca\" formname=\"问题登记表单\" formcode=\"100001\" buttoncaption=\"新增\" windowcaption=\"运维问题\" opentype=\"Dialog\" windowheight=\"768\" windowwidth=\"1124\" isshow=\"true\" operation=\"add\" bindauthority=\"notAuth\" innerbuttonjsonstring=\"[{&quot;caption&quot;:&quot;保存&quot;,&quot;saveAndClose&quot;:&quot;true&quot;,&quot;apis&quot;:[],&quot;fields&quot;:[],&quot;id&quot;:&quot;inner_form_save_button_992787528&quot;,&quot;buttonType&quot;:&quot;保存按钮&quot;,&quot;custServerResolveMethod&quot;:&quot;&quot;,&quot;custServerResolveMethodPara&quot;:&quot;&quot;,&quot;custClientRendererMethod&quot;:&quot;&quot;,&quot;custClientRendererMethodPara&quot;:&quot;&quot;,&quot;custClientRendererAfterMethod&quot;:&quot;&quot;,&quot;custClientRendererAfterMethodPara&quot;:&quot;&quot;,&quot;custClientClickBeforeMethod&quot;:&quot;&quot;,&quot;custClientClickBeforeMethodPara&quot;:&quot;&quot;},{&quot;caption&quot;:&quot;关闭&quot;,&quot;id&quot;:&quot;inner_close_button_992801832&quot;,&quot;buttonType&quot;:&quot;关闭按钮&quot;}]\" buttonid=\"8318f6ec-3c94-4e6f-b561-76c881f35899-WLDCT_FormButton_991324413\" client_resolve=\"WLDCT_FormButton\"></div></td> \n     <td> \n      <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_FormButton\" designcontrolinstancename=\"WLDCT_FormButton_991326114\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_FormButton_991326114\" isopbutton=\"true\" is_jbuild4dc_data=\"false\" control_category=\"InputControl\" show_remove_button=\"false\" group=\"Layout\" style=\"\" serialize=\"false\" name=\"\" placeholder=\"\" desc=\"\" status=\"enable\" groupname=\"\" buttontype=\"ListFormButton\" formmoduleid=\"b6641464-e55f-4d1c-afea-400769f6f6a3\" formmodulename=\"运维问题模块\" formid=\"017d78b0-56f2-41a4-9636-5a0180e689ca\" formname=\"问题登记表单\" formcode=\"100001\" buttoncaption=\"修改\" opentype=\"Dialog\" windowheight=\"768\" windowwidth=\"1124\" isshow=\"true\" operation=\"update\" bindauthority=\"notAuth\" innerbuttonjsonstring=\"[{&quot;caption&quot;:&quot;保存&quot;,&quot;saveAndClose&quot;:&quot;true&quot;,&quot;apis&quot;:[],&quot;fields&quot;:[],&quot;id&quot;:&quot;inner_form_save_button_003962135&quot;,&quot;buttonType&quot;:&quot;保存按钮&quot;,&quot;custServerResolveMethod&quot;:&quot;&quot;,&quot;custServerResolveMethodPara&quot;:&quot;&quot;,&quot;custClientRendererMethod&quot;:&quot;&quot;,&quot;custClientRendererMethodPara&quot;:&quot;&quot;,&quot;custClientRendererAfterMethod&quot;:&quot;&quot;,&quot;custClientRendererAfterMethodPara&quot;:&quot;&quot;,&quot;custClientClickBeforeMethod&quot;:&quot;&quot;,&quot;custClientClickBeforeMethodPara&quot;:&quot;&quot;},{&quot;caption&quot;:&quot;关闭&quot;,&quot;id&quot;:&quot;inner_close_button_003970353&quot;,&quot;buttonType&quot;:&quot;关闭按钮&quot;}]\" buttonid=\"8318f6ec-3c94-4e6f-b561-76c881f35899-WLDCT_FormButton_991326114\" client_resolve=\"WLDCT_FormButton\"></div></td> \n     <td> \n      <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_FormButton\" designcontrolinstancename=\"WLDCT_FormButton_991327490\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_FormButton_991327490\" isopbutton=\"true\" is_jbuild4dc_data=\"false\" control_category=\"InputControl\" show_remove_button=\"false\" group=\"Layout\" style=\"\" buttonid=\"8318f6ec-3c94-4e6f-b561-76c881f35899-WLDCT_FormButton_991327490\" client_resolve=\"WLDCT_FormButton\"></div></td> \n    </tr> \n   </tbody> \n  </table> \n </div> \n <div class=\"uid-wldct-container-wrap uid-wldct-list-table-container-wrap\" jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableContainer\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" designcontrolinstancename=\"WLDCT_ListTableContainer_991306830\" id=\"WLDCT_ListTableContainer_991306830\" client_resolve=\"WLDCT_ListTableContainer\" client_instance_name=\"WLDCT_ListTableContainer_6c7ddc72b3bd49bf9685ef0fb68a385a\"> \n  <table class=\"list-table\" contenteditable=\"true\"> \n   <colgroup> \n    <col style=\"width: 8%\"> \n    <col style=\"width: 68%\"> \n    <col style=\"width: 8%\"> \n    <col style=\"width: 8%\"> \n    <col style=\"width: 8%\"> \n   </colgroup> \n   <thead> \n    <tr> \n     <th class=\"\">编号</th> \n     <th class=\"\">标题</th> \n     <th>状态</th> \n     <th>处理时间</th> \n     <th>操作</th> \n    </tr> \n   </thead> \n   <tbody> \n    <tr> \n     <td> \n      <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableLabel\" designcontrolinstancename=\"WLDCT_ListTableLabel_991330736\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_ListTableLabel_991330736\" is_jbuild4dc_data=\"false\" control_category=\"InputControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" style=\"\" serialize=\"true\" name=\"\" placeholder=\"\" desc=\"\" status=\"enable\" groupname=\"\" defaulttype=\"\" defaultvalue=\"\" defaulttext=\"\" columnname=\"ISS_NUM\" columncaption=\"序号\" columndatatypename=\"字符串\" targetbuttonid=\"\" columnalign=\"居中对齐\" defformat=\"notFormat\" dictionarygroupdatasourcetext=\"\" dictionarygroupdatasourceid=\"\" omitlength=\"\" client_resolve=\"WLDCT_ListTableLabel\"></div></td> \n     <td> \n      <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableLabel\" designcontrolinstancename=\"WLDCT_ListTableLabel_991332781\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_ListTableLabel_991332781\" is_jbuild4dc_data=\"false\" control_category=\"InputControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" style=\"\" serialize=\"true\" name=\"\" placeholder=\"\" desc=\"\" status=\"enable\" groupname=\"\" defaulttype=\"\" defaultvalue=\"\" defaulttext=\"\" columnname=\"ISS_TITLE\" columncaption=\"标题\" columndatatypename=\"字符串\" targetbuttonid=\"\" columnalign=\"居中对齐\" defformat=\"notFormat\" dictionarygroupdatasourcetext=\"\" dictionarygroupdatasourceid=\"\" omitlength=\"\" client_resolve=\"WLDCT_ListTableLabel\"></div></td> \n     <td> \n      <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableLabel\" designcontrolinstancename=\"WLDCT_ListTableLabel_991334466\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_ListTableLabel_991334466\" is_jbuild4dc_data=\"false\" control_category=\"InputControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" style=\"\" serialize=\"true\" name=\"\" placeholder=\"\" desc=\"\" status=\"enable\" groupname=\"\" defaulttype=\"\" defaultvalue=\"\" defaulttext=\"\" columnname=\"ISS_STATUS\" columncaption=\"处理状态\" columndatatypename=\"字符串\" targetbuttonid=\"\" columnalign=\"居中对齐\" defformat=\"notFormat\" dictionarygroupdatasourcetext=\"\" dictionarygroupdatasourceid=\"\" omitlength=\"\" client_resolve=\"WLDCT_ListTableLabel\"></div></td> \n     <td> \n      <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableLabel\" designcontrolinstancename=\"WLDCT_ListTableLabel_991335816\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_ListTableLabel_991335816\" is_jbuild4dc_data=\"false\" control_category=\"InputControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" style=\"\" serialize=\"true\" name=\"\" placeholder=\"\" desc=\"\" status=\"enable\" groupname=\"\" defaulttype=\"\" defaultvalue=\"\" defaulttext=\"\" columnname=\"ISS_HANDLER_SEND_DATE\" columncaption=\"分配给-分配时间\" columndatatypename=\"日期时间\" targetbuttonid=\"\" columnalign=\"居中对齐\" defformat=\"notFormat\" dictionarygroupdatasourcetext=\"\" dictionarygroupdatasourceid=\"\" omitlength=\"\" client_resolve=\"WLDCT_ListTableLabel\"></div></td> \n     <td class=\"op-button-container-outer-td\"> \n      <div class=\"uid-wldct-list-table-inner-button-container-wrap\"> \n       <div class=\"uid-wldct-container-wrap uid-wldct-list-table-inner-button-inner-wrap\"> \n        <table is-inner-op-button-wrap-table=\"true\"> \n         <colgroup> \n          <col style=\"width: 33%\"> \n          <col style=\"width: 33%\"> \n          <col style=\"width: 33%\"> \n         </colgroup> \n         <tbody> \n          <tr> \n           <td> \n            <div jbuild4dc_custom=\"true\" singlename=\"WLDCT_ListTableInnerButtonSingle\" designcontrolinstancename=\"WLDCT_ListTableInnerButtonSingle_991337838\" class=\"uid-design-input-control redips-drag\" contenteditable=\"false\" id=\"WLDCT_ListTableInnerButtonSingle_991337838\" is_jbuild4dc_data=\"false\" control_category=\"InputControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" style=\"\" serialize=\"true\" name=\"\" placeholder=\"\" desc=\"\" status=\"enable\" groupname=\"\" targetbuttonid=\"WLDCT_FormButton_991326114\" selectedclass=\"wldct-list-table-row-inner-button edit\" caption=\"修改\" alertmsg=\"\" client_resolve=\"WLDCT_ListTableInnerButtonSingle\"></div></td> \n           <td></td> \n           <td></td> \n          </tr> \n         </tbody> \n        </table> \n       </div> \n      </div> </td> \n    </tr> \n   </tbody> \n  </table> \n </div> \n <div class=\"uid-wldct-container-wrap uid-wldct-hide-container-wrap\" jbuild4dc_custom=\"true\" singlename=\"WLDCT_HideContainer\" is_jbuild4dc_data=\"false\" control_category=\"LayoutControl\" show_remove_button=\"false\" group=\"ListLayoutTemplate\" designcontrolinstancename=\"WLDCT_HideContainer_991306830\" id=\"WLDCT_HideContainer_991306830\" client_resolve=\"\"> \n  <table contenteditable=\"true\"> \n   <colgroup> \n    <col style=\"width: 8%\"> \n    <col style=\"width: 15%\"> \n    <col style=\"width: 8%\"> \n    <col style=\"width: 15%\"> \n    <col style=\"width: 8%\"> \n    <col style=\"width: 16%\"> \n   </colgroup> \n   <tbody> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n    <tr> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n     <td></td> \n    </tr> \n   </tbody> \n  </table> \n </div> \n <div id=\"redips_clone\" style=\"height: 1px; width: 1px;\"></div> \n</div> \n<script>var WLDCT_ListSimpleSearchContainer_44648b1fb29a4301a1e75841a830f3f5=Object.create(WLDCT_ListSimpleSearchContainer);HTMLControl._SaveControlNewInstanceToPool(\"WLDCT_ListSimpleSearchContainer_44648b1fb29a4301a1e75841a830f3f5\",WLDCT_ListSimpleSearchContainer_44648b1fb29a4301a1e75841a830f3f5);</script> \n<script>var WLDCT_ListComplexSearchContainer_bdc28da1918a463a97d84f90b3e6a381=Object.create(WLDCT_ListComplexSearchContainer);HTMLControl._SaveControlNewInstanceToPool(\"WLDCT_ListComplexSearchContainer_bdc28da1918a463a97d84f90b3e6a381\",WLDCT_ListComplexSearchContainer_bdc28da1918a463a97d84f90b3e6a381);</script> \n<script>var WLDCT_ListButtonContainer_643c2d56219349458fdbc7c57e7b6cce=Object.create(WLDCT_ListButtonContainer);HTMLControl._SaveControlNewInstanceToPool(\"WLDCT_ListButtonContainer_643c2d56219349458fdbc7c57e7b6cce\",WLDCT_ListButtonContainer_643c2d56219349458fdbc7c57e7b6cce);</script> \n<script>var WLDCT_ListTableContainer_6c7ddc72b3bd49bf9685ef0fb68a385a=Object.create(WLDCT_ListTableContainer);HTMLControl._SaveControlNewInstanceToPool(\"WLDCT_ListTableContainer_6c7ddc72b3bd49bf9685ef0fb68a385a\",WLDCT_ListTableContainer_6c7ddc72b3bd49bf9685ef0fb68a385a);</script>",
+            "listHtmlRuntime": listHtmlRuntimeForm,
             "dataSetPOList": null,
             "listJsRuntime": "var BuilderListPageRuntimeInstance = {\n    data: {\n        listPO: null\n    },\n    pageReady: function () {\n        //页面加载html完成,未进行客户端控件的渲染\n        console.log(\"页面加载html完成\");\n    },\n    rendererChainCompleted: function () {\n        //客户端控件渲染完成.\n        console.log(\"客户端控件渲染完成\");\n    },\n    rendererDataChainCompleted: function () {\n        //客户端控件渲染并绑定完数据.\n        console.log(\"客户端控件渲染并绑定完数据\");\n    }\n}",
             "exData": {

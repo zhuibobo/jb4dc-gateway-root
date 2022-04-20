@@ -1,7 +1,9 @@
 import GeneralPlugin from "../../GeneralPlugin";
+import WLDCT_ListTableInnerButtonContainerPlugin from "../WLDCT_ListTableInnerButtonContainer/WLDCT_ListTableInnerButtonContainerPlugin";
 
-let innerHTML = `<div class="uid-wldct-container-wrap uid-wldct-list-table-container-wrap">
-                             <table class="list-table" contenteditable="true">
+let innerHTML = `<div class="uid-wldct-table-container-wrap uid-wldct-list-table-container-wrap">
+                    <div class="uid-wldct-table-container-inner-wrap uid-wldct-list-table-container-inner-wrap">
+                        <table class="list-table" contenteditable="true">
                                  <colgroup>
                                     <col style="width: 8%" />
                                     <col style="width: 68%" />
@@ -25,26 +27,13 @@ let innerHTML = `<div class="uid-wldct-container-wrap uid-wldct-list-table-conta
                                          <td></td>
                                          <td></td>
                                          <td class="op-button-container-outer-td">
-                                            <div class="uid-wldct-list-table-inner-button-container-wrap">
-                                                <div class="uid-wldct-container-wrap uid-wldct-list-table-inner-button-inner-wrap">
-                                                    <table is-inner-op-button-wrap-table="true">
-                                                        <colgroup>
-                                                            <col style="width: 33%" />
-                                                            <col style="width: 33%" />
-                                                            <col style="width: 33%" />
-                                                        </colgroup>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </div>
+                                            
                                          </td>
                                      </tr>
                                  </tbody>
-                             </table></div>`;
+                             </table>
+                    </div>
+                 </div>`;
 
 let WLDCT_ListTableContainerPlugin = {
     singleName: "WLDCT_ListTableContainer",
@@ -62,6 +51,13 @@ let WLDCT_ListTableContainerPlugin = {
             designControlInstanceName: this.id,
             id: this.id
         });
+
+        //debugger;
+        let listTableInnerButtonContainerInstance = WLDCT_ListTableInnerButtonContainerPlugin.buildInstanceObj(GeneralPlugin.newControlInstanceId(WLDCT_ListTableInnerButtonContainerPlugin.singleName)).instance;
+        let $listTableInnerButtonContainerInstanceElem = listTableInnerButtonContainerInstance.constructionElem();
+
+        this._$elem.find(".op-button-container-outer-td").append($listTableInnerButtonContainerInstanceElem);
+
         return this._$elem;
     },
     setElem($elem) {

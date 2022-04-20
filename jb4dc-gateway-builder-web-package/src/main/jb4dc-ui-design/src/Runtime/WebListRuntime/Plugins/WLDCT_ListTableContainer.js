@@ -321,7 +321,7 @@ var WLDCT_ListTableContainer = {
             "searching": false,
             "info": false
         } );*/
-        var $templateTable = $singleControlElem.children("table");
+        var $templateTable = $singleControlElem.find("table.list-table");
         var $templateTableRow = $singleControlElem.find("table tbody tr:not([is-inner-op-button-wrap-table] tr)");
         var $templateTableHeaderRows = $singleControlElem.find("table thead tr");
         //debugger
@@ -424,13 +424,13 @@ var WLDCT_ListTableContainer = {
     },
     CreateTable: function ($singleControlElem, dataSet,isPreview) {
         //var $singleControlElem=_rendererDataChainParas.$singleControlElem;
-        var $templateTable = $singleControlElem.children("table");
+        var $templateTable = $singleControlElem.find("table.list-table");
         var $templateTableRow = $singleControlElem.find("table tbody tr:not([is-inner-op-button-wrap-table] tr)");
         var $templateTableHeaderRows = $singleControlElem.find("table thead tr");
         //var dataSet=_rendererDataChainParas.dataSet;
 
         if ($templateTableRow.length > 0) {
-            var $templateTableBody = $singleControlElem.children("table").children("tbody");
+            var $templateTableBody = $singleControlElem.find("table.list-table").children("tbody");
             //debugger;
             for (var i = 0; i < dataSet.list.length; i++) {
                 $templateTableBody.append(this.RendererSingleRow($templateTable, $templateTableRow, dataSet, dataSet.list[i]));
@@ -536,17 +536,23 @@ var WLDCT_ListTableContainer = {
                 //debugger;
                 var instance = WLDCT_ListTableContainer.GetInstance(clientResolveInstanceName);
 
-                instance.RendererDataChain({
-                    $templateTable: $templateTable,
-                    $templateTableRow: $templateTableRow,
-                    $singleControlElem: $divCTElem,
-                    dataSet: dataSet,
-                    rowData: rowData,
-                    $cloneRow: $cloneRow,
-                    $td: $td,
-                    val: val,
-                    listRuntimeInstance:this._ListRuntimeInstance
-                });
+                try {
+                    instance.RendererDataChain({
+                        $templateTable: $templateTable,
+                        $templateTableRow: $templateTableRow,
+                        $singleControlElem: $divCTElem,
+                        dataSet: dataSet,
+                        rowData: rowData,
+                        $cloneRow: $cloneRow,
+                        $td: $td,
+                        val: val,
+                        listRuntimeInstance: this._ListRuntimeInstance
+                    });
+                }
+                catch (e){
+                    console.log(clientResolveInstanceName);
+                    throw e;
+                }
             }
             //this.RendererSingleCell($templateTable,$templateTableRow, dataSet, rowData, $cloneRow, $td, val);
         }

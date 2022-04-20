@@ -18,7 +18,9 @@ let WLDCT_ListSimpleSearchContainer={
 
         var pageWidth = PageStyleUtility.GetPageWidth();
 
-        var buttonWrapWidth=200;
+        var buttonWrapWidth=220;
+
+        console.log(pageWidth-buttonWrapWidth);
 
         $singleControlElem.find("table:first").width(pageWidth-buttonWrapWidth);
 
@@ -84,7 +86,7 @@ let WLDCT_ListSimpleSearchContainer={
         this._$ShowComplexSearchButton.remove();
         this._$SimpleSearchButton.parent().width("80px");
         var pageWidth = PageStyleUtility.GetPageWidth();
-        this._$SingleControlElem.find("table:first").width(pageWidth-120);
+        this._$SingleControlElem.find("table:first").width(pageWidth-140);
     }
 }
 

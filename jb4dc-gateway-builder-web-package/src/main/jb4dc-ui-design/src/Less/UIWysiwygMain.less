@@ -1,4 +1,5 @@
 @import "Variable.less";
+@import "UIDesignBaseMain";
 
 html, body {
   height: 100%;
@@ -73,7 +74,7 @@ html, body {
   }
 }
 
-.uid-runtime-default-theme-root {
+.uid-wysiwyg-default-theme-root {
 
   .context-menu-active{
     background-color: @g-sunflower-color-v02 !important;
@@ -151,7 +152,7 @@ html, body {
     box-sizing: border-box;
   }
 
-  .uid-wldct-container-wrap {
+  .uid-wldct-table-container-wrap {
     border: 1px dashed LightBlue;
     box-sizing: border-box;
     margin: 8px;
@@ -161,30 +162,32 @@ html, body {
     background-color: @g-concrete-color-v00;
     background-position: right top;
 
-    > table {
-      border-collapse: collapse;
-      width: 100%;
+    .uid-wldct-table-container-inner-wrap {
+      > table {
+        border-collapse: collapse;
+        width: 100%;
 
-      > thead {
-        > tr {
-          > th {
-            border: 1px solid @g-concrete-color-v04;
-            text-align: center;
-            font-size: 10pt;
-            padding: 2px;
-            height: 30px;
+        > thead {
+          > tr {
+            > th {
+              border: 1px solid @g-concrete-color-v04;
+              text-align: center;
+              font-size: 10pt;
+              padding: 2px;
+              height: 30px;
+            }
           }
         }
-      }
 
-      > tbody {
-        > tr {
-          > td {
-            border: 1px solid @g-concrete-color-v04;
-            text-align: center;
-            font-size: 10pt;
-            padding: 2px;
-            height: 30px;
+        > tbody {
+          > tr {
+            > td {
+              border: 1px solid @g-concrete-color-v04;
+              text-align: center;
+              font-size: 10pt;
+              padding: 2px;
+              height: 30px;
+            }
           }
         }
       }
@@ -194,7 +197,6 @@ html, body {
   .uid-wldct-hide-container-wrap {
     //background: url("data:image/svg+xml,%3Csvg width='400' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='30%25' font-size='14' fill-opacity='0.9' fill='%231ABC9C' text-anchor='middle' dominant-baseline='middle' transform='rotate(-5, 100 100)'%3E隐藏区域%3C/text%3E%3C/svg%3E");
     background-image: url("data:image/svg+xml,%3Csvg width='120' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='%2348C9B0' font-family='system-ui, sans-serif' text-anchor='middle' dominant-baseline='middle' transform='rotate(10)' transform-origin='center'%3E隐藏区域%3C/text%3E%3C/svg%3E");
-
   }
 
   .uid-wldct-list-simple-search-container-wrap {

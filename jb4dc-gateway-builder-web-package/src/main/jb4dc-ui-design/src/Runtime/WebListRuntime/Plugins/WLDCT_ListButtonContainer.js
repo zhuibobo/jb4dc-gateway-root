@@ -12,11 +12,12 @@ let WLDCT_ListButtonContainer= {
     },
     RendererChain: function (_rendererChainParas) {
         //$singleControlElem.hide();
+        //debugger;
         var $singleControlElem=_rendererChainParas.$singleControlElem;
         var $buttonDivElemList=$singleControlElem.find("div"+HTMLControlAttrs.SELECTED_JBUILD4DC_CUSTOM);
         $singleControlElem.find("[is-op-button-wrap-table='true']").hide();
-        var innerWrap= $singleControlElem.find(".wldct-list-button-inner-wrap");
-        var innerInsideWrapDiv=$("<div class='wldct-list-button-inner-inside-wrap' />");
+        var innerWrap= $singleControlElem.find(".uid-wldct-list-button-container-inner-wrap");
+        var innerInsideWrapDiv=$("<div class='uid-wldct-list-button-inner-inside-wrap' />");
         for(var i=0;i<$buttonDivElemList.length;i++){
             var $buttonElem=$($buttonDivElemList[i]);
             var clientResolveName=$buttonElem.attr(HTMLControlAttrs.CLIENT_RESOLVE);

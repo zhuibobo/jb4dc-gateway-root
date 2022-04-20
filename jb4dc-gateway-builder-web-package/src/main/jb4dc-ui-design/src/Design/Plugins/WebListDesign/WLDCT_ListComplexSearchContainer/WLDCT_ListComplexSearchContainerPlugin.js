@@ -1,7 +1,8 @@
 import GeneralPlugin from "../../GeneralPlugin";
 
-let innerHTML = `<div class="uid-wldct-container-wrap uid-wldct-list-complex-search-container-wrap">
-                            <table contenteditable="true">
+let innerHTML = `<div class="uid-wldct-table-container-wrap uid-wldct-list-complex-search-container-wrap">
+                    <div class="uid-wldct-table-container-inner-wrap uid-wldct-list-complex-search-container-inner-wrap">
+                        <table contenteditable="true">
                                 <colgroup>
                                        <col style="width: 8%" />
                                        <col style="width: 17%" />
@@ -52,7 +53,9 @@ let innerHTML = `<div class="uid-wldct-container-wrap uid-wldct-list-complex-sea
                                        <td class="label">(到):</td>
                                        <td></td>
                                    </tr>
-                            </table></div>`
+                            </table>
+                    </div>
+                 </div>`
 
 let WLDCT_ListComplexSearchContainerPlugin = {
     singleName: "WLDCT_ListComplexSearchContainer",
