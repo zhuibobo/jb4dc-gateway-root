@@ -197,8 +197,8 @@ if (mockAjax) {
                                   </table> 
                                     </div>
                                  </div> 
-                                 <div class="uid-wldct-container-wrap uid-wldct-hide-container-wrap" jbuild4dc_custom="true" singlename="WLDCT_HideContainer" is_jbuild4dc_data="false" control_category="LayoutControl" show_remove_button="false" group="ListLayoutTemplate" designcontrolinstancename="WLDCT_HideContainer_991306830" id="WLDCT_HideContainer_991306830" client_resolve=""> 
-                                    <table contenteditable="true"> 
+                                 <div class="uid-wldct-container-wrap uid-wldct-hide-container-wrap wrap-hide" jbuild4dc_custom="true" singlename="WLDCT_HideContainer" is_jbuild4dc_data="false" control_category="LayoutControl" show_remove_button="false" group="ListLayoutTemplate" designcontrolinstancename="WLDCT_HideContainer_991306830" id="WLDCT_HideContainer_991306830" client_resolve="WLDCT_HideContainer"> 
+                                    <table> 
                                    <colgroup> 
                                     <col style="width: 8%"> 
                                     <col style="width: 15%"> 
@@ -209,7 +209,9 @@ if (mockAjax) {
                                    </colgroup> 
                                    <tbody> 
                                     <tr> 
-                                     <td></td> 
+                                     <td>
+                                        <input type="text" /> 
+                                    </td> 
                                      <td></td> 
                                      <td></td> 
                                      <td></td> 

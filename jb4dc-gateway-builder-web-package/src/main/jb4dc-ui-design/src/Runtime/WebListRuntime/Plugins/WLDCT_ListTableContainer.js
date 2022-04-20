@@ -444,20 +444,20 @@ var WLDCT_ListTableContainer = {
 
         //创建分页操作区域
         //debugger;
-        $singleControlElem.find(".wldct-list-table-inner-wrap").append(this.CreatePaging());
+        $singleControlElem.find(".uid-wldct-list-table-container-inner-wrap").append(this.CreatePaging());
         //alert(PageStyleUtility.GetWindowWidth());
-        $singleControlElem.find(".wldct-list-table-inner-wrap").width(PageStyleUtility.GetPageWidth() - 20);
+        //$singleControlElem.find(".uid-wldct-list-table-container-inner-wrap").width(PageStyleUtility.GetPageWidth() - 20);
         $templateTable.addClass("stripe row-border order-column");
         $templateTable.width("100%");
         var scrollY = PageStyleUtility.GetPageHeight();
 
         scrollY = scrollY - 110;
 
-        if($(".wldct-list-button-outer-wrap").css("display")!="none"){
-            scrollY = scrollY - $(".wldct-list-button-outer-wrap").height()-12;
+        if($(".uid-wldct-list-button-container-wrap").css("display")!="none"){
+            scrollY = scrollY - $(".uid-wldct-list-button-container-wrap").height()-12;
         }
-        if($(".wldct-list-simple-search-outer-wrap").css("display")!="none") {
-            scrollY = scrollY - $(".wldct-list-simple-search-outer-wrap").height()-10;
+        if($(".uid-wldct-list-simple-search-container-wrap").css("display")!="none") {
+            scrollY = scrollY - $(".uid-wldct-list-simple-search-container-wrap").height()-10;
         }
 
         if(RuntimeGeneralInstance.TryGetUrlParaViewOnly()){
