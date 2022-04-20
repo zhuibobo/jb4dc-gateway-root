@@ -125,6 +125,8 @@ export default {
             this.baseInfoComponentName = "uid-app-form-base-info-comp";
         } else if (this.uiDesignType == EnumValues.uiDesignType.webListDesign) {
             this.baseInfoComponentName = "uid-web-list-base-info-comp";
+        } else if (this.uiDesignType == EnumValues.uiDesignType.webFormDesign) {
+          this.baseInfoComponentName = "uid-web-form-base-info-comp";
         }
         GeneralPlugin.setUIDesignMain(this);
 

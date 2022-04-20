@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccedc649-8eaf-4db4-ba50-beb85a54ca4c" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_TabLayout/WFDCT_TabLayoutPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_SingleTableLayout/WFDCT_SingleTableLayoutPlugin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Config/ControlPlugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Config/ControlPlugins.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_FormButton/WLDCT_FormButtonPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_FormButton/WLDCT_FormButtonPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_ListSimpleSearchContainer/WLDCT_ListSimpleSearchContainerPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_ListSimpleSearchContainer/WLDCT_ListSimpleSearchContainerPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_ListTableInnerButtonContainer/WLDCT_ListTableInnerButtonContainerPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_ListTableInnerButtonContainer/WLDCT_ListTableInnerButtonContainerPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_Search_TextBox/WLDCT_Search_TextBoxPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_Search_TextBox/WLDCT_Search_TextBoxPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_Search_TextDateTime/WLDCT_Search_TextDateTimePlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebListDesign/WLDCT_Search_TextDateTime/WLDCT_Search_TextDateTimePlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_TabLayout/WFDCT_TabLayoutPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_TabLayout/WFDCT_TabLayoutPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/BaseInfo/uid-web-form-base-info-comp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/BaseInfo/uid-web-form-base-info-comp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/ui-design-main.vue" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/ui-design-main.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Less/UIWysiwygMain.less" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Less/UIWysiwygMain.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +51,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Less",
+    "last_opened_file_path": "D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_SingleTableLayout",
     "list.type.of.created.stylesheet": "Less",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -73,11 +70,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Design\Plugins\WebFormDesign\WFDCT_SingleTableLayout" />
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Less" />
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Externals\DataTables" />
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Runtime\WebListRuntime\Plugins" />
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Runtime" />
-      <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Externals" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Runtime" />
@@ -173,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650446225799</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update">
+      <created>1650449054735</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1650449054735</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
