@@ -5,70 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccedc649-8eaf-4db4-ba50-beb85a54ca4c" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-dd.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-dd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-ddi.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-ddi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-engine.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-engine.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-h5.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-h5.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-h5.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-jq.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-jq.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-jq.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-poly.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-static.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-static.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-static.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-base-impl.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-base-impl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-draggable.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-draggable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-droppable.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-droppable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-element.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-element.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-manager.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-manager.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-resizable-handle.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-resizable-handle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-resizable.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-resizable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-utils.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/gridstack-dd-native.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/gridstack-dd-native.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/jq/gridstack-dd-jqueryui.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/jq/gridstack-dd-jqueryui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/types.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/types.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/utils.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-base-impl.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-base-impl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-draggable.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-draggable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-droppable.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-droppable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-element.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-element.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-manager.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-manager.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-resizable-handle.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-resizable-handle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-resizable.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-resizable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-utils.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/gridstack-dd-native.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/gridstack-dd-native.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/jq/gridstack-dd-jqueryui.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/jq/gridstack-dd-jqueryui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/src/gridstack-extra.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/src/gridstack.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Config/ControlPlugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Config/ControlPlugins.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_SingleGridStackLayout/WFDCT_SingleGridStackLayoutPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_SingleGridStackLayout/WFDCT_SingleGridStackLayoutPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_TextBox/WFDCT_TextBoxPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_TextBox/WFDCT_TextBoxPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/MainTab/uid-wysiwyg-comp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/MainTab/uid-wysiwyg-comp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/MainTab/uid-wysiwyg-plugin-list-comp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/MainTab/uid-wysiwyg-plugin-list-comp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Less/UIWysiwygMain.less" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Less/UIWysiwygMain.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +153,7 @@
       <workItem from="1649916391749" duration="11969000" />
       <workItem from="1649988339952" duration="16360000" />
       <workItem from="1650075413189" duration="9559000" />
-      <workItem from="1650541165079" duration="430000" />
+      <workItem from="1650541165079" duration="10710000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1648281991333</created>
@@ -331,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650541486289</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="update">
+      <created>1650541604506</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1650541604506</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -158,7 +158,7 @@
         "text": "网格布局",
         "class": "",
         "icon": "gridstack.png",
-        "dragTo": "wysiwygContainer",
+        "dragTo": "wysiwygContainer,WFDCT_TabLayout",
         "serverResolve": "",
         "clientResolve": "",
         "clientResolveJs": "",

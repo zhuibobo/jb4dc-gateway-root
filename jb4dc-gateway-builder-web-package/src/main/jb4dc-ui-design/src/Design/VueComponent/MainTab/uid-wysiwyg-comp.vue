@@ -146,29 +146,34 @@ export default {
             return $("#" + this.wysiwygContainerId).html();
         },
         setValue(value) {
+
             $("#" + this.wysiwygContainerId).html(value);
             this.reInstanceWysiwygChain($("#" + this.wysiwygContainerId));
         },
         reInstanceWysiwygChain($elem) {
             //let $singleControlElem=$elem;
-            //debugger;
             for (let i = 0; i < $elem.children().length; i++) {
                 try {
                     let $childSingleElem = $($elem.children()[i]);
-                    //let _cloneRendererChainParas = {};
-                    //JsonUtility.SimpleCloneAttr(_cloneRendererChainParas, _rendererChainParas);
-                    //_cloneRendererChainParas.$singleControlElem = $childSingleElem;
-                    if ($childSingleElem.attr("jbuild4dc_custom") == "true") {
-                        let pluginObj = GeneralPlugin.getControlInstanceObj($childSingleElem.attr("singlename")).instance;
-                        let controlInstance = pluginObj.buildInstanceObj($childSingleElem.attr("designControlInstanceName")).instance;
-                        controlInstance.setElem($childSingleElem);
-                        controlInstance.registeredEvent($childSingleElem);
-                        this.reInstanceWysiwygChain($childSingleElem);
-                    } else {
-                        this.reInstanceWysiwygChain($childSingleElem);
+                    //console.log($childSingleElem);
+                    console.log($elem.html());
+                    if ($childSingleElem.prop("tagName") != "STYLE") {
+                        //debugger;
+                        //let _cloneRendererChainParas = {};
+                        //JsonUtility.SimpleCloneAttr(_cloneRendererChainParas, _rendererChainParas);
+                        //_cloneRendererChainParas.$singleControlElem = $childSingleElem;
+                        if ($childSingleElem.attr("jbuild4dc_custom") == "true") {
+                            let pluginObj = GeneralPlugin.getControlInstanceObj($childSingleElem.attr("singlename")).instance;
+                            let controlInstance = pluginObj.buildInstanceObj($childSingleElem.attr("designControlInstanceName")).instance;
+                            controlInstance.setElem($childSingleElem);
+                            controlInstance.registeredEvent($childSingleElem);
+                            this.reInstanceWysiwygChain($childSingleElem);
+                        } else {
+                            this.reInstanceWysiwygChain($childSingleElem);
+                        }
                     }
                 } catch (e) {
-                    throw "reInstanceWysiwygChain error:" + i + e;
+                    throw e;
                 }
             }
             GeneralPlugin.regTooltipEvent();
@@ -176,50 +181,3 @@ export default {
     }
 }
 </script>
-
-<style scoped lang="less">
-@import "../../../Less/Variable.less";
-
-.uid-wysiwyg-comp-root {
-    display: flex;
-    /*background-color: #0B61A4;*/
-    height: 100%;
-    overflow: hidden;
-
-    > div:first-child {
-        flex-grow: 2;
-        overflow: auto;
-        padding: 2px 4px 2px 2px;
-
-        .wysiwyg-container {
-            border-radius: 4px;
-            border: 1px solid @g-pomegranate-color-v06;
-            height: 100%;
-            box-sizing: border-box;
-            overflow: auto;
-        }
-    }
-
-    > div:last-child {
-        flex-basis: 200px;
-        background-color: #EAEDED;
-        margin-right: 2px;
-        height: calc(100% - 4px);
-    }
-}
-
-.plugin-list-wrap {
-    padding: 0px 4px 0 4px;
-}
-
-#uid-wysiwyg-plugin-list-comp-wrap {
-    user-select: none;
-}
-
-.plugin-prop-edit-dialog {
-    .ant-tabs-nav {
-        margin-bottom: 8px !important;
-    }
-}
-
-</style>

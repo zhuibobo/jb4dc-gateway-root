@@ -74,6 +74,83 @@ html, body {
   }
 }
 
+.uid-wysiwyg-comp-root {
+  display: flex;
+  /*background-color: #0B61A4;*/
+  height: 100%;
+  overflow: hidden;
+
+  > div:first-child {
+    flex-grow: 2;
+    overflow: auto;
+    padding: 2px 4px 2px 2px;
+
+    .wysiwyg-container {
+      border-radius: 4px;
+      border: 1px solid @g-pomegranate-color-v06;
+      height: 100%;
+      box-sizing: border-box;
+      overflow: auto;
+    }
+  }
+
+  > div:last-child {
+    flex-basis: 200px;
+    background-color: #EAEDED;
+    margin-right: 2px;
+    height: calc(100% - 4px);
+  }
+}
+
+.plugin-list-wrap{
+  padding: 0px 4px 0 4px !important;
+  user-select: none;
+
+  .plugin-item{
+    border: 1px solid @g-concrete-color-v04;
+    margin-top: 6px;
+    padding: 6px;
+    border-radius: 4px;
+
+    .las{
+      color: red;
+    }
+
+    .plugin-text{
+      display: inline-block;
+      height: 18px;
+      line-height: 18px;
+      width: calc(100% - 18px - 18px);
+    }
+
+    .plugin-icon{
+      width: 16px;
+      height: 16px;
+      margin-right: 4px;
+      vertical-align: top;
+    }
+  }
+
+  .plugin-item:hover{
+    background-color: #ffffff;
+  }
+
+  .drag-enable{
+    background-color: @g-concrete-color-v01;
+    cursor: move;
+  }
+}
+
+#uid-wysiwyg-plugin-list-comp-wrap {
+  user-select: none;
+}
+
+.plugin-prop-edit-dialog {
+  .ant-tabs-nav {
+    margin-bottom: 8px !important;
+  }
+}
+
 .uid-wysiwyg-default-theme-root {
 
   .context-menu-active{
@@ -98,9 +175,9 @@ html, body {
   .grid-stack {
     min-height: 500px;
     background-image: url("data:image/svg+xml,%3Csvg width='120' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='%2348C9B0' font-family='system-ui, sans-serif' text-anchor='middle' dominant-baseline='middle' transform='rotate(10)' transform-origin='center'%3E网格布局%3C/text%3E%3C/svg%3E");
-
+    background-color: @g-turquoise-color-v01;
     .grid-stack-item-content {
-      background-color: @g-sunflower-color-v02; opacity: 0.9;
+      background-color: @g-sunflower-color-v03; opacity: 0.9;
       padding: 6px;
     }
   }
@@ -169,6 +246,7 @@ html, body {
       background-repeat: no-repeat;
       background-position-x: 4px;
       background-position-y: 40%;
+      text-align: center;
     }
 
     .wysiwyg-control-tip {

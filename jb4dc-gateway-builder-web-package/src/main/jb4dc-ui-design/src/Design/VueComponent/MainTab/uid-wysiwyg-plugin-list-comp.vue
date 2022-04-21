@@ -96,42 +96,5 @@ export default {
 <style scoped lang="less">
     @import "../../../Less/Variable.less";
 
-    .plugin-list-wrap{
-        padding: 0px 4px 0 4px;
-        user-select: none;
 
-        .plugin-item{
-            border: 1px solid @g-concrete-color-v04;
-            margin-top: 6px;
-            padding: 6px;
-            border-radius: 4px;
-
-            .las{
-                color: red;
-            }
-
-            .plugin-text{
-                display: inline-block;
-                height: 18px;
-                line-height: 18px;
-                width: calc(100% - 18px - 18px);
-            }
-
-            .plugin-icon{
-                width: 16px;
-                height: 16px;
-                margin-right: 4px;
-                vertical-align: top;
-            }
-        }
-
-        .plugin-item:hover{
-            background-color: #ffffff;
-        }
-
-        .drag-enable{
-            background-color: @g-concrete-color-v01;
-            cursor: move;
-        }
-    }
 </style>

@@ -21,24 +21,26 @@ let WFDCT_SingleGridStackLayoutPlugin={
         this._$elem=$elem;
     },
     registeredEvent($elem){
-        let grid = GridStack.init({
-            minRow: 1, // don't let it collapse when empty
-            cellHeight: '42px',
-            margin: 0,
-            acceptWidgets: '.drag-to-grid',
-            float: true,
-            column: 32
-        }, this._$elem[0]);
-        grid.on('added', (event, items)=> {
-            let node=items[0];
-            console.log(node);
-            console.log(event);
-            if($(node.el).attr("pluginSingleName")) {
-                grid.removeWidget(node.el, true, true);
-                let pluginObj = GeneralPlugin.getControlInstanceObj($(node.el).attr("pluginSingleName"));
-                this.dropControlToContainerForAddEvent(pluginObj, $(node.grid.el), $(node.grid.el), grid, node);
-            }
-        });
+        window.setTimeout(()=>{
+            let grid = GridStack.init({
+                minRow: 1, // don't let it collapse when empty
+                cellHeight: '42px',
+                margin: 0,
+                acceptWidgets: '.drag-to-grid',
+                float: true,
+                column: 32
+            }, this._$elem[0]);
+            grid.on('added', (event, items)=> {
+                let node=items[0];
+                console.log(node);
+                console.log(event);
+                if($(node.el).attr("pluginSingleName")) {
+                    grid.removeWidget(node.el, true, true);
+                    let pluginObj = GeneralPlugin.getControlInstanceObj($(node.el).attr("pluginSingleName"));
+                    this.dropControlToContainerForAddEvent(pluginObj, $(node.grid.el), $(node.grid.el), grid, node);
+                }
+            });
+        },100);
     },
     dropControlToContainerForAddEvent(pluginObj,$dropToTarget,$dropToLayout,layoutGrid,sourceNode){
         //let $elem=pluginObj.instance.getElemAndRegInstance();
