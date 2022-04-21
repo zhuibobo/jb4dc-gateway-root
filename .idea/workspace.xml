@@ -4,7 +4,72 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccedc649-8eaf-4db4-ba50-beb85a54ca4c" name="Changes" comment="update" />
+    <list default="true" id="ccedc649-8eaf-4db4-ba50-beb85a54ca4c" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-dd.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-dd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-ddi.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-ddi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-engine.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-engine.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-h5.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-h5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-h5.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-jq.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-jq.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-jq.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-poly.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-static.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-static.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack-static.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/gridstack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-base-impl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-base-impl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-draggable.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-draggable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-droppable.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-droppable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-element.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-element.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-manager.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-manager.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-resizable-handle.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-resizable-handle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-resizable.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-resizable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-utils.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/dd-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/gridstack-dd-native.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/h5/gridstack-dd-native.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/jq/gridstack-dd-jqueryui.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/jq/gridstack-dd-jqueryui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/types.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/utils.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/es5/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-base-impl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-base-impl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-draggable.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-draggable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-droppable.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-droppable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-element.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-element.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-manager.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-manager.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-resizable-handle.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-resizable-handle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-resizable.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-resizable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-utils.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/dd-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/gridstack-dd-native.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/h5/gridstack-dd-native.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/jq/gridstack-dd-jqueryui.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/jq/gridstack-dd-jqueryui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/src/gridstack-extra.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist/src/gridstack.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,29 +110,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;Less&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;a20725ffadde090221740434bf043edc&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist",
+    "list.type.of.created.stylesheet": "Less",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "spring.configuration.checksum": "00fc9b0e4ea52161dbb2df3a2f0cb09c",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
