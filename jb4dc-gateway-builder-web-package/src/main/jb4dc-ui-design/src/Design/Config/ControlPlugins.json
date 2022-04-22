@@ -850,10 +850,10 @@
       },
       {
         "group": "LayoutGroup",
-        "singleName": "WLDCT_Customize_Component",
-        "text": "自定义组件",
+        "singleName": "WLDCT_Customize_VueComponent",
+        "text": "VueComponent",
         "class": "",
-        "icon": "customizecomponent.png",
+        "icon": "vuecomponent.png",
         "dragTo": "false",
         "serverResolve": "",
         "clientResolve": "",
