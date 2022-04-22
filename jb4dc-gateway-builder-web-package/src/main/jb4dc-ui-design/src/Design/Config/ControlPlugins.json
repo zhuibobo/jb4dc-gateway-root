@@ -847,6 +847,25 @@
             ]
           }
         ]
+      },
+      {
+        "group": "LayoutGroup",
+        "singleName": "WLDCT_Customize_Component",
+        "text": "自定义组件",
+        "class": "",
+        "icon": "customizecomponent.png",
+        "dragTo": "false",
+        "serverResolve": "",
+        "clientResolve": "",
+        "clientResolveJs": "",
+        "enableChildControls": "",
+        "dialogWidth": "600",
+        "dialogHeight": "550",
+        "isJBuild4DCData": "false",
+        "controlCategory": "LayoutControl",
+        "serverDynamicBind": "false",
+        "showRemoveButton": "false",
+        "showInEditorToolbar": "true"
       }
     ]
   }
