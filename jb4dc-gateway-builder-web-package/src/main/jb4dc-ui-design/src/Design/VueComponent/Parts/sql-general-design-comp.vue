@@ -2,12 +2,14 @@
     <div>
         <div id="sql-editor" :style="{height: sqlDesignerHeight+'px'}"></div>
         <div style="text-align: right;margin-top: 8px">
-            <a-button type="primary" size="small" @click="insertEnvToEditor('#{ApiVar.当前用户所在组织ID}')">组织Id</a-button>
-            <a-button type="primary" size="small" @click="insertEnvToEditor('#{ApiVar.当前用户所在组织名称}')">组织名称</a-button>
-            <a-button type="primary" size="small" @click="insertEnvToEditor('#{ApiVar.当前用户ID}')">用户Id</a-button>
-            <a-button type="primary" size="small" @click="insertEnvToEditor('#{ApiVar.当前用户名称}')">用户名称</a-button>
-            <a-button type="primary" size="small" @click="insertEnvToEditor('#{DateTime.年年年年-月月-日日}')">yyyy-MM-dd</a-button>
-            <a-button type="primary" size="small">说明</a-button>
+            <div class="ant-btn-group">
+              <a-button type="primary" size="small" @click="insertEnvToEditor('#{ApiVar.当前用户所在组织ID}')">组织Id</a-button>
+              <a-button type="primary" size="small" @click="insertEnvToEditor('#{ApiVar.当前用户所在组织名称}')">组织名称</a-button>
+              <a-button type="primary" size="small" @click="insertEnvToEditor('#{ApiVar.当前用户ID}')">用户Id</a-button>
+              <a-button type="primary" size="small" @click="insertEnvToEditor('#{ApiVar.当前用户名称}')">用户名称</a-button>
+              <a-button type="primary" size="small" @click="insertEnvToEditor('#{DateTime.年年年年-月月-日日}')">yyyy-MM-dd</a-button>
+              <a-button type="primary" size="small">说明</a-button>
+            </div>
         </div>
         <div style="margin-top: 8px" v-if="showField">
             <div style="float: left;margin: 4px 10px">本表字段</div>

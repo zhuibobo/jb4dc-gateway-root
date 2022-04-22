@@ -202,6 +202,9 @@ let GeneralPlugin = {
         if(props.normalProps&&props.normalProps.buttonCaption){
             return "[" + props.normalProps.buttonCaption + "]";
         }
+        else if(props.bindToField&&props.bindToField.fieldCaption){
+            return "[" + props.bindToField.fieldCaption + "]";
+        }
         else {
             return "[" + props.bindToSearchField.columnCaption + "]";
         }

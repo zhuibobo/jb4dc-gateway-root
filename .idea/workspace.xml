@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccedc649-8eaf-4db4-ba50-beb85a54ca4c" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_4_20_21_06__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_4_20_21_06__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_CKEditor4/WFDCT_CKEditor4Plugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_DropDownSelect/WFDCT_DropDownSelectPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_FileUploadContainer/WFDCT_FileUploadContainerPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_TextArea/WFDCT_TextAreaPlugin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_TextDateTime/WFDCT_TextDateTimePlugin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Config/ControlPlugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Config/ControlPlugins.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/GeneralPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/GeneralPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Remote/RemoteRestInterface.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Remote/RemoteRestInterface.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_SingleGridStackLayout/WFDCT_SingleGridStackLayoutPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_SingleGridStackLayout/WFDCT_SingleGridStackLayoutPlugin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/MainTab/uid-wysiwyg-plugin-list-comp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/MainTab/uid-wysiwyg-plugin-list-comp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/Parts/db-table-relation-comp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/Parts/db-table-relation-comp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/Parts/sql-general-design-comp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/Parts/sql-general-design-comp.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,29 +58,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;Less&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;00fc9b0e4ea52161dbb2df3a2f0cb09c&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/GridStack-5.0.0/dist",
+    "list.type.of.created.stylesheet": "Less",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "spring.configuration.checksum": "00fc9b0e4ea52161dbb2df3a2f0cb09c",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -280,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650541604506</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="update">
+      <created>1650598214490</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1650598214490</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

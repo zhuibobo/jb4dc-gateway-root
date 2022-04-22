@@ -1,14 +1,14 @@
 <template>
     <div class="db-table-relation-comp">
         <a-divider orientation="left" style="font-size: 12px">数据关系关联设置</a-divider>
-        <div
+        <div class="ant-btn-group"
             style="float: left;width: 350px;height: 500px;border: #ddddf1 1px solid;border-radius: 4px;padding: 10px 10px 10px 10px;">
             <a-button type="primary" size="small" @click="beginSelectTableToRelationTable">&nbsp;添加&nbsp;</a-button>
             <a-button type="primary" size="small" @click="deleteSelectedRelationTreeNode">&nbsp;删除&nbsp;</a-button>
             <a-button type="primary" size="small" @click="alertSerializeRelation">序列化</a-button>
             <a-button type="primary" size="small" @click="inputDeserializeRelation">反序列化</a-button>
             <a-button type="primary" size="small">说明</a-button>
-            <ul id="dataRelationZTreeUL" class="ztree" style="overflow-x: hidden"></ul>
+            <ul id="dataRelationZTreeUL" class="ztree" style="overflow-x: hidden;margin-top: 10px"></ul>
         </div>
         <div
             style="float: right;width: 630px;height: 500px;border: #ddddf1 1px solid;border-radius: 4px;padding: 10px 10px 10px 10px;">

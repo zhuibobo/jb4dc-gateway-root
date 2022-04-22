@@ -24,7 +24,7 @@ let WFDCT_SingleGridStackLayoutPlugin={
         window.setTimeout(()=>{
             let grid = GridStack.init({
                 minRow: 1, // don't let it collapse when empty
-                cellHeight: '42px',
+                cellHeight: '21px',
                 margin: 0,
                 acceptWidgets: '.drag-to-grid',
                 float: true,
@@ -51,7 +51,7 @@ let WFDCT_SingleGridStackLayoutPlugin={
                 x: sourceNode.x,
                 y: sourceNode.y,
                 w: sourceNode.w,
-                h: sourceNode.h,
+                h: sourceNode.h+1,
                 content: ""
             });
             $(gridStackItem).find(".grid-stack-item-content").append($elem);

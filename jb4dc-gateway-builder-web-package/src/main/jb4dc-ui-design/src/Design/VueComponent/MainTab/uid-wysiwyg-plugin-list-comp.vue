@@ -42,7 +42,7 @@ export default {
     mounted() {
         //console.log(this.controlPluginsConfig);
         window.setTimeout(function (){
-            GridStack.setupDragIn('.plugin-list-wrap .drag-to-grid', { revert: 'invalid', scroll: false, appendTo: 'body',h:1,w:1, helper: "clone"});
+            GridStack.setupDragIn('.plugin-list-wrap .drag-to-grid', { revert: 'invalid', scroll: false, appendTo: 'body',h:2,w:1, helper: "clone"});
         },1000);
     },
     methods: {
