@@ -626,7 +626,12 @@ let GeneralPlugin = {
                 name: "Delete",
                 icon: "delete",
                 callback: (key, opt) => {
-                    $elem.remove();
+                    if($elem.parents(".grid-stack-item").length>0){
+                        $elem.parents(".grid-stack-item").remove();
+                    }
+                    else {
+                        $elem.remove();
+                    }
                 }
             },
             "sep1": "---------",

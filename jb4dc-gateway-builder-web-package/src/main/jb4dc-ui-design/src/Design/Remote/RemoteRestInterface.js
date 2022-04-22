@@ -28,7 +28,7 @@ let RemoteRestInterface = {
     },
     getTableFieldsSync(sendData) {
         //axios无法发起同步请求,后边再来改.db-table-relation-comp.vue
-        let promiseObj = new promise((resolve, reject) => {
+        let promiseObj = new Promise((resolve, reject) => {
             AjaxUtility.PostSync(acInterface.getTableFieldsUrl, sendData, function (result) {
                 let response = {
                     data: result
@@ -2351,7 +2351,17 @@ if (mockAjax) {
         }],
         "exKVData": {}
     };
-    mock.onPost(acInterface.getTableFieldsUrl).reply(200, getTableFieldsUrlData);
+    //mock.onPost(acInterface.getTableFieldsUrl).reply(200, getTableFieldsUrlData);
+    RemoteRestInterface.getTableFieldsSync=function (sendData) {
+        let promiseObj = new Promise((resolve, reject) => {
+            let response = {
+                data: getTableFieldsUrlData
+            }
+            resolve(response)
+        });
+        return promiseObj;
+    }
+
     let getTablesFieldsByTableIdsData = {
         "success": true,
         "message": "获取数据成功!",

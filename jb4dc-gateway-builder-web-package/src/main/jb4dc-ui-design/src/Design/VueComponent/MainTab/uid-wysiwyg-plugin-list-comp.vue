@@ -1,6 +1,6 @@
 <template>
     <div v-for="plugin in getControlPluginsByGroup(this.groupName)" class="plugin-item" :class="dragEnableWrapClass(plugin)">
-        <div>
+        <div v-cloak>
             <img draggable="false" class="plugin-icon" :src="pluginIcon(plugin)">
             <div :draggable="dragEnable(plugin)" @dragstart="dragStart(plugin.singleName,$event)" :class="buildPluginItemClass(plugin)" :pluginSingleName="plugin.singleName">
                 {{plugin.text}}
