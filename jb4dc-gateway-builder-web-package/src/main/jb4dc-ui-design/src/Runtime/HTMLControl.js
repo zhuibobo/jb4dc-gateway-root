@@ -1,4 +1,5 @@
 import HTMLControlAttrs from './HTMLControlAttrs.js'
+import ValidateRulesRuntime from './ValidateRulesRuntime.js'
 
 let HTMLControl={
     //_formRuntimeInstance:null,
@@ -75,6 +76,7 @@ let HTMLControl={
     RendererChain:function (_rendererChainParas) {
         try {
             var $singleControlElem = _rendererChainParas.$singleControlElem;
+            //console.log($singleControlElem);
             //debugger;
             for (var i = 0; i < $singleControlElem.children().length; i++) {
                 try {

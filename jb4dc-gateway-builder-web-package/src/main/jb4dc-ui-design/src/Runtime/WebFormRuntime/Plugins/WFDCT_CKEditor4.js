@@ -1,3 +1,5 @@
+import HTMLControl from '../../HTMLControl.js'
+
 var _ref_filePath=$("script").last().attr("src");
 var WFDCT_CKEditor4={
     ckeditorInstance:null,
@@ -21,7 +23,7 @@ var WFDCT_CKEditor4={
             console.log(editorConfigUrl);
             //editorConfigUrl=1;
             this.ckeditorInstance = CKEDITOR.replace($singleControlElem.attr("id"), {
-                customConfig: editorConfigUrl,
+                //customConfig: editorConfigUrl,
                 formRuntimeInstance:_rendererChainParas.formRuntimeInstance
             });
             this.ckeditorInstance.config.height = areaHeight;
@@ -58,3 +60,5 @@ var WFDCT_CKEditor4={
         $elem.replaceWith($viewElem);
     }
 }
+
+export {WFDCT_CKEditor4 as default};

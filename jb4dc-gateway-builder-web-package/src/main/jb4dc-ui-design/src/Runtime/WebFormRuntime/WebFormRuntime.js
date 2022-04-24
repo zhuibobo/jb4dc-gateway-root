@@ -103,7 +103,8 @@ let WebFormRuntime={
 
                 //this.CallRendererChainCompletedFunc();
             } catch (e) {
-                throw "渲染Html控件错误! FormRuntime._LoadHTMLToEl:" + e;
+                console.error("渲染Html控件错误! FormRuntime._LoadHTMLToEl:" + e);
+                throw e;
             }
             //var relationFormRecordComplexPo=FormRuntimeMock.GetMockData();
             //this.DeSerializationFormData(relationFormRecordComplexPo);

@@ -5,12 +5,14 @@ let acInterface = {
     loadWebListRuntimeHTML: "/QCSystem/Rest/Builder/RunTime/ListRuntime/LoadHTML",
     getWebListRuntimeDataSetData: "/QCSystem/Rest/Builder/RunTime/DataSetRuntime/GetDataSetData",
 
-    loadWebFormRuntimeHTML: "/QCSystem/Rest/Builder/RunTime/ListRuntime/LoadHTML"
+    loadWebFormRuntimeHTML: "/QCSystem/Rest/Builder/RunTime/ListRuntime/LoadHTML",
+    getFileListData:"/QCSystem/Rest/Builder/RunTime/FileRuntime/GetFileListData"
 }
 
 let storeDataSet = {};
 
 let RemoteRestInterface = {
+    mockAjax:true,
     loadWebListRuntimeHTML(sendData) {
         return axios.post(acInterface.loadWebListRuntimeHTML, sendData).catch(function (error) {
             console.log(error);
@@ -26,6 +28,12 @@ let RemoteRestInterface = {
         return axios.post(acInterface.loadWebFormRuntimeHTML, sendData).catch(function (error) {
             console.log(error);
         });
+    },
+
+    getFileListData(sendData){
+        return axios.post(acInterface.getFileListData, sendData).catch(function (error) {
+            console.log(error);
+        });
     }
 }
 
@@ -37,9 +45,8 @@ function sendDataToURLSearchParams(sendData) {
     return params;
 }
 
-let mockAjax = true;
 let mock = new MockAdapter(axios, {delayResponse: 200});
-if (mockAjax) {
+if (RemoteRestInterface.mockAjax) {
     let listHtmlRuntimeForm = ``
 
     let mockLoadWebListRuntimeHTMLResult = {
@@ -1777,6 +1784,11 @@ if (mockAjax) {
         }, "exKVData": {}
     };
     mock.onPost(acInterface.loadWebFormRuntimeHTML).reply(200, mockLoadWebFormRuntimeHTMLResult);
+
+    let mockGetFileListDataResult = {
+        "success": true, "message": "获取数据成功!", "cacheKey": "", "traceMsg": "", "errorCode": null, "data": []
+    };
+    mock.onPost(acInterface.getFileListData).reply(200, mockGetFileListDataResult);
 }
 
 export {RemoteRestInterface as default};
