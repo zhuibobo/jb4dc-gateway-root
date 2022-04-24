@@ -60,20 +60,21 @@ export default {
     },
     methods: {
         init() {
-
+          controlPluginsUtility.initData({}).then(() => {
             this.controlGroupsConfig = controlPluginsUtility.getControlGroupsConfigByDesignType(this.uiDesignType);
             this.controlPluginsConfig = controlPluginsUtility.getControlPluginsConfigByDesignType(this.uiDesignType);
 
             for (let pluginKey in allPlugins) {
-                let configSingleName = pluginKey.replace("Plugin", "");
-                let configSingle = controlPluginsUtility.findBySingleName(configSingleName);
-                allPlugins[pluginKey].config = configSingle;
+              let configSingleName = pluginKey.replace("Plugin", "");
+              let configSingle = controlPluginsUtility.findBySingleName(configSingleName);
+              allPlugins[pluginKey].config = configSingle;
             }
             window.setTimeout(() => {
-                $("#uid-wysiwyg-plugin-list-comp-wrap").accordion({
-                    heightStyle: "fill"
-                });
+              $("#uid-wysiwyg-plugin-list-comp-wrap").accordion({
+                heightStyle: "fill"
+              });
             }, 400);
+          });
         },
         wysiwygContainerClick() {
             GeneralPlugin.clearControlEditInnerPanel();

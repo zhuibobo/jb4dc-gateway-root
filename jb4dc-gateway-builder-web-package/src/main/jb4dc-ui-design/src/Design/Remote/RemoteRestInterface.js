@@ -1,5 +1,6 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
+import controlPluginsConfig from '../Config/ControlPlugins.json';
 
 let acInterface = {
     getTablesDataUrl: "/JB4DCBuilder/Rest/Builder/DataStorage/DataBase/Table/GetTablesForZTreeNodeList",
@@ -18,12 +19,27 @@ let acInterface = {
     getWebListDesignPOUrl: "/JB4DCBuilder/Rest/Builder/List/GetDetailData",
 
     saveWebFormDesignUrl:"/JB4DCBuilder/Rest/Builder/Form/SaveEdit",
-    getWebFormDesignPOUrl: "/JB4DCBuilder/Rest/Builder/Form/GetDetailData"
+    getWebFormDesignPOUrl: "/JB4DCBuilder/Rest/Builder/Form/GetDetailData",
+
+    getControlPluginsUrl:"/JB4DCBuilder/Rest/Builder/Form/XXXXXX",
 }
 
 let storeDataSet = {};
 
 let RemoteRestInterface = {
+    mockAjax:true,
+    getControlPlugins(sendData){
+        let promiseObj = new Promise((resolve, reject) => {
+            AjaxUtility.PostSync(acInterface.getControlPluginsUrl, sendData, function (result) {
+                let response = {
+                    data: result
+                }
+                resolve(response)
+            }, this);
+        });
+        return promiseObj;
+    },
+
     getTablesData(sendData) {
         return axios.post(acInterface.getTablesDataUrl, sendData).catch(function (error) {
             console.log(error);
@@ -145,11 +161,28 @@ function sendDataToURLSearchParams(sendData) {
     return params;
 }
 
-let mockAjax = true;
+
 let mockForm = ``;
 mockForm="";
 let mock = new MockAdapter(axios, {delayResponse: 200});
-if (mockAjax) {
+if (RemoteRestInterface.mockAjax) {
+    RemoteRestInterface.getControlPlugins=function (sendData) {
+        let promiseObj = new Promise((resolve, reject) => {
+            let response = {
+                data: {
+                    "success": true,
+                    "message": "获取数据成功！",
+                    "cacheKey": "",
+                    "traceMsg": "",
+                    "errorCode": null,
+                    "data": controlPluginsConfig
+                }
+            }
+            resolve(response);
+        });
+        return promiseObj;
+    }
+
     mock.onPost(acInterface.getTablesDataUrl).reply(200, {
         "success": true,
         "message": "获取数据成功！",
@@ -7012,8 +7045,8 @@ if (mockAjax) {
     mock.onPost(acInterface.getWebFormDesignPOUrl).reply(200, getWebFormDesignPOUrlDataForAdd);
 }
 
-mock.onPost(acInterface.getWebListDesignPOUrl).passThrough()
-mock.onPost(acInterface.saveWebListDesignUrl).passThrough()
-mock.onPost(acInterface.saveWebFormDesignUrl).passThrough()
+//mock.onPost(acInterface.getWebListDesignPOUrl).passThrough()
+//mock.onPost(acInterface.saveWebListDesignUrl).passThrough()
+//mock.onPost(acInterface.saveWebFormDesignUrl).passThrough()
 
 export {RemoteRestInterface as default};

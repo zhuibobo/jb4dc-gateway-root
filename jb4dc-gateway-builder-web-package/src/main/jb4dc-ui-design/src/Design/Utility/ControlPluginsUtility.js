@@ -1,23 +1,40 @@
-import controlPluginsConfig from '../Config/ControlPlugins.json';
+//import controlPluginsConfig from '../Config/ControlPlugins.json';
 
-let controlPluginsConfigAllArray = controlPluginsConfig.appFormDesign.controls;
-controlPluginsConfigAllArray = controlPluginsConfigAllArray.concat(controlPluginsConfig.appListDesign.controls)
-controlPluginsConfigAllArray = controlPluginsConfigAllArray.concat(controlPluginsConfig.webFormDesign.controls)
-controlPluginsConfigAllArray = controlPluginsConfigAllArray.concat(controlPluginsConfig.webListDesign.controls)
+import RemoteRestInterface from '../Remote/RemoteRestInterface';
+
+
 let ControlPluginsUtility = {
+    controlPluginsConfig:null,
+    controlPluginsConfigAllArray:null,
+    initData(){
+        let promiseObj = new Promise((resolve, reject) => {
+            RemoteRestInterface.getControlPlugins({}).then((response) => {
+                let result = response.data;
+                this.controlPluginsConfig = result.data;
+
+                this.controlPluginsConfigAllArray = this.controlPluginsConfig.appFormDesign.controls;
+                this.controlPluginsConfigAllArray = this.controlPluginsConfigAllArray.concat(this.controlPluginsConfig.appListDesign.controls);
+                this.controlPluginsConfigAllArray = this.controlPluginsConfigAllArray.concat(this.controlPluginsConfig.webFormDesign.controls);
+                this.controlPluginsConfigAllArray = this.controlPluginsConfigAllArray.concat(this.controlPluginsConfig.webListDesign.controls);
+                resolve();
+            });
+        });
+        return promiseObj;
+    },
     getControlGroupsConfigByDesignType(uiDesignType) {
         //alert(JsonUtility.JsonToString(controlPluginsConfig));
         //alert(uiDesignType);
-        return controlPluginsConfig[uiDesignType].groups;
+        //debugger;
+        return this.controlPluginsConfig[uiDesignType].groups;
     },
     getControlPluginsConfigByDesignType(uiDesignType) {
         //alert(JsonUtility.JsonToString(controlPluginsConfig));
         //alert(uiDesignType);
-        return controlPluginsConfig[uiDesignType].controls;
+        return this.controlPluginsConfig[uiDesignType].controls;
     },
     findBySingleName(singleName, arr) {
         if (!arr) {
-            arr = controlPluginsConfigAllArray;
+            arr = this.controlPluginsConfigAllArray;
         }
         const len = arr.length;
         let obj;
