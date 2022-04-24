@@ -14,4 +14,4 @@ function importAll(r) {
 }
 //let obj= importAll(require.context('./AppFormDesign/', true, /\.js$/));
 //console.log(obj);
-export default importAll(require.context('./', true, /(WebListRuntime\/Plugins\S*\.js$)|(WebFormRuntime\S*\.js$)/))
+export default importAll(require.context('./', true, /(WebListRuntime\/Plugins\S*\.js$)|(WebFormRuntime\/Plugins\S*\.js$)/))

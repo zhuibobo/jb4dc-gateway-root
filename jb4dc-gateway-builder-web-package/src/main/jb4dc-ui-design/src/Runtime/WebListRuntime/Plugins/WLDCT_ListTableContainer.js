@@ -2,6 +2,7 @@ import HTMLControl from '../../HTMLControl.js'
 import RemoteRestInterface from '../../Remote/RemoteRestInterface'
 import HTMLControlAttrs from '../../HTMLControlAttrs.js'
 import RuntimeGeneralInstance from '../../RuntimeGeneralInstance.js'
+import getWebListRuntimeDataSetData from "../../Remote/RemoteRestInterface";
 
 var WLDCT_ListTableContainer = {
     GetHTML: function () {
@@ -399,7 +400,7 @@ var WLDCT_ListTableContainer = {
             }, "数据加载中,请稍候....");
 
 
-            RemoteRestInterface.getDataSetData({
+            RemoteRestInterface.getWebListRuntimeDataSetData({
                 dataSetId: dataSetId,
                 pageSize: pageSize,
                 pageNum: this._CurrentPageNum,

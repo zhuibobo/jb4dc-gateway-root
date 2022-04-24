@@ -1,5 +1,7 @@
 import RemoteRestInterface from '../Remote/RemoteRestInterface.js';
 import VirtualBodyControl from '../VirtualBodyControl.js';
+import webListRuntimeLoadHTML from "../Remote/RemoteRestInterface";
+import loadWebListRuntimeHTML from "../Remote/RemoteRestInterface";
 
 let ListRuntime={
     _Prop_Status:"Edit",
@@ -20,7 +22,7 @@ let ListRuntime={
     _RendererChainIsCompleted:true,
     _RendererDataChainIsCompleted:true,
     _LoadHTMLToEl:function () {
-        RemoteRestInterface.loadHTML({listId:this._Prop_Config.ListId}).then((response)=>{
+        RemoteRestInterface.loadWebListRuntimeHTML({listId:this._Prop_Config.ListId}).then((response)=>{
             //debugger;
             let result = response.data;
             this._ListPO=result.data;
