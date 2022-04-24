@@ -15,7 +15,10 @@ let acInterface = {
     getDictionaryEntityGroupTreeDataUrl: "/JB4DCBuilder/Rest/SystemSetting/Dict/DictionaryGroup/GetTreeData",
 
     saveWebListDesignUrl: "/JB4DCBuilder/Rest/Builder/List/SaveEdit",
-    getWebListDesignPOUrl: "/JB4DCBuilder/Rest/Builder/List/GetDetailData"
+    getWebListDesignPOUrl: "/JB4DCBuilder/Rest/Builder/List/GetDetailData",
+
+    saveWebFormDesignUrl:"/JB4DCBuilder/Rest/Builder/Form/SaveEdit",
+    getWebFormDesignPOUrl: "/JB4DCBuilder/Rest/Builder/Form/GetDetailData"
 }
 
 let storeDataSet = {};
@@ -106,6 +109,7 @@ let RemoteRestInterface = {
             console.log(error);
         });
     },
+
     saveWebListDesign(sendData) {
         console.log(sendData);
         return axios.post(acInterface.saveWebListDesignUrl, sendData).catch(function (error) {
@@ -115,6 +119,19 @@ let RemoteRestInterface = {
     getWebListDesignPOAndBindTo(sendData) {
         let sendDataURLSearchParams = sendDataToURLSearchParams(sendData);
         return axios.post(acInterface.getWebListDesignPOUrl, sendDataURLSearchParams).catch(function (error) {
+            console.log(error);
+        });
+    },
+
+    saveWebFormDesign(sendData){
+        console.log(sendData);
+        return axios.post(acInterface.saveWebFormDesignUrl, sendData).catch(function (error) {
+            console.log(error);
+        });
+    },
+    getWebFormDesignPOAndBindTo(sendData){
+        let sendDataURLSearchParams = sendDataToURLSearchParams(sendData);
+        return axios.post(acInterface.getWebFormDesignPOUrl, sendDataURLSearchParams).catch(function (error) {
             console.log(error);
         });
     }
@@ -6936,9 +6953,67 @@ if (mockAjax) {
         }, "exKVData": {"recordId": "8318f6ec-3c94-4e6f-b561-76c881f35899", "op": "update", "dictionaryJson": {}}
     }
     mock.onPost(acInterface.getWebListDesignPOUrl).reply(200, getWebListDesignPOUrlDataForUpdate);
+
+    let getWebFormDesignPOUrlDataForAdd={
+        "success": true,
+        "message": "",
+        "cacheKey": "",
+        "traceMsg": "",
+        "errorCode": null,
+        "data": {
+            "formId": "4823f225-cfd2-4fea-b6ef-1e716549bdca",
+            "formCode": null,
+            "formName": null,
+            "formSingleName": null,
+            "formCreateTime": null,
+            "formCreator": null,
+            "formUpdateTime": null,
+            "formUpdater": null,
+            "formType": null,
+            "formIsSystem": null,
+            "formOrderNum": null,
+            "formDesc": null,
+            "formModuleId": null,
+            "formStatus": null,
+            "formOrganId": null,
+            "formOrganName": null,
+            "formMainTableName": null,
+            "formMainTableCaption": null,
+            "formDataRelation": null,
+            "formIsTemplate": null,
+            "formIsResolve": null,
+            "formEveryTimeResolve": null,
+            "formSource": null,
+            "formContentUrl": null,
+            "formTheme": null,
+            "formCustServerRenderer": null,
+            "formCustRefJs": null,
+            "formCustClientRenderer": null,
+            "formCustDesc": null,
+            "formMainTableId": null,
+            "formInnerButton": null,
+            "formOperationType": null,
+            "formJudgeApi": null,
+            "formJudgeSql": null,
+            "formHtmlSource": null,
+            "formHtmlResolve": null,
+            "formJsContent": null,
+            "formCssContent": null,
+            "formConfigContent": null,
+            "formDesignRemark": null
+        },
+        "exKVData": {
+            "recordId": "4823f225-cfd2-4fea-b6ef-1e716549bdca",
+            "op": "add",
+            "dictionaryJson": {}
+        }
+    }
+    let getWebFormDesignPOUrlDataForUpdate={}
+    mock.onPost(acInterface.getWebFormDesignPOUrl).reply(200, getWebFormDesignPOUrlDataForAdd);
 }
 
 mock.onPost(acInterface.getWebListDesignPOUrl).passThrough()
 mock.onPost(acInterface.saveWebListDesignUrl).passThrough()
+mock.onPost(acInterface.saveWebFormDesignUrl).passThrough()
 
 export {RemoteRestInterface as default};

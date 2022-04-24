@@ -181,7 +181,7 @@ Vue.component("module-list-weblist-comp", {
             //debugger;
             //alert(recordId);
             if (recordId == "75ffdba7-bef1-4342-87de-d16578afb5da" || recordId == "8318f6ec-3c94-4e6f-b561-76c881f35899") {
-                this.editViewVersion2(recordId);
+                this.editVersion2(recordId);
                 return;
             }
 
@@ -192,7 +192,7 @@ Vue.component("module-list-weblist-comp", {
             //DialogUtility.OpenNewWindow(window, DialogUtility.DialogId, url, {width: 0, height: 0}, 2);
             DialogUtility.OpenNewTabWindow(url);
         },
-        editViewVersion2: function (recordId) {
+        editVersion2: function (recordId) {
             var url = BaseUtility.BuildView(this.acInterface.editViewVersion2, {
                 "op": "update",
                 "uiDesignType": "webListDesign",

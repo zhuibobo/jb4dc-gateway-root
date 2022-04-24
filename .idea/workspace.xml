@@ -5,9 +5,113 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccedc649-8eaf-4db4-ba50-beb85a54ca4c" name="Changes" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_4_21_14_22__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_4_21_14_22__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_4_22_9_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_4_22_9_35__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Config/ControlPlugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Config/ControlPlugins.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Builder/Runtime/WebFormIndependenceRuntime.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Builder/Runtime/WebFormIndependenceRuntime.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Builder/Runtime/WebFormRuntime.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Builder/Runtime/WebFormRuntime.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Builder/Runtime/WebFormRuntimePrint.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Builder/Runtime/WebFormRuntimePrint.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Builder/Runtime/WebFormSubRuntime.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Builder/Runtime/WebFormSubRuntime.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Builder/Runtime/WebListRuntime.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Builder/Runtime/WebListRuntime.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Portlet/Runtime/PortletPageDependGridStack.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Portlet/Runtime/PortletPageDependGridStack.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Portlet/Runtime/PortletPageDependWebix.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Portlet/Runtime/PortletPageDependWebix.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Portlet/Runtime/PortletPageV1.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/Portlet/Runtime/PortletPageV1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyBootableInstanceStart.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyBootableInstanceStart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyBootableMyModels.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyBootableMyModels.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyCompletedInstanceMainTaskList.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyCompletedInstanceMainTaskList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyEndProcessInstanceMainTask.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyEndProcessInstanceMainTask.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyEndProcessInstanceMainTaskList.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyEndProcessInstanceMainTaskList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyProcessInstanceMainTask.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyProcessInstanceMainTask.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyProcessInstanceMainTaskList.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/HTML/WorkFlow/Runtime/MyProcessInstanceMainTaskList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/Js/HTMLDesignRuntimeFull.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/Js/HTMLDesignRuntimeFull.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/Themes/Default/Css/HTMLDesignRuntimeMain.css" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-client-web-package/src/main/resources/static/JB4DCBuilderClient/Themes/Default/Css/HTMLDesignRuntimeMain.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/front-end/static/Js/VueComponent/Module/module-list-webform-comp.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/front-end/static/Js/VueComponent/Module/module-list-webform-comp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/front-end/static/Js/VueComponent/Module/module-list-weblist-comp.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/front-end/static/Js/VueComponent/Module/module-list-weblist-comp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Remote/RemoteRestInterface.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Remote/RemoteRestInterface.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/BaseInfo/uid-web-form-base-info-comp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/BaseInfo/uid-web-form-base-info-comp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/Parts/dataset-simple-select-comp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/Parts/dataset-simple-select-comp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/Parts/db-table-relation-comp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/Parts/db-table-relation-comp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/API/ApiItemEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/API/ApiItemEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/API/GroupEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/API/GroupEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/API/Manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/API/Manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataSet/DataSetEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataSet/DataSetEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataSet/DataSetGroupEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataSet/DataSetGroupEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataSet/Manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataSet/Manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataSet/SQLDesigner.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataSet/SQLDesigner.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DBLink/DBLinkEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DBLink/DBLinkEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DBLink/DBLinkList.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DBLink/DBLinkList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DataBase/Manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DataBase/Manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DataBase/TableEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DataBase/TableEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DataBase/TableGroupEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DataBase/TableGroupEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DataRelation/Manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DataRelation/Manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DataRelation/TableRelationEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DataRelation/TableRelationEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DataRelation/TableRelationGroupEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/DataStorage/DataRelation/TableRelationGroupEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/EnvVar/EnvVarEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/EnvVar/EnvVarEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/EnvVar/GroupEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/EnvVar/GroupEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/EnvVar/Manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/EnvVar/Manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Form/FormDesign.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Form/FormDesign.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Form/FormPreview.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Form/FormPreview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Form/SubFormPreview.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Form/SubFormPreview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/List/Demo/TableDemo1.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/List/Demo/TableDemo1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/List/ListDesign.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/List/ListDesign.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/List/ListPreview.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/List/ListPreview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Module/Manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Module/Manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Module/ModuleEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Module/ModuleEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Site/Manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Site/Manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Site/SiteFolderEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Site/SiteFolderEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Site/Template/TemplateDesign.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Builder/Site/Template/TemplateDesign.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/Group/GroupEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/Group/GroupEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/TemplatePage/TemplatePageEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/TemplatePage/TemplatePageEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/TemplatePage/TemplatePageInnerWidgetLayout-Back-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/TemplatePage/TemplatePageInnerWidgetLayout-Back-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/TemplatePage/TemplatePageInnerWidgetLayout.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/TemplatePage/TemplatePageInnerWidgetLayout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/TemplatePage/TemplatePageInnerWidgetLayoutDependGridStack.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/TemplatePage/TemplatePageInnerWidgetLayoutDependGridStack.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/TemplatePage/TemplatePageInnerWidgetLayoutDependWebix.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/TemplatePage/TemplatePageInnerWidgetLayoutDependWebix.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/TemplatePage/TemplatePageManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/TemplatePage/TemplatePageManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/Widget/WidgetEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/Widget/WidgetEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/Widget/WidgetManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/Portlet/Widget/WidgetManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/SystemSetting/Dictionary/DictionaryEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/SystemSetting/Dictionary/DictionaryEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/SystemSetting/Dictionary/DictionaryGroupEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/SystemSetting/Dictionary/DictionaryGroupEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/SystemSetting/Dictionary/DictionaryManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/SystemSetting/Dictionary/DictionaryManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/WorkFlow/Manager/ClearInstanceDataConfig.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/WorkFlow/Manager/ClearInstanceDataConfig.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/WorkFlow/Manager/InstanceManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/WorkFlow/Manager/InstanceManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/WorkFlow/Manager/InstanceManagerEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/WorkFlow/Manager/InstanceManagerEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/WorkFlow/ModelGroup/ModelGroupEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/WorkFlow/ModelGroup/ModelGroupEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/WorkFlow/ModelGroup/ModelGroupManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/HTML/WorkFlow/ModelGroup/ModelGroupManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/BuilderVueEXComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/BuilderVueEXComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_BaiduMapContainer/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_BaiduMapContainer/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_CKEditor4/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_CKEditor4/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_DropDownSelect/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_DropDownSelect/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_FileImageList/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_FileImageList/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_FileUploadContainer/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_FileUploadContainer/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_HideContainer/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_HideContainer/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_OpinionInput/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_OpinionInput/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_RadioGroup/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_RadioGroup/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_SelectOrganUser/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_SelectOrganUser/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_SimpleLabel/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_SimpleLabel/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_SubFormListContainer/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_SubFormListContainer/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_TabContainer/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_TabContainer/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_Template/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_Template/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_TextArea/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_TextArea/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_TextBox/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_TextBox/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_TextDateTime/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebFormDesign/Plugins/WFDCT_TextDateTime/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_DeleteButton/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_DeleteButton/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_FormButton/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_FormButton/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_HideContainer/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_HideContainer/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_LayoutContainer/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_LayoutContainer/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_LayoutTemplate/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_LayoutTemplate/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListButtonContainer/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListButtonContainer/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListComplexSearchContainer/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListComplexSearchContainer/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListSimpleSearchContainer/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListSimpleSearchContainer/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListTableContainer/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListTableContainer/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListTableInnerButtonContainer/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListTableInnerButtonContainer/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListTableInnerButtonSingle/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListTableInnerButtonSingle/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListTableLabel/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListTableLabel/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListTemplate/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_ListTemplate/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_PrintButton/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_PrintButton/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_Search_DropDownSelect/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_Search_DropDownSelect/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_Search_TextBox/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_Search_TextBox/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_Search_TextDateTime/Dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Js/HTMLDesign/WebListDesign/Plugins/WLDCT_Search_TextDateTime/Dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Themes/Default/Css/HTMLDesignRuntimeMain.css" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/resources/static/JB4DCBuilder/Themes/Default/Css/HTMLDesignRuntimeMain.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,30 +153,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebFormRuntime/Plugins",
-    "list.type.of.created.stylesheet": "Less",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "spring.configuration.checksum": "00fc9b0e4ea52161dbb2df3a2f0cb09c",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;js.buildTools.gulp.gulp_package_dir&quot;: &quot;D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/front-end/node_modules/gulp&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebFormRuntime/Plugins&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;Less&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;00fc9b0e4ea52161dbb2df3a2f0cb09c&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -93,10 +198,13 @@
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Runtime\WebListRuntime" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start-webpack-dev-jb4dc-ui-design">
-    <configuration name="ApplicationJb4dcGateWayWebServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.ApplicationJb4dcGateWayWebServer">
+    <configuration name="ApplicationJb4dcGateWayWebServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="jb4dc-gateway-web-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.jb4dc.gateway.webserver.ApplicationJb4dcGateWayWebServer" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.jb4dc.gateway.webserver.*" />
@@ -105,7 +213,28 @@
       </extension>
       <method v="2">
         <option name="Make" enabled="true" />
+        <option name="LaunchBrowser.Before.Run" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" url="https://localhost:28080/SSOSystem/HTML/LoginSSO.html" />
       </method>
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="all" type="js.build_tools.gulp" temporary="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile>$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/front-end/gulpfile.js</gulpfile>
+      <tasks>
+        <task>all</task>
+      </tasks>
+      <arguments />
+      <envs />
+      <method v="2" />
     </configuration>
     <configuration name="jb4dc-ui-design-dev-watch" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/package.json" />
@@ -127,11 +256,17 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Gulp.js.all" />
+      <item itemvalue="npm.jb4dc-ui-design-dev-watch" />
+      <item itemvalue="npm.start-webpack-dev-jb4dc-ui-design" />
+      <item itemvalue="Spring Boot.ApplicationJb4dcGateWayWebServer" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start-webpack-dev-jb4dc-ui-design" />
-        <item itemvalue="Spring Boot.ApplicationJb4dcGateWayWebServer" />
+        <item itemvalue="Gulp.js.all" />
         <item itemvalue="npm.jb4dc-ui-design-dev-watch" />
+        <item itemvalue="npm.start-webpack-dev-jb4dc-ui-design" />
       </list>
     </recent_temporary>
   </component>
@@ -151,6 +286,7 @@
       <workItem from="1649988339952" duration="16360000" />
       <workItem from="1650075413189" duration="9559000" />
       <workItem from="1650541165079" duration="10710000" />
+      <workItem from="1650670738155" duration="3752000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1648281991333</created>

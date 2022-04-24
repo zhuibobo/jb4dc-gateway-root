@@ -159,7 +159,7 @@ Vue.component("module-list-webform-comp", {
             if(this.moduleData!=null) {
                 var url = BaseUtility.BuildView(this.acInterface.editViewVersion2, {
                     "op": "add",
-                    "uiDesignType":"appFormDesign",
+                    "uiDesignType":"webFormDesign",
                     "moduleId": this.moduleData.moduleId
                 });
                 //alert(url);
@@ -172,11 +172,25 @@ Vue.component("module-list-webform-comp", {
         },
         edit: function (recordId) {
             //debugger;
+            if (recordId == "4823f225-cfd2-4fea-b6ef-1e716549bdca" || recordId == "8318f6ec-3c94-4e6f-b561-76c881f35899") {
+                this.editVersion2(recordId);
+                return;
+            }
+
             var url = BaseUtility.BuildView(this.acInterface.editView, {
                 "op": "update",
                 "recordId": recordId
             });
             //DialogUtility.OpenNewWindow(window, DialogUtility.DialogId, url, {width: 0, height: 0}, 2);
+            DialogUtility.OpenNewTabWindow(url);
+        },
+        editVersion2: function (recordId) {
+            var url = BaseUtility.BuildView(this.acInterface.editViewVersion2, {
+                "op": "update",
+                "uiDesignType": "webFormDesign",
+                "moduleId": this.moduleData.moduleId,
+                "recordId": recordId
+            });
             DialogUtility.OpenNewTabWindow(url);
         },
         del: function (recordId) {

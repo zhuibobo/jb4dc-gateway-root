@@ -20,7 +20,7 @@ export default {
                 treeObj: null,
                 treeSetting: {
                     view: {
-                        dblClickExpand: false,//双击节点时，是否自动展开父节点的标识
+                        dblClickExpand: false,//双击节点时，是否自动展开父节点的标识1
                         showLine: true,//是否显示节点之间的连线
                         fontCss: {'color': 'black', 'font-weight': 'normal'}
                     },

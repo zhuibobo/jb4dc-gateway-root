@@ -154,7 +154,7 @@ export default {
                     text: "数据关联",
                     parentId: "",
                     nodeTypeName: "根节点",
-                    icon: "/Images/Png16X16/coins_add.png",
+                    icon: "Images/Png16X16/coins_add.png",
                     _nodeExType: "root",
                     tableId: "-1"
                 },
@@ -247,8 +247,8 @@ export default {
             tempDataStore: {},
             resultData: [],
             treeNodeSetting: {
-                MainTableNodeImg: "/Images/Png16X16/page_key.png",
-                SubTableNodeImg: "/Images/Png16X16/page_refresh.png"
+                MainTableNodeImg: "Images/Png16X16/page_key.png",
+                SubTableNodeImg: "Images/Png16X16/page_refresh.png"
             }
         }
     },
