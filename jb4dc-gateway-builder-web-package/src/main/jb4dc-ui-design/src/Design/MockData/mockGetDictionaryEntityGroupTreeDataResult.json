@@ -1,0 +1,69 @@
+{
+  "success": true,
+  "message": "获取数据成功!",
+  "cacheKey": "",
+  "traceMsg": "",
+  "errorCode": null,
+  "data": [{
+    "dictGroupId": "0",
+    "dictGroupValue": "数据字典分组",
+    "dictGroupText": "数据字典分组",
+    "dictGroupOrderNum": 91,
+    "dictGroupCreateTime": "2021-11-21 22:43:08",
+    "dictGroupDesc": "",
+    "dictGroupStatus": "启用",
+    "dictGroupParentId": "-1",
+    "dictGroupIsSystem": "是",
+    "dictGroupDelEnable": "是",
+    "dictGroupEnpItem": "是"
+  }, {
+    "dictGroupId": "DevDemoDictionaryGroupRoot",
+    "dictGroupValue": "开发示例",
+    "dictGroupText": "开发示例",
+    "dictGroupOrderNum": 92,
+    "dictGroupCreateTime": "2021-11-21 22:43:08",
+    "dictGroupDesc": "",
+    "dictGroupStatus": "启用",
+    "dictGroupParentId": "0",
+    "dictGroupIsSystem": "是",
+    "dictGroupDelEnable": "是",
+    "dictGroupEnpItem": "是"
+  }, {
+    "dictGroupId": "DevDemoDictionaryGroupBindSelect",
+    "dictGroupValue": "DevDemoDictionaryGroupBindSelect",
+    "dictGroupText": "绑定下拉列表",
+    "dictGroupOrderNum": 93,
+    "dictGroupCreateTime": "2021-11-21 22:43:08",
+    "dictGroupDesc": "",
+    "dictGroupStatus": "启用",
+    "dictGroupParentId": "DevDemoDictionaryGroupRoot",
+    "dictGroupIsSystem": "是",
+    "dictGroupDelEnable": "是",
+    "dictGroupEnpItem": "是"
+  }, {
+    "dictGroupId": "DevDemoDictionaryGroupBindRadio",
+    "dictGroupValue": "DevDemoDictionaryGroupBindRadio",
+    "dictGroupText": "绑定单选项",
+    "dictGroupOrderNum": 94,
+    "dictGroupCreateTime": "2021-11-21 22:43:08",
+    "dictGroupDesc": "",
+    "dictGroupStatus": "启用",
+    "dictGroupParentId": "DevDemoDictionaryGroupRoot",
+    "dictGroupIsSystem": "是",
+    "dictGroupDelEnable": "是",
+    "dictGroupEnpItem": "是"
+  }, {
+    "dictGroupId": "DevDemoDictionaryGroupBindCheckbox",
+    "dictGroupValue": "DevDemoDictionaryGroupBindCheckbox",
+    "dictGroupText": "绑定复选项",
+    "dictGroupOrderNum": 95,
+    "dictGroupCreateTime": "2021-11-21 22:43:08",
+    "dictGroupDesc": "",
+    "dictGroupStatus": "启用",
+    "dictGroupParentId": "DevDemoDictionaryGroupRoot",
+    "dictGroupIsSystem": "是",
+    "dictGroupDelEnable": "是",
+    "dictGroupEnpItem": "是"
+  }],
+  "exKVData": {}
+}

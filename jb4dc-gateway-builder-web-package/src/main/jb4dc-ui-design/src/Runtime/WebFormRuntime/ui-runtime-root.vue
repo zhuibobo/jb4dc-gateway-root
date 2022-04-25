@@ -1,5 +1,5 @@
 <template>
-  <div id="htmlDesignRuntimeWrap">
+  <div id="htmlDesignRuntimeWrap" class="uid-runtime-default-theme-root">
   </div>
 </template>
 
