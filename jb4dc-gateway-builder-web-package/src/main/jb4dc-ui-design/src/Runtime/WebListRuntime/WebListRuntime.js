@@ -1,7 +1,5 @@
 import RemoteRestInterface from '../Remote/RemoteRestInterface.js';
 import VirtualBodyControl from '../VirtualBodyControl.js';
-import webListRuntimeLoadHTML from "../Remote/RemoteRestInterface";
-import loadWebListRuntimeHTML from "../Remote/RemoteRestInterface";
 
 let ListRuntime={
     _Prop_Status:"Edit",

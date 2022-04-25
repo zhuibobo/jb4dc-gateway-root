@@ -13,17 +13,17 @@ let WLDCT_ListButtonContainer= {
     RendererChain: function (_rendererChainParas) {
         //$singleControlElem.hide();
         //debugger;
-        var $singleControlElem=_rendererChainParas.$singleControlElem;
-        var $buttonDivElemList=$singleControlElem.find("div"+HTMLControlAttrs.SELECTED_JBUILD4DC_CUSTOM);
+        let $singleControlElem=_rendererChainParas.$singleControlElem;
+        let $buttonDivElemList=$singleControlElem.find("div"+HTMLControlAttrs.SELECTED_JBUILD4DC_CUSTOM);
         $singleControlElem.find("[is-op-button-wrap-table='true']").hide();
-        var innerWrap= $singleControlElem.find(".uid-wldct-list-button-container-inner-wrap");
-        var innerInsideWrapDiv=$("<div class='uid-wldct-list-button-inner-inside-wrap' />");
-        for(var i=0;i<$buttonDivElemList.length;i++){
-            var $buttonElem=$($buttonDivElemList[i]);
-            var clientResolveName=$buttonElem.attr(HTMLControlAttrs.CLIENT_RESOLVE);
+        let innerWrap= $singleControlElem.find(".uid-container-inner-wrap");
+        let innerInsideWrapDiv=$("<div class='uid-wldct-list-button-inner-inside-wrap' />");
+        for(let i=0;i<$buttonDivElemList.length;i++){
+            let $buttonElem=$($buttonDivElemList[i]);
+            let clientResolveName=$buttonElem.attr(HTMLControlAttrs.CLIENT_RESOLVE);
             //debugger;
-            var clientResolveObject=Object.create(eval(clientResolveName));
-            var $resolvedElem=clientResolveObject.ResolveSelf({
+            let clientResolveObject=Object.create(eval(clientResolveName));
+            let $resolvedElem=clientResolveObject.ResolveSelf({
                 sourceHTML:_rendererChainParas.sourceHTML,
                 $rootElem:_rendererChainParas.$rootElem,
                 $parentControlElem:$singleControlElem,

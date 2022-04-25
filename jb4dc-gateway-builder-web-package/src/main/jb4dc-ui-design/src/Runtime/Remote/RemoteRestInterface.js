@@ -10,7 +10,7 @@ let acInterface = {
     loadWebListRuntimeHTML: "/QCSystem/Rest/Builder/RunTime/ListRuntime/LoadHTML",
     getWebListRuntimeDataSetData: "/QCSystem/Rest/Builder/RunTime/DataSetRuntime/GetDataSetData",
 
-    loadWebFormRuntimeHTML: "/QCSystem/Rest/Builder/RunTime/ListRuntime/LoadHTML",
+    loadWebFormRuntimeHTML: "/QCSystem/Rest/Builder/RunTime/FormRuntime/LoadHTML",
     getFileListData:"/QCSystem/Rest/Builder/RunTime/FileRuntime/GetFileListData"
 }
 
