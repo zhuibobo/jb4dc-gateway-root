@@ -1,17 +1,16 @@
 import HTMLControl from '../../HTMLControl.js'
 
-
-var WLDCT_FormButton= {
+let WLDCT_FormButton= {
 
     _ListTableContainerInstance:null,
     RendererChain: HTMLControl.RendererChain,
     ResolveSelf:function (_rendererChainParas) {
-        var $singleControlElem=_rendererChainParas.$singleControlElem;
+        let $singleControlElem=_rendererChainParas.$singleControlElem;
         //console.log($singleControlElem);
-        var caption=$singleControlElem.attr("buttoncaption")?$singleControlElem.attr("buttoncaption"):"未设置";
-        var $button=$("<button>"+caption+"</button>");
+        let caption=$singleControlElem.attr("buttoncaption")?$singleControlElem.attr("buttoncaption"):"未设置";
+        let $button=$("<button>"+caption+"</button>");
 
-        var attributes = $singleControlElem.prop("attributes");
+        let attributes = $singleControlElem.prop("attributes");
 
         $.each(attributes, function() {
             $button.attr(this.name, this.value);
@@ -22,53 +21,53 @@ var WLDCT_FormButton= {
         $button.bind("click",{"buttonElem":$button,"selfInstance":this},this.ClickEvent);
         //debugger;
         //console.log($WLDCT_ListButtonContainer.html());
-        var isshow=$button.attr("isshow");
+        let isshow=$button.attr("isshow");
         if(isshow=="false"){
             $button.hide();
         }
         return $button;
     },
     RendererDataChain:function (_rendererDataChainParas) {
-        var $singleControlElem=_rendererDataChainParas.$singleControlElem;
-        var $WLDCT_ListButtonContainer = $singleControlElem.parents("[singlename='WLDCT_ListButtonContainer']");
-        var $WLDCT_ListTableContainerElem = $WLDCT_ListButtonContainer.nextAll("[client_resolve='WLDCT_ListTableContainer']");
+        let $singleControlElem=_rendererDataChainParas.$singleControlElem;
+        let $WLDCT_ListButtonContainer = $singleControlElem.parents("[singlename='WLDCT_ListButtonContainer']");
+        let $WLDCT_ListTableContainerElem = $WLDCT_ListButtonContainer.nextAll("[client_resolve='WLDCT_ListTableContainer']");
         this._ListTableContainerInstance = HTMLControl.GetControlInstanceByElem($WLDCT_ListTableContainerElem);
     },
     ClickEvent:function (sender) {
-        var $button=sender.data.buttonElem;
-        var _self=sender.data.selfInstance;
+        let $button=sender.data.buttonElem;
+        let _self=sender.data.selfInstance;
         //console.log($button);
-        var bindauthority=$button.attr("bindauthority");
-        var buttoncaption=$button.attr("buttoncaption");
-        var buttontype=$button.attr("buttontype");
-        var custclientclickbeforemethod=$button.attr("custclientclickbeforemethod");
-        var custclientclickbeforemethodpara=$button.attr("custclientclickbeforemethodpara");
-        var custclientrendereraftermethodpara=$button.attr("custclientrendereraftermethodpara");
-        var custclientrendereraftermethodparapara=$button.attr("custclientrendereraftermethodparapara");
-        var custclientrenderermethod=$button.attr("custclientrenderermethod");
-        var custclientrenderermethodpara=$button.attr("custclientrenderermethodpara");
-        var custserverresolvemethod=$button.attr("custserverresolvemethod");
-        var custserverresolvemethodpara=$button.attr("custserverresolvemethodpara");
-        var formcode=$button.attr("formcode");
-        var formid=$button.attr("formid");
-        var formmoduleid=$button.attr("formmoduleid");
-        var formmodulename=$button.attr("formmodulename");
-        var formname=$button.attr("formname");
-        var elemid=$button.attr("id");
-        var buttonid=$button.attr("buttonid");
-        var innerbuttonjsonstring=$button.attr("innerbuttonjsonstring");
-        var opentype=$button.attr("opentype");
-        var operation=$button.attr("operation");
-        var singlename=$button.attr("singlename");
-        var windowcaption=$button.attr("windowcaption");
-        var windowheight=$button.attr("windowheight");
-        var windowwidth=$button.attr("windowwidth");
-        var client_resolve=$button.attr("client_resolve");
+        let bindauthority=$button.attr("bindauthority");
+        let buttoncaption=$button.attr("buttoncaption");
+        let buttontype=$button.attr("buttontype");
+        let custclientclickbeforemethod=$button.attr("custclientclickbeforemethod");
+        let custclientclickbeforemethodpara=$button.attr("custclientclickbeforemethodpara");
+        let custclientrendereraftermethodpara=$button.attr("custclientrendereraftermethodpara");
+        let custclientrendereraftermethodparapara=$button.attr("custclientrendereraftermethodparapara");
+        let custclientrenderermethod=$button.attr("custclientrenderermethod");
+        let custclientrenderermethodpara=$button.attr("custclientrenderermethodpara");
+        let custserverresolvemethod=$button.attr("custserverresolvemethod");
+        let custserverresolvemethodpara=$button.attr("custserverresolvemethodpara");
+        let formcode=$button.attr("formcode");
+        let formid=$button.attr("formid");
+        let formmoduleid=$button.attr("formmoduleid");
+        let formmodulename=$button.attr("formmodulename");
+        let formname=$button.attr("formname");
+        let elemid=$button.attr("id");
+        let buttonid=$button.attr("buttonid");
+        let innerbuttonjsonstring=$button.attr("innerbuttonjsonstring");
+        let opentype=$button.attr("opentype");
+        let operation=$button.attr("operation");
+        let singlename=$button.attr("singlename");
+        let windowcaption=$button.attr("windowcaption");
+        let windowheight=$button.attr("windowheight");
+        let windowwidth=$button.attr("windowwidth");
+        let client_resolve=$button.attr("client_resolve");
 
-        var recordId="";
-        //var checkedRecordObjs="";
+        let recordId="";
+        //let checkedRecordObjs="";
         if(operation=="update"||operation=="view") {
-            var checkedRecordObjs = _self._ListTableContainerInstance.GetCheckedRecord();
+            let checkedRecordObjs = _self._ListTableContainerInstance.GetCheckedRecord();
             if(checkedRecordObjs.length==0){
                 DialogUtility.AlertText("请选择需要进行操作的记录!");
                 return;
@@ -82,9 +81,9 @@ var WLDCT_FormButton= {
             }
         }
 
-        var paraStr=BaseUtility.GetUrlParaValue("menuRightUrlPara");
+        let paraStr=BaseUtility.GetUrlParaValue("menuRightUrlPara");
         //debugger;
-        DialogUtility.Frame_OpenIframeWindow(window,DialogUtility.DialogId,BaseUtility.BuildView("/JB4DCBuilderClient/HTML/Builder/Runtime/WebFormRuntime.html",{
+        DialogUtility.Frame_OpenIframeWindow(window,DialogUtility.DialogId,BaseUtility.BuildView("/UIRuntimeWebFormMain.html",{
             "formId":formid,
             "buttonId":buttonid,
             "listFormButtonElemId":elemid,

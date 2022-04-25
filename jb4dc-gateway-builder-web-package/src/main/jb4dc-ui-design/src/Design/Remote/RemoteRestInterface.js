@@ -180,7 +180,7 @@ function sendDataToURLSearchParams(sendData) {
 
 let mock = new MockAdapter(axios, {delayResponse: 200});
 if (RemoteRestInterface.mockAjax) {
-    RemoteRestInterface.getControlPlugins=function (sendData) {
+    RemoteRestInterface.getControlPlugins = function (sendData) {
         let promiseObj = new Promise((resolve, reject) => {
             let response = {
                 data: {
@@ -200,7 +200,7 @@ if (RemoteRestInterface.mockAjax) {
     mock.onPost(acInterface.getTablesData).reply(200, mockGetTablesDataResult);
 
     //mock.onPost(acInterface.getTableFields).reply(200, getTableFieldsData);
-    RemoteRestInterface.getTableFieldsSync=function (sendData) {
+    RemoteRestInterface.getTableFieldsSync = function (sendData) {
         let promiseObj = new Promise((resolve, reject) => {
             let response = {
                 data: mockGetTableFieldsResult
@@ -229,17 +229,22 @@ if (RemoteRestInterface.mockAjax) {
     mock.onPost(acInterface.getDictionaryEntityGroupTreeData).reply(200, mockGetDictionaryEntityGroupTreeDataResult);
 
     let mockGetWebListDesignPOResult;
-    if(BaseUtility.IsAddOperationByUrl()){
-        mockGetWebListDesignPOResult=mockGetWebListDesignPOResult_Add;
-    }
-    else{
-        mockGetWebListDesignPOResult=mockGetWebListDesignPOResult_Update;
+    if (BaseUtility.IsAddOperationByUrl()) {
+        mockGetWebListDesignPOResult = mockGetWebListDesignPOResult_Add;
+    } else {
+        mockGetWebListDesignPOResult = mockGetWebListDesignPOResult_Update;
     }
     mock.onPost(acInterface.getWebListDesignPO).reply(200, mockGetWebListDesignPOResult);
 
     //mockGetWebFormDesignPOResult_Add
     //mockGetWebFormDesignPOResult_Update
-    mock.onPost(acInterface.getWebFormDesignPO).reply(200, mockGetWebFormDesignPOResult_Add);
+    let mockGetWebFormDesignPOResult;
+    if (BaseUtility.IsAddOperationByUrl()) {
+        mockGetWebFormDesignPOResult = mockGetWebFormDesignPOResult_Add;
+    } else {
+        mockGetWebFormDesignPOResult = mockGetWebFormDesignPOResult_Update;
+    }
+    mock.onPost(acInterface.getWebFormDesignPO).reply(200, mockGetWebFormDesignPOResult);
 }
 
 //mock.onPost(acInterface.getWebListDesignPO).passThrough()

@@ -80,13 +80,13 @@ let WebFormRuntime={
                     throw "初始化样式错误! FormRuntime._LoadHTMLToEl-->VirtualBodyControl.InitStyle:" + e;
                 }
 
-                /*if (this.IsPreview()) {
+                if (this.IsPreview()) {
                     this.CallRendererChainCompletedFunc();
                 } else {
                     if (this._FormPO.listButtonEntity) {
                         this.CreateALLInnerFormButton(this._FormPO.listButtonEntity);
                     }
-                }*/
+                }
 
                 if (BaseUtility.IsUpdateOperation(this.GetOperationType()) || BaseUtility.IsViewOperation(this.GetOperationType())) {
                     var formRecordComplexPO = result.data.formRecordComplexPO;

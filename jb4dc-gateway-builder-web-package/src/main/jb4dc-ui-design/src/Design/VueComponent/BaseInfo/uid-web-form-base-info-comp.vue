@@ -137,6 +137,7 @@ export default {
                 recordId: this.recordId,
                 op: this.status
             }).then((response) => {
+                console.log(response);
                 let result = response.data;
                 //debugger;
                 if (this.status == "add") {
@@ -146,7 +147,6 @@ export default {
                     this.formResourceEntity.formModuleId = BaseUtility.GetUrlParaValue("moduleId");
                     completedFunc(this.recordId, null);
                 } else {
-                    console.log(result);
                     this.formResourceEntity = result.data;
                     let editorValues = UIDesignUtility.buildEditorValues(
                         this.formResourceEntity.formHtmlSource,
