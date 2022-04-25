@@ -650,7 +650,7 @@ var WLDCT_ListTableContainer = {
         //debugger;
         var primaryKey=this._ListRuntimeInstance.GetPrimaryKey();
         if(!this._ListRuntimeInstance.CheckPrimaryKeyInDataSet(this._DataSet,primaryKey)){
-            DialogUtility.AlertText("数据集中找不到主键:" + primaryKey+",请设置配置是否正确!");
+            DialogUtility.AlertText("数据集中找不到主键字段:[" + primaryKey+"],请设置配置是否正确!");
             return;
         }
         console.log("主键为:"+primaryKey)
@@ -660,7 +660,7 @@ var WLDCT_ListTableContainer = {
                 return recordData;
             }
         }
-        DialogUtility.AlertText("找不到主键"+primaryKey+"为:" + id + "的记录!");
+        DialogUtility.AlertText("找不到主键字段:["+primaryKey+"]为:" + id + "的记录!");
         return null;
     },
     SaveCheckedRowData: function (id) {

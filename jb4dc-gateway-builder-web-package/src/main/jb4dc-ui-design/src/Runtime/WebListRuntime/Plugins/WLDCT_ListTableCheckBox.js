@@ -1,6 +1,6 @@
 import HTMLControl from '../../HTMLControl.js'
 
-var WLDCT_ListTableCheckBox={
+let WLDCT_ListTableCheckBox={
     RendererChain: HTMLControl.RendererChain,
     RendererDataChain:function (_rendererDataChainParas) {
         /*{
@@ -12,20 +12,20 @@ var WLDCT_ListTableCheckBox={
             $td:$td,
             val:val
         }*/
-        var value = _rendererDataChainParas.val;
-        var $td = _rendererDataChainParas.$td;
+        let value = _rendererDataChainParas.val;
+        let $td = _rendererDataChainParas.$td;
         $td.css("textAlign", "center");
-        var $checkbox = $("<input isrow_checkbox=\"true\" type=\"checkbox\" class=\"list-checkbox-c\" value=\"" + value + "\" row_checkbox_record_id=\"" + value + "\">");
+        let $checkbox = $("<input isrow_checkbox=\"true\" type=\"checkbox\" class=\"list-checkbox-c\" value=\"" + value + "\" row_checkbox_record_id=\"" + value + "\">");
         $checkbox.bind("click", {"selfInstance": this, "$elem": $checkbox}, this.ClickEvent);
         $td.html("");
         $td.append($checkbox);
     },
     ClickEvent:function (sender) {
-        /*var $elem=sender.data.$elem;
-        var $WLDCT_ListTableContainer = $elem.parents("[singlename='WLDCT_ListTableContainer']");
-        var listTableContainerInstance = HTMLControl.GetControlInstanceByElem($WLDCT_ListTableContainer);*/
-        var $elem=sender.data.$elem;
-        var listTableContainerInstance=WLDCT_ListTableContainer.__InnerElemGetInstance($elem);
+        /*let $elem=sender.data.$elem;
+        let $WLDCT_ListTableContainer = $elem.parents("[singlename='WLDCT_ListTableContainer']");
+        let listTableContainerInstance = HTMLControl.GetControlInstanceByElem($WLDCT_ListTableContainer);*/
+        let $elem=sender.data.$elem;
+        let listTableContainerInstance=WLDCT_ListTableContainer.__InnerElemGetInstance($elem);
         if($elem.prop("checked")){
             listTableContainerInstance.SaveCheckedRowData($elem.val());
         }

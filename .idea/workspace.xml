@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ccedc649-8eaf-4db4-ba50-beb85a54ca4c" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/Remote/RemoteRestInterface.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/Remote/RemoteRestInterface.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebListRuntime/Plugins/WLDCT_ListButtonContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebListRuntime/Plugins/WLDCT_ListButtonContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebListRuntime/WebListRuntime.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebListRuntime/WebListRuntime.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/MockData/mockLoadWebListRuntimeHTMLResult.json" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/MockData/mockLoadWebListRuntimeHTMLResult.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebListRuntime/Plugins/WLDCT_ListTableCheckBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebListRuntime/Plugins/WLDCT_ListTableCheckBox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebListRuntime/Plugins/WLDCT_ListTableContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebListRuntime/Plugins/WLDCT_ListTableContainer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +190,7 @@
       <workItem from="1650851577606" duration="1588000" />
       <workItem from="1650855304822" duration="946000" />
       <workItem from="1650857210936" duration="1293000" />
-      <workItem from="1650866138864" duration="7220000" />
+      <workItem from="1650866138864" duration="7644000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1648281991333</created>
@@ -402,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650872961637</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="update">
+      <created>1650873874266</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1650873874266</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
