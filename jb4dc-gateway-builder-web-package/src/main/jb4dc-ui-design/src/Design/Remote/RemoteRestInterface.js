@@ -1,7 +1,8 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import controlPluginsConfig from '../Config/ControlPlugins.json';
+import BaseUtility from "../../Utility/BaseUtility"
 
+import controlPluginsConfig from '../Config/ControlPlugins.json';
 import mockGetTablesDataResult from '../MockData/mockGetTablesDataResult.json';
 import mockGetTableFieldsResult from '../MockData/mockGetTableFieldsResult.json';
 import mockGetTablesFieldsByTableIdsResult from '../MockData/mockGetTablesFieldsByTableIdsResult.json';
@@ -177,9 +178,6 @@ function sendDataToURLSearchParams(sendData) {
     return params;
 }
 
-
-let mockForm = ``;
-mockForm="";
 let mock = new MockAdapter(axios, {delayResponse: 200});
 if (RemoteRestInterface.mockAjax) {
     RemoteRestInterface.getControlPlugins=function (sendData) {
@@ -230,9 +228,14 @@ if (RemoteRestInterface.mockAjax) {
 
     mock.onPost(acInterface.getDictionaryEntityGroupTreeData).reply(200, mockGetDictionaryEntityGroupTreeDataResult);
 
-    //mockGetWebListDesignPOResult_Add
-    //mockGetWebListDesignPOResult_Update
-    mock.onPost(acInterface.getWebListDesignPO).reply(200, mockGetWebListDesignPOResult_Update);
+    let mockGetWebListDesignPOResult;
+    if(BaseUtility.IsAddOperationByUrl()){
+        mockGetWebListDesignPOResult=mockGetWebListDesignPOResult_Add;
+    }
+    else{
+        mockGetWebListDesignPOResult=mockGetWebListDesignPOResult_Update;
+    }
+    mock.onPost(acInterface.getWebListDesignPO).reply(200, mockGetWebListDesignPOResult);
 
     //mockGetWebFormDesignPOResult_Add
     //mockGetWebFormDesignPOResult_Update

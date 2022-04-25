@@ -16,13 +16,13 @@ let innerHTML = `<div class="uid-wldct-list-simple-search-container-wrap">
                                    <col style="width: 17%" />
                                </colgroup>
                                <tr>
-                                   <td class="label">名称:</td>
+                                   <td class="label">编号：</td>
                                    <td></td>
-                                   <td class="label">标题:</td>
+                                   <td class="label">标题：</td>
                                    <td></td>
-                                   <td class="label">时间(从):</td>
+                                   <td class="label">时间(从)：</td>
                                    <td></td>
-                                   <td class="label">(到):</td>
+                                   <td class="label">(到)：</td>
                                    <td></td>
                                </tr>
                             </table></div></div>`;

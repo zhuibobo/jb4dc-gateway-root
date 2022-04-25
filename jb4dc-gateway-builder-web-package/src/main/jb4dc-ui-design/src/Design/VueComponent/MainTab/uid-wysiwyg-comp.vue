@@ -157,7 +157,7 @@ export default {
                 try {
                     let $childSingleElem = $($elem.children()[i]);
                     //console.log($childSingleElem);
-                    console.log($elem.html());
+                    //console.log($elem.html());
                     if ($childSingleElem.prop("tagName") != "STYLE") {
                         //debugger;
                         //let _cloneRendererChainParas = {};

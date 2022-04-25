@@ -194,6 +194,7 @@ export default {
                 recordId: this.recordId,
                 op: this.status
             }).then((response) => {
+                console.log(response);
                 let result = response.data;
                 if (this.status == "add") {
                     this.recordId = result.data.listId;
@@ -202,7 +203,7 @@ export default {
                     this.listResourceEntity.listModuleId = BaseUtility.GetUrlParaValue("moduleId");
                     completedFunc(this.recordId, null);
                 } else {
-                    console.log(result);
+                    //console.log(result);
                     this.listResourceEntity = result.data;
                     let editorValues = UIDesignUtility.buildEditorValues(
                         this.listResourceEntity.listHtmlSource,

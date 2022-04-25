@@ -341,7 +341,7 @@ export default {
         getTablesAndBindOldSelected: function () {
             remoteRestInterface.getTablesData({}).then((response) => {
                 let result = response.data;
-                console.log(response);
+                //console.log(response);
                 if (result.success) {
                     this.selectTableTree.dbLinkEntities = result.exKVData.dbLinkEntityList;
                     this.selectTableTree.allTableTreeData = result.data;

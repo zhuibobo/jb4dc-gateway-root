@@ -134,7 +134,7 @@ let GeneralPlugin = {
         $elem.on("click", {}, function (event) {
             event.preventDefault();
             event.stopPropagation();
-            console.log(1234);
+            //console.log(1234);
             //debugger;
             //GeneralPlugin.createControlEditInnerPanel($(this));
             GeneralPlugin._wysiwygLastSelectedElem = $(this);

@@ -81,7 +81,7 @@ import $ from "jquery";
 import EnumValues from "./EnumValues.js"
 import GeneralPlugin from "./Plugins/GeneralPlugin";
 import UIDesignUtility from "./Utility/UIDesignUtility.js"
-import RemoteRestInterface from "./Remote/RemoteRestInterface";
+import BaseUtility from "../Utility/BaseUtility"
 
 //let uiDesignType="appFormDesign";
 //let uiDesignType="AppListDesign";
@@ -131,7 +131,6 @@ export default {
         GeneralPlugin.setUIDesignMain(this);
 
         this.init();
-        BaseUtility.SetSystemFavicon();
         //window.setInterval(function (){
         //    GeneralPlugin.autoClearHelperPanel(_this.getWysiwygEditorValue());
         //},2000);
@@ -144,8 +143,8 @@ export default {
             //debugger;
             window.setTimeout(() => {
                 this.$refs.uidBaseInfoComponent.init(this.recordId, this.status, (recordId, editorValues) => {
-                    console.log(recordId);
-                    console.log(editorValues);
+                    //console.log(recordId);
+                    //console.log(editorValues);
                     if (editorValues) {
                         this.setWysiwygEditorValue(editorValues.htmlValue);
                         this.setHtmlCodeEditorValue(editorValues.htmlValue);

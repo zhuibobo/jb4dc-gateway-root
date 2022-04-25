@@ -1,0 +1,124 @@
+{
+    "success": true, "message": "获取数据成功!", "cacheKey": "", "traceMsg": "", "errorCode": null, "data": {
+    "total": 27,
+    "list": [{
+        "ISS_OPINION": "{\"opinions\":[{\"id\":\"595307484\",\"userId\":\"Zhuang_Rui_Bo_UID\",\"userName\":\"庄锐波\",\"organId\":\"10002\",\"organName\":\"开发组织\",\"inputOpinion\":\"好\",\"inputTime\":\"2021-11-11 09:48:32\",\"indexNum\":1,\"status\":\"general\",\"formClient\":\"webClient\"},{\"id\":\"595325911\",\"userId\":\"Yuang_Hong_Ling_UID\",\"userName\":\"袁红林\",\"organId\":\"10002\",\"organName\":\"开发组织\",\"inputOpinion\":\"好1\",\"inputTime\":\"2021-11-11 09:48:50\",\"indexNum\":2,\"status\":\"general\",\"formClient\":\"webClient\"}]}",
+        "ISS_TITLE": "1",
+        "ISS_ID": "103de612-d747-2d32-09f9-8fed60c09c20",
+        "ISS_ORDER_NUM": 96
+    }, {
+        "ISS_OPINION": "{\"opinions\":[{\"id\":\"407279598\",\"userId\":\"Alex4D\",\"userName\":\"Alex\",\"organId\":\"10001\",\"organName\":\"系统管理组\",\"inputOpinion\":\"传递\",\"inputTime\":\"2021-11-20 19:21:49\",\"indexNum\":1,\"status\":\"general\",\"formClient\":\"webClient\"}]}",
+        "ISS_TITLE": "传递传递传递传递传递传递传递传递传递传递传递传递传递传递传递传递传递传递传递传递传递传递传递传递传递传递传递传递传递",
+        "ISS_ID": "1580e2f7-a6f6-790c-09c0-c52a6d46262a",
+        "ISS_ORDER_NUM": 111
+    }, {
+        "ISS_OPINION": "{\"opinions\":[{\"id\":\"610499060\",\"userId\":\"Alex4D\",\"userName\":\"Alex\",\"organId\":\"10001\",\"organName\":\"系统管理组\",\"inputOpinion\":\"3123\",\"inputTime\":\"2021-10-07 20:41:43\",\"indexNum\":1,\"status\":\"general\",\"formClient\":\"webClient\"}]}",
+        "ISS_TITLE": "13",
+        "ISS_ID": "215adfc8-ae46-1e55-1b35-974a76870597",
+        "ISS_ORDER_NUM": 26
+    }, {
+        "ISS_OPINION": "{\"opinions\":[{\"id\":\"825450173\",\"userId\":\"Alex4D\",\"userName\":\"Alex\",\"organId\":\"10001\",\"organName\":\"系统管理组\",\"inputOpinion\":\"333\",\"inputTime\":\"2021-10-21 22:10:55\",\"indexNum\":1,\"status\":\"general\",\"formClient\":\"webClient\"}]}",
+        "ISS_TITLE": "123",
+        "ISS_ID": "28112c13-e1ca-2123-e55f-af5a0e784a8f",
+        "ISS_ORDER_NUM": 51
+    }, {
+        "ISS_OPINION": "{\"opinions\":[]}",
+        "ISS_TITLE": "3",
+        "ISS_ID": "2824fb2c-345e-1038-26d0-576cc248d34f",
+        "ISS_ORDER_NUM": 81
+    }, {
+        "ISS_OPINION": "{\"opinions\":[{\"id\":\"924989472\",\"userId\":\"Alex4D\",\"userName\":\"Alex\",\"organId\":\"10001\",\"organName\":\"系统管理组\",\"inputOpinion\":\"123\",\"inputTime\":\"2021-09-29 22:16:33\",\"indexNum\":1,\"status\":\"general\",\"formClient\":\"webClient\"}]}",
+        "ISS_TITLE": "123",
+        "ISS_ID": "30bd5079-1c00-2f24-ce89-1b08767759dc",
+        "ISS_ORDER_NUM": 6
+    }, {
+        "ISS_OPINION": "{\"opinions\":[]}",
+        "ISS_TITLE": "1",
+        "ISS_ID": "426e1544-4200-e967-f73c-0d16a2c05159",
+        "ISS_ORDER_NUM": 66
+    }, {
+        "ISS_OPINION": "{\"opinions\":[{\"id\":\"925238056\",\"userId\":\"Alex4D\",\"userName\":\"Alex\",\"organId\":\"10001\",\"organName\":\"系统管理组\",\"inputOpinion\":\"123123\",\"inputTime\":\"2021-09-29 22:20:41\",\"indexNum\":1,\"status\":\"general\",\"formClient\":\"webClient\"}]}",
+        "ISS_TITLE": "12313",
+        "ISS_ID": "467038a7-6782-083c-3ac1-73fee1c4a197",
+        "ISS_ORDER_NUM": 16
+    }, {
+        "ISS_OPINION": "{\"opinions\":[{\"id\":\"668675333\",\"userId\":\"Alex4D\",\"userName\":\"Alex\",\"organId\":\"10001\",\"organName\":\"系统管理组\",\"inputOpinion\":\"对对对\",\"inputTime\":\"2021-10-08 12:51:25\",\"indexNum\":1,\"status\":\"general\",\"formClient\":\"webClient\"}]}",
+        "ISS_TITLE": "123",
+        "ISS_ID": "4a21601a-f145-8d95-089d-8ff1addff06c",
+        "ISS_ORDER_NUM": 41
+    }, {
+        "ISS_OPINION": "{\"opinions\":[{\"id\":\"241613344\",\"userId\":\"Alex4D\",\"userName\":\"Alex\",\"organId\":\"10001\",\"organName\":\"系统管理组\",\"inputOpinion\":\"1\",\"inputTime\":\"2021-11-18 21:20:25\",\"indexNum\":1,\"status\":\"general\",\"formClient\":\"webClient\"}]}",
+        "ISS_TITLE": "测试1",
+        "ISS_ID": "527fffdc-b2dc-eec7-3eb9-dfff6f3bff70",
+        "ISS_ORDER_NUM": 101
+    }, {
+        "ISS_OPINION": "{\"opinions\":[]}",
+        "ISS_TITLE": "5",
+        "ISS_ID": "53275c3e-7a62-6833-f76b-f43190fd0f29",
+        "ISS_ORDER_NUM": 91
+    }, {
+        "ISS_OPINION": "{\"opinions\":[{\"id\":\"502936659\",\"userId\":\"Alex4D\",\"userName\":\"Alex\",\"organId\":\"10001\",\"organName\":\"系统管理组\",\"inputOpinion\":\"1\",\"inputTime\":\"2021-11-21 21:55:43\",\"indexNum\":1,\"status\":\"general\",\"formClient\":\"webClient\"}]}",
+        "ISS_TITLE": "请示",
+        "ISS_ID": "5f244eb8-cc2e-1806-47c8-baa3a6818ada",
+        "ISS_ORDER_NUM": 116
+    }, {
+        "ISS_OPINION": "{\"opinions\":[]}",
+        "ISS_TITLE": "1",
+        "ISS_ID": "60f039dd-3d13-fb72-dc40-c371fd42e75c",
+        "ISS_ORDER_NUM": 71
+    }, {
+        "ISS_OPINION": "{\"opinions\":[{\"id\":\"773426917\",\"userId\":\"Alex4D\",\"userName\":\"Alex\",\"organId\":\"10001\",\"organName\":\"系统管理组\",\"inputOpinion\":\"3\",\"inputTime\":\"2021-10-09 17:57:10\",\"indexNum\":1,\"status\":\"general\",\"formClient\":\"webClient\"}]}",
+        "ISS_TITLE": "3",
+        "ISS_ID": "6fb9c06e-f556-9335-2fa0-4dc5a27ed987",
+        "ISS_ORDER_NUM": 46
+    }, {
+        "ISS_OPINION": "{\"opinions\":[]}",
+        "ISS_TITLE": "4",
+        "ISS_ID": "759c5d41-f86e-50e3-530c-4b65cd1d3270",
+        "ISS_ORDER_NUM": 86
+    }, {
+        "ISS_OPINION": "{\"opinions\":[{\"id\":\"615953644\",\"userId\":\"Alex4D\",\"userName\":\"Alex\",\"organId\":\"10001\",\"organName\":\"系统管理组\",\"inputOpinion\":\"123123\",\"inputTime\":\"2021-10-07 22:12:38\",\"indexNum\":1,\"status\":\"general\",\"formClient\":\"webClient\"}]}",
+        "ISS_TITLE": "123",
+        "ISS_ID": "7dc03181-ca7c-36e9-faa6-8c83f81e3b06",
+        "ISS_ORDER_NUM": 31
+    }, {
+        "ISS_OPINION": "{\"opinions\":[{\"id\":\"924040485\",\"userId\":\"Alex4D\",\"userName\":\"Alex\",\"organId\":\"10001\",\"organName\":\"系统管理组\",\"inputOpinion\":\"123\",\"inputTime\":\"2021-09-29 22:00:45\",\"indexNum\":1,\"status\":\"general\",\"formClient\":\"webClient\"}]}",
+        "ISS_TITLE": "1",
+        "ISS_ID": "9ea0fb8e-458d-c4c8-1043-f6d3f8787331",
+        "ISS_ORDER_NUM": 1
+    }, {
+        "ISS_OPINION": "{\"opinions\":[{\"id\":\"506995790\",\"userId\":\"Alex4D\",\"userName\":\"Alex\",\"organId\":\"10001\",\"organName\":\"系统管理组\",\"inputOpinion\":\"请\",\"inputTime\":\"2021-11-21 23:03:23\",\"indexNum\":1,\"status\":\"general\",\"formClient\":\"webClient\"}]}",
+        "ISS_TITLE": "到期",
+        "ISS_ID": "9f1b391b-3897-2237-fe9e-8f3226b3e94f",
+        "ISS_ORDER_NUM": 126
+    }, {
+        "ISS_OPINION": "{\"opinions\":[{\"id\":\"925822020\",\"userId\":\"Alex4D\",\"userName\":\"Alex\",\"organId\":\"10001\",\"organName\":\"系统管理组\",\"inputOpinion\":\"123\",\"inputTime\":\"2021-09-29 22:30:26\",\"indexNum\":1,\"status\":\"general\",\"formClient\":\"webClient\"}]}",
+        "ISS_TITLE": "123123",
+        "ISS_ID": "b7783f9a-ea10-98d5-c4e9-2cf4a9bf2cf1",
+        "ISS_ORDER_NUM": 21
+    }, {
+        "ISS_OPINION": "{\"opinions\":[{\"id\":\"536957754\",\"userId\":\"Yuang_Hong_Ling_UID\",\"userName\":\"袁红林\",\"organId\":\"10002\",\"organName\":\"开发组织\",\"inputOpinion\":\"好\",\"inputTime\":\"2021-11-10 17:36:05\",\"indexNum\":1,\"status\":\"general\",\"formClient\":\"webClient\"},{\"id\":\"537016858\",\"userId\":\"Zhuang_Rui_Bo_UID\",\"userName\":\"庄锐波\",\"organId\":\"10002\",\"organName\":\"开发组织\",\"inputOpinion\":\"好1\",\"inputTime\":\"2021-11-10 17:37:05\",\"indexNum\":2,\"status\":\"general\",\"formClient\":\"webClient\"}]}",
+        "ISS_TITLE": "并行",
+        "ISS_ID": "c1f1d071-5236-2d0a-51e0-99418ac4cb48",
+        "ISS_ORDER_NUM": 61
+    }],
+    "pageNum": 1,
+    "pageSize": 20,
+    "size": 20,
+    "startRow": 1,
+    "endRow": 20,
+    "pages": 2,
+    "prePage": 0,
+    "nextPage": 2,
+    "isFirstPage": true,
+    "isLastPage": false,
+    "hasPreviousPage": false,
+    "hasNextPage": true,
+    "navigatePages": 8,
+    "navigatepageNums": [1, 2],
+    "navigateFirstPage": 1,
+    "navigateLastPage": 2,
+    "lastPage": 2,
+    "firstPage": 1
+}, "exKVData": {}
+}

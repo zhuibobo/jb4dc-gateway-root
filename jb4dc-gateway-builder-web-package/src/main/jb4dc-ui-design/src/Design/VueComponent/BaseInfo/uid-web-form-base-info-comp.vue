@@ -138,7 +138,7 @@ export default {
                 op: this.status
             }).then((response) => {
                 let result = response.data;
-                debugger;
+                //debugger;
                 if (this.status == "add") {
                     this.recordId = result.data.formId;
                     this.formResourceEntity.formId = this.recordId;
