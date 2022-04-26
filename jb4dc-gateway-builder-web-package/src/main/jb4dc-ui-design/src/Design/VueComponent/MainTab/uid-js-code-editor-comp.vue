@@ -7,6 +7,7 @@ import * as monaco from 'monaco-editor';
 import MonacoEditorUtility from "../../Utility/MonacoEditorUtility";
 import enumValues from "../../EnumValues.js"
 import BaseUtility from "../../../Utility/BaseUtility"
+import getWebAppFormJsCodeDefaultContent from "../../Utility/MonacoEditorUtility";
 
 export default {
     name: "uid-js-code-editor-comp",
@@ -21,9 +22,15 @@ export default {
             theme:'vs-dark' //官方自带三种主题vs, hc-black, or vs-dark
         });
 
-        if(this.uiDesignType==enumValues.uiDesignType.webListDesign&&BaseUtility.IsAddOperationByUrl()){
-            this.setValue(MonacoEditorUtility.getWebAppListJsCodeDefaultContent());
+        if(BaseUtility.IsAddOperationByUrl()){
+            if(this.uiDesignType==enumValues.uiDesignType.webListDesign) {
+                this.setValue(MonacoEditorUtility.getWebAppListJsCodeDefaultContent());
+            }
+            else if(this.uiDesignType==enumValues.uiDesignType.webFormDesign){
+                this.setValue(MonacoEditorUtility.getWebAppFormJsCodeDefaultContent());
+            }
         }
+
     },
     methods:{
         getValue(){

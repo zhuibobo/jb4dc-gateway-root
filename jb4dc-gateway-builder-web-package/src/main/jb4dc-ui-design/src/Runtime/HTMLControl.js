@@ -99,6 +99,7 @@ let HTMLControl={
                         HTMLControl.TryBindDefaultPropToInstanceProp(instance);
 
                         runtimeRootHostInstance.AddRendererControlInstance(instance);
+                        runtimeRootHostInstance.CallPageRuntimeExtendEveryControlRendererChainEnd(_rendererChainParas);
                         //初始化控件实例属性
                         /*if (instance._objectType == "Instance") {
                             if (instance._prop) {
@@ -137,6 +138,7 @@ let HTMLControl={
         //console.log(_rendererDataChainParas);
         //debugger;
         let $singleControlElem=_rendererDataChainParas.$singleControlElem;
+        let runtimeRootHostInstance=_rendererDataChainParas.runtimeRootHostInstance;
         //debugger;
         for (let i = 0; i < $singleControlElem.children().length; i++) {
             try {
@@ -150,7 +152,6 @@ let HTMLControl={
                     //debugger;
                     //let clientResolveInstanceName = $childSingleElem.attr(HTMLControlAttrs.CLIENT_RESOLVE);
                     let instance=HTMLControl.GetControlInstanceByElem($childSingleElem);
-                    instance.RendererDataChain(_cloneRendererDataChainParas);
 
                     let fieldPO;
                     if(typeof(instance.SetValue)=="function") {
@@ -158,12 +159,15 @@ let HTMLControl={
                         instance.SetValue($childSingleElem,fieldPO,_rendererDataChainParas.relationFormRecordComplexPo,_rendererDataChainParas);
                     }
 
-                    //console.log(_rendererDataChainParas.callToViewStatusFunc);
                     if(_rendererDataChainParas.callToViewStatusFunc) {
                         if(typeof(instance.ToViewStatus)=="function") {
                             instance.ToViewStatus($childSingleElem,fieldPO,_rendererDataChainParas.relationFormRecordComplexPo,_rendererDataChainParas);
                         }
                     }
+
+                    instance.RendererDataChain(_cloneRendererDataChainParas);
+
+                    runtimeRootHostInstance.CallPageRuntimeExtendEveryControlRendererDataChainEnd(_rendererDataChainParas);
                 } else {
                     HTMLControl.RendererDataChain(_cloneRendererDataChainParas);
                 }
@@ -367,6 +371,13 @@ let HTMLControl={
                 }
             });
         });
+
+        if($elem.attr("client_instance_name")) {
+            instance._prop.instanceName = $elem.attr("client_instance_name");
+        }
+        else{
+            instance._prop.instanceName = $elem.attr("client_resolve");
+        }
         /*let result={};
         for(let key in objProp){
             if($elem.attr(key)){

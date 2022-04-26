@@ -13,7 +13,7 @@ var WFDCT_CKEditor4={
         //$singleControlElem.val("22222");
         //加载默认配置文件
 
-        if(BaseUtility.IsViewOperation(_rendererChainParas.formRuntimeInstance.GetOperationType())) {
+        if(BaseUtility.IsViewOperation(_rendererChainParas.runtimeRootHostInstance.GetOperationType())) {
 
         }
         else {
@@ -24,7 +24,7 @@ var WFDCT_CKEditor4={
             //editorConfigUrl=1;
             this.ckeditorInstance = CKEDITOR.replace($singleControlElem.attr("id"), {
                 //customConfig: editorConfigUrl,
-                formRuntimeInstance:_rendererChainParas.formRuntimeInstance
+                //formRuntimeInstance:_rendererChainParas.formRuntimeInstance
             });
             this.ckeditorInstance.config.height = areaHeight;
             //console.log(this.ckeditorInstance.config.plugins);

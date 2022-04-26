@@ -1,5 +1,6 @@
 import RemoteRestInterface from '../Remote/RemoteRestInterface.js';
 import VirtualBodyControl from '../VirtualBodyControl.js';
+import JSRuntime from "../JSRuntime";
 
 let WebFormRuntime={
     //OperationAdd:"add",
@@ -16,7 +17,11 @@ let WebFormRuntime={
         OperationType:"",
         ListFormButtonElemId:"",
         FormRuntimeCategory:"IsDependenceList",
-        PreHandleFormHtmlRuntimeFunc:null
+        PreHandleFormHtmlRuntimeFunc:null,
+        RuntimeRootHostInstanceName:"",
+        RendererControlInstances:[],
+        RendererChainCompletedFunc:null,
+        RendererDataChainCompletedFunc:null
     },
     _$RendererToElem:null,
     _FormPO:null,
@@ -49,27 +54,32 @@ let WebFormRuntime={
                 this._FormDataRelationList = this._FormPO.formRecordDataRelationPOList;
                 this._OriginalFormDataRelationList = JsonUtility.CloneStringify(this._FormDataRelationList);
 
-                var formHtmlRuntime = result.data.formHtmlRuntime;
+                let formHtmlRuntime = result.data.formHtmlRuntime;
                 if (typeof (this._Prop_Config.PreHandleFormHtmlRuntimeFunc) == "function") {
                     formHtmlRuntime = this._Prop_Config.PreHandleFormHtmlRuntimeFunc(formHtmlRuntime, this, this._Prop_Config);
                 }
 
                 this._$RendererToElem.append(formHtmlRuntime);
 
-                try {
+                this.pageRuntimeExtendObj = JSRuntime.ConvertJsContentToObject(this, this._FormPO.formJsRuntime);
+                this.pageRuntimeExtendObj.data.runtimeRootHostInstance = this;
+                this.pageRuntimeExtendObj.pageReady();
+                //try {
                     //this._FormJSRuntimeInst = Object.create(HTMLJSRuntime);
                     //this._FormJSRuntimeInst.Initialization({}, this._$RendererToElem, this._FormPO.formJsContent);
-                } catch (e) {
-                    console.error("加载动态脚本错误! FormRuntime._LoadHTMLToEl-->this._FormJSRuntimeInst.Initialization:" + e);
-                }
+                //} catch (e) {
+                //    console.error("加载动态脚本错误! FormRuntime._LoadHTMLToEl-->this._FormJSRuntimeInst.Initialization:" + e);
+                //}
 
-                var _rendererChainParas = {
+                let _rendererChainParas = {
                     po: result.data,
                     sourceHTML: formHtmlRuntime,
                     $rootElem: this._$RendererToElem,
                     $parentControlElem: this._$RendererToElem,
                     $singleControlElem: this._$RendererToElem,
-                    formRuntimeInstance: this
+                    runtimeRootHostInstance: this,
+                    runtimeRootHostInstanceName: this._Prop_Config.RuntimeRootHostInstanceName,
+                    pageRuntimeExtendObj: this.pageRuntimeExtendObj
                 };
 
                 VirtualBodyControl.RendererChain(_rendererChainParas);
@@ -89,7 +99,7 @@ let WebFormRuntime={
                 }
 
                 if (BaseUtility.IsUpdateOperation(this.GetOperationType()) || BaseUtility.IsViewOperation(this.GetOperationType())) {
-                    var formRecordComplexPO = result.data.formRecordComplexPO;
+                    let formRecordComplexPO = result.data.formRecordComplexPO;
                     //console.log(result.data);
                     //console.log(formRecordComplexPO);
                     this.DeSerializationFormData(formRecordComplexPO);
@@ -106,7 +116,7 @@ let WebFormRuntime={
                 console.error("渲染Html控件错误! FormRuntime._LoadHTMLToEl:" + e);
                 throw e;
             }
-            //var relationFormRecordComplexPo=FormRuntimeMock.GetMockData();
+            //let relationFormRecordComplexPo=FormRuntimeMock.GetMockData();
             //this.DeSerializationFormData(relationFormRecordComplexPo);
         });
     },
@@ -117,7 +127,7 @@ let WebFormRuntime={
         }
     },
     CallRendererChainCompletedFunc:function() {
-        var _this=this;
+        let _this=this;
         if (typeof (this._Prop_Config.RendererChainCompletedFunc) == "function") {
             this._Prop_Config.RendererChainCompletedFunc.call(this,this._Prop_Config);
         }
@@ -153,7 +163,7 @@ let WebFormRuntime={
     },
 
     SerializationFormData:function () {
-        var formRecordComplexPo = {
+        let formRecordComplexPo = {
             recordId: this._Prop_Config.RecordId,
             formId: this._Prop_Config.FormId,
             buttonId: this._Prop_Config.ButtonId,
@@ -162,37 +172,37 @@ let WebFormRuntime={
             exData: null
         };
 
-        var originalFormDataRelation = this.GetOriginalFormDataRelation();
+        let originalFormDataRelation = this.GetOriginalFormDataRelation();
         //console.log(originalFormDataRelation);
 
-        for (var i = 0; i < originalFormDataRelation.length; i++) {
-            var singleRelation = originalFormDataRelation[i];
-            var relationSingleName = singleRelation.singleName;
-            var tableName = singleRelation.tableName;
-            var tableId=singleRelation.tableId;
-            //var isMain = (singleRelation.parentId == "-1");
-            var isMain = singleRelation.main;
+        for (let i = 0; i < originalFormDataRelation.length; i++) {
+            let singleRelation = originalFormDataRelation[i];
+            let relationSingleName = singleRelation.singleName;
+            let tableName = singleRelation.tableName;
+            let tableId=singleRelation.tableId;
+            //let isMain = (singleRelation.parentId == "-1");
+            let isMain = singleRelation.main;
             singleRelation.isMain = isMain;
             if (isMain) {
                 singleRelation.relationType = "1To1";
             }
-            var relationType = singleRelation.relationType;
+            let relationType = singleRelation.relationType;
 
             if (relationType == "1To1") {
                 //获取不在动态DynamicContainer中的并且绑定到了当前表的控件
-                var controls = $("[tablename='" + tableName + "'][serialize='true']").not($("[control_category='DynamicContainer']").find("[jbuild4dc_custom='true']"));
-                var oneRowRecord = [];
-                for (var j = 0; j < controls.length; j++) {
-                    var $controlElem = $(controls[j]);
-                    var fieldTransferPO = HTMLControl.TryGetFieldTransferPO($controlElem, singleRelation.id, relationSingleName, relationType);
+                let controls = $("[tablename='" + tableName + "'][serialize='true']").not($("[control_category='DynamicContainer']").find("[jbuild4dc_custom='true']"));
+                let oneRowRecord = [];
+                for (let j = 0; j < controls.length; j++) {
+                    let $controlElem = $(controls[j]);
+                    let fieldTransferPO = HTMLControl.TryGetFieldTransferPO($controlElem, singleRelation.id, relationSingleName, relationType);
                     oneRowRecord.push(fieldTransferPO);
                 }
 
-                var recordId = "";
-                var outerFieldName = "";
-                var outerFieldValue = "";
-                var selfFieldName = "";
-                //var mainRelationPO=FormRelationPOUtility.FindMainRelationPO(originalFormDataRelation);
+                let recordId = "";
+                let outerFieldName = "";
+                let outerFieldValue = "";
+                let selfFieldName = "";
+                //let mainRelationPO=FormRelationPOUtility.FindMainRelationPO(originalFormDataRelation);
                 //debugger;
                 if (isMain) {
                     FormRelationPOUtility.CreateIdFieldInRecordFieldPOArray(oneRowRecord, formRecordComplexPo.recordId,this.GetFormPO(),tableId);
@@ -210,9 +220,9 @@ let WebFormRuntime={
 
                 FormRelationPOUtility.Add1To1DataRecordFieldPOList(singleRelation, oneRowRecord, "", recordId, outerFieldName, outerFieldValue, selfFieldName);
             } else {
-                var control = $("[serialize='true'][control_category='DynamicContainer'][relation_po_id='"+singleRelation.id+"']");
+                let control = $("[serialize='true'][control_category='DynamicContainer'][relation_po_id='"+singleRelation.id+"']");
                 if(control.length>0) {
-                    var controlInstance = HTMLControl.GetControlInstanceByElem(control);
+                    let controlInstance = HTMLControl.GetControlInstanceByElem(control);
                     controlInstance.SerializationValue(originalFormDataRelation,singleRelation,control);
                 }
             }
@@ -231,23 +241,35 @@ let WebFormRuntime={
             $rootElem: this._$RendererToElem,
             $parentControlElem: this._$RendererToElem,
             $singleControlElem: this._$RendererToElem,
-            formRuntimeInstance: this,
+            //formRuntimeInstance: this,
             relationFormRecordComplexPo:relationFormRecordComplexPo,
-            callToViewStatusFunc:BaseUtility.IsViewOperation(this.GetOperationType())
+            callToViewStatusFunc:BaseUtility.IsViewOperation(this.GetOperationType()),
+            runtimeRootHostInstance: this,
+            runtimeRootHostInstanceName: this._Prop_Config.RuntimeRootHostInstanceName,
+            pageRuntimeExtendObj: this.pageRuntimeExtendObj
         });
     },
     CreateALLInnerFormButton:function (listButtonPO) {
         if(!StringUtility.IsNullOrEmpty(listButtonPO.buttonInnerConfig)) {
-            var buttonInnerConfig=JsonUtility.StringToJson(listButtonPO.buttonInnerConfig);
-            for (var i = 0; i < buttonInnerConfig.length; i++) {
-                var innerButtonConfig=buttonInnerConfig[i];
-                var buttonElem=InnerFormButtonRuntime.RendererSingleInnerFormButton(innerButtonConfig,this,listButtonPO);
+            let buttonInnerConfig=JsonUtility.StringToJson(listButtonPO.buttonInnerConfig);
+            for (let i = 0; i < buttonInnerConfig.length; i++) {
+                let innerButtonConfig=buttonInnerConfig[i];
+                let buttonElem=InnerFormButtonRuntime.RendererSingleInnerFormButton(innerButtonConfig,this,listButtonPO);
                 $("#innerButtonWrapOuter").append(buttonElem);
             }
         }
     },
     GetWebFormRTParas:function () {
         return this._Prop_Config.WebFormRTParas;
+    },
+    AddRendererControlInstance:function (instance){
+        this._Prop_Config.RendererControlInstances.push(instance);
+    },
+    CallPageRuntimeExtendEveryControlRendererChainEnd:function (_rendererChainParas){
+        this.pageRuntimeExtendObj.everyControlRendererChainEnd(_rendererChainParas);
+    },
+    CallPageRuntimeExtendEveryControlRendererDataChainEnd:function (_rendererDataChainParas){
+        this.pageRuntimeExtendObj.everyControlRendererDataChainEnd(_rendererDataChainParas);
     }
 }
 

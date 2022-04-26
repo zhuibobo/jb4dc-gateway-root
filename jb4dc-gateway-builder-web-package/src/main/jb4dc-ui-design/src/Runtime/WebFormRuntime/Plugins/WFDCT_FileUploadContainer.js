@@ -1,8 +1,7 @@
 import HTMLControl from '../../HTMLControl.js'
 import RemoteRestInterface from '../../Remote/RemoteRestInterface.js'
-import getFileListData from "../../Remote/RemoteRestInterface";
 
-var WFDCT_FileUploadContainer={
+let WFDCT_FileUploadContainer={
     _objectType:"Instance",//Static;
     _propMap:{},
     _prop: {
@@ -38,8 +37,10 @@ var WFDCT_FileUploadContainer={
     RendererChain:function (_rendererChainParas) {
         //1
         //debugger;
-        this.formRuntimeInst=_rendererChainParas.formRuntimeInstance;
-        var $singleControlElem=_rendererChainParas.$singleControlElem;
+
+        this.formRuntimeInst=_rendererChainParas.runtimeRootHostInstance;
+        let $singleControlElem=_rendererChainParas.$singleControlElem;
+        this._prop.$singleControlElem=$singleControlElem;
         this.BindElementAttrToInstanceProp($singleControlElem);
         $singleControlElem.html("");
 
@@ -88,7 +89,7 @@ var WFDCT_FileUploadContainer={
         //console.log(this._prop);
     },
     GetThisRecordId:function(){
-        var objId="";
+        let objId="";
         //if(formRuntimeInst&&formRuntimeInst.GetWebFormRTParas()&&formRuntimeInst.GetWebFormRTParas().RecordId) {
         if(this.formRuntimeInst&&this.formRuntimeInst.GetRecordId()) {
             objId=this.formRuntimeInst.GetRecordId();
@@ -103,9 +104,9 @@ var WFDCT_FileUploadContainer={
         return this._prop.objType;
     },
     GetUploadEndPointRequest:function () {
-        var endPoint=BaseUtility.GetRootPath()+this.acInterface.uploadFile;
+        let endPoint=BaseUtility.GetRootPath()+this.acInterface.uploadFile;
         //debugger;
-        var paras={
+        let paras={
             objType:eval(this._prop.getBindRecordTypeJsMethod),
             objId:eval(this._prop.getBindRecordIdJsMethod),
             categoryType:this._prop.categoryType
@@ -196,18 +197,18 @@ var WFDCT_FileUploadContainer={
     },
     BuildUploadContainer:function(){
         if(this._prop.uploadEnable) {
-            var $singleControlElem = this._prop.$singleControlElem;
-            var uploadWarpId='uploadWarp_'+this._prop.elemId;
+            let $singleControlElem = this._prop.$singleControlElem;
+            let uploadWarpId='uploadWarp_'+this._prop.elemId;
             this._prop.uploadWarpId=uploadWarpId;
-            var $uploadWarp = $("<div id='"+uploadWarpId+"'></div>");
+            let $uploadWarp = $("<div id='"+uploadWarpId+"'></div>");
             $singleControlElem.append($uploadWarp);
-            var templateId = "qq-template_" + this._prop.elemId;
+            let templateId = "qq-template_" + this._prop.elemId;
             if (this._prop.useTemplate == "defaultTemplate") {
                 this.CreateDefaultTemplate(templateId);
             }
 
-            var _this = this;
-            var galleryUploader = new qq.FineUploader({
+            let _this = this;
+            let galleryUploader = new qq.FineUploader({
                 element: $uploadWarp[0],
                 template: templateId,
                 multiple: false,
@@ -235,21 +236,21 @@ var WFDCT_FileUploadContainer={
     },
     /*列表相关设置*/
     BuildFileList:function () {
-        var $singleControlElem = this._prop.$singleControlElem;
-        var upload_file_list_wrap_id="upload_file_list_warp_"+this._prop.elemId;
+        let $singleControlElem = this._prop.$singleControlElem;
+        let upload_file_list_wrap_id="upload_file_list_warp_"+this._prop.elemId;
         $("#"+upload_file_list_wrap_id).remove();
-        var $divWarp=$("<div class='upload_file_list_wrap' id='"+upload_file_list_wrap_id+"'><table class='file_list_table'><thead><tr><th style='width: 80px'>编号</th><th>文件名称</th><th style='width: 140px'>上传时间</th><th style='width: 140px'>上传人</th><th style='width: 140px'>文件大小</th><th style='width: 140px'>操作</th></tr></thead><tbody></tbody></table></div>");
-        var $tbody=$divWarp.find("tbody");
-        var objId=eval(this._prop.getBindRecordIdJsMethod);
-        var category=this._prop.categoryType;
+        let $divWarp=$("<div class='upload_file_list_wrap' id='"+upload_file_list_wrap_id+"'><table class='file_list_table'><thead><tr><th style='width: 80px'>编号</th><th>文件名称</th><th style='width: 140px'>上传时间</th><th style='width: 140px'>上传人</th><th style='width: 140px'>文件大小</th><th style='width: 140px'>操作</th></tr></thead><tbody></tbody></table></div>");
+        let $tbody=$divWarp.find("tbody");
+        let objId=eval(this._prop.getBindRecordIdJsMethod);
+        let category=this._prop.categoryType;
         RemoteRestInterface.getFileListData({
             objId:objId,
             categoryType:category
         }).then((response)=> {
             let result=response.data;
             if(result.success){
-                for(var i=0;i<result.data.length;i++){
-                    var fileInfo=result.data[i];
+                for(let i=0;i<result.data.length;i++){
+                    let fileInfo=result.data[i];
                     $tbody.append(this.BuildFileInfoTableRow(result,fileInfo));
                 }
             }
@@ -261,12 +262,12 @@ var WFDCT_FileUploadContainer={
         $($singleControlElem.append($divWarp));
     },
     BuildFileInfoTableRow:function (responseJSON,fileInfo) {
-        var fileCode=fileInfo.fileCode;
-        var fileName=StringUtility.EncodeHtml(fileInfo.fileName);
-        var fileCreateTime=DateUtility.DateFormatByTimeStamp(fileInfo.fileCreateTime,"yyyy-MM-dd");
-        var fileSize=HardDiskUtility.ByteConvert(fileInfo.fileSize);
-        var fileCreatorName=StringUtility.EncodeHtml(fileInfo.fileCreatorName);
-        var $trObj=$(`<tr><td style="text-align: center">${fileCode}</td><td>${fileName}</td><td style="text-align: center">${fileCreateTime}</td><td style="text-align: center">${fileCreatorName}</td><td style="text-align: center">${fileSize}</td><td style="text-align: center"></td></tr>`);
+        let fileCode=fileInfo.fileCode;
+        let fileName=StringUtility.EncodeHtml(fileInfo.fileName);
+        let fileCreateTime=DateUtility.DateFormatByTimeStamp(fileInfo.fileCreateTime,"yyyy-MM-dd");
+        let fileSize=HardDiskUtility.ByteConvert(fileInfo.fileSize);
+        let fileCreatorName=StringUtility.EncodeHtml(fileInfo.fileCreatorName);
+        let $trObj=$(`<tr><td style="text-align: center">${fileCode}</td><td>${fileName}</td><td style="text-align: center">${fileCreateTime}</td><td style="text-align: center">${fileCreatorName}</td><td style="text-align: center">${fileSize}</td><td style="text-align: center"></td></tr>`);
         this.BuildFileInfoTableRowInnerButtons(responseJSON,fileInfo,$trObj);
         return $trObj;
     },
@@ -274,13 +275,13 @@ var WFDCT_FileUploadContainer={
         if(!this._prop.downloadEnable&&!this._prop.deleteEnable&&this._prop.previewEnable&&this._prop.moveOrderEnable){
 
         }
-        var $trLastTd=$tr.find("td:last");
-        var _this=this;
+        let $trLastTd=$tr.find("td:last");
+        let _this=this;
         if(this._prop.deleteEnable){
-            var $deleteElem=$("<div class='file-list-inner-button delete-button-elem' title='点击删除'></div>");
+            let $deleteElem=$("<div class='file-list-inner-button delete-button-elem' title='点击删除'></div>");
             $deleteElem.click(function () {
                 DialogUtility.Confirm(window,"确认删除附件【"+fileInfo.fileName+"】吗?",function () {
-                    //var url=BaseUtility.GetRootPath()+;
+                    //let url=BaseUtility.GetRootPath()+;
                     AjaxUtility.Post(_this.acInterface.deleteFile,{fileId:fileInfo.fileId},function (result) {
                         if(result.success){
                             $deleteElem.parent().parent().remove();
@@ -291,11 +292,11 @@ var WFDCT_FileUploadContainer={
             $trLastTd.append($deleteElem);
         }
         if(this._prop.moveOrderEnable||true){
-            var $moveUpElem=$("<div class='file-list-inner-button move-up-button-elem' title='点击上移'></div>");
+            let $moveUpElem=$("<div class='file-list-inner-button move-up-button-elem' title='点击上移'></div>");
             $moveUpElem.click(function () {
                 DialogUtility.AlertText("暂不支持!");
             })
-            var $moveDownElem=$("<div class='file-list-inner-button move-down-button-elem' title='点击下移'></div>");
+            let $moveDownElem=$("<div class='file-list-inner-button move-down-button-elem' title='点击下移'></div>");
             $moveDownElem.click(function () {
                 DialogUtility.AlertText("暂不支持!");
             })
@@ -304,15 +305,15 @@ var WFDCT_FileUploadContainer={
         }
         if(this._prop.downloadEnable){
 
-            var $downloadElem=$("<div class='file-list-inner-button download-button-elem' title='点击下载'></div>");
+            let $downloadElem=$("<div class='file-list-inner-button download-button-elem' title='点击下载'></div>");
             $downloadElem.click(function () {
-                var url=BaseUtility.GetRootPath()+_this.acInterface.downloadFile+"?fileId="+fileInfo.fileId;
+                let url=BaseUtility.GetRootPath()+_this.acInterface.downloadFile+"?fileId="+fileInfo.fileId;
                 window.open(url);
             });
             $trLastTd.append($downloadElem);
         }
         if(this._prop.previewEnable||true){
-            var $previewElem=$("<div class='file-list-inner-button preview-button-elem' title='点击预览'></div>");
+            let $previewElem=$("<div class='file-list-inner-button preview-button-elem' title='点击预览'></div>");
             $previewElem.click(function () {
                 DialogUtility.AlertText("暂不支持!");
             })

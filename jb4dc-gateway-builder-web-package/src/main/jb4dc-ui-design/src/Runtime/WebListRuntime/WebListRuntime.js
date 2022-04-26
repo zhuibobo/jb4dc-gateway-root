@@ -8,7 +8,7 @@ let ListRuntime={
         RendererToId:null,
         ListId:"",
         IsPreview:false,
-        WebListRuntimeInstanceName:"",
+        RuntimeRootHostInstanceName:"",
         RendererControlInstances:[],
         RendererChainCompletedFunc:null,
         RendererDataChainCompletedFunc:null
@@ -31,8 +31,8 @@ let ListRuntime={
             let result = response.data;
             this._ListPO = result.data;
             this._$RendererToElem.append("<div class=\"uid-runtime-default-theme-root\">" + result.data.listHtmlRuntime + "</div>");
-            this.pageRuntimeExtendObj = JSRuntime.ConvertJsContentToObject(this, this._ListPO.listJsRuntime);
 
+            this.pageRuntimeExtendObj = JSRuntime.ConvertJsContentToObject(this, this._ListPO.listJsRuntime);
             this.pageRuntimeExtendObj.data.runtimeRootHostInstance = this;
             this.pageRuntimeExtendObj.pageReady();
 
@@ -44,7 +44,7 @@ let ListRuntime={
                 $parentControlElem: this._$RendererToElem,
                 $singleControlElem: this._$RendererToElem,
                 runtimeRootHostInstance: this,
-                runtimeRootHostInstanceName: this._Prop_Config.WebListRuntimeInstanceName,
+                runtimeRootHostInstanceName: this._Prop_Config.RuntimeRootHostInstanceName,
                 pageRuntimeExtendObj: this.pageRuntimeExtendObj
             });
 
@@ -65,7 +65,7 @@ let ListRuntime={
                 $singleControlElem: this._$RendererToElem,
                 topDataSetId: topDataSetId,
                 runtimeRootHostInstance: this,
-                runtimeRootHostInstanceName: this._Prop_Config.WebListRuntimeInstanceName,
+                runtimeRootHostInstanceName: this._Prop_Config.RuntimeRootHostInstanceName,
                 pageRuntimeExtendObj: this.pageRuntimeExtendObj
             });
 
@@ -137,6 +137,12 @@ let ListRuntime={
     },
     AddRendererControlInstance:function (instance){
         this._Prop_Config.RendererControlInstances.push(instance);
+    },
+    CallPageRuntimeExtendEveryControlRendererChainEnd:function (_rendererChainParas){
+        this.pageRuntimeExtendObj.everyControlRendererChainEnd(_rendererChainParas);
+    },
+    CallPageRuntimeExtendEveryControlRendererDataChainEnd:function (_rendererDataChainParas){
+        this.pageRuntimeExtendObj.everyControlRendererDataChainEnd(_rendererDataChainParas);
     }
 }
 export {ListRuntime as default};

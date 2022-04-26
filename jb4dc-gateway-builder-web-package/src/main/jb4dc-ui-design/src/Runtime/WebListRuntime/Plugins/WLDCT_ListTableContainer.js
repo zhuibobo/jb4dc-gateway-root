@@ -4,6 +4,7 @@ import HTMLControlAttrs from '../../HTMLControlAttrs.js'
 import RuntimeGeneralInstance from '../../RuntimeGeneralInstance.js'
 import getWebListRuntimeDataSetData from "../../Remote/RemoteRestInterface";
 import rootRuntimeHostInstance from "../../HTMLControl";
+import runtimeRootHostInstance from "../../HTMLControl";
 
 var WLDCT_ListTableContainer = {
     GetHTML: function () {
@@ -551,7 +552,7 @@ var WLDCT_ListTableContainer = {
                         $cloneRow: $cloneRow,
                         $td: $td,
                         val: val,
-                        listRuntimeInstance: this._ListRuntimeInstance
+                        runtimeRootHostInstance: this._ListRuntimeInstance
                     });
                 }
                 catch (e){

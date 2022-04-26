@@ -2,6 +2,7 @@ import WebListRuntime from './WebListRuntime.js';
 import RuntimeGeneralInstance from '../RuntimeGeneralInstance.js';
 import "../../Less/UIRuntimeMain.less";
 import RemoteRestInterface from '../Remote/RemoteRestInterface.js';
+import RuntimeRootHostInstanceName from "./WebListRuntime";
 
 RemoteRestInterface.getUserPO({}).then((response)=> {
     let userPO = response.data.data;
@@ -11,7 +12,7 @@ RemoteRestInterface.getUserPO({}).then((response)=> {
     WebListRuntimeInstanceObj.Initialization({
         RendererToId: "htmlDesignRuntimeWrap",
         ListId: listId,
-        WebListRuntimeInstanceName: "WebListRuntimeInstanceObj",
+        RuntimeRootHostInstanceName: "WebListRuntimeInstanceObj",
         userPO: userPO
     })
 

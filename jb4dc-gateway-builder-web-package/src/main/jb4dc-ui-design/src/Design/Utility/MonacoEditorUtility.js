@@ -33,7 +33,7 @@ let MonacoEditorUtility = {
         runtimeRootHostInstance:null
     },
     pageReady: function () {
-        console.log("页面加载html完成,未进行客户端控件的渲染");
+        //console.log("页面加载html完成,未进行客户端控件的渲染");
     },
     searchBefore:function(type,condition){
         
@@ -41,17 +41,51 @@ let MonacoEditorUtility = {
     pageChangeBefore:function(pageNum,pageSize,pageCount){
         
     },
-    everyControlRendererChainEnd:function(){
-        
+    everyControlRendererChainEnd:function(_rendererChainParas){
+        //console.log("everyControlRendererChainEnd");
     },
-    everyControlRendererDataChainEnd:function(){
-        
+    everyControlRendererDataChainEnd:function(_rendererDataChainParas){
+        //console.log("everyControlRendererDataChainEnd");
+    },
+    rendererChainCompleted: function () {
+        //console.log("客户端控件渲染完成");
+    },
+    rendererDataChainCompleted: function () {
+        //console.log("客户端控件渲染并绑定完数据");
+    }
+}`;
+    },
+    getWebAppFormCssCodeDefaultContent() {
+        return ``;
+    },
+    getWebAppFormJsCodeDefaultContent(){
+        return `let PageRuntimeExtend = {
+    data: {
+        formPO: null,
+        formRecordComplexPO:null,
+        webFormRTParas:null,
+        innerFormButtons:[],
+        userPO:null,
+        runtimeRootHostInstance:null
+    },
+    pageReady: function () {
+        console.log("页面加载html完成,未进行客户端控件的渲染");
+    },
+    everyControlRendererChainEnd:function(_rendererChainParas){
+        console.log("everyControlRendererChainEnd");
+    },
+    everyControlRendererDataChainEnd:function(_rendererDataChainParas){
+        console.log("everyControlRendererDataChainEnd");
     },
     rendererChainCompleted: function () {
         console.log("客户端控件渲染完成");
     },
     rendererDataChainCompleted: function () {
         console.log("客户端控件渲染并绑定完数据");
+    },
+    validateEveryFromControl: function (validateResult) {
+        console.log("验证控件输入值");
+        return validateResult;
     }
 }`;
     }
