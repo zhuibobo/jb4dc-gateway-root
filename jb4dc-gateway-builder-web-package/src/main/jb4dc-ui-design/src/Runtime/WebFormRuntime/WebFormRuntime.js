@@ -1,6 +1,7 @@
 import RemoteRestInterface from '../Remote/RemoteRestInterface.js';
 import VirtualBodyControl from '../VirtualBodyControl.js';
 import JSRuntime from "../JSRuntime";
+import InnerFormButtonRuntime from "./InnerFormButtonRuntime";
 
 let WebFormRuntime={
     //OperationAdd:"add",
