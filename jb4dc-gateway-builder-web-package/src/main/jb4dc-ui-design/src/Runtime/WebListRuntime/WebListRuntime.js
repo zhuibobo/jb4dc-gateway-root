@@ -1,8 +1,6 @@
 import RemoteRestInterface from '../Remote/RemoteRestInterface.js';
 import VirtualBodyControl from '../VirtualBodyControl.js';
 import JSRuntime from '../JSRuntime.js';
-import rootRuntimeHostInstance from "../HTMLControl";
-import runtimeRootHostInstance from "../HTMLControl";
 
 let ListRuntime={
     _Prop_Status:"Edit",
@@ -12,7 +10,8 @@ let ListRuntime={
         IsPreview:false,
         WebListRuntimeInstanceName:"",
         RendererControlInstances:[],
-        RendererChainCompletedFunc:null
+        RendererChainCompletedFunc:null,
+        RendererDataChainCompletedFunc:null
     },
     _ListPO:null,
     _$RendererToElem:null,
@@ -26,16 +25,16 @@ let ListRuntime={
     //_RendererChainIsCompleted:false,
     //_RendererDataChainIsCompleted:false,
     _LoadHTMLToEl:function () {
-        RemoteRestInterface.loadWebListRuntimeHTML({listId:this._Prop_Config.ListId}).then((response)=> {
+        RemoteRestInterface.loadWebListRuntimeHTML({listId: this._Prop_Config.ListId}).then((response) => {
             //debugger;
             console.log(this._Prop_Config);
             let result = response.data;
             this._ListPO = result.data;
             this._$RendererToElem.append("<div class=\"uid-runtime-default-theme-root\">" + result.data.listHtmlRuntime + "</div>");
-            this.pageRuntimeExtendObj = JSRuntime.ConvertJsContentToObject(this, this._ListPO.listJsContent);
+            this.pageRuntimeExtendObj = JSRuntime.ConvertJsContentToObject(this, this._ListPO.listJsRuntime);
 
-            //this._JSRuntimeInst = Object.create(HTMLJSRuntime);
-            //this._JSRuntimeInst.Initialization({},this._$RendererToElem,this._ListPO.listJsContent);
+            this.pageRuntimeExtendObj.data.runtimeRootHostInstance = this;
+            this.pageRuntimeExtendObj.pageReady();
 
             //进行元素渲染1
             VirtualBodyControl.RendererChain({
@@ -52,6 +51,7 @@ let ListRuntime={
             let RendererChainCompleteObj = window.setInterval(() => {
                 if (this.TestAllControlInstancesRendererIsCompleted()) {
                     window.clearInterval(RendererChainCompleteObj);
+                    this.CallRendererChainCompletedFunc();
                 }
             }, 500);
 
@@ -74,7 +74,7 @@ let ListRuntime={
                 console.log("等待完成.....");
                 if (this.TestAllControlInstancesRendererDataIsCompleted()) {
                     window.clearInterval(RendererDataChainCompleteObj);
-                    this.CallRendererChainCompletedFunc();
+                    this.CallRendererDataChainCompletedFunc();
                 }
             }, 700);
         });
@@ -102,14 +102,25 @@ let ListRuntime={
         //HTMLPageObjectInstanceProxy.Init(this._Prop_Config,this._ListPO);
         window.setTimeout( ()=> {
             console.log("延迟调用");
-            this.pageRuntimeExtendObj.rendererDataChainCompleted(this);
+            this.pageRuntimeExtendObj.rendererChainCompleted();
+            //HTMLPageObjectInstanceProxy.CallPageReady()
+        },500);
+    },
+    CallRendererDataChainCompletedFunc:function() {
+        if (typeof (this._Prop_Config.RendererDataChainCompletedFunc) == "function") {
+            this._Prop_Config.RendererDataChainCompletedFunc.call(this);
+        }
+        //HTMLPageObjectInstanceProxy.Init(this._Prop_Config,this._ListPO);
+        window.setTimeout( ()=> {
+            console.log("延迟调用");
+            this.pageRuntimeExtendObj.rendererDataChainCompleted();
             //HTMLPageObjectInstanceProxy.CallPageReady()
         },500);
     },
     CheckPrimaryKeyInDataSet:function(dataSet,primaryKey){
         if(dataSet.list&&dataSet.list.length>0){
-            var rowData=dataSet.list[0];
-            for(var key in rowData){
+            let rowData=dataSet.list[0];
+            for(let key in rowData){
                 if(StringUtility.toUpperCase(key)==StringUtility.toUpperCase(primaryKey)){
                     return true;
                 }
@@ -118,7 +129,7 @@ let ListRuntime={
         return false;
     },
     GetPrimaryKey:function(){
-        var primaryKey=this._ListPO.listDatasetPrimaryKey;
+        let primaryKey=this._ListPO.listDatasetPrimaryKey;
         return primaryKey;
     },
     IsPreview:function () {

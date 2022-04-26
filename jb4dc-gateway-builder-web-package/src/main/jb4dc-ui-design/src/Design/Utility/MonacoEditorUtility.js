@@ -20,17 +20,20 @@ let MonacoEditorUtility = {
             monacoEditorInstance.revealRangeInCenter(match.range)
         }
     },
+    getWebAppListCssCodeDefaultContent() {
+        return ``;
+    },
     getWebAppListJsCodeDefaultContent() {
-        return `var PageRuntimeExtend = {
+        return `let PageRuntimeExtend = {
     data: {
         listPO: null,
         dataSetPO:null,
         formButtons:[],
-        userPO:null
+        userPO:null,
+        runtimeRootHostInstance:null
     },
     pageReady: function () {
-        //页面加载html完成,未进行客户端控件的渲染
-        console.log("页面加载html完成");
+        console.log("页面加载html完成,未进行客户端控件的渲染");
     },
     searchBefore:function(type,condition){
         
@@ -44,12 +47,10 @@ let MonacoEditorUtility = {
     everyControlRendererDataChainEnd:function(){
         
     },
-    rendererChainCompleted: function (runtimeRootHostInstance) {
-        //客户端控件渲染完成.
+    rendererChainCompleted: function () {
         console.log("客户端控件渲染完成");
     },
-    rendererDataChainCompleted: function (runtimeRootHostInstance) {
-        //客户端控件渲染并绑定完数据.
+    rendererDataChainCompleted: function () {
         console.log("客户端控件渲染并绑定完数据");
     }
 }`;

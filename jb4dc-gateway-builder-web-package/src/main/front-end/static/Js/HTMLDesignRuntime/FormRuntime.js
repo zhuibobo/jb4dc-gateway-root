@@ -113,7 +113,7 @@ let FormRuntime={
             //alert( "Load was performed." );
             console.log("加载预览窗体成功!!");
         });*/
-        var url = BaseUtility.BuildAction("/Rest/Builder/RunTime/FormRuntime/LoadHTML", {});
+        var url = BaseUtility.BuildAction("/Rest/Builder/RunTime/c/LoadHTML", {});
         if (this._Prop_Config.IsPreview) {
             url = BaseUtility.BuildAction("/Rest/Builder/RunTime/FormRuntime/LoadHTMLForPreView", {});
         }

@@ -475,11 +475,7 @@ var WLDCT_ListTableContainer = {
                 $singleControlElem.find("tr").find("td:last").hide();
             }
         }
-        //console.log($singleControlElem.find("tr").find("th:last"));
-        //console.log(scrollY);
-        //alert(PageStyleUtility.GetWindowHeight()+"|"+$(".wldct-list-simple-search-outer-wrap").height()+"|"+scrollY);
-        //return;
-        //debugger;
+
         let table = $templateTable.DataTable({
             scrollY: scrollY,
             scrollX: true,

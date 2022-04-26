@@ -15,11 +15,11 @@ RemoteRestInterface.getUserPO({}).then((response)=> {
         userPO: userPO
     })
 
-    let WebListRuntimeInstanceObj1 = Object.create(WebListRuntime);
+    /*let WebListRuntimeInstanceObj1 = Object.create(WebListRuntime);
     WebListRuntimeInstanceObj1.Initialization({
         RendererToId: "htmlDesignRuntimeWrap1",
         ListId: listId,
         WebListRuntimeInstanceName: "WebListRuntimeInstanceObj1",
         userPO: userPO
-    })
+    })*/
 })
