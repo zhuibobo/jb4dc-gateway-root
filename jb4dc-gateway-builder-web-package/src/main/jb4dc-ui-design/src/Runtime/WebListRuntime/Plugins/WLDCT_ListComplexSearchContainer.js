@@ -13,6 +13,7 @@ let WLDCT_ListComplexSearchContainer= {
     _$ClearButton:null,
     _$CloseButton:null,
     RendererChain: function (_rendererChainParas) {
+        //return;
         var $singleControlElem=_rendererChainParas.$singleControlElem;
         this._$SingleControlElem=$singleControlElem;
 

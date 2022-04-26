@@ -11,6 +11,7 @@ let WLDCT_ListButtonContainer= {
         status:null
     },
     RendererChain: function (_rendererChainParas) {
+        //return;
         //$singleControlElem.hide();
         //debugger;
         let $singleControlElem=_rendererChainParas.$singleControlElem;

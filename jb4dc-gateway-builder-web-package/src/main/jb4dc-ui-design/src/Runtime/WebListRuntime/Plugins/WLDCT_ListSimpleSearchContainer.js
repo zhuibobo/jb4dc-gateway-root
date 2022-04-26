@@ -13,22 +13,28 @@ let WLDCT_ListSimpleSearchContainer={
     _$ShowComplexSearchButton:null,
     _$SingleControlElem:null,
     RendererChain:function (_rendererChainParas) {
-        var $singleControlElem = _rendererChainParas.$singleControlElem;
+        let $singleControlElem = _rendererChainParas.$singleControlElem;
         this._$SingleControlElem = $singleControlElem;
 
-        var pageWidth = PageStyleUtility.GetPageWidth();
+        this._$SingleControlElem.css({"display": "flex"});
 
-        var buttonWrapWidth = 220;
+        //let pageWidth = this.TryGetOuterWidth($singleControlElem);
 
-        console.log(pageWidth - buttonWrapWidth);
+        //let buttonWrapWidth = 220;
 
-        $singleControlElem.find("table:first").width(pageWidth - buttonWrapWidth);
+        //console.log(pageWidth - buttonWrapWidth);
+
+        //$singleControlElem.find("table:first").width(pageWidth - buttonWrapWidth);
+
+        $singleControlElem.find(".uid-container-inner-wrap").css({"flex-grow": "2"});
+        //$singleControlElem.find("table:first").css({"flex-grow": "2"});
 
         // HTMLControl.SaveControlNewInstanceToPool($singleControlElem,this);
 
-        var $searchButtonsWrap = $("<div class='wldct-list-simple-search-button-inner-wrap' />");
-        $searchButtonsWrap.width(buttonWrapWidth - 40);
+        let $searchButtonsWrap = $("<div class='wldct-list-simple-search-button-inner-wrap' style='flex-basis: 200px;' />");
+        //$searchButtonsWrap.width(buttonWrapWidth - 40);
 
+        this._$searchButtonsWrap=$searchButtonsWrap;
         this._$SimpleSearchButton = $("<button>查询</button>");
         this._$ShowComplexSearchButton = $("<button>高级查询</button>");
 
@@ -42,20 +48,20 @@ let WLDCT_ListSimpleSearchContainer={
     },
     RendererDataChain:HTMLControl.RendererDataChain,
     BuilderSearchCondition:function () {
-        var result=[];
+        let result=[];
         /*String operator;
         String value;
         String tableName;1
         String fieldName;*/
-        var allControls=this._$SingleControlElem.find(HTMLControlAttrs.SELECTED_JBUILD4DC_CUSTOM);
-        var hidControls=this._$SingleControlElem.parent().find("[singlename='WLDCT_HideContainer']").find("[columnname][columnoperator]");
+        let allControls=this._$SingleControlElem.find(HTMLControlAttrs.SELECTED_JBUILD4DC_CUSTOM);
+        let hidControls=this._$SingleControlElem.parent().find("[singlename='WLDCT_HideContainer']").find("[columnname][columnoperator]");
         //console.log(hidControls);
         $.merge(allControls,hidControls);
-        for(var i=0;i<allControls.length;i++){
-            var $elem=$(allControls[i]);
-            var instance=HTMLControl.GetControlInstanceByElem($elem);
-            var valObj=instance.GetValue($elem,{});
-            var value=valObj.value;
+        for(let i=0;i<allControls.length;i++){
+            let $elem=$(allControls[i]);
+            let instance=HTMLControl.GetControlInstanceByElem($elem);
+            let valObj=instance.GetValue($elem,{});
+            let value=valObj.value;
             if(value) {
                 value=StringUtility.Trim(value);
                 if(value) {
@@ -73,7 +79,7 @@ let WLDCT_ListSimpleSearchContainer={
         return result;
     },
     GetStatus:function () {
-        var status = this._$SingleControlElem.attr("status");
+        let status = this._$SingleControlElem.attr("status");
         if(status=="") {
             status = "enable";
         }
@@ -84,9 +90,10 @@ let WLDCT_ListSimpleSearchContainer={
     },
     HideComplexButton:function () {
         this._$ShowComplexSearchButton.remove();
-        this._$SimpleSearchButton.parent().width("80px");
-        var pageWidth = PageStyleUtility.GetPageWidth();
-        this._$SingleControlElem.find("table:first").width(pageWidth-140);
+        this._$searchButtonsWrap.css({"flex-basis": "90px"})
+        //this._$SimpleSearchButton.parent().width("80px");
+        //let pageWidth = PageStyleUtility.GetPageWidth();
+        //this._$SingleControlElem.find("table:first").width(pageWidth-140);
     }
 }
 

@@ -5,8 +5,8 @@
 <script>
 import * as monaco from 'monaco-editor';
 import MonacoEditorUtility from "../../Utility/MonacoEditorUtility";
-import GeneralPlugin from "../../Plugins/GeneralPlugin";
 import enumValues from "../../EnumValues.js"
+import BaseUtility from "../../../Utility/BaseUtility"
 
 export default {
     name: "uid-js-code-editor-comp",
@@ -21,7 +21,7 @@ export default {
             theme:'vs-dark' //官方自带三种主题vs, hc-black, or vs-dark
         });
 
-        if(this.uiDesignType==enumValues.uiDesignType.webListDesign){
+        if(this.uiDesignType==enumValues.uiDesignType.webListDesign&&BaseUtility.IsAddOperationByUrl()){
             this.setValue(MonacoEditorUtility.getWebAppListJsCodeDefaultContent());
         }
     },

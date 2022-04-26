@@ -21,13 +21,28 @@ let MonacoEditorUtility = {
         }
     },
     getWebAppListJsCodeDefaultContent() {
-        return `var BuilderListPageRuntimeInstance = {
+        return `var PageRuntimeExtend = {
     data: {
-        listPO: null
+        listPO: null,
+        dataSetPO:null,
+        formButtons:[],
+        userPO:null
     },
     pageReady: function () {
         //页面加载html完成,未进行客户端控件的渲染
         console.log("页面加载html完成");
+    },
+    searchBefore:function(type,condition){
+        
+    },
+    pageChangeBefore:function(pageNum,pageSize,pageCount){
+        
+    },
+    everyControlRendererChainEnd:function(){
+        
+    },
+    everyControlRendererDataChainEnd:function(){
+        
     },
     rendererChainCompleted: function () {
         //客户端控件渲染完成.

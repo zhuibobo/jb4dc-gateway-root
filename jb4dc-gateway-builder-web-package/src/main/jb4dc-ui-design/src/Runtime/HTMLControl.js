@@ -5,12 +5,12 @@ let HTMLControl={
     //_formRuntimeInstance:null,
     _InstanceMap:{},
     _GetInstance:function(name){
-        for(var key in this._InstanceMap){
+        for(let key in this._InstanceMap){
             if(key==name){
                 return this._InstanceMap[key];
             }
         }
-        var instance=eval(name);
+        let instance=eval(name);
         this._InstanceMap[name]=instance;
         return instance;
     },
@@ -20,7 +20,7 @@ let HTMLControl={
     SaveControlNewInstanceToPool:function($elem,instance){
         alert("改方法已经废弃,改为服务端创建初始化脚本1!");
         return null;
-        var instanceName=$elem.attr("client_resolve")+"_"+StringUtility.GuidSplit("");
+        let instanceName=$elem.attr("client_resolve")+"_"+StringUtility.GuidSplit("");
         //HTMLControl.SaveControlInstancePool(instanceName,instance);
         $elem.attr("client_instance_name",instanceName);
         this._InstanceMap[instanceName]=instance;
@@ -33,7 +33,7 @@ let HTMLControl={
     GetControlInstanceByElem:function($elem){
         //console.log($elem);
         //console.log($elem.attr("client_instance_name"));
-        /*var instanceName="";
+        /*let instanceName="";
         if($elem.attr("client_instance_name")&&$elem.attr("client_instance_name").length>0){
             instanceName=$elem.attr("client_instance_name");
         }
@@ -45,7 +45,7 @@ let HTMLControl={
         return this._GetInstance(this.GetControlInstanceNameByElem($elem));
     },
     GetControlInstanceNameByElem:function($elem){
-        var instanceName="";
+        let instanceName="";
         if($elem.attr("client_instance_name")&&$elem.attr("client_instance_name").length>0){
             instanceName=$elem.attr("client_instance_name");
         }
@@ -75,67 +75,49 @@ let HTMLControl={
     },
     RendererChain:function (_rendererChainParas) {
         try {
-            var $singleControlElem = _rendererChainParas.$singleControlElem;
+            let $singleControlElem = _rendererChainParas.$singleControlElem;
             //console.log($singleControlElem);
             //debugger;
-            for (var i = 0; i < $singleControlElem.children().length; i++) {
+            for (let i = 0; i < $singleControlElem.children().length; i++) {
                 try {
-                    var $childSingleElem = $($singleControlElem.children()[i]);
+                    let $childSingleElem = $($singleControlElem.children()[i]);
 
-                    var _cloneRendererChainParas = {};
+                    let _cloneRendererChainParas = {};
                     JsonUtility.SimpleCloneAttr(_cloneRendererChainParas, _rendererChainParas);
                     _cloneRendererChainParas.$singleControlElem = $childSingleElem;
                     //console.log($childSingleElem.html());
                     if ($childSingleElem.attr(HTMLControlAttrs.JBUILD4DC_CUSTOM) == "true" && $childSingleElem.attr(HTMLControlAttrs.CLIENT_RESOLVE)) {
                         //debugger;
-                        //var clientResolveName=$childSingleElem.attr(HTMLControlAttrs.CLIENT_RESOLVE);
-                        var instance = HTMLControl.GetControlInstanceByElem($childSingleElem);
+                        //let clientResolveName=$childSingleElem.attr(HTMLControlAttrs.CLIENT_RESOLVE);
+                        let instance = HTMLControl.GetControlInstanceByElem($childSingleElem);
+
                         if (typeof (instance.Initialize) == "function") {
                             instance.Initialize();
                         }
 
+                        HTMLControl.TryBindElementAttrToInstanceProp($childSingleElem, instance);
                         //初始化控件实例属性
-                        if (instance._objectType == "Instance") {
+                        /*if (instance._objectType == "Instance") {
                             if (instance._prop) {
-                                var instanceProp = HTMLControl.TryBindElementAttrToInstanceProp($childSingleElem, instance._prop);
+                                let instanceProp = HTMLControl.TryBindElementAttrToInstanceProp($childSingleElem, instance._prop);
                                 instance._prop = instanceProp;
                             }
                         } else {
-                            var elemId = $childSingleElem.attr("id");
+                            let elemId = $childSingleElem.attr("id");
                             if (elemId && instance._propMap && instance._prop) {
                                 if (!instance._propMap[elemId]) {
-                                    var instanceProp = HTMLControl.TryBindElementAttrToInstanceProp($childSingleElem, instance._prop);
+                                    let instanceProp = HTMLControl.TryBindElementAttrToInstanceProp($childSingleElem, instance._prop);
                                     instance._propMap[elemId] = instanceProp;
                                 }
                             }
-                        }
+                        }*/
 
                         instance.RendererChain(_cloneRendererChainParas);
                         if (typeof (instance.InitStyle) == "function") {
                             instance.InitStyle(_cloneRendererChainParas);
                         }
-                        /*if (typeof (instance.TryBindUrlValue) == "function") {
-                            instance.TryBindUrlValue(_cloneRendererChainParas);
-                        }*/
-                        /*if(instance._prop){
-                            HTMLControl.TryBindElementAttrToInstanceProp($childSingleElem,instance._prop);
-                        }*/
-                        /*instance.RendererChain({
-                            listEntity:_rendererChainParas.listEntity,
-                            sourceHTML:_rendererChainParas.sourceHTML,
-                            $rootElem:_rendererChainParas.$rootElem,
-                            $parentControlElem:_rendererChainParas.$singleControlElem,
-                            $singleControlElem:$childSingleElem
-                        });*/
                     } else {
                         HTMLControl.RendererChain(_cloneRendererChainParas);
-                        /*HTMLControl.RendererChain({
-                            listEntity:_rendererChainParas.listEntity,
-                            sourceHTML:_rendererChainParas.sourceHTML,
-                            $rootElem:_rendererChainParas.$rootElem,
-                            $parentControlElem:_rendererChainParas.$singleControlElem,
-                            $singleControlElem:$childSingleElem
-                        });*/
                     }
                 } catch (e) {
                     console.error($singleControlElem);
@@ -150,23 +132,24 @@ let HTMLControl={
     },
     RendererDataChain:function (_rendererDataChainParas) {
         //console.log(_rendererDataChainParas);
-        var $singleControlElem=_rendererDataChainParas.$singleControlElem;
         //debugger;
-        for (var i = 0; i < $singleControlElem.children().length; i++) {
+        let $singleControlElem=_rendererDataChainParas.$singleControlElem;
+        //debugger;
+        for (let i = 0; i < $singleControlElem.children().length; i++) {
             try {
-                var $childSingleElem = $($singleControlElem.children()[i]);
+                let $childSingleElem = $($singleControlElem.children()[i]);
 
-                var _cloneRendererDataChainParas = {};
+                let _cloneRendererDataChainParas = {};
                 JsonUtility.SimpleCloneAttr(_cloneRendererDataChainParas, _rendererDataChainParas);
                 _cloneRendererDataChainParas.$singleControlElem = $childSingleElem;
                 //console.log($childSingleElem.html());
                 if ($childSingleElem.attr(HTMLControlAttrs.JBUILD4DC_CUSTOM) == "true" && $childSingleElem.attr(HTMLControlAttrs.CLIENT_RESOLVE)) {
                     //debugger;
-                    //var clientResolveInstanceName = $childSingleElem.attr(HTMLControlAttrs.CLIENT_RESOLVE);
-                    var instance=HTMLControl.GetControlInstanceByElem($childSingleElem);
+                    //let clientResolveInstanceName = $childSingleElem.attr(HTMLControlAttrs.CLIENT_RESOLVE);
+                    let instance=HTMLControl.GetControlInstanceByElem($childSingleElem);
                     instance.RendererDataChain(_cloneRendererDataChainParas);
 
-                    var fieldPO;
+                    let fieldPO;
                     if(typeof(instance.SetValue)=="function") {
                         fieldPO = HTMLControl.TryGetFieldPOInRelationFormRecordComplexPo($childSingleElem,_rendererDataChainParas.relationFormRecordComplexPo);
                         instance.SetValue($childSingleElem,fieldPO,_rendererDataChainParas.relationFormRecordComplexPo,_rendererDataChainParas);
@@ -190,17 +173,17 @@ let HTMLControl={
     },
     //region 样式设置
     InitStyle:function(_rendererChainParas){
-        var $singleControlElem=_rendererChainParas.$singleControlElem;
+        let $singleControlElem=_rendererChainParas.$singleControlElem;
         HTMLControl.TryAppendValidateStyle($singleControlElem);
     },
     TryAppendValidateStyle:function($singleControlElem){
-        var validateRules=ValidateRulesRuntime.getValidateRules($singleControlElem);
+        let validateRules=ValidateRulesRuntime.getValidateRules($singleControlElem);
         //debugger;
         if(validateRules&&validateRules.rules.length>0){
             for (let i = 0; i < validateRules.rules.length; i++) {
                 if(validateRules.rules[i].validateType==ValidateRulesRuntime.NoEmpty) {
-                    var $tdTxt = $singleControlElem.parent().prev();
-                    var newTxt = ValidateRulesRuntime.getValidateTipElem() + $tdTxt.text();
+                    let $tdTxt = $singleControlElem.parent().prev();
+                    let newTxt = ValidateRulesRuntime.getValidateTipElem() + $tdTxt.text();
                     $tdTxt.html(newTxt);
                     //console.log(tdTxt);
                 }
@@ -223,15 +206,15 @@ let HTMLControl={
         }
     },
     ToViewStatus:function($elem,fieldPO,relationFormRecordComplexPo,_rendererDataChainParas){
-        var oldAllAttrs=BaseUtility.GetElemAllAttr($elem);
-        var $viewElem=$("<label />");
+        let oldAllAttrs=BaseUtility.GetElemAllAttr($elem);
+        let $viewElem=$("<label />");
         $viewElem.attr(oldAllAttrs);
 
         $viewElem.removeClass();
 
         if($elem.prop("tagName")=="SELECT"){
             //debugger;
-            var text=$elem.find("option:selected").text();
+            let text=$elem.find("option:selected").text();
             $viewElem.text(text);
         }
         else{
@@ -241,23 +224,23 @@ let HTMLControl={
     },
     TryBindUrlValue:function (_rendererChainParas) {
         //debugger;
-        var $singleControlElem=_rendererChainParas.$singleControlElem;
-        var columnName=$singleControlElem.attr("columnname");
+        let $singleControlElem=_rendererChainParas.$singleControlElem;
+        let columnName=$singleControlElem.attr("columnname");
         if(!columnName){
             columnName=$singleControlElem.attr("fieldname");
         }
-        var urlValue=RuntimeGeneralInstance.TryGetUrlParaValueByFieldName("BindToField",columnName);
+        let urlValue=RuntimeGeneralInstance.TryGetUrlParaValueByFieldName("BindToField",columnName);
         if(urlValue) {
             $singleControlElem.val(urlValue);
             console.log(urlValue);
         }
     },
     TryGetFieldPOInRelationFormRecordComplexPo:function($elem,relationFormRecordComplexPo) {
-        var relationId = HTMLControl.GetControlBindRelationId($elem);
-        var bindTableName = HTMLControl.GetControlBindTableName($elem);
-        var bindFieldName = HTMLControl.GetControlBindFieldName($elem);
+        let relationId = HTMLControl.GetControlBindRelationId($elem);
+        let bindTableName = HTMLControl.GetControlBindTableName($elem);
+        let bindFieldName = HTMLControl.GetControlBindFieldName($elem);
         if (relationId && bindFieldName) {
-            var fieldPO = FormRelationPOUtility.FindFieldPOInRelationFormRecordComplexPoOneDataRecord(relationFormRecordComplexPo, relationId, bindTableName, bindFieldName);
+            let fieldPO = FormRelationPOUtility.FindFieldPOInRelationFormRecordComplexPoOneDataRecord(relationFormRecordComplexPo, relationId, bindTableName, bindFieldName);
             return fieldPO;
         } else {
             return null
@@ -279,7 +262,7 @@ let HTMLControl={
         return $controlElem.attr("relationid");
     },
     GetControlProp:function ($controlElem) {
-        var props= {
+        let props= {
             singleName: "",
             tableName: "",
             tableCaption: "",
@@ -295,8 +278,8 @@ let HTMLControl={
             value:""
         };
         //debugger;
-        for(var key in props){
-            var propValue=$controlElem.attr(StringUtility.ToLowerCase(key));
+        for(let key in props){
+            let propValue=$controlElem.attr(StringUtility.ToLowerCase(key));
             if(!StringUtility.IsNullOrEmpty(propValue)) {
                 props[key] = propValue;
             }
@@ -305,8 +288,8 @@ let HTMLControl={
         return props;
     },
     BuildSerializationOriginalData:function(props,relationId,relationSingleName,relationType){
-        //var props=this.GetControlProp($controlElem);
-        var originalData = {
+        //let props=this.GetControlProp($controlElem);
+        let originalData = {
             relationId: relationId,
             relationSingleName: relationSingleName,
             relationType: relationType,
@@ -329,7 +312,7 @@ let HTMLControl={
         return originalData;
     },
     GetSerializationOneDataRecordFieldValue:function (oneDataRecord,tableName,fieldName) {
-        for (var i = 0; i < oneDataRecord.length; i++) {
+        for (let i = 0; i < oneDataRecord.length; i++) {
             if (oneDataRecord[i].tableName == tableName && oneDataRecord[i].fieldName == fieldName) {
                 return oneDataRecord[i].value;
             }
@@ -337,12 +320,12 @@ let HTMLControl={
         return "";
     },
     TryGetFieldTransferPO:function ($controlElem,relationId,relationSingleName,relationType) {
-        var props=HTMLControl.GetControlProp($controlElem);
-        var originalData=HTMLControl.BuildSerializationOriginalData(props,relationId,relationSingleName,relationType);
-        var controlInstance = HTMLControl.GetControlInstanceByElem($controlElem);
+        let props=HTMLControl.GetControlProp($controlElem);
+        let originalData=HTMLControl.BuildSerializationOriginalData(props,relationId,relationSingleName,relationType);
+        let controlInstance = HTMLControl.GetControlInstanceByElem($controlElem);
 
         if (BaseUtility.IsFunction(controlInstance.GetValue)) {
-            var fieldTransferPO = controlInstance.GetValue($controlElem, originalData, {});
+            let fieldTransferPO = controlInstance.GetValue($controlElem, originalData, {});
             if (fieldTransferPO.success) {
                 return fieldTransferPO;
             } else {
@@ -353,25 +336,29 @@ let HTMLControl={
         }
     },
     GetSimpleControlValue:function (tableId, fieldName) {
-        var elem = $("[tableid='" + tableId + "'][fieldname='" + fieldName + "']");
+        let elem = $("[tableid='" + tableId + "'][fieldname='" + fieldName + "']");
         if (elem.length == 0) {
             return null;
         }
         return elem.val();
     },
-    TryBindElementAttrToInstanceProp:function ($elem,objProp) {
-        //debugger;
-        /*if($elem.attr("id")=="file_upload_wrap_653876393"){
-            debugger;
-        }*/
-        var result={};
-        /*if($elem.attr("id")) {
-            result.elemId = $elem.attr("id");
-        }
-        if($elem.attr("client_instance_name")) {
-            result.instanceName = $elem.attr("client_instance_name");
-        }*/
-        for(var key in objProp){
+    TryBindElementAttrToInstanceProp:function ($elem,instance) {
+        //console.log($elem.attrs());
+        $($elem).each(function() {
+            $.each(this.attributes, function() {
+                // this.attributes is not a plain object, but an array
+                // of attribute nodes, which contain both the name and value
+                if(this.specified) {
+                    if(!instance._prop){
+                        instance._prop={};
+                    }
+                    instance._prop[this.name]=this.value;
+                    //console.log(this.name, this.value);
+                }
+            });
+        });
+        /*let result={};
+        for(let key in objProp){
             if($elem.attr(key)){
                 result[key]=$elem.attr(key);
             }
@@ -386,7 +373,7 @@ let HTMLControl={
             }
         }
         result.$singleControlElem=$elem;
-        return result;
+        return result;*/
     }
 }
 

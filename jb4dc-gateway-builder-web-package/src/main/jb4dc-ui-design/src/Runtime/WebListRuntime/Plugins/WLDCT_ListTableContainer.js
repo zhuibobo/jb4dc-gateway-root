@@ -285,14 +285,15 @@ var WLDCT_ListTableContainer = {
         //this._DataSetRuntimeInstance = Object.create(DataSetRuntime);
     },
     RendererChain: function (_rendererChainParas) {
+        //return;
         //$singleControlElem.hide();
-        var $singleControlElem = _rendererChainParas.$singleControlElem;
+        let $singleControlElem = _rendererChainParas.$singleControlElem;
         this._ListRuntimeInstance=_rendererChainParas.listRuntimeInstance;
         this._$Elem = $singleControlElem;
         //console.log($singleControlElem);
         //console.log($singleControlElem.prevAll("[client_resolve='WLDCT_ListSimpleSearchContainer']"));
-        var $simpleSearchContainerElem = $singleControlElem.prevAll("[client_resolve='WLDCT_ListSimpleSearchContainer']");
-        var $complexSearchContainerElem = $singleControlElem.prevAll("[client_resolve='WLDCT_ListComplexSearchContainer']");
+        let $simpleSearchContainerElem = $singleControlElem.prevAll("[client_resolve='WLDCT_ListSimpleSearchContainer']");
+        let $complexSearchContainerElem = $singleControlElem.prevAll("[client_resolve='WLDCT_ListComplexSearchContainer']");
         this._SimpleSearchContainerInstance = HTMLControl.GetControlInstanceByElem($simpleSearchContainerElem);
         this._ComplexSearchContainerInstance = HTMLControl.GetControlInstanceByElem($complexSearchContainerElem);
 
@@ -310,11 +311,11 @@ var WLDCT_ListTableContainer = {
         if (this._ComplexSearchContainerInstance.GetStatus() == "disable") {
             this._SimpleSearchContainerInstance.HideComplexButton();
         }
-        //var $buttonDivElemList=$singleControlElem.find("div"+HTMLControlAttrs.SELECTED_JBUILD4DC_CUSTOM);
+        //let $buttonDivElemList=$singleControlElem.find("div"+HTMLControlAttrs.SELECTED_JBUILD4DC_CUSTOM);
         //$singleControlElem.find("[is-op-button-wrap-table='true']").hide();
         /*$singleControlElem.find(".wldct-list-table-inner-wrap").html(this.GetHTML());
         $singleControlElem.find(".wldct-list-table-inner-wrap").width("2200px");
-        var table = $('#example').DataTable( {
+        let table = $('#example').DataTable( {
             scrollY:        "400px",
             scrollX:        true,
             paging:         false,
@@ -322,9 +323,9 @@ var WLDCT_ListTableContainer = {
             "searching": false,
             "info": false
         } );*/
-        var $templateTable = $singleControlElem.find("table.list-table");
-        var $templateTableRow = $singleControlElem.find("table tbody tr:not([is-inner-op-button-wrap-table] tr)");
-        var $templateTableHeaderRows = $singleControlElem.find("table thead tr");
+        let $templateTable = $singleControlElem.find("table.list-table");
+        let $templateTableRow = $singleControlElem.find("table tbody tr:not([is-inner-op-button-wrap-table] tr)");
+        let $templateTableHeaderRows = $singleControlElem.find("table thead tr");
         //debugger
         this.AppendCheckBoxColumnTemplate($templateTable, $templateTableHeaderRows, $templateTableRow);
 
@@ -337,10 +338,10 @@ var WLDCT_ListTableContainer = {
         //console.log(_rendererDataChainParas.$singleControlElem.html());
         //console.log(HTMLControl._InstanceMap["WLDCT_ListTableContainer_856efcb11c8241288367fcc717ec7b5e"]);
         //console.log(HTMLControl._InstanceMap["WLDCT_ListTableContainer_856efcb11c8241288367fcc717ec7b5e"]);
-        var usedTopDataSet = true;
+        let usedTopDataSet = true;
 
-        var dataSetId;
-        var pageSize;
+        let dataSetId;
+        let pageSize;
         if (usedTopDataSet) {
             dataSetId = _rendererDataChainParas.topDataSetId;
             pageSize = _rendererDataChainParas.po.listDatasetPageSize;
@@ -357,18 +358,18 @@ var WLDCT_ListTableContainer = {
         if (isReRenderer) {
             //查询重新加载
             //console.log(this._Cache$SingleControlElem.html());
-            var notScriptHTML=StringUtility.RemoveScript(this._Cache$SingleControlElem.html());
+            let notScriptHTML=StringUtility.RemoveScript(this._Cache$SingleControlElem.html());
             _rendererDataChainParas.$singleControlElem.html(notScriptHTML);
         }
         else{
             //第一次加载
-            var conditions = this._SimpleSearchContainerInstance.BuilderSearchCondition();
+            let conditions = this._SimpleSearchContainerInstance.BuilderSearchCondition();
             this._QueryPOList = conditions;
         }
 
         if (_rendererDataChainParas.listRuntimeInstance.IsPreview()) {
             //alert("预览不会加载数据");
-            var mockDataSet = {
+            let mockDataSet = {
                 "total": 1000,
                 "list": [],
                 "pageNum": 1,
@@ -424,16 +425,16 @@ var WLDCT_ListTableContainer = {
         }
     },
     CreateTable: function ($singleControlElem, dataSet,isPreview) {
-        //var $singleControlElem=_rendererDataChainParas.$singleControlElem;
-        var $templateTable = $singleControlElem.find("table.list-table");
-        var $templateTableRow = $singleControlElem.find("table tbody tr:not([is-inner-op-button-wrap-table] tr)");
-        var $templateTableHeaderRows = $singleControlElem.find("table thead tr");
-        //var dataSet=_rendererDataChainParas.dataSet;
+        //let $singleControlElem=_rendererDataChainParas.$singleControlElem;
+        let $templateTable = $singleControlElem.find("table.list-table");
+        let $templateTableRow = $singleControlElem.find("table tbody tr:not([is-inner-op-button-wrap-table] tr)");
+        let $templateTableHeaderRows = $singleControlElem.find("table thead tr");
+        //let dataSet=_rendererDataChainParas.dataSet;
 
         if ($templateTableRow.length > 0) {
-            var $templateTableBody = $singleControlElem.find("table.list-table").children("tbody");
+            let $templateTableBody = $singleControlElem.find("table.list-table").children("tbody");
             //debugger;
-            for (var i = 0; i < dataSet.list.length; i++) {
+            for (let i = 0; i < dataSet.list.length; i++) {
                 $templateTableBody.append(this.RendererSingleRow($templateTable, $templateTableRow, dataSet, dataSet.list[i]));
             }
             $templateTableRow.remove();
@@ -450,7 +451,7 @@ var WLDCT_ListTableContainer = {
         //$singleControlElem.find(".uid-wldct-list-table-container-inner-wrap").width(PageStyleUtility.GetPageWidth() - 20);
         $templateTable.addClass("stripe row-border order-column");
         $templateTable.width("100%");
-        var scrollY = PageStyleUtility.GetPageHeight();
+        let scrollY = PageStyleUtility.GetPageHeight();
 
         scrollY = scrollY - 110;
 
@@ -472,7 +473,7 @@ var WLDCT_ListTableContainer = {
         //alert(PageStyleUtility.GetWindowHeight()+"|"+$(".wldct-list-simple-search-outer-wrap").height()+"|"+scrollY);
         //return;
         //debugger;
-        var table = $templateTable.DataTable({
+        let table = $templateTable.DataTable({
             scrollY: scrollY,
             scrollX: true,
             paging: false,
@@ -482,12 +483,12 @@ var WLDCT_ListTableContainer = {
         });
     },
     AppendCheckBoxColumnTemplate: function ($templateTable, $templateTableHeaderRows, $templateTableRow) {
-        var $th = $("<th style='width: 30px'></th>");
+        let $th = $("<th style='width: 30px'></th>");
         if ($templateTableHeaderRows.length > 1) {
             $th.attr("rowspan", $templateTableHeaderRows.length);
         }
         $templateTable.find("colgroup").prepend("<col style=\"width: 30px\" />")
-        var primaryKey=this._ListRuntimeInstance._ListPO.listDatasetPrimaryKey;
+        let primaryKey=this._ListRuntimeInstance._ListPO.listDatasetPrimaryKey;
         $($templateTableHeaderRows[0]).prepend($th);
         $($templateTableRow.eq(0)).prepend(`<td>
                                     <div 
@@ -522,20 +523,20 @@ var WLDCT_ListTableContainer = {
     },
     RendererSingleRow: function ($templateTable, $templateTableRow, dataSet, rowData) {
         //console.log(dataSet);
-        var $cloneRow = $templateTableRow.clone();
+        let $cloneRow = $templateTableRow.clone();
         //console.log($cloneRow);
         //debugger;
-        var $tds = $cloneRow.children("td");
+        let $tds = $cloneRow.children("td");
         for (let i = 0; i < $tds.length; i++) {
-            var $td = $($tds[i]);
-            var $divCTElem = $td.find("div" + HTMLControlAttrs.SELECTED_JBUILD4DC_CUSTOM);
+            let $td = $($tds[i]);
+            let $divCTElem = $td.find("div" + HTMLControlAttrs.SELECTED_JBUILD4DC_CUSTOM);
             if ($divCTElem.length > 0) {
-                var bindToField = $divCTElem.attr("columnname");
-                var val = rowData[bindToField]?rowData[bindToField]:"";
-                var clientResolveInstanceName = $divCTElem.attr(HTMLControlAttrs.CLIENT_RESOLVE);
+                let bindToField = $divCTElem.attr("columnname");
+                let val = rowData[bindToField]?rowData[bindToField]:"";
+                let clientResolveInstanceName = $divCTElem.attr(HTMLControlAttrs.CLIENT_RESOLVE);
                 //console.log(clientResolveInstanceName);
                 //debugger;
-                var instance = WLDCT_ListTableContainer.GetInstance(clientResolveInstanceName);
+                let instance = WLDCT_ListTableContainer.GetInstance(clientResolveInstanceName);
 
                 try {
                     instance.RendererDataChain({
@@ -563,14 +564,14 @@ var WLDCT_ListTableContainer = {
         //$td.css("textAlign","center");
         //$td.html(value);
 
-        var _self = this;
-        var pagingOuterElem = $("<div class='table-paging-outer'><div class='table-paging-inner'></div></div>")
-        var pagingInnerElem = pagingOuterElem.find("div");
-        var firstPage = $("<div class='table-paging-button'>第一页</div>");
+        let _self = this;
+        let pagingOuterElem = $("<div class='table-paging-outer'><div class='table-paging-inner'></div></div>")
+        let pagingInnerElem = pagingOuterElem.find("div");
+        let firstPage = $("<div class='table-paging-button'>第一页</div>");
         firstPage.click(function () {
             _self.ChangePageNum(1);
         });
-        var prePage = $("<div class='table-paging-button'>上一页</div>");
+        let prePage = $("<div class='table-paging-button'>上一页</div>");
         prePage.click(function () {
             //console.log(_self._CurrentPageNum);
             if (_self._CurrentPageNum > 1) {
@@ -579,11 +580,11 @@ var WLDCT_ListTableContainer = {
                 DialogUtility.AlertText("已经到达第一页!");
             }
         });
-        var lastPage = $("<div class='table-paging-button'>末页</div>");
+        let lastPage = $("<div class='table-paging-button'>末页</div>");
         lastPage.click(function () {
             _self.ChangePageNum(_self._DataSet.pages);
         });
-        var nextPage = $("<div class='table-paging-button'>下一页</div>");
+        let nextPage = $("<div class='table-paging-button'>下一页</div>");
         nextPage.click(function () {
             if (_self._CurrentPageNum < _self._DataSet.pages) {
                 _self.ChangePageNum(_self._CurrentPageNum + 1);
@@ -592,7 +593,7 @@ var WLDCT_ListTableContainer = {
             }
         });
         //console.log(_self._DataSet);
-        var info = $("<div class='table-paging-info'>总条数【" + _self._DataSet.total + "】&nbsp;&nbsp;页数【" + _self._CurrentPageNum + "/" + _self._DataSet.pages + "】</div>")
+        let info = $("<div class='table-paging-info'>总条数【" + _self._DataSet.total + "】&nbsp;&nbsp;页数【" + _self._CurrentPageNum + "/" + _self._DataSet.pages + "】</div>")
         pagingInnerElem.append(firstPage).append(prePage).append(nextPage).append(lastPage).append(info);
         return pagingOuterElem;
     },
@@ -602,22 +603,22 @@ var WLDCT_ListTableContainer = {
     },
     TryReloadForListFormButton:function(listFormButtonElemId) {
         //alert(listFormButtonElemId);
-        var $listFormButtonElem = $("#" + listFormButtonElemId);
-        var $listTemplate=$listFormButtonElem.parentsUntil("[singlename='WLDCT_ListTemplate']").last().parent();
-        var $listTableContainer=$listTemplate.find("[singlename='WLDCT_ListTableContainer']");
-        var $listTableContainerInstance=HTMLControl.GetControlInstanceByElem($listTableContainer);
+        let $listFormButtonElem = $("#" + listFormButtonElemId);
+        let $listTemplate=$listFormButtonElem.parentsUntil("[singlename='WLDCT_ListTemplate']").last().parent();
+        let $listTableContainer=$listTemplate.find("[singlename='WLDCT_ListTableContainer']");
+        let $listTableContainerInstance=HTMLControl.GetControlInstanceByElem($listTableContainer);
         $listTableContainerInstance.RendererDataChain($listTableContainerInstance._CacheRendererDataChainParas, true);
     },
     SimpleSearchClickEvent: function (sender) {
         //console.log(HTMLControl._InstanceMap["WLDCT_ListTableContainer_856efcb11c8241288367fcc717ec7b5e"]);
-        var _self = sender.data.listInstance;
-        var conditions = _self._SimpleSearchContainerInstance.BuilderSearchCondition();
+        let _self = sender.data.listInstance;
+        let conditions = _self._SimpleSearchContainerInstance.BuilderSearchCondition();
         _self._QueryPOList = conditions;
 
         _self.RendererDataChain(_self._CacheRendererDataChainParas, true);
     },
     ShowComplexSearchClickEvent: function (sender) {
-        var _self = sender.data.listInstance;
+        let _self = sender.data.listInstance;
         //console.log(_self._ComplexSearchContainerInstance);
         DialogUtility.DialogElemObj(_self._ComplexSearchContainerInstance._$SingleControlElem, {
             title: "高级查询",
@@ -628,19 +629,19 @@ var WLDCT_ListTableContainer = {
     },
     ComplexSearchClickEvent: function (sender) {
         console.log("高级查询.");
-        var _self = sender.data.listInstance;
-        var simpleConditions = _self._SimpleSearchContainerInstance.BuilderSearchCondition();
-        var complexConditions = _self._ComplexSearchContainerInstance.BuilderSearchCondition();
+        let _self = sender.data.listInstance;
+        let simpleConditions = _self._SimpleSearchContainerInstance.BuilderSearchCondition();
+        let complexConditions = _self._ComplexSearchContainerInstance.BuilderSearchCondition();
         _self._QueryPOList = complexConditions.concat(simpleConditions);
         _self.RendererDataChain(_self._CacheRendererDataChainParas, true);
         DialogUtility.CloseDialogElem(_self._ComplexSearchContainerInstance._$SingleControlElem)
     },
     ComplexSearchCloseClickEvent: function (sender) {
-        var _self = sender.data.listInstance;
+        let _self = sender.data.listInstance;
         DialogUtility.CloseDialogElem(_self._ComplexSearchContainerInstance._$SingleControlElem)
     },
     ComplexSearchClearClickEvent: function (sender) {
-        var _self = sender.data.listInstance;
+        let _self = sender.data.listInstance;
         DialogUtility.AlertText("未实现!");
     },
 
@@ -648,14 +649,14 @@ var WLDCT_ListTableContainer = {
         //console.log(this._DataSet);
         //console.log(this._ListRuntimeInstance._ListPO);
         //debugger;
-        var primaryKey=this._ListRuntimeInstance.GetPrimaryKey();
+        let primaryKey=this._ListRuntimeInstance.GetPrimaryKey();
         if(!this._ListRuntimeInstance.CheckPrimaryKeyInDataSet(this._DataSet,primaryKey)){
             DialogUtility.AlertText("数据集中找不到主键字段:[" + primaryKey+"],请设置配置是否正确!");
             return;
         }
         console.log("主键为:"+primaryKey)
-        for (var i = 0; i < this._DataSet.list.length; i++) {
-            var recordData = this._DataSet.list[i];
+        for (let i = 0; i < this._DataSet.list.length; i++) {
+            let recordData = this._DataSet.list[i];
             if (recordData[primaryKey] == id) {
                 return recordData;
             }
@@ -664,7 +665,7 @@ var WLDCT_ListTableContainer = {
         return null;
     },
     SaveCheckedRowData: function (id) {
-        var record = this.GetRecordData(id);
+        let record = this.GetRecordData(id);
         if (record != null) {
             this._CheckedRecordArray.push({
                 "Id": id,
@@ -673,7 +674,7 @@ var WLDCT_ListTableContainer = {
         }
     },
     DeleteCheckedRowData: function (id) {
-        for (var i = 0; i < this._CheckedRecordArray.length; i++) {
+        for (let i = 0; i < this._CheckedRecordArray.length; i++) {
             if (this._CheckedRecordArray[i].Id == id) {
                 ArrayUtility.Delete(this._CheckedRecordArray, i);
             }
@@ -699,8 +700,8 @@ var WLDCT_ListTableContainer = {
         this.SaveCheckedRowData(id);
     },
     __InnerElemGetInstance: function ($innerElem) {
-        var $WLDCT_ListTableContainer = $innerElem.parents("[singlename='WLDCT_ListTableContainer']");
-        var listTableContainerInstance = HTMLControl.GetControlInstanceByElem($WLDCT_ListTableContainer);
+        let $WLDCT_ListTableContainer = $innerElem.parents("[singlename='WLDCT_ListTableContainer']");
+        let listTableContainerInstance = HTMLControl.GetControlInstanceByElem($WLDCT_ListTableContainer);
         return listTableContainerInstance;
     }
 }
