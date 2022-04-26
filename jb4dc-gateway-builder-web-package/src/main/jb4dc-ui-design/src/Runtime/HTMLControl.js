@@ -1,5 +1,9 @@
 import HTMLControlAttrs from './HTMLControlAttrs.js'
 import ValidateRulesRuntime from './ValidateRulesRuntime.js'
+import addRendererControlInstance from "./WebListRuntime/WebListRuntime";
+import AddRendererControlInstance from "./WebListRuntime/WebListRuntime";
+import _RendererChainIsCompleted from "./WebListRuntime/WebListRuntime";
+import _RendererDataChainIsCompleted from "./WebListRuntime/WebListRuntime";
 
 let HTMLControl={
     //_formRuntimeInstance:null,
@@ -61,8 +65,7 @@ let HTMLControl={
         $rootElem:null,
         $parentControlElem:null,
         $singleControlElem:null,
-        formRuntimeInstance:null,
-        listRuntimeInstance:null,
+        runtimeRootHostInstance:null
     },
     RendererDataChainParas:{
         listEntity:null,
@@ -71,12 +74,12 @@ let HTMLControl={
         $parentControlElem:null,
         $singleControlElem:null,
         topDataSet:null,
-        formRuntimeInstance:null,
-        listRuntimeInstance:null
+        runtimeRootHostInstance:null
     },
     RendererChain:function (_rendererChainParas) {
         try {
             let $singleControlElem = _rendererChainParas.$singleControlElem;
+            let runtimeRootHostInstance=_rendererChainParas.runtimeRootHostInstance;
             //console.log($singleControlElem);
             //debugger;
             for (let i = 0; i < $singleControlElem.children().length; i++) {
@@ -97,6 +100,9 @@ let HTMLControl={
                         }
 
                         HTMLControl.TryBindElementAttrToInstanceProp($childSingleElem, instance);
+                        HTMLControl.TryBindDefaultPropToInstanceProp(instance);
+
+                        runtimeRootHostInstance.AddRendererControlInstance(instance);
                         //初始化控件实例属性
                         /*if (instance._objectType == "Instance") {
                             if (instance._prop) {
@@ -342,6 +348,13 @@ let HTMLControl={
             return null;
         }
         return elem.val();
+    },
+    TryBindDefaultPropToInstanceProp:function (instance) {
+        if (!instance._prop) {
+            instance._prop = {};
+        }
+        instance._prop._RendererChainIsCompleted = true;
+        instance._prop._RendererDataChainIsCompleted = true;
     },
     TryBindElementAttrToInstanceProp:function ($elem,instance) {
         //console.log($elem.attrs());

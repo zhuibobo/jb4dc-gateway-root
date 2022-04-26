@@ -44,11 +44,11 @@ let MonacoEditorUtility = {
     everyControlRendererDataChainEnd:function(){
         
     },
-    rendererChainCompleted: function () {
+    rendererChainCompleted: function (runtimeRootHostInstance) {
         //客户端控件渲染完成.
         console.log("客户端控件渲染完成");
     },
-    rendererDataChainCompleted: function () {
+    rendererDataChainCompleted: function (runtimeRootHostInstance) {
         //客户端控件渲染并绑定完数据.
         console.log("客户端控件渲染并绑定完数据");
     }

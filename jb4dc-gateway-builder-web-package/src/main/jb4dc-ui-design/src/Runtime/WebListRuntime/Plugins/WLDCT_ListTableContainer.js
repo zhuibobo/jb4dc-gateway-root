@@ -3,6 +3,7 @@ import RemoteRestInterface from '../../Remote/RemoteRestInterface'
 import HTMLControlAttrs from '../../HTMLControlAttrs.js'
 import RuntimeGeneralInstance from '../../RuntimeGeneralInstance.js'
 import getWebListRuntimeDataSetData from "../../Remote/RemoteRestInterface";
+import rootRuntimeHostInstance from "../../HTMLControl";
 
 var WLDCT_ListTableContainer = {
     GetHTML: function () {
@@ -285,10 +286,11 @@ var WLDCT_ListTableContainer = {
         //this._DataSetRuntimeInstance = Object.create(DataSetRuntime);
     },
     RendererChain: function (_rendererChainParas) {
+
         //return;
         //$singleControlElem.hide();
         let $singleControlElem = _rendererChainParas.$singleControlElem;
-        this._ListRuntimeInstance=_rendererChainParas.listRuntimeInstance;
+        this._ListRuntimeInstance=_rendererChainParas.runtimeRootHostInstance;
         this._$Elem = $singleControlElem;
         //console.log($singleControlElem);
         //console.log($singleControlElem.prevAll("[client_resolve='WLDCT_ListSimpleSearchContainer']"));
@@ -338,6 +340,9 @@ var WLDCT_ListTableContainer = {
         //console.log(_rendererDataChainParas.$singleControlElem.html());
         //console.log(HTMLControl._InstanceMap["WLDCT_ListTableContainer_856efcb11c8241288367fcc717ec7b5e"]);
         //console.log(HTMLControl._InstanceMap["WLDCT_ListTableContainer_856efcb11c8241288367fcc717ec7b5e"]);
+        //设置延迟
+        this._prop._RendererDataChainIsCompleted=false;
+
         let usedTopDataSet = true;
 
         let dataSetId;
@@ -367,7 +372,7 @@ var WLDCT_ListTableContainer = {
             this._QueryPOList = conditions;
         }
 
-        if (_rendererDataChainParas.listRuntimeInstance.IsPreview()) {
+        if (this._ListRuntimeInstance.IsPreview()) {
             //alert("预览不会加载数据");
             let mockDataSet = {
                 "total": 1000,
@@ -409,7 +414,7 @@ var WLDCT_ListTableContainer = {
                 exValue1: "",
                 exValue2: "",
                 exValue3: ""
-            }).then((response)=> {
+            }).then((response) => {
                 //console.log(result);
                 //console.log(HTMLControl._InstanceMap);
                 let result = response.data;
@@ -417,10 +422,12 @@ var WLDCT_ListTableContainer = {
                 this._DataSet = result.data;
 
                 this._CheckedRecordArray = [];
-                this.CreateTable(_rendererDataChainParas.$singleControlElem, this._DataSet,false);
+                this.CreateTable(_rendererDataChainParas.$singleControlElem, this._DataSet, false);
                 window.setTimeout(function () {
                     DialogUtility.CloseDialog(DialogUtility.DialogLoadingId);
                 }, 500);
+
+                this._prop._RendererDataChainIsCompleted = true;
             }, this);
         }
     },

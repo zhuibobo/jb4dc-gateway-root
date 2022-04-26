@@ -1,6 +1,8 @@
 import RemoteRestInterface from '../Remote/RemoteRestInterface.js';
 import VirtualBodyControl from '../VirtualBodyControl.js';
 import JSRuntime from '../JSRuntime.js';
+import rootRuntimeHostInstance from "../HTMLControl";
+import runtimeRootHostInstance from "../HTMLControl";
 
 let ListRuntime={
     _Prop_Status:"Edit",
@@ -21,8 +23,8 @@ let ListRuntime={
         this._LoadHTMLToEl();
     },
     //用于控制RendererChainComplete的调用时间
-    _RendererChainIsCompleted:false,
-    _RendererDataChainIsCompleted:false,
+    //_RendererChainIsCompleted:false,
+    //_RendererDataChainIsCompleted:false,
     _LoadHTMLToEl:function () {
         RemoteRestInterface.loadWebListRuntimeHTML({listId:this._Prop_Config.ListId}).then((response)=> {
             //debugger;
@@ -42,13 +44,13 @@ let ListRuntime={
                 $rootElem: this._$RendererToElem,
                 $parentControlElem: this._$RendererToElem,
                 $singleControlElem: this._$RendererToElem,
-                listRuntimeInstance: this,
-                pageRuntimeExtendObj: this.pageRuntimeExtendObj,
-                WebListRuntimeInstanceName: this._Prop_Config.WebListRuntimeInstanceName
+                runtimeRootHostInstance: this,
+                runtimeRootHostInstanceName: this._Prop_Config.WebListRuntimeInstanceName,
+                pageRuntimeExtendObj: this.pageRuntimeExtendObj
             });
 
             let RendererChainCompleteObj = window.setInterval(() => {
-                if (this._RendererChainIsCompleted) {
+                if (this.TestAllControlInstancesRendererIsCompleted()) {
                     window.clearInterval(RendererChainCompleteObj);
                 }
             }, 500);
@@ -62,27 +64,45 @@ let ListRuntime={
                 $parentControlElem: this._$RendererToElem,
                 $singleControlElem: this._$RendererToElem,
                 topDataSetId: topDataSetId,
-                listRuntimeInstance: this,
-                pageRuntimeExtendObj: this.pageRuntimeExtendObj,
-                WebListRuntimeInstanceName: this._Prop_Config.WebListRuntimeInstanceName
+                runtimeRootHostInstance: this,
+                runtimeRootHostInstanceName: this._Prop_Config.WebListRuntimeInstanceName,
+                pageRuntimeExtendObj: this.pageRuntimeExtendObj
             });
 
             let RendererDataChainCompleteObj = window.setInterval(() => {
-                console.log(this._RendererDataChainIsCompleted);
-                if (this._RendererDataChainIsCompleted) {
+                //console.log(this._RendererDataChainIsCompleted);
+                console.log("等待完成.....");
+                if (this.TestAllControlInstancesRendererDataIsCompleted()) {
                     window.clearInterval(RendererDataChainCompleteObj);
                     this.CallRendererChainCompletedFunc();
                 }
             }, 700);
         });
     },
+    TestAllControlInstancesRendererIsCompleted:function(){
+        for (let rendererControlInstance of this._Prop_Config.RendererControlInstances) {
+            if(rendererControlInstance._prop._RendererChainIsCompleted==false){
+                return false;
+            }
+        }
+        return true;
+    },
+    TestAllControlInstancesRendererDataIsCompleted:function (){
+        for (let rendererControlInstance of this._Prop_Config.RendererControlInstances) {
+            if(rendererControlInstance._prop._RendererDataChainIsCompleted==false){
+                return false;
+            }
+        }
+        return true;
+    },
     CallRendererChainCompletedFunc:function() {
         if (typeof (this._Prop_Config.RendererChainCompletedFunc) == "function") {
             this._Prop_Config.RendererChainCompletedFunc.call(this);
         }
         //HTMLPageObjectInstanceProxy.Init(this._Prop_Config,this._ListPO);
-        window.setTimeout(function () {
+        window.setTimeout( ()=> {
             console.log("延迟调用");
+            this.pageRuntimeExtendObj.rendererDataChainCompleted(this);
             //HTMLPageObjectInstanceProxy.CallPageReady()
         },500);
     },
@@ -104,8 +124,8 @@ let ListRuntime={
     IsPreview:function () {
         return this._Prop_Config.IsPreview;
     },
-    addRendererControlInstance:function (){
-
+    AddRendererControlInstance:function (instance){
+        this._Prop_Config.RendererControlInstances.push(instance);
     }
 }
 export {ListRuntime as default};
