@@ -178,7 +178,7 @@ html, body {
     background-color: @g-turquoise-color-v01;
     .grid-stack-item-content {
       background-color: @g-sunflower-color-v03; opacity: 0.9;
-      padding: 6px;
+      padding: 0px;
     }
   }
 
@@ -719,4 +719,47 @@ div[status=disable]:before {
 
 .uid-wldct-list-table-inner-button-container-wrap{
   .uid-wldct-list-table-inner-button-container-wrap
+}
+
+.ant-divider-with-text1{
+  display: flex;
+  margin: 2px 0;
+  color: #000000d9;
+  font-weight: 500;
+  font-size: 12px;
+  white-space: nowrap;
+  text-align: center;
+  border-top: 0;
+  border-top-color: #0000000f;
+  overflow-y: hidden;
+  height: 16px;
+
+  .ant-divider-inner-text1{
+    display: inline-block;
+    padding: 0 1em;
+  }
+}
+
+.ant-divider-with-text1:before{
+  position: relative;
+  top: 50%;
+  height: 4px;
+  width: 50%;
+  border-top: 1px solid transparent;
+  border-top-color: inherit;
+  border-bottom: 0;
+  //transform: translateY(50%);
+  content: "";
+}
+
+.ant-divider-with-text1:after{
+  position: relative;
+  top: 50%;
+  height: 4px;
+  width: 50%;
+  border-top: 1px solid transparent;
+  border-top-color: inherit;
+  border-bottom: 0;
+  //transform: translateY(50%);
+  content: "";
 }

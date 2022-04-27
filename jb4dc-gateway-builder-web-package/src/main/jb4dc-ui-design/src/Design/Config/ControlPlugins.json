@@ -33,7 +33,7 @@
       },
       {
         "name": "InputGroup",
-        "text": "输入控件"
+        "text": "基础控件"
       },
       {
         "name": "DatasourceGroup",
@@ -149,6 +149,25 @@
         "dragTo": "Layout",
         "serverResolve": "com.jb4dc.builder.client.htmldesign.control.webform.WebFormTextLabel",
         "clientResolve": "WFDCT_TextLabel",
+        "clientResolveJs": "",
+        "enableChildControls": "",
+        "dialogWidth": "600",
+        "dialogHeight": "550",
+        "isJBuild4DCData": "true",
+        "controlCategory": "InputControl",
+        "serverDynamicBind": "false",
+        "showRemoveButton": "true",
+        "showInEditorToolbar": "true"
+      },
+      {
+        "group": "InputGroup",
+        "singleName": "WFDCT_DividerHorizontal",
+        "text": "分割线-水平",
+        "class": "",
+        "icon": "dividerhorizontal.png",
+        "dragTo": "Layout",
+        "serverResolve": "com.jb4dc.builder.client.htmldesign.control.webform.WFDCT_DividerHorizontal",
+        "clientResolve": "WFDCT_DividerHorizontal",
         "clientResolveJs": "",
         "enableChildControls": "",
         "dialogWidth": "600",

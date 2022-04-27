@@ -1,5 +1,3 @@
-import {createApp} from 'vue';
-import uiRuntimeRoot from './ui-runtime-root.vue'
 import "../../Less/UIRuntimeMain.less";
 import allPlugins from '../IndexPlugin';
 import allComponentVue from '../IndexVue';
@@ -17,17 +15,12 @@ let formRuntimeInst = WebFormRuntimeUtility.pageReady({
     rendererChainCompletedFunc: null,
     RendererDataChainCompletedFunc:function (){
         //debugger;
-        console.log("htmlDesignRuntimeVueOuterWraphtmlDesignRuntimeVueOuterWraphtmlDesignRuntimeVueOuterWraphtmlDesignRuntimeVueOuterWraphtmlDesignRuntimeVueOuterWraphtmlDesignRuntimeVueOuterWrap")
+        //console.log("RendererDataChainCompletedFunc")
 
-        /*const app = createApp(uiRuntimeRoot)
+        return;
 
-        for (const allComponentVueVueKey in allComponentVue) {
-            console.log(allComponentVueVueKey);
-            app.component(allComponentVueVueKey, allComponentVue[allComponentVueVueKey])
-        }
-
-        app.mount('#htmlDesignRuntimeVueOuterWrap');*/
-        Vue.createApp({
+        //暂不开启Vue初始化
+        let vueObj=Vue.createApp({
             data() {
                 return {
                     message: 'Hello Vue!'
@@ -36,19 +29,17 @@ let formRuntimeInst = WebFormRuntimeUtility.pageReady({
             mounted() {
                 //alert(1);
             }
-        }).mount('#htmlDesignRuntimeVueOuterWrap')
+        });
+
+        for (const allComponentVueVueKey in allComponentVue) {
+            console.log(allComponentVueVueKey);
+            vueObj.component(allComponentVueVueKey,allComponentVue[allComponentVueVueKey]);
+        };
+
+        vueObj.mount('#htmlDesignRuntimeVueOuterWrap')
     },
     getWebFormRTParasFunc: WebFormRuntimeUtility.getWebFormRTParasWithListButtonId,
     pageHostInstance: null,
     rendererToId:"htmlDesignRuntimeWrap",
     rendererInnerButtonsToId:"innerButtonWrapOuter",
 });
-
-/*
-const app = createApp(uiRuntimeRoot)
-app.mount('#htmlDesignRuntimeVueOuterWrap')*/
-
-/*for (const allComponentVueVueKey in allComponentVue) {
-    console.log(allComponentVueVueKey);
-    app.component(allComponentVueVueKey, allComponentVue[allComponentVueVueKey])
-}*/

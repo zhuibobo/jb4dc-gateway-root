@@ -8,7 +8,7 @@
 export default {
     name: "test-vue-comp",
     mounted() {
-        alert(11);
+        //alert(11);
     }
 }
 </script>
