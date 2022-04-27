@@ -1,6 +1,5 @@
 import HTMLControl from './HTMLControl.js';
-import allPlugins from './IndexPlugin.js'
-//console.log(allPlugins);
+
 
 let VirtualBodyControl={
     RendererChain:HTMLControl.RendererChain,
@@ -34,10 +33,6 @@ let VirtualBodyControl={
     }
 }
 
-for (let pluginKey in allPlugins) {
-    //console.log(pluginKey);
-    window[pluginKey]=allPlugins[pluginKey];
-}
-window.HTMLControl=HTMLControl;
+
 
 export {VirtualBodyControl as default};

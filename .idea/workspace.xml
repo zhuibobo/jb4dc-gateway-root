@@ -5,19 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccedc649-8eaf-4db4-ba50-beb85a54ca4c" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/AbstractContainerPlugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_SingleGridStackLayout/WFDCT_SingleGridStackLayoutProperty.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_TextLabel/WFDCT_TextLabelPlugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_TextLabel/WFDCT_TextLabelProperty.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_VueComponent/WFDCT_VueComponentPlugin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_VueComponent/WFDCT_VueComponentProperty.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/IndexVue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebFormRuntime/VueComponent/test-vue-comp.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Config/ControlPlugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Config/ControlPlugins.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/AbstractInputBasePlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/AbstractInputBasePlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/GeneralPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/GeneralPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_SingleGridStackLayout/WFDCT_SingleGridStackLayoutPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_SingleGridStackLayout/WFDCT_SingleGridStackLayoutPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/MainTab/uid-wysiwyg-comp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/MainTab/uid-wysiwyg-comp.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Less/UIWysiwygMain.less" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Less/UIWysiwygMain.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/MockData/mockLoadWebFormRuntimeHTMLResult.json" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/MockData/mockLoadWebFormRuntimeHTMLResult.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/VirtualBodyControl.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/VirtualBodyControl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebFormRuntime/WebFormRuntimeForVueMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebFormRuntime/WebFormRuntimeForVueMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebFormRuntime/WebFormRuntimeUtility.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebFormRuntime/WebFormRuntimeUtility.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/RuntimeWebFormMainTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/RuntimeWebFormMainTemplate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +67,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "js.buildTools.gulp.gulp_package_dir": "D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/front-end/node_modules/gulp",
-    "last_opened_file_path": "D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins",
+    "last_opened_file_path": "D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime",
     "list.type.of.created.stylesheet": "Less",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -95,11 +91,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Runtime" />
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Design\Plugins" />
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Design\Plugins\WebFormDesign\WFDCT_TextLabel" />
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Design\Plugins\WebFormDesign\WFDCT_SingleGridStackLayout" />
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Externals" />
-      <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Runtime\WebFormRuntime\InnerFormButton" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Externals\GridStack-5.0.0\dist" />
@@ -490,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651030518495</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="update">
+      <created>1651046805432</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1651046805432</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

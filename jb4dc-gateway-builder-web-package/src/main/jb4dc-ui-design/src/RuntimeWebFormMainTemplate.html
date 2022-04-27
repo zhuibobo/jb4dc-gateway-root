@@ -25,11 +25,15 @@
     <link rel="stylesheet" type="text/css" href="Externals/JQuery-ContextMenu-2.9.2/dist/jquery.contextMenu.css">
     <link rel="stylesheet" type="text/css" href="Externals/Line-Awesome-1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="Externals/ZTree-3.5.48/css/zTreeStyle/zTreeStyle.css">
+    <script src="https://unpkg.com/vue@3"></script>
 </head>
 
 <body>
 <div id="formRuntimeContainer" class="general-edit-page-wrap" v-cloak>
-    <div id="htmlDesignRuntimeVueOuterWrap" style="overflow: auto"></div>
+    <div id="htmlDesignRuntimeVueOuterWrap" style="overflow: auto">
+        <div id="htmlDesignRuntimeWrap" class="uid-runtime-default-theme-root">
+        </div>
+    </div>
     <div class="uid-runtime-form-innerbutton-outer-wrap">
         <div class="uid-runtime-form-innerbutton-inner-wrap">
             <div class="uid-runtime-form-innerbutton-group" id="innerButtonWrapOuter">

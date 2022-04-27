@@ -68,6 +68,7 @@ let WebFormRuntimeUtility={
             "OperationType":webFormRTParas.OperationType,
             "IsPreview":config.isPreview,
             "RendererChainCompletedFunc":config.rendererChainCompletedFunc,
+            "RendererDataChainCompletedFunc":config.RendererDataChainCompletedFunc,
             "ListFormButtonElemId":webFormRTParas.ListFormButtonElemId,
             "WebFormRTParas":webFormRTParas,
             "FormRuntimeCategory":webFormRTParas.FormRuntimeCategory
