@@ -1,15 +1,16 @@
-import HTMLControl from '../../HTMLControl.js'
 
-var _ref_filePath=$("script").last().attr("src");
-var WFDCT_CKEditor4={
+let _ref_filePath=$("script").first().attr("src");
+console.log(_ref_filePath);
+
+let WFDCT_CKEditor4={
     ckeditorInstance:null,
     /*ResolveSelf:function (_rendererChainParas) {
 
     },*/
     RendererChain:function (_rendererChainParas) {
         //debugger;
-        var $singleControlElem=_rendererChainParas.$singleControlElem;
-        var areaHeight=$singleControlElem.height();
+        let $singleControlElem=_rendererChainParas.$singleControlElem;
+        let areaHeight=$singleControlElem.height();
         //$singleControlElem.val("22222");
         //加载默认配置文件
 
@@ -17,13 +18,14 @@ var WFDCT_CKEditor4={
 
         }
         else {
-            var filename = _ref_filePath.substr(_ref_filePath.lastIndexOf('/') + 1);
+            //let filename = _ref_filePath.substr(_ref_filePath.lastIndexOf('/') + 1);
+            let editorConfigUrl=$singleControlElem.attr("customconfig")?$singleControlElem.attr("customconfig"):"customizeConfig/WFDCT_CKEditor4_Min_Config.js";
 
-            var editorConfigUrl = BaseUtility.AppendTimeStampUrl(_ref_filePath.replace(filename, "Control/WebFormControl/"+$singleControlElem.attr("customconfig")));
+            //let editorConfigUrl = BaseUtility.AppendTimeStampUrl(_ref_filePath.replace(filename, "Control/WebFormControl/"+$singleControlElem.attr("customconfig")));
             console.log(editorConfigUrl);
             //editorConfigUrl=1;
             this.ckeditorInstance = CKEDITOR.replace($singleControlElem.attr("id"), {
-                //customConfig: editorConfigUrl,
+                customConfig: editorConfigUrl,
                 //formRuntimeInstance:_rendererChainParas.formRuntimeInstance
             });
             this.ckeditorInstance.config.height = areaHeight;
@@ -47,11 +49,11 @@ var WFDCT_CKEditor4={
         }
     },
     ToViewStatus:function($elem,fieldPO,relationFormRecordComplexPo,_rendererDataChainParas){
-        //var htmlData=this.ckeditorInstance.getData();
+        //let htmlData=this.ckeditorInstance.getData();
         //console.log(htmlData);
         //debugger;
-        var $viewElem=$("<div></div>");
-        var oldAllAttrs=BaseUtility.GetElemAllAttr($elem);
+        let $viewElem=$("<div></div>");
+        let oldAllAttrs=BaseUtility.GetElemAllAttr($elem);
         $viewElem.attr(oldAllAttrs);
         $viewElem.removeClass();
         $viewElem.html(fieldPO.value);

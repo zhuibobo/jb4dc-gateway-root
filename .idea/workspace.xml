@@ -5,43 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccedc649-8eaf-4db4-ba50-beb85a54ca4c" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/My97DatePicker.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/WdatePicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/calendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/lang/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/lang/zh-cn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/lang/zh-tw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/WdatePicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/datePicker.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/default/datepicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/default/img.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/ext/datepicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/ext/dateselect.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/ext/glass-bg.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/ext/hd-sprite.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/ext/img.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/ext/left-btn.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/ext/left-btn2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/ext/right-btn.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/ext/right-btn2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/whyGreen/bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/whyGreen/datepicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/skin/whyGreen/img.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/开发包/lang/en.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/开发包/lang/zh-cn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/开发包/lang/zh-tw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/开发包/readme.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/开发包/skin/WdatePicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/开发包/skin/datePicker.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/开发包/skin/default/datepicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/开发包/skin/default/img.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/开发包/skin/whyGreen/bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/开发包/skin/whyGreen/datepicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Externals/My97DatePicker/开发包/skin/whyGreen/img.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Less/UIRuntimeMain.less" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Less/UIRuntimeMain.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/RuntimeWebFormMainTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/RuntimeWebFormMainTemplate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/RuntimeWebListMainTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/RuntimeWebListMainTemplate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Utility/MonacoEditorUtility.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Utility/MonacoEditorUtility.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/MockData/mockLoadWebListRuntimeHTMLResult.json" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/MockData/mockLoadWebListRuntimeHTMLResult.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/VirtualBodyControl.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/VirtualBodyControl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebFormRuntime/Plugins/WFDCT_CKEditor4.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime/WebFormRuntime/Plugins/WFDCT_CKEditor4.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -500,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651026424205</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="update">
+      <created>1651028695424</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1651028695424</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

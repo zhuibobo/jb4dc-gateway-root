@@ -69,22 +69,22 @@ let MonacoEditorUtility = {
         runtimeRootHostInstance:null
     },
     pageReady: function () {
-        console.log("页面加载html完成,未进行客户端控件的渲染");
+        //console.log("页面加载html完成,未进行客户端控件的渲染");
     },
     everyControlRendererChainEnd:function(_rendererChainParas){
-        console.log("everyControlRendererChainEnd");
+        //console.log("everyControlRendererChainEnd");
     },
     everyControlRendererDataChainEnd:function(_rendererDataChainParas){
-        console.log("everyControlRendererDataChainEnd");
+        //console.log("everyControlRendererDataChainEnd");
     },
     rendererChainCompleted: function () {
-        console.log("客户端控件渲染完成");
+        //console.log("客户端控件渲染完成");
     },
     rendererDataChainCompleted: function () {
-        console.log("客户端控件渲染并绑定完数据");
+        //console.log("客户端控件渲染并绑定完数据");
     },
     validateEveryFromControl: function (validateResult) {
-        console.log("验证控件输入值");
+        //console.log("验证控件输入值");
         return validateResult;
     }
 }`;
