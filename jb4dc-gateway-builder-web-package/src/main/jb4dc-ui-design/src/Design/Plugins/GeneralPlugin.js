@@ -205,9 +205,11 @@ let GeneralPlugin = {
         else if(props.bindToField&&props.bindToField.fieldCaption){
             return "[" + props.bindToField.fieldCaption + "]";
         }
-        else {
+        else if(props.bindToSearchField&&props.bindToSearchField.columnCaption){
             return "[" + props.bindToSearchField.columnCaption + "]";
         }
+        console.log("buildInputControlGeneralText return null");
+        return null;
     },
     /*buildListButtonControlGeneralText(config, props) {
         return "[" + props.normalProps.buttonCaption + "]";
@@ -427,7 +429,7 @@ let GeneralPlugin = {
 
         return props;
     },
-    serializePropsToElemForNewControl($elem, config, props) {
+    serializePropsToElemForNewControl($elem, config, defProps) {
         $elem.attr("jbuild4dc_custom", "true");
         $elem.attr("singlename", config.singleName);
         $elem.attr("is_jbuild4dc_data", config.isJBuild4DCData);
@@ -435,8 +437,8 @@ let GeneralPlugin = {
         $elem.attr("show_remove_button", config.showRemoveButton);
         $elem.attr("group", config.group);
 
-        $elem.attr("designControlInstanceName", props.designControlInstanceName);
-        $elem.attr("id", props.id);
+        $elem.attr("designControlInstanceName", defProps.designControlInstanceName);
+        $elem.attr("id", defProps.id);
     },
     serializePropsToElem($elem, props, config, innerHTMl) {
         //debugger;

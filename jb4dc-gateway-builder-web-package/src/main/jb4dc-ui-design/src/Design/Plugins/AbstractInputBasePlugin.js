@@ -1,5 +1,4 @@
 import GeneralPlugin from "./GeneralPlugin";
-import constructionGeneralInputElem from "./GeneralPlugin";
 
 function AbstractInputBasePlugin(singleName,constructionElemExAttrs) {
     this.singleName = singleName;

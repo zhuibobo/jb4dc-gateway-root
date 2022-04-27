@@ -20,9 +20,9 @@ let WFDCT_SingleGridStackLayoutPlugin={
     setElem($elem){
         this._$elem=$elem;
     },
-    registeredEvent($elem){
-        window.setTimeout(()=>{
-            let grid = GridStack.init({
+    registeredEvent($elem) {
+        window.setTimeout(() => {
+            let layoutGrid = GridStack.init({
                 minRow: 1, // don't let it collapse when empty
                 cellHeight: '21px',
                 margin: 0,
@@ -30,17 +30,25 @@ let WFDCT_SingleGridStackLayoutPlugin={
                 float: true,
                 column: 32
             }, this._$elem[0]);
-            grid.on('added', (event, items)=> {
-                let node=items[0];
+            layoutGrid.on('added', (event, items) => {
+                let node = items[0];
                 console.log(node);
                 console.log(event);
-                if($(node.el).attr("pluginSingleName")) {
-                    grid.removeWidget(node.el, true, true);
+                if ($(node.el).attr("pluginSingleName")) {
+                    layoutGrid.removeWidget(node.el, true, true);
                     let pluginObj = GeneralPlugin.getControlInstanceObj($(node.el).attr("pluginSingleName"));
-                    this.dropControlToContainerForAddEvent(pluginObj, $(node.grid.el), $(node.grid.el), grid, node);
+                    this.dropControlToContainerForAddEvent(pluginObj, $(node.grid.el), $(node.grid.el), layoutGrid, node);
                 }
             });
-        },100);
+            this.layoutGrid = layoutGrid;
+        }, 100);
+
+        GeneralPlugin.registeredGeneralEvent(this._$elem, this);
+    },
+    resetWysiwygElemProps($elem, props) {
+        GeneralPlugin.serializePropsToElem(this._$elem, props, this.config, null);
+        this.layoutGrid.cellHeight(50);
+        this.layoutGrid.column(12);
     },
     dropControlToContainerForAddEvent(pluginObj,$dropToTarget,$dropToLayout,layoutGrid,sourceNode){
         //let $elem=pluginObj.instance.getElemAndRegInstance();

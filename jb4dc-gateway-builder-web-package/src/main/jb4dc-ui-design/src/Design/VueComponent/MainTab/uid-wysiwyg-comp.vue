@@ -30,9 +30,6 @@ import wysiwygDragDropUtility from '../../Utility/WysiwygDragDropUtility';
 import GeneralPlugin from "../../Plugins/GeneralPlugin";
 import allPlugins from '../../Plugins/IndexPlugin'
 
-import WLDCT_ListSimpleSearchContainerPlugin
-    from "../../Plugins/WebListDesign/WLDCT_ListSimpleSearchContainer/WLDCT_ListSimpleSearchContainerPlugin";
-
 export default {
     name: "uid-wysiwyg-comp",
     props: ["uiDesignType"],
