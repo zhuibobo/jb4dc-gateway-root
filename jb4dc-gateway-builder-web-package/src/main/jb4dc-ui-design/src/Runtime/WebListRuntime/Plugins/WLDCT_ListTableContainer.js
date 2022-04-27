@@ -2,9 +2,6 @@ import HTMLControl from '../../HTMLControl.js'
 import RemoteRestInterface from '../../Remote/RemoteRestInterface'
 import HTMLControlAttrs from '../../HTMLControlAttrs.js'
 import RuntimeGeneralInstance from '../../RuntimeGeneralInstance.js'
-import getWebListRuntimeDataSetData from "../../Remote/RemoteRestInterface";
-import rootRuntimeHostInstance from "../../HTMLControl";
-import runtimeRootHostInstance from "../../HTMLControl";
 
 var WLDCT_ListTableContainer = {
     GetHTML: function () {

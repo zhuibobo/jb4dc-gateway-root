@@ -15,9 +15,14 @@ export default {
     }
   },
   mounted() {
-    this.formRuntimeInst=WebFormRuntimeUtility.pageReady(false,function () {
-
-    },WebFormRuntimeUtility.getWebFormRTParasWithListButtonId,null);
+      this.formRuntimeInst = WebFormRuntimeUtility.pageReady({
+          isPreview: false,
+          rendererChainCompletedFunc: null,
+          getWebFormRTParasFunc: WebFormRuntimeUtility.getWebFormRTParasWithListButtonId,
+          pageHostInstance: null,
+          rendererToId:"htmlDesignRuntimeWrap",
+          rendererInnerButtonsToId:"innerButtonWrapOuter",
+      });
   }
 }
 </script>

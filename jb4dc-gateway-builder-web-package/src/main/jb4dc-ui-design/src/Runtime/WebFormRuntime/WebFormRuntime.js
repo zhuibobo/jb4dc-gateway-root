@@ -11,6 +11,7 @@ let WebFormRuntime={
     //_Prop_Status:"Edit",
     _Prop_Config:{
         RendererToId:null,
+        RendererInnerButtonsToId:null,
         FormId:"",
         RecordId:"",
         ButtonId:"",
@@ -65,12 +66,6 @@ let WebFormRuntime={
                 this.pageRuntimeExtendObj = JSRuntime.ConvertJsContentToObject(this, this._FormPO.formJsRuntime);
                 this.pageRuntimeExtendObj.data.runtimeRootHostInstance = this;
                 this.pageRuntimeExtendObj.pageReady();
-                //try {
-                    //this._FormJSRuntimeInst = Object.create(HTMLJSRuntime);
-                    //this._FormJSRuntimeInst.Initialization({}, this._$RendererToElem, this._FormPO.formJsContent);
-                //} catch (e) {
-                //    console.error("加载动态脚本错误! FormRuntime._LoadHTMLToEl-->this._FormJSRuntimeInst.Initialization:" + e);
-                //}
 
                 let _rendererChainParas = {
                     po: result.data,
@@ -91,9 +86,15 @@ let WebFormRuntime={
                     throw "初始化样式错误! FormRuntime._LoadHTMLToEl-->VirtualBodyControl.InitStyle:" + e;
                 }
 
-                if (this.IsPreview()) {
-                    this.CallRendererChainCompletedFunc();
-                } else {
+                let RendererChainCompleteObj = window.setInterval(() => {
+                    if (this.TestAllControlInstancesRendererIsCompleted()) {
+                        window.clearInterval(RendererChainCompleteObj);
+                        this.CallRendererChainCompletedFunc();
+                    }
+                }, 500);
+
+
+                if (!this.IsPreview()) {
                     if (this._FormPO.listButtonEntity) {
                         this.CreateALLInnerFormButton(this._FormPO.listButtonEntity);
                     }
@@ -101,8 +102,6 @@ let WebFormRuntime={
 
                 if (BaseUtility.IsUpdateOperation(this.GetOperationType()) || BaseUtility.IsViewOperation(this.GetOperationType())) {
                     let formRecordComplexPO = result.data.formRecordComplexPO;
-                    //console.log(result.data);
-                    //console.log(formRecordComplexPO);
                     this.DeSerializationFormData(formRecordComplexPO);
                 }
                 if (BaseUtility.IsViewOperation(this.GetOperationType()) && this._Prop_Config.FormRuntimeCategory == FormRuntimeSinglePageObject.FORM_RUNTIME_CATEGORY_INDEPENDENCE) {
@@ -112,7 +111,13 @@ let WebFormRuntime={
                     $(".html-design-operation-button-outer-wrap").hide();
                 }
 
-                //this.CallRendererChainCompletedFunc();
+                let RendererDataChainCompleteObj = window.setInterval(() => {
+                    console.log("等待完成.....");
+                    if (this.TestAllControlInstancesRendererDataIsCompleted()) {
+                        window.clearInterval(RendererDataChainCompleteObj);
+                        this.CallRendererDataChainCompletedFunc();
+                    }
+                }, 700);
             } catch (e) {
                 console.error("渲染Html控件错误! FormRuntime._LoadHTMLToEl:" + e);
                 throw e;
@@ -127,17 +132,42 @@ let WebFormRuntime={
             console.log("加载转PDF样式!");
         }
     },
-    CallRendererChainCompletedFunc:function() {
-        let _this=this;
-        if (typeof (this._Prop_Config.RendererChainCompletedFunc) == "function") {
-            this._Prop_Config.RendererChainCompletedFunc.call(this,this._Prop_Config);
+    TestAllControlInstancesRendererIsCompleted:function(){
+        for (let rendererControlInstance of this._Prop_Config.RendererControlInstances) {
+            if(rendererControlInstance._prop._RendererChainIsCompleted==false){
+                return false;
+            }
         }
-        HTMLPageObjectInstanceProxy.Init(this._Prop_Config,this._FormPO);
-        window.setTimeout(function () {
-            //console.log("延迟调用");
-            HTMLPageObjectInstanceProxy.CallPageReady();
-            DialogUtility.CloseDialog(DialogUtility.DialogLoadingId);
-            //_this._Prop_Config.pageHostInstance.pageToLoadingStatus(false);
+        return true;
+    },
+    TestAllControlInstancesRendererDataIsCompleted:function (){
+        for (let rendererControlInstance of this._Prop_Config.RendererControlInstances) {
+            if(rendererControlInstance._prop._RendererDataChainIsCompleted==false){
+                return false;
+            }
+        }
+        return true;
+    },
+    CallRendererChainCompletedFunc:function() {
+        if (typeof (this._Prop_Config.RendererChainCompletedFunc) == "function") {
+            this._Prop_Config.RendererChainCompletedFunc.call(this);
+        }
+        //HTMLPageObjectInstanceProxy.Init(this._Prop_Config,this._ListPO);
+        window.setTimeout( ()=> {
+            console.log("延迟调用");
+            this.pageRuntimeExtendObj.rendererChainCompleted();
+            //HTMLPageObjectInstanceProxy.CallPageReady()
+        },500);
+    },
+    CallRendererDataChainCompletedFunc:function() {
+        if (typeof (this._Prop_Config.RendererDataChainCompletedFunc) == "function") {
+            this._Prop_Config.RendererDataChainCompletedFunc.call(this);
+        }
+        //HTMLPageObjectInstanceProxy.Init(this._Prop_Config,this._ListPO);
+        window.setTimeout( ()=> {
+            console.log("延迟调用");
+            this.pageRuntimeExtendObj.rendererDataChainCompleted();
+            //HTMLPageObjectInstanceProxy.CallPageReady()
         },500);
     },
     IsPrint:function (){
@@ -256,7 +286,7 @@ let WebFormRuntime={
             for (let i = 0; i < buttonInnerConfig.length; i++) {
                 let innerButtonConfig=buttonInnerConfig[i];
                 let buttonElem=InnerFormButtonRuntime.RendererSingleInnerFormButton(innerButtonConfig,this,listButtonPO);
-                $("#innerButtonWrapOuter").append(buttonElem);
+                $("#"+this._Prop_Config.RendererInnerButtonsToId).append(buttonElem);
             }
         }
     },

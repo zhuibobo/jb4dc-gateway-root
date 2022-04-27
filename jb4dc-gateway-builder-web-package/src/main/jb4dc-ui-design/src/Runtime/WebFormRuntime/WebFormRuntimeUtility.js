@@ -26,7 +26,7 @@ let WebFormRuntimeUtility={
     },
     getWebFormRTParasWithIndependence:function(){
         //debugger;
-        var formId=RuntimeGeneralInstance.TryGetMenuOuterId();
+        let formId=RuntimeGeneralInstance.TryGetMenuOuterId();
         if(StringUtility.IsNullOrEmpty(formId)){
             formId=BaseUtility.GetUrlParaValue("formId")
         }
@@ -54,23 +54,23 @@ let WebFormRuntimeUtility={
         }
         return this._webFormRTParas;
     },
-    pageReady:function (isPreview,rendererChainCompletedFunc,getWebFormRTParasFunc,pageHostInstance) {
+    pageReady:function (config) {
         //debugger;
         this._formRuntimeInst = Object.create(WebFormRuntime);
         //var webFormRTParas=this.getWebFormRTParas();
-        let webFormRTParas=getWebFormRTParasFunc.call(this);
+        let webFormRTParas=config.getWebFormRTParasFunc.call(this);
         this._formRuntimeInst.Initialization({
-            "RendererToId": "htmlDesignRuntimeWrap",
+            "RendererToId": config.rendererToId,
+            "RendererInnerButtonsToId":config.rendererInnerButtonsToId,
             "FormId":webFormRTParas.FormId,
             "RecordId":webFormRTParas.RecordId,
             "ButtonId":webFormRTParas.ButtonId,
             "OperationType":webFormRTParas.OperationType,
-            "IsPreview":isPreview,
-            "RendererChainCompletedFunc":rendererChainCompletedFunc,
+            "IsPreview":config.isPreview,
+            "RendererChainCompletedFunc":config.rendererChainCompletedFunc,
             "ListFormButtonElemId":webFormRTParas.ListFormButtonElemId,
             "WebFormRTParas":webFormRTParas,
-            "FormRuntimeCategory":webFormRTParas.FormRuntimeCategory,
-            "pageHostInstance111":pageHostInstance
+            "FormRuntimeCategory":webFormRTParas.FormRuntimeCategory
         });
         //this._formRuntimeInst.webFormRTParas=webFormRTParas;
         return this._formRuntimeInst;
