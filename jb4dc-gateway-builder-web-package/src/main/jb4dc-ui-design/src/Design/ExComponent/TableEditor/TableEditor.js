@@ -34,7 +34,7 @@ let TableEditor = {
                     return 'context-menu-icon context-menu-icon-edit';
                 },
                 callback: (key, opt) => {
-                    this.RemoveColumn(sender, $elem, key, opt);
+                    this.removeColumn(sender, $elem, key, opt);
                 }
             },
             "Cell":{
@@ -49,7 +49,7 @@ let TableEditor = {
                             return 'context-menu-icon context-menu-icon-edit';
                         },
                         callback: (key, opt) => {
-                            this.RemoveColumn(sender, $elem, key, opt);
+
                         }
                     },
                     "MergeUp":{
@@ -58,12 +58,12 @@ let TableEditor = {
                             return 'context-menu-icon context-menu-icon-edit';
                         },
                         callback: (key, opt) => {
-                            this.removeColumn(sender, $elem, key, opt);
+
                         }
                     }
                 }
             },
-            "sepTableEditor": "---------"
+            "sepTableEditorL1": "---------"
         }
     },
     _getTableByCell($tdOrTh) {

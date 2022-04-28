@@ -66,8 +66,6 @@
 <script>
 import RemoteRestInterface from "../../Remote/RemoteRestInterface";
 import UIDesignUtility from "../../Utility/UIDesignUtility";
-import GeneralPlugin from "../../Plugins/GeneralPlugin";
-import getWebFormDesignPOAndBindTo from "../../Remote/RemoteRestInterface";
 
 export default {
     name: "uid-web-form-base-info-comp",
@@ -155,6 +153,7 @@ export default {
                         "", "", ""
                     );
                     completedFunc(this.recordId, editorValues);
+                    this.$refs.dbTableRelationComp.setValue(this.formResourceEntity.formDataRelation);
                 }
             });
         },

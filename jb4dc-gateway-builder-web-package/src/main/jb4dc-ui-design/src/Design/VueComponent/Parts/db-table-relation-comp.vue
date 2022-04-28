@@ -113,6 +113,7 @@
 
 <script>
 import remoteRestInterface from "../../Remote/RemoteRestInterface.js"
+import StorageUtility from "../../Utility/StorageUtility"
 
 export default {
     name: "db-table-relation-comp",
@@ -266,19 +267,18 @@ export default {
             handler: function (val, oldVal) {
                 //console.log(val.id);
                 //使用设置值覆盖掉结果集中的值.
-                for (var i = 0; i < this.resultData.length; i++) {
+                for (let i = 0; i < this.resultData.length; i++) {
                     if (this.resultData[i].id == val.id) {
-                        /*this.resultData[i].singleName=val.singleName;
-                        this.resultData[i].pkFieldName=val.pkFieldName;
-                        this.resultData[i].desc=val.desc;
-                        this.resultData[i].selfKeyFieldName=val.selfKeyFieldName;
-                        this.resultData[i].outerKeyFieldName=val.outerKeyFieldName;
-                        this.resultData[i].relationType=val.relationType;
-                        this.resultData[i].isSave=val.isSave;
-                        this.resultData[i].condition=val.condition;*/
                         this.resultItemCopyEditEnableValue(this.resultData[i], val);
                     }
                 }
+            },
+            deep: true
+        },
+        resultData:{
+            handler: function (val, oldVal) {
+                console.log(val);
+                StorageUtility.setFormDataRelationConfig(val);
             },
             deep: true
         }
@@ -467,7 +467,7 @@ export default {
             return sourceNode;
         },
         getMainRelationTableNode: function () {
-            var node = this.relationTableTree.treeObj.getNodeByParam("_nodeExType", "MainNode");
+            let node = this.relationTableTree.treeObj.getNodeByParam("_nodeExType", "MainNode");
             if (node) {
                 return node;
             }
@@ -568,7 +568,7 @@ export default {
             return;
         },
         getValue: function () {
-            var result = {
+            let result = {
                 mainTableId: this.getMainTableId(),
                 mainTableName: this.getMainTableName(),
                 mainTableCaption: this.getMainTableCaption(),

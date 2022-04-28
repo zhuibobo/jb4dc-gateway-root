@@ -82,11 +82,7 @@ import EnumValues from "./EnumValues.js"
 import GeneralPlugin from "./Plugins/GeneralPlugin";
 import UIDesignUtility from "./Utility/UIDesignUtility.js"
 import BaseUtility from "../Utility/BaseUtility"
-
-//let uiDesignType="appFormDesign";
-//let uiDesignType="AppListDesign";
-//let uiDesignType="WebFormDesign";
-//let uiDesignType="WebListDesign";
+import StorageUtility from "./Utility/StorageUtility"
 
 export default {
     name: "ui-design-main",
@@ -102,6 +98,7 @@ export default {
     },
     mounted() {
         let _this = this;
+        StorageUtility.setUIDesignType(this.uiDesignType);
         $("#ui-design-main-tabs").tabs({
             active: 0,
             activate: function (event, ui) {

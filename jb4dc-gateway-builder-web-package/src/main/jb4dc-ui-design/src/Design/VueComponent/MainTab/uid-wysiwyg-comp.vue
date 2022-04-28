@@ -136,6 +136,7 @@ export default {
             this.pluginPropEditVueName = pluginPropEditVueName;
             //console.log(props);
             this.pluginPropEditDialog.dialog("open");
+            this.pluginPropEditDialog.dialog("option","title","属性编辑--["+controlInstance.config.text+"]");
             let setControlPropsIntervalTime=0;
             let setControlPropsInterval=window.setInterval(() => {
                 if(typeof (this.$refs.pluginPropEditComponent.setControlProps)=="function") {
