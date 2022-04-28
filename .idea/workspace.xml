@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccedc649-8eaf-4db4-ba50-beb85a54ca4c" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_DividerHorizontal/WFDCT_DividerHorizontalProperty.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_4_20_21_06_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_4_20_21_06__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_4_27_20_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_4_27_20_39__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_DividerHorizontal/WFDCT_DividerHorizontalPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_DividerHorizontal/WFDCT_DividerHorizontalPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/MainTab/uid-wysiwyg-comp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/VueComponent/MainTab/uid-wysiwyg-comp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Less/UIDesignBaseMain.less" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Less/UIDesignBaseMain.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Less/UIWysiwygMain.less" beforeDir="false" afterPath="$PROJECT_DIR$/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Less/UIWysiwygMain.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +67,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "js.buildTools.gulp.gulp_package_dir": "D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/front-end/node_modules/gulp",
-    "last_opened_file_path": "D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Runtime",
+    "last_opened_file_path": "D:/JavaProject/jb4dc/jb4dc-gateway-root/jb4dc-gateway-builder-web-package/src/main/jb4dc-ui-design/src/Design/Plugins/WebFormDesign/WFDCT_DividerHorizontal",
     "list.type.of.created.stylesheet": "Less",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -84,11 +91,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Design\Plugins\WebFormDesign\WFDCT_DividerHorizontal" />
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Runtime" />
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Design\Plugins" />
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Design\Plugins\WebFormDesign\WFDCT_TextLabel" />
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Design\Plugins\WebFormDesign\WFDCT_SingleGridStackLayout" />
-      <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Externals" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\JavaProject\jb4dc\jb4dc-gateway-root\jb4dc-gateway-builder-web-package\src\main\jb4dc-ui-design\src\Externals\GridStack-5.0.0\dist" />

@@ -136,9 +136,21 @@ export default {
             this.pluginPropEditVueName = pluginPropEditVueName;
             //console.log(props);
             this.pluginPropEditDialog.dialog("open");
-            window.setTimeout(() => {
-                this.$refs.pluginPropEditComponent.setControlProps($elem, props);
-            }, 600);
+            let setControlPropsIntervalTime=0;
+            let setControlPropsInterval=window.setInterval(() => {
+                if(typeof (this.$refs.pluginPropEditComponent.setControlProps)=="function") {
+                    this.$refs.pluginPropEditComponent.setControlProps($elem, props);
+                    window.clearInterval(setControlPropsInterval);
+                    setControlPropsIntervalTime=0;
+                    console.log("设置控件属性到对话框完成,setControlPropsIntervalTime:"+setControlPropsIntervalTime);
+                }
+                else{
+                    setControlPropsIntervalTime++;
+                }
+                if(setControlPropsIntervalTime>20){
+                    window.clearInterval(setControlPropsInterval);
+                }
+            }, 100);
         },
         getValue() {
             return $("#" + this.wysiwygContainerId).html();

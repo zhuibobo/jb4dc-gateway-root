@@ -87,3 +87,67 @@
     background-image: url("Images/BuilderRuntime/kjobviewer.png");
   }
 }
+
+.uid-divider-horizontal-outer{
+  display: flex;
+  margin: 2px 0;
+  color: #000000d9;
+  font-weight: 500;
+  font-size: 12px;
+  white-space: nowrap;
+  text-align: center;
+  border-top: 0;
+  border-top-color: #0000000f;
+  overflow-y: hidden;
+  height: 16px;
+
+  .uid-divider-horizontal-text{
+    display: inline-block;
+    padding: 0 1em;
+  }
+}
+
+.uid-divider-horizontal-outer:before{
+  position: relative;
+  top: 50%;
+  height: 4px;
+
+  border-top: 1px solid transparent;
+  border-top-color: inherit;
+  border-bottom: 0;
+  //transform: translateY(50%);
+  content: "";
+}
+
+.uid-divider-horizontal-outer:after{
+  position: relative;
+  top: 50%;
+  height: 4px;
+
+  border-top: 1px solid transparent;
+  border-top-color: inherit;
+  border-bottom: 0;
+  //transform: translateY(50%);
+  content: "";
+}
+
+.uid-divider-horizontal-outer-center:before{
+  width: 50%;
+}
+.uid-divider-horizontal-outer-center:after{
+  width: 50%;
+}
+
+.uid-divider-horizontal-outer-left:before{
+  width: 5%;
+}
+.uid-divider-horizontal-outer-left:after{
+  width: 95%;
+}
+
+.uid-divider-horizontal-outer-right:before{
+  width: 95%;
+}
+.uid-divider-horizontal-outer-right:after{
+  width: 5%;
+}
