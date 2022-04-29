@@ -192,12 +192,22 @@ let GeneralPlugin = {
         REDIPS.drag.enableDrag('init');*/
     },
     registeredRedipsInit($elem, sender) {
+        //表格拖拽
         let rd = REDIPS.drag;
         rd.init($elem.attr("id"));
         rd.event.dropped = () => {
             GeneralPlugin.clearControlEditInnerPanel();
         }
         rd.enableDrag('init');
+
+        //表格单元格合并
+        let rt = REDIPS.table;
+        // activate onmousedown event listener on cells within table with id="mainTable"
+        rt.onMouseDown($elem.attr("id"), true);
+        // show cellIndex (it is nice for debugging)
+        rt.cellIndex(false);
+        // define background color for marked cell
+        rt.color.cell = '#9BB3DA';
     },
     buildInputControlGeneralText(config, props) {
         if(props.normalProps&&props.normalProps.buttonCaption){

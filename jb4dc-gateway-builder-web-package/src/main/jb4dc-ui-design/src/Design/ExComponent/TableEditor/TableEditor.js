@@ -43,22 +43,34 @@ let TableEditor = {
                     return 'context-menu-icon context-menu-icon-edit';
                 },
                 items: {
-                    "MergeDown":{
-                        name:"Cell-MergeDown",
+                    "Merge":{
+                        name:"Cell-Merge",
                         icon: function (opt, $itemElement, itemKey, item) {
                             return 'context-menu-icon context-menu-icon-edit';
                         },
                         callback: (key, opt) => {
-
+                            // first merge cells horizontally and leave cells marked
+                            REDIPS.table.merge('h', false);
+                            // and then merge cells vertically and clear cells (second parameter is true by default)
+                            REDIPS.table.merge('v');
                         }
                     },
-                    "MergeUp":{
-                        name:"Cell-MergeUp",
+                    "SplitH":{
+                        name:"Cell-Split-H",
                         icon: function (opt, $itemElement, itemKey, item) {
                             return 'context-menu-icon context-menu-icon-edit';
                         },
                         callback: (key, opt) => {
-
+                            REDIPS.table.split('h');
+                        }
+                    },
+                    "SplitV":{
+                        name:"Cell-Split-V",
+                        icon: function (opt, $itemElement, itemKey, item) {
+                            return 'context-menu-icon context-menu-icon-edit';
+                        },
+                        callback: (key, opt) => {
+                            REDIPS.table.split('v');
                         }
                     }
                 }
