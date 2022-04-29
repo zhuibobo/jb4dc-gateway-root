@@ -19,6 +19,7 @@
 
 <script>
 import remoteRestInterface from "../../Remote/RemoteRestInterface.js"
+import DialogUtility from "../../../Utility/DialogUtility";
 
 export default {
     name: "uid-select-single-webform-dialog",

@@ -1,6 +1,7 @@
 import GeneralPlugin from "../../GeneralPlugin";
 import ClassUtility from "../../../Utility/ClassUtility";
 import AbstractInputBasePlugin from "../../AbstractInputBasePlugin";
+import JsonUtility from "../../../../Utility/JsonUtility";
 
 let singleName="WFDCT_FileUploadContainer";
 

@@ -114,6 +114,7 @@
 <script>
 import remoteRestInterface from "../../Remote/RemoteRestInterface.js"
 import StorageUtility from "../../Utility/StorageUtility"
+import CookieUtility from "../../../Utility/CookieUtility"
 
 export default {
     name: "db-table-relation-comp",

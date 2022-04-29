@@ -37,6 +37,7 @@
 
 <script>
 import remoteRestInterface from "../../Remote/RemoteRestInterface.js"
+import DialogUtility from "../../../Utility/DialogUtility";
 
 export default {
     name: "uid-control-select-bind-to-single-field-dialog",

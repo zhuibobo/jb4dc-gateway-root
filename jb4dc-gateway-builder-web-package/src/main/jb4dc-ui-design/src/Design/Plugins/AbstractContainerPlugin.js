@@ -1,4 +1,5 @@
 import GeneralPlugin from "./GeneralPlugin";
+import JsonUtility from "../../Utility/JsonUtility";
 
 function AbstractContainerPlugin(singleName,innerHTML,constructionElemExAttrs) {
     this.singleName = singleName;

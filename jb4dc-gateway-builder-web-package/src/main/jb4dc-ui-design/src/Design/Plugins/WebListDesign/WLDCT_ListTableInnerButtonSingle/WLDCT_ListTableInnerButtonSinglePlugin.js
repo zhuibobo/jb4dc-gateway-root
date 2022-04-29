@@ -1,4 +1,5 @@
 import GeneralPlugin from "../../GeneralPlugin";
+import JsonUtility from "../../../../Utility/JsonUtility";
 
 let WLDCT_ListTableInnerButtonSinglePlugin = {
     singleName: "WLDCT_ListTableInnerButtonSingle",

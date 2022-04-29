@@ -122,6 +122,8 @@
 </template>
 
 <script>
+import DialogUtility from "../../../Utility/DialogUtility";
+
 export default {
     name: "uid-select-validate-rule-dialog",
     data:function () {

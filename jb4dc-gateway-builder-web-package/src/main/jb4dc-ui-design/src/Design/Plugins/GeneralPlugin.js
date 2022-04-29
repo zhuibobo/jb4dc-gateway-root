@@ -1,4 +1,5 @@
 import TableEditor from "../ExComponent/TableEditor/TableEditor";
+import StringUtility from "../../Utility/StringUtility";
 
 let GeneralPlugin = {
     _controlInstances: {},

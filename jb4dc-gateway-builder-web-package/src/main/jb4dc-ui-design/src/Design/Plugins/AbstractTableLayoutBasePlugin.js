@@ -1,4 +1,5 @@
 import GeneralPlugin from "./GeneralPlugin";
+import JsonUtility from "../../Utility/JsonUtility";
 
 function AbstractTableLayoutBasePlugin(singleName, innerHTML) {
     this.singleName = singleName;

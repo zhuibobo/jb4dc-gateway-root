@@ -1,4 +1,5 @@
 import GeneralPlugin from "../../GeneralPlugin";
+import JsonUtility from "../../../../Utility/JsonUtility";
 
 let innerHTML = `<div class="uid-wldct-list-complex-search-container-wrap">
                     <div class="uid-container-inner-wrap">

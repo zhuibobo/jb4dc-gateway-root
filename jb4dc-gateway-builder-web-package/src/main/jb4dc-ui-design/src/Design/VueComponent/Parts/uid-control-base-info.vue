@@ -4,7 +4,7 @@
             <col style="width: 100px" />
             <col style="width: 240px" />
             <col style="width: 90px" />
-            <col style="width: 120px" />
+            <col style="width: 170px" />
             <col style="width: 90px" />
             <col />
         </colgroup>
@@ -34,16 +34,6 @@
             <td>
                 <input type="text" v-model="baseInfo.name" />
             </td>
-            <td>ClassName：</td>
-            <td colspan="3">
-                <input type="text" v-model="baseInfo.className" />
-            </td>
-        </tr>
-        <tr>
-            <td>Placeholder</td>
-            <td>
-                <input type="text" v-model="baseInfo.placeholder" />
-            </td>
             <td>Readonly：</td>
             <td style="text-align: center">
                 <a-radio-group type="button" style="margin: auto" v-model:value="baseInfo.custReadonly">
@@ -60,15 +50,22 @@
             </td>
         </tr>
         <tr>
+            <td>Placeholder</td>
+            <td>
+                <input type="text" v-model="baseInfo.placeholder" />
+            </td>
+            <td>ClassName：</td>
+            <td colspan="3">
+                <input type="text" v-model="baseInfo.className" placeholder="设置的class只在运行时起效 " />
+            </td>
+        </tr>
+        <tr>
             <td>Group</td>
             <td>
                 <input type="text" v-model="baseInfo.groupName" />
             </td>
             <td></td>
-            <td style="text-align: center">
-            </td>
-            <td></td>
-            <td style="text-align: center">
+            <td colspan="3">
             </td>
         </tr>
         <tr>

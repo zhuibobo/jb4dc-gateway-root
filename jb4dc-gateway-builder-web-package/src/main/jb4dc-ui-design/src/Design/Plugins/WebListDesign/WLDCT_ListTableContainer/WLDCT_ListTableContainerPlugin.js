@@ -1,5 +1,6 @@
 import GeneralPlugin from "../../GeneralPlugin";
 import WLDCT_ListTableInnerButtonContainerPlugin from "../WLDCT_ListTableInnerButtonContainer/WLDCT_ListTableInnerButtonContainerPlugin";
+import JsonUtility from "../../../../Utility/JsonUtility";
 
 let innerHTML = `<div class="uid-wldct-list-table-container-wrap">
                     <div class="uid-container-inner-wrap">
