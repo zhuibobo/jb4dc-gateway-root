@@ -207,7 +207,7 @@ let GeneralPlugin = {
         // show cellIndex (it is nice for debugging)
         rt.cellIndex(false);
         // define background color for marked cell
-        rt.color.cell = '#9BB3DA';
+        rt.color.cell = '#e2e3e7';
     },
     buildInputControlGeneralText(config, props) {
         if(props.normalProps&&props.normalProps.buttonCaption){
