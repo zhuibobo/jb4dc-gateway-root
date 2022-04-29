@@ -106,10 +106,18 @@
                         </tbody>
                     </table>
                 </div>
-                <div style="margin-bottom: 10px;overflow: auto" class="iv-list-page-wrap">
+                <div style="margin-bottom: 10px;overflow: auto;width: 1000px" class="iv-list-page-wrap">
                     <a-divider orientation="left" style="font-size: 12px;margin-top: 0px;margin-bottom: 6px">验证规则</a-divider>
                     <a-table bordered :columns="validateColumnsConfig" :dataSource="addedValidateRule"
-                             class="iv-list-table" size="small" no-data-text="请添加验证规则" :scroll="{ y: 200 }"></a-table>
+                             class="iv-list-table" size="small" no-data-text="请添加验证规则" :scroll="{ y: 200 }">
+                        <template #bodyCell="{ column, record }">
+                            <template v-if="column.key === 'validateId'">
+                                <span class="a-table-action">
+                                    <i class="las la-times-circle" @click="delValidate(record.id,{row:record})"></i>
+                                </span>
+                            </template>
+                        </template>
+                    </a-table>
                 </div>
             </a-card>
             <div class="button-outer-wrap">
@@ -159,21 +167,9 @@ export default {
                 }, {
                     title: '删除',
                     key: 'validateId',
-                    dataIndex: 'validateParas',
-                    width: 120,
-                    align: "center",
-                    render: function (h, params) {
-                        return h('div',{class: "list-row-button-wrap"},[
-                            h('div', {
-                                class: "list-row-button del",
-                                on: {
-                                    click: function () {
-                                        _self.delValidate(params.row["validateId"]);
-                                    }
-                                }
-                            })
-                        ]);
-                    }
+                    dataIndex: 'validateId',
+                    width: 60,
+                    align: "center"
                 }
             ]
         }
