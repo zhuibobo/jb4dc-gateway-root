@@ -7,6 +7,7 @@
                 <li><a href="#uid-html-code-editor-comp-tab">HTML源码</a></li>
                 <li><a href="#uid-js-code-editor-comp-tab">JS源码</a></li>
                 <li><a href="#uid-css-code-editor-comp-tab">CSS</a></li>
+                <li><a href="#uid-resource-ref-comp-tab">引入资源</a></li>
                 <li><a href="#uid-design-description-comp-tab">设计说明</a></li>
                 <li><a href="#uid-extend-dataset-comp-tab">扩展数据集</a></li>
                 <li><a href="#uid-extend-paras-comp-tab">扩展参数</a></li>
@@ -37,6 +38,10 @@
                 <div>
                     <uid-css-code-editor-comp :ui-design-type="uiDesignType"
                                               ref="uidCssCodeEditorComp"></uid-css-code-editor-comp>
+                </div>
+            </div>
+            <div id="uid-resource-ref-comp-tab" class="tab-panel">
+                <div>
                 </div>
             </div>
             <div id="uid-design-description-comp-tab" class="tab-panel">

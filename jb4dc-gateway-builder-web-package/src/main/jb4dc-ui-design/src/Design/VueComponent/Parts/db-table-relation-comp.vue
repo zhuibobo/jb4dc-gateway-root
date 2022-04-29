@@ -117,6 +117,7 @@ import StorageUtility from "../../Utility/StorageUtility"
 import CookieUtility from "../../../Utility/CookieUtility"
 import StringUtility from "../../../Utility/StringUtility"
 import JsonUtility from "../../../Utility/JsonUtility"
+import DialogUtility from "../../../Utility/DialogUtility"
 
 export default {
     name: "db-table-relation-comp",
