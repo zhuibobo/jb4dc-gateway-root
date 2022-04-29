@@ -5,7 +5,6 @@ import TableEditor from "../../../ExComponent/TableEditor/TableEditor";
 import StorageUtility from "../../../Utility/StorageUtility";
 import DialogUtility from "../../../../Utility/DialogUtility";
 import RemoteRestInterface from "../../../Remote/RemoteRestInterface";
-import getFormDataRelationMainTableId from "../../../Utility/StorageUtility";
 
 let innerHTML = `<div class="uid-wfdct-layout-single-table-layout-wrap">
                     <div class="uid-container-inner-wrap">
