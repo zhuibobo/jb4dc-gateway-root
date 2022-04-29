@@ -2,7 +2,7 @@ import GeneralPlugin from "../../GeneralPlugin";
 import ClassUtility from "../../../Utility/ClassUtility";
 import AbstractContainerPlugin from "../../AbstractContainerPlugin";
 
-let innerHTML = `<div class="uid-divider-horizontal-outer uid-divider-horizontal-outer-center" classname="uid-divider-horizontal-outer-center"><span class="uid-divider-horizontal-text" contenteditable="true">Text</span></div>`;
+let innerHTML = `<div class="uid-divider-horizontal-outer uid-divider-horizontal-outer-center redips-drag" classname="uid-divider-horizontal-outer-center"><span class="uid-divider-horizontal-text" contenteditable="true">Text</span></div>`;
 let singleName="WFDCT_DividerHorizontal";
 
 function CustomizePlugin() {

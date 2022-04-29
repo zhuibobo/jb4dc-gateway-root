@@ -18,7 +18,9 @@
                         <a-radio-button value="Regular">正则表达式</a-radio-button>
                         <a-radio-button value="JsMethod">JS方法</a-radio-button>
                     </a-radio-group>
-                    <a-button type="primary" style="margin-left: 15px;cursor: pointer" @click="addValidateRule" shape="circle"></a-button>
+                    <a-button type="primary" style="margin-left: 15px;cursor: pointer;float: right" @click="addValidateRule" shape="circle">
+                        <i class="las la-plus" style="font-size: 22px"></i>
+                    </a-button>
                 </div>
                 <div>
                     <a-divider orientation="left" style="font-size: 12px">参数设置</a-divider>
@@ -123,11 +125,13 @@
 
 <script>
 import DialogUtility from "../../../Utility/DialogUtility";
+import JsonUtility from "../../../Utility/JsonUtility";
+import StringUtility from "../../../Utility/StringUtility";
 
 export default {
     name: "uid-select-validate-rule-dialog",
     data:function () {
-        var _self=this;
+        let _self=this;
 
         return {
             selectValidateType:"NoEmpty",
@@ -180,11 +184,11 @@ export default {
     methods:{
         beginSelect:function(oldData) {
             //debugger;
-            var elem = this.$refs.selectValidateRuleDialogWrap;
+            let elem = this.$refs.selectValidateRuleDialogWrap;
             //debugger;
             //this.getTableDataInitTree();
 
-            var height = 450;
+            let height = 450;
             /*if(PageStyleUtility.GetPageHeight()>550){
                 height=600;
             }*/
@@ -210,7 +214,7 @@ export default {
             this.bindOldSelectedValue(oldData);
         },
         bindOldSelectedValue:function(oldData){
-            var oldSelectedValue= oldData;
+            let oldSelectedValue= oldData;
             //debugger;
             if(oldSelectedValue.rules.length>0) {
                 this.addedValidateRule=oldSelectedValue.rules;
@@ -221,9 +225,9 @@ export default {
             return BaseUtility.GetUrlParaValue("instanceName");
         },
         selectComplete:function(){
-            var result=this.addedValidateRule;
+            let result=this.addedValidateRule;
             if(this.addedValidateRule.length>0) {
-                var result={
+                let result={
                     msg:this.ruleParas.msg,
                     rules:this.addedValidateRule
                 };
@@ -252,7 +256,7 @@ export default {
         },
         addValidateRule:function(){
             //debugger;
-            var validateParas="";
+            let validateParas="";
             if(this.selectValidateType=="Number"){
                 validateParas=JsonUtility.JsonToString({
                     numLength:this.ruleParas.numLength,
@@ -270,7 +274,7 @@ export default {
                     jsMethodName:this.ruleParas.jsMethodName
                 });
             }
-            var newValidateRule={
+            let newValidateRule={
                 "validateId":StringUtility.Timestamp(),
                 "validateType":this.selectValidateType,
                 "validateParas":validateParas
@@ -280,7 +284,7 @@ export default {
         delValidate:function (validateId) {
             //debugger;
             //console.log(this.addedValidateRule);
-            for(var i=0;i<this.addedValidateRule.length;i++){
+            for(let i=0;i<this.addedValidateRule.length;i++){
                 if(this.addedValidateRule[i].validateId==validateId){
                     this.addedValidateRule.splice(i,1);
                 }

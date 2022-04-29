@@ -68,6 +68,7 @@ import RemoteRestInterface from "../../Remote/RemoteRestInterface";
 import UIDesignUtility from "../../Utility/UIDesignUtility";
 import DateUtility from "../../../Utility/DateUtility";
 import BaseUtility from "../../../Utility/BaseUtility";
+import StorageUtility from "../../Utility/StorageUtility";
 
 export default {
     name: "uid-web-form-base-info-comp",
@@ -164,11 +165,11 @@ export default {
             this.formResourceEntity.formJsContent = editorValues.jsValue;
             this.formResourceEntity.formCssContent = editorValues.cssValue;
 
-            let relationConfig=this.$refs.dbTableRelationComp.getValue();
-            this.formResourceEntity.formDataRelation=JsonUtility.JsonToString(relationConfig.relationData);
-            this.formResourceEntity.formMainTableId=relationConfig.mainTableId;
-            this.formResourceEntity.formMainTableName=relationConfig.mainTableName;
-            this.formResourceEntity.formMainTableCaption=relationConfig.mainTableCaption;
+            let relationObj=StorageUtility.getFormDataRelationObj();
+            this.formResourceEntity.formDataRelation=JsonUtility.JsonToString(relationObj.relationData);
+            this.formResourceEntity.formMainTableId=relationObj.mainTableId;
+            this.formResourceEntity.formMainTableName=relationObj.mainTableName;
+            this.formResourceEntity.formMainTableCaption=relationObj.mainTableCaption;
 
             RemoteRestInterface.saveWebFormDesign(this.formResourceEntity).then((response) => {
                 successFun(response.data);
@@ -188,11 +189,12 @@ export default {
         //endregion
         changeTheme() {
 
-        },
+        }
+        /*,
         getFormRelationConfig() {
             let relationConfig = this.$refs.dbTableRelationComp.getValue();
             return relationConfig;
-        }
+        }*/
     }
 }
 </script>

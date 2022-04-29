@@ -38,6 +38,7 @@
 <script>
 import remoteRestInterface from "../../Remote/RemoteRestInterface.js"
 import DialogUtility from "../../../Utility/DialogUtility";
+import JsonUtility from "../../../Utility/JsonUtility";
 
 export default {
     name: "uid-control-select-bind-to-single-field-dialog",
@@ -45,9 +46,9 @@ export default {
         var _self = this;
         return {
             acInterface: {
-                getTablesDataUrl: "/Rest/Builder/DataStorage/DataBase/Table/GetTablesForZTreeNodeList",
-                getTableFieldsDataUrl: "/Rest/Builder/DataStorage/DataBase/Table/GetTableFieldsByTableId",
-                getTablesFieldsByTableIds: "/Rest/Builder/DataStorage/DataBase/Table/GetTablesFieldsByTableIds"
+                //getTablesDataUrl: "/Rest/Builder/DataStorage/DataBase/Table/GetTablesForZTreeNodeList",
+                //getTableFieldsDataUrl: "/Rest/Builder/DataStorage/DataBase/Table/GetTableFieldsByTableId",
+                //getTablesFieldsByTableIds: "/Rest/Builder/DataStorage/DataBase/Table/GetTablesFieldsByTableIds"
             },
             selectedData: {
                 relationId: "",

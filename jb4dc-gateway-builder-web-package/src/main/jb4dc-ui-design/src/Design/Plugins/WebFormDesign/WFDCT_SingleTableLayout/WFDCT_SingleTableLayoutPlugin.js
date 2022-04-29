@@ -5,6 +5,7 @@ import TableEditor from "../../../ExComponent/TableEditor/TableEditor";
 import StorageUtility from "../../../Utility/StorageUtility";
 import DialogUtility from "../../../../Utility/DialogUtility";
 import RemoteRestInterface from "../../../Remote/RemoteRestInterface";
+import getFormDataRelationMainTableId from "../../../Utility/StorageUtility";
 
 let innerHTML = `<div class="uid-wfdct-layout-single-table-layout-wrap">
                     <div class="uid-container-inner-wrap">
@@ -49,7 +50,7 @@ CustomizePlugin.prototype.getContextMenu = function (sender, $elem){
         callback: (key, opt) => {
             //this.autoLoadMainTableFieldLabel(sender, $elem, key, opt);
             //console.log($elem);
-            let mainTableId=StorageUtility.getFormDataRelationConfigMainTableId();
+            let mainTableId=StorageUtility.getFormDataRelationMainTableId();
             if(mainTableId){
                 RemoteRestInterface.getTableFieldsSync({"tableId": mainTableId}).then((response)=>{
                     let result=response.data;

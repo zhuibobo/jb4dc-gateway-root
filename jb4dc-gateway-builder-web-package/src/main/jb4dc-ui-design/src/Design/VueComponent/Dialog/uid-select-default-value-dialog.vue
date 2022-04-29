@@ -57,6 +57,7 @@
 import remoteRestInterface from "../../Remote/RemoteRestInterface.js"
 import SearchUtility from "../../../Utility/SearchUtility"
 import DialogUtility from "../../../Utility/DialogUtility";
+import JsonUtility from "../../../Utility/JsonUtility";
 
 export default {
     name: "uid-select-default-value-dialog",

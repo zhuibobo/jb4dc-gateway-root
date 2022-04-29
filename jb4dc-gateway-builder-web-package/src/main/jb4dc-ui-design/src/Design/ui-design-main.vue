@@ -156,10 +156,11 @@ export default {
         },
         //绑定单个字段
         selectBindToSingleFieldDialogBegin(oldBindFieldData, caller) {
-            let relationConfig = this.$refs.uidBaseInfoComponent.getFormRelationConfig();
+            //let relationConfig = this.$refs.uidBaseInfoComponent.getFormRelationConfig();
             //将关联表设置提供给选择绑定字段的组件，判定是否需要重新加载控件的字段
+            let relationObj=StorageUtility.getFormDataRelationObj();
             this._selectBindToSingleFieldDialogCaller = caller;
-            this.$refs.fdControlSelectBindToSingleFieldDialog.beginSelect(relationConfig.relationData, oldBindFieldData);
+            this.$refs.fdControlSelectBindToSingleFieldDialog.beginSelect(relationObj.relationData, oldBindFieldData);
         },
         onSelectedBindToSingleField(result) {
             this._selectBindToSingleFieldDialogCaller.setSelectFieldResultValue(result);

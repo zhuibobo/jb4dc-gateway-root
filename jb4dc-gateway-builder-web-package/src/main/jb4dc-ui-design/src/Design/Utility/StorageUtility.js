@@ -16,29 +16,41 @@ let StorageUtility={
         return this._uiDesignType;
     },
 
-    _formDataRelationConfig:null,
+    //_formDataRelationConfig:null,
+    _formDataRelationObj:{
+        mainTableId: null,
+        mainTableName: null,
+        mainTableCaption: null,
+        relationData: null
+    },
     setFormDataRelationConfig(formDataRelationConfig){
-        this._formDataRelationConfig=formDataRelationConfig;
-    },
-    getFormDataRelationConfig(){
-        this.testGetPropertyIsNull("_formDataRelationConfig");
-        return this._formDataRelationConfig;
-    },
-    getFormDataRelationConfigMainTableId(){
-        this.testGetPropertyIsNull("_formDataRelationConfig");
-        if(this._formDataRelationConfig!=null) {
-            if (this._formDataRelationConfig.length == 1) {
-                return this._formDataRelationConfig[0].tableId;
+        this._formDataRelationObj.relationData=formDataRelationConfig;
+        console.log(formDataRelationConfig);
+        if(formDataRelationConfig!=null) {
+            if (formDataRelationConfig.length == 1) {
+                this._formDataRelationObj.mainTableId=formDataRelationConfig[0].tableId;
+                this._formDataRelationObj.mainTableName=formDataRelationConfig[0].tableName;
+                this._formDataRelationObj.mainTableCaption=formDataRelationConfig[0].tableCaption;
             } else {
-                for (let i = 0; i < this._formDataRelationConfig.length; i++) {
-                    if (this._formDataRelationConfig[i].parentId == "-1") {
-                        return this._formDataRelationConfig.tableId;
+                for (let i = 0; i < formDataRelationConfig.length; i++) {
+                    if (formDataRelationConfig[i].parentId == "-1") {
+                        this._formDataRelationObj.mainTableId=formDataRelationConfig.tableId;
+                        this._formDataRelationObj.mainTableName=formDataRelationConfig[0].tableName;
+                        this._formDataRelationObj.mainTableCaption=formDataRelationConfig[0].tableCaption;
                     }
                 }
                 console.error("StorageUtility.getFormDataRelationConfigMainTableId 找不到主表ID");
             }
         }
-        return null;
+    },
+    getFormDataRelationObj(){
+        return this._formDataRelationObj;
+    },
+    getFormDataRelationConfig(){
+        return this._formDataRelationObj.relationData;
+    },
+    getFormDataRelationMainTableId(){
+        return this._formDataRelationObj.mainTableId;
     }
 }
 export { StorageUtility as default};
